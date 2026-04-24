@@ -6,6 +6,7 @@
   <title>밀라노·꼬모·베르가모 허니문 가이드 | 2026.07.21 - 2026.07.26</title>
   <meta name="description" content="밀라노를 베이스캠프로 한 허니문 비주얼 가이드. 2026년 7월 21일부터 26일까지, 꼬모와 베르가모 당일치기와 7월 23일 생일 쇼핑 코스를 포함합니다.">
   <link rel="icon" href="./assets/cover-pattern.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Song+Myung&family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700;800&display=swap');
 
@@ -605,6 +606,98 @@
       border-bottom: 1px solid rgba(23, 55, 47, 0.08);
     }
 
+    .map-card.has-live-map {
+      display: grid;
+    }
+
+    .map-view-toggle {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(23, 55, 47, 0.08);
+      background: rgba(246, 240, 227, 0.7);
+    }
+
+    .map-view-toggle button {
+      appearance: none;
+      border: 1px solid rgba(23, 55, 47, 0.12);
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.74);
+      color: var(--ink-soft);
+      font: inherit;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .map-view-toggle button[aria-selected="true"] {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #fff8f0;
+    }
+
+    .map-view {
+      min-width: 0;
+    }
+
+    .map-card[data-current-view="static"] .map-view-live,
+    .map-card[data-current-view="interactive"] .map-view-static {
+      display: none;
+    }
+
+    .live-map {
+      width: 100%;
+      height: 430px;
+      min-height: 340px;
+      border-bottom: 1px solid rgba(23, 55, 47, 0.08);
+      background: #f7f2e8;
+    }
+
+    .live-map .leaflet-control-attribution {
+      font-size: 0.68rem;
+    }
+
+    .map-status {
+      margin: 0;
+      padding: 12px 16px;
+      color: var(--ink-soft);
+      font-size: 0.84rem;
+      line-height: 1.5;
+      background: rgba(246, 240, 227, 0.6);
+      border-bottom: 1px solid rgba(23, 55, 47, 0.08);
+    }
+
+    .leaflet-div-icon.map-number-icon {
+      border: 0;
+      background: transparent;
+    }
+
+    .map-pin {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border: 3px solid #fffaf3;
+      border-radius: 999px;
+      color: #fffaf3;
+      box-shadow: 0 8px 18px rgba(23, 55, 47, 0.24);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .map-popup strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+    }
+
+    .map-popup span {
+      color: var(--ink-soft);
+    }
+
     .map-card .caption,
     .editorial-card .caption {
       padding: 16px 18px 18px;
@@ -1099,6 +1192,31 @@
       .source-grid li {
         border-right: 0;
       }
+
+      .map-view-toggle {
+        justify-content: stretch;
+      }
+
+      .map-view-toggle button {
+        flex: 1;
+        padding-inline: 10px;
+      }
+
+      .live-map {
+        height: 340px;
+      }
+    }
+
+    @media print {
+      .map-view-toggle,
+      .map-view-live,
+      .map-status {
+        display: none !important;
+      }
+
+      .map-view-static {
+        display: block !important;
+      }
     }
   </style>
 </head>
@@ -1115,6 +1233,7 @@
         </div>
         <nav class="nav-links" aria-label="페이지 이동">
           <a href="#overview">Overview</a>
+          <a href="#practical-info">Practical Info</a>
           <a href="#hotel-base">Hotel Base</a>
           <a href="#day-1">Day 1</a>
           <a href="#day-2">Day 2</a>
@@ -1288,6 +1407,57 @@
         </div>
       </section>
 
+      <section id="practical-info">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <span class="section-index">Practical Info</span>
+              <h2>출발 전 꼭 잠가둘 실전 운영 정보</h2>
+              <p>
+                이 섹션은 기존 일정의 감도는 유지하면서, 현장에서 돈과 시간을 새게 만들 수 있는
+                <strong>세금, 택스프리, 더위, 파업, 공항 이동, 비상연락처</strong>만 따로 모은 운영 카드입니다.
+              </p>
+            </div>
+            <a class="source-chip" href="https://scioperi.mit.gov.it/mit2/public/scioperi" target="_blank" rel="noreferrer">MIT 파업 캘린더</a>
+          </div>
+
+          <div class="check-grid">
+            <article class="check-item">
+              <h3>City Tax</h3>
+              <p>UNA HOTELS Century Milano는 밀라노 4성급 호텔 기준으로 숙박세를 별도 예산에 둡니다. 예상액은 <strong>€10 × 2명 × 5박 = €100</strong>이고, 체크아웃 시 현장 결제될 수 있습니다.</p>
+            </article>
+            <article class="check-item">
+              <h3>Tax Free</h3>
+              <p>밀라노에서 프라하로 가는 것은 EU 내부 이동이므로, 이탈리아 구매품의 세관 확인은 <strong>최종 EU 출국 공항</strong>에서 처리하는 흐름으로 잡습니다. 쇼핑일에는 여권과 항공권 정보를 준비하세요.</p>
+            </article>
+            <article class="check-item">
+              <h3>7월 폭염 운영</h3>
+              <p><strong>13:30-16:00</strong>은 가능하면 실내, 카페, 호텔 휴식 블록으로 둡니다. 두오모, 브레라, 베르가모 Città Alta처럼 노출이 큰 일정은 오전 또는 해질녘 중심으로 옮깁니다.</p>
+            </article>
+            <article class="check-item">
+              <h3>교통 파업 확인</h3>
+              <p>꼬모, 베르가모, 공항 이동 전에는 <strong>T-7일, T-2일, 전날 밤</strong>에 MIT 캘린더에서 Ferroviario, Trasporto pubblico locale, Aereo, Lombardia를 확인합니다.</p>
+            </article>
+            <article class="check-item">
+              <h3>BGY Early Morning</h3>
+              <p>06:35 BGY 출발편 기준으로는 <strong>03:20 로비 준비, 03:25 호텔 출발, 03:50 Orioshuttle 탑승</strong>을 기본안으로 둡니다. 04:20 셔틀은 백업으로만 봅니다.</p>
+            </article>
+            <article class="check-item">
+              <h3>비상연락처</h3>
+              <p>밀라노총영사관 긴급연락처 <strong>+39 329 751 1936</strong>, 영사안전콜센터 <strong>+82 2 3210 0404</strong>, 이탈리아 통합 긴급전화 <strong>112</strong>를 휴대폰과 동행자 기기에 함께 저장합니다.</p>
+            </article>
+          </div>
+
+          <div class="tip-panel" style="margin-top: 18px;">
+            <ul>
+              <li><strong>재확인 기준</strong>: 요금, 운영시간, 파업, 항공편, 공연 일정은 바뀔 수 있으므로 실제 여행 전 7일, 2일, 전날 밤에 공식 링크로 다시 확인합니다.</li>
+              <li><strong>쇼핑일 기본 세트</strong>: 여권, 결제 카드, 영수증 보관 봉투, 얇은 셔츠 또는 숄, 물을 준비합니다.</li>
+              <li><strong>마지막 날 백업</strong>: 항공편이 늦은 시간으로 바뀌면 Milano Centrale 공식 짐 보관소를 낮 일정 백업으로 사용합니다. 새벽 BGY 이동에는 운영시간이 맞지 않습니다.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
       <section id="hotel-base">
         <div class="section-inner">
           <div class="section-head">
@@ -1304,10 +1474,20 @@
           </div>
 
           <div class="two-col">
-            <article class="map-card">
-              <img src="./assets/basecamp-map.svg" alt="호텔을 중심으로 밀라노, 꼬모, 베르가모, 공항을 연결한 개념도">
+            <article class="map-card has-live-map" data-map-card="basecamp" data-current-view="static">
+              <div class="map-view-toggle" role="tablist" aria-label="베이스캠프 지도 보기">
+                <button type="button" data-map-view-button="static" role="tab" aria-selected="true">정적 지도</button>
+                <button type="button" data-map-view-button="interactive" role="tab" aria-selected="false">인터랙티브</button>
+              </div>
+              <div class="map-view map-view-static" role="tabpanel">
+                <img class="static-map" src="./assets/basecamp-map.png" alt="호텔을 중심으로 밀라노, 꼬모, 베르가모, 공항을 연결한 실제 지도 기반 이미지">
+              </div>
+              <div class="map-view map-view-live" role="tabpanel" aria-hidden="true">
+                <div class="live-map" data-map-target="basecamp" aria-label="호텔, 밀라노 첸트랄레, 두오모, 꼬모, 베르가모, 공항 위치를 보여 주는 인터랙티브 지도"></div>
+                <p class="map-status" data-map-status>OpenStreetMap 지도를 불러오는 중입니다.</p>
+              </div>
               <p class="caption">
-                개념상 핵심은 단순합니다. <strong>호텔 - Centrale - 당일치기 - 공항</strong>이 모두 한 축으로 이어집니다.
+                실제 지도 기준으로 봐도 핵심은 단순합니다. <strong>호텔 - Centrale - 당일치기 - 공항</strong>이 모두 한 축으로 이어집니다.
                 그래서 일정 내내 숙소를 옮기지 않아도 됩니다.
               </p>
             </article>
@@ -1331,6 +1511,14 @@
                 </div>
               </div>
             </div>
+          </div>
+
+          <div class="tip-panel" style="margin-top: 18px;">
+            <ul>
+              <li><strong>현장 결제 예산: City Tax</strong>: 밀라노 4성급 호텔 기준 숙박세는 2026년 12월 31일까지 1인 1박 <strong>€10</strong>로 안내되어 있습니다. 이번 일정은 <strong>2명 × 5박 = 약 €100</strong>을 별도 예산으로 둡니다.</li>
+              <li><strong>짐 보관 백업</strong>: 항공편 변경이나 체크아웃 후 낮 일정이 생기면 Milano Centrale 공식 짐 보관소를 후보로 둡니다. 안내 기준 운영시간은 매일 <strong>07:00-21:00</strong>, 요금은 <strong>€6부터</strong>입니다.</li>
+              <li><strong>재확인</strong>: 숙박세와 짐 보관 요금은 체크인 또는 실제 예약 시점에 호텔과 공식 페이지에서 다시 확인합니다.</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -1666,6 +1854,14 @@
                   </ul>
                 </div>
                 <div class="aside-card">
+                  <h4>Shopping Ops: Saldi + Tax Free</h4>
+                  <ul>
+                    <li><strong>Saldi</strong>: 롬바르디아 여름 세일은 매년 7월 첫 번째 토요일 시작 기준입니다. 2026년은 <strong>7월 4일</strong>이 첫 토요일이라, 7월 23일 쇼핑은 세일 시즌 안으로 잡아도 좋습니다.</li>
+                    <li><strong>Tax Free</strong>: 이탈리아 구매품은 밀라노 → 프라하 이동 때가 아니라 <strong>최종 EU 출국 공항</strong>에서 세관 확인을 받는 흐름입니다. 프라하는 EU 내부 이동입니다.</li>
+                    <li><strong>현장 체크</strong>: 인보이스별 <strong>€70 초과</strong> 구매 기준, 영수증과 Tax Free Form, 여권 정보, 항공권 이름이 일치하는지 매장에서 바로 확인합니다.</li>
+                  </ul>
+                </div>
+                <div class="aside-card">
                   <h4>사진명소 | Must-Shoot</h4>
                   <p>Duomo di Milano 석재 입면, 갤러리아 돔 아래 중앙 모자이크, Via Montenapoleone(비아 몬테나폴레오네) 쇼윈도 반사, Brera 골목, Ceresio 7 또는 Maio의 일몰 실루엣이 생일 사진 핵심입니다.</p>
                 </div>
@@ -1727,6 +1923,13 @@
                 </tr>
               </tbody>
             </table>
+          </div>
+
+          <div class="tip-panel" style="margin-top: 18px;">
+            <ul>
+              <li><strong>생일 디너 전 쇼핑 마감</strong>: 고가 구매품은 디너 전에 호텔에 한 번 두고 움직이는 편이 안전합니다. 두오모 테라스는 큰 쇼핑백이 많으면 불편합니다.</li>
+              <li><strong>택스프리 서류</strong>: 생일 선물을 구매하면 결제 직후 여권 정보, 영수증, Tax Free Form, 카드 영문명 또는 항공권 이름이 맞는지 확인합니다.</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -2065,8 +2268,18 @@
           </div>
 
           <div class="two-col">
-            <article class="map-card">
-              <img src="./assets/shopping-map.svg" alt="생일날 쇼핑 동선을 보여 주는 개념도">
+            <article class="map-card has-live-map" data-map-card="shopping" data-current-view="static">
+              <div class="map-view-toggle" role="tablist" aria-label="생일 쇼핑 지도 보기">
+                <button type="button" data-map-view-button="static" role="tab" aria-selected="true">정적 지도</button>
+                <button type="button" data-map-view-button="interactive" role="tab" aria-selected="false">인터랙티브</button>
+              </div>
+              <div class="map-view map-view-static" role="tabpanel">
+                <img class="static-map" src="./assets/shopping-map.png" alt="생일날 쇼핑 동선을 실제 지도 위에 정리한 이미지">
+              </div>
+              <div class="map-view map-view-live" role="tabpanel" aria-hidden="true">
+                <div class="live-map" data-map-target="shopping" aria-label="두오모, 갤러리아, 리나센테, 패션 지구, 브레라, 디너 후보를 보여 주는 인터랙티브 지도"></div>
+                <p class="map-status" data-map-status>OpenStreetMap 지도를 불러오는 중입니다.</p>
+              </div>
               <p class="caption">
                 동선의 키워드는 <strong>두오모에서 시작해 브레라에서 끝낸다</strong>입니다.
                 그래야 명품, 실용 선물, 감성 소품이 모두 한날에 정리됩니다.
@@ -2091,6 +2304,13 @@
                 <p>브레라가 가장 잘 맞습니다. 값보다 “기억에 남는 작은 물건”을 고르기 좋은 구역입니다.</p>
               </article>
             </div>
+          </div>
+
+          <div class="tip-panel" style="margin-top: 18px;">
+            <ul>
+              <li><strong>세일 시즌 활용</strong>: 세일 여부보다 재고, 사이즈, 색상이 우선입니다. 명품, 주얼리, 시즌 신상품은 세일 제외가 많을 수 있습니다.</li>
+              <li><strong>택스프리 동선</strong>: 구매품, 영수증, Tax Free Form은 한 파우치에 모아두고, EU 최종 출국 공항에서 꺼내기 쉬운 상태로 둡니다.</li>
+            </ul>
           </div>
         </div>
       </section>
@@ -2125,6 +2345,14 @@
               <li><strong>가장 좋은 보완안</strong>: 건축 우선순위가 높다면 <strong>Day 2 저녁 Navigli 비중을 줄이고 CityLife 또는 Fondazione Prada</strong>를 넣는 것이 가장 손실이 적습니다.</li>
               <li><strong>무리하면 안 되는 조합</strong>: <strong>CityLife + Fondazione Prada + Bocconi</strong>를 한날에 모두 넣으면 허니문 템포가 무너집니다. 남부 클러스터(Fondazione Prada + Bocconi)와 북서 클러스터(CityLife)는 분리해서 보아야 합니다.</li>
               <li><strong>허니문 관점 피드백</strong>: 현재 일정은 관광과 쇼핑에는 좋지만, 건축 답사까지 하려면 <strong>Day 2를 조금 더 큐레이션형으로 압축</strong>하는 것이 좋습니다.</li>
+            </ul>
+          </div>
+
+          <div class="tip-panel" style="margin-bottom: 18px;">
+            <ul>
+              <li><strong>Indoor Design Backup</strong>: 폭염, 비, 컨디션 저하가 있으면 야외 건축 답사를 줄이고 ADI Design Museum 또는 Triennale Milano로 전환합니다.</li>
+              <li><strong>ADI Design Museum</strong>: 현대 디자인과 이탈리아 산업 디자인 흐름을 보기 좋은 실내 카드입니다. 금요일 휴관 기준이므로 7/24 꼬모일 백업으로는 맞지 않습니다.</li>
+              <li><strong>Triennale Milano</strong>: Parco Sempione, Cadorna, Brera 축과 묶기 쉽고, 일부 전시와 공연은 별도 티켓이 필요할 수 있습니다.</li>
             </ul>
           </div>
 
@@ -2333,6 +2561,15 @@
                   <li>테라스는 해질녘이 가장 예쁘지만, 목요일 특별 연장 오픈일은 특히 빨리 매진될 수 있습니다.</li>
                   <li>보안 검색이 있어 금속 물건과 가방 확인 시간이 필요하고, 공식 안내상 <strong>루프탑에는 방문객용 화장실이 없습니다.</strong></li>
                   <li>공식 앱/비디오가이드도 있으며, 공식 안내상 앱 가격은 <strong>€3.49(약 ₩6,100)</strong>입니다.</li>
+                </ul>
+              </div>
+              <div class="spot-block">
+                <strong>Duomo Entry Rules</strong>
+                <ul>
+                  <li>입장 시 주머니의 금속 물품을 비우고, 가방을 열어 보안 확인에 협조합니다.</li>
+                  <li>헬멧, 유리 물품, 캐리어, 위험물은 반입하지 않고, 부피 큰 가방도 피합니다.</li>
+                  <li>성당 내부는 민소매, 깊게 파인 옷, 짧은 하의, 모자 착용을 피하고, 루프탑은 편한 신발을 신습니다.</li>
+                  <li>Day 2와 Day 3 저녁에는 작은 크로스백과 얇은 셔츠 또는 숄 조합이 가장 안정적입니다.</li>
                 </ul>
               </div>
               <div class="spot-block">
@@ -2586,6 +2823,39 @@
               </ul>
             </article>
           </div>
+
+          <div class="table-wrap" style="margin-top: 18px;">
+            <table>
+              <thead>
+                <tr>
+                  <th>시간</th>
+                  <th>BGY Early Morning Shuttle Plan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>03:20</strong></td>
+                  <td>호텔 로비 출발 준비 완료. 전날 밤 물, 간식, 여권, 탑승권, 수하물 무게를 정리합니다.</td>
+                </tr>
+                <tr>
+                  <td><strong>03:25</strong></td>
+                  <td>UNA HOTELS Century Milano에서 Milano Centrale / Piazza Luigi Savoia 셔틀 정류장으로 이동합니다.</td>
+                </tr>
+                <tr>
+                  <td><strong>03:50</strong></td>
+                  <td>Orioshuttle Milano Centrale → BGY 탑승. 공식 노선 기준 직행 약 50분, 편도 €12입니다.</td>
+                </tr>
+                <tr>
+                  <td><strong>04:40 전후</strong></td>
+                  <td>BGY 도착 예상. 04:20 셔틀은 보안검색 여유가 줄어들 수 있어 백업으로만 둡니다.</td>
+                </tr>
+                <tr>
+                  <td><strong>06:35</strong></td>
+                  <td>프라하행 항공편 출발. 항공편 시간이 바뀌면 출발 2시간 전 공항 도착 기준으로 다시 역산합니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
@@ -2624,6 +2894,30 @@
               <h3>6. 날씨에 따른 일자 스왑</h3>
               <p>비가 오면 꼬모와 밀라노 시내 날짜를 바꾸는 것이 가장 효과적입니다. 베르가모는 흐려도 일정이 크게 무너지지 않습니다.</p>
             </article>
+            <article class="check-item">
+              <h3>7. 교통 파업 루틴</h3>
+              <p>T-7일, T-2일, 전날 밤에 MIT 파업 캘린더에서 철도, 지역 대중교통, 항공, Lombardia, Milano, Como, Bergamo 키워드를 확인합니다.</p>
+            </article>
+            <article class="check-item">
+              <h3>8. 폭염 휴식 블록</h3>
+              <p>13:30-16:00은 실내, 카페, 호텔 휴식으로 비워둡니다. 쇼핑일도 피팅과 결제, 택스프리 서류 처리로 체력이 빨리 줄 수 있습니다.</p>
+            </article>
+            <article class="check-item">
+              <h3>9. San Siro 공연 혼잡</h3>
+              <p>7/24-7/26에는 Stadio San Siro의 대형 공연으로 밤 시간 지하철, 택시, 밀라노 서쪽 이동이 혼잡할 수 있습니다.</p>
+            </article>
+            <article class="check-item">
+              <h3>10. Milano Centrale 짐 보관</h3>
+              <p>새벽 BGY 이동용은 아니지만, 항공편 변경이나 낮 일정이 생기면 역 내부 공식 짐 보관소를 백업으로 둡니다.</p>
+            </article>
+            <article class="check-item">
+              <h3>11. 여권 / 항공권 백업</h3>
+              <p>여권 사본과 항공권 PDF는 휴대폰, 클라우드, 동행자 휴대폰에 각각 저장합니다. 분실 시 경찰 신고서와 공관 연락이 우선입니다.</p>
+            </article>
+            <article class="check-item">
+              <h3>12. 출발 전 재확인</h3>
+              <p>요금, 운영시간, 셔틀 시간표, 파업, 공연 일정은 실제 여행 전 7일, 2일, 전날 밤에 공식 링크 기준으로 다시 확인합니다.</p>
+            </article>
           </div>
 
           <div class="tip-panel" style="margin-top: 18px;">
@@ -2631,6 +2925,14 @@
               <li><strong>우천시 교체 우선순위</strong>: 꼬모 ↔ 밀라노 시내, 베르가모는 유지.</li>
               <li><strong>쇼핑 전력 배분</strong>: 오전 탐색, 오후 확정, 브레라에서는 소품과 향수로 마감.</li>
               <li><strong>허니문 사진</strong>: 인파 적은 오전 광장, 해질녘 루프탑, 호숫가 산책로 세 장면만 잘 챙겨도 충분합니다.</li>
+            </ul>
+          </div>
+
+          <div class="tip-panel" style="margin-top: 18px;">
+            <ul>
+              <li><strong>비상연락처</strong>: 주밀라노 대한민국 총영사관 주소는 Piazza Cavour, 3 - 20121 Milano, 대표번호는 +39 02 2906 2641, 긴급연락처는 +39 329 751 1936, 이메일은 milano@mofa.go.kr입니다.</li>
+              <li><strong>영사안전콜센터</strong>: 한국에서 연결되는 번호는 <strong>+82 2 3210 0404</strong>입니다.</li>
+              <li><strong>이탈리아 현지 긴급 신고</strong>: 통합 긴급전화 112, 경찰 113, 응급환자 구급차 118, 화재 115를 함께 저장합니다.</li>
             </ul>
           </div>
         </div>
@@ -2745,6 +3047,42 @@
                 <br><a href="https://www.unibocconi.it/en/news/new-bocconi-campus-project-improves-urban-landscape" target="_blank" rel="noreferrer">Bocconi - New Campus</a>
                 <br><a href="https://studyandwork.yesmilano.it/en/see-and-do/venues/mudec-museum-cultures" target="_blank" rel="noreferrer">YesMilano - MUDEC</a>
               </li>
+              <li>
+                <strong>Practical Info | Shopping &amp; Tax Free</strong>
+                세일 시즌과 비EU 여행자 택스프리 처리 기준
+                <br><a href="https://www.regione.lombardia.it/attivita-produttive-imprese/commercio/commercio-al-dettaglio-in-sede-fissa/date-e-regole-dei-saldi" target="_blank" rel="noreferrer">Regione Lombardia - Date e regole dei saldi</a>
+                <br><a href="https://taxation-customs.ec.europa.eu/taxation/vat/vat-directive/vat-refunds_en" target="_blank" rel="noreferrer">European Commission - VAT refunds</a>
+                <br><a href="https://europa.eu/youreurope/citizens/consumers/shopping/vat/index_en.htm" target="_blank" rel="noreferrer">Your Europe - VAT refund</a>
+                <br><a href="https://www.adm.gov.it/portale/rimborso-iva" target="_blank" rel="noreferrer">ADM - Rimborso IVA</a>
+                <br><a href="https://vatrefund.adm.gov.it/howto" target="_blank" rel="noreferrer">ADM VAT Refund - How it works</a>
+                <br><a href="https://european-union.europa.eu/principles-countries-history/eu-countries/czechia_en" target="_blank" rel="noreferrer">EU - Czechia</a>
+              </li>
+              <li>
+                <strong>Practical Info | Safety, Transfer &amp; Backup</strong>
+                두오모 규정, 숙박세, 새벽 셔틀, 파업, 공연 혼잡, 비상연락처
+                <br><a href="https://www.duomomilano.it/en/regulations/regulation/" target="_blank" rel="noreferrer">Duomo di Milano - Regulation</a>
+                <br><a href="https://www.unaitalianhospitality.com/en/city-tax" target="_blank" rel="noreferrer">UNA Italian Hospitality - City Tax</a>
+                <br><a href="https://www.orioshuttle.com/_eng/Orio-al-Serio_Milano-Centrale.cfm" target="_blank" rel="noreferrer">Orioshuttle - BGY / Milano Centrale</a>
+                <br><a href="https://www.orioshuttle.com/_eng/pdf/OS_01_ENG.pdf" target="_blank" rel="noreferrer">Orioshuttle - Timetable PDF</a>
+                <br><a href="https://www.milanbergamoairport.it/en/" target="_blank" rel="noreferrer">Milan Bergamo Airport</a>
+                <br><a href="https://scioperi.mit.gov.it/mit2/public/scioperi" target="_blank" rel="noreferrer">MIT - Scioperi</a>
+                <br><a href="https://www.kibag.it/en/deposito-bagagli-milano/deposito-bagagli-milano-centrale/" target="_blank" rel="noreferrer">KiBag - Milano Centrale</a>
+                <br><a href="https://www.livenation.it/en/event/the-weeknd-after-hours-til-dawn-tour-milano-tickets-edp1618297" target="_blank" rel="noreferrer">Live Nation - The Weeknd 24 Jul 2026</a>
+                <br><a href="https://www.livenation.it/en/event/the-weeknd-after-hours-til-dawn-tour-milano-tickets-edp1619239" target="_blank" rel="noreferrer">Live Nation - The Weeknd 25 Jul 2026</a>
+                <br><a href="https://www.livenation.it/en/event/the-weeknd-after-hours-til-dawn-tour-milano-tickets-edp1619337" target="_blank" rel="noreferrer">Live Nation - The Weeknd 26 Jul 2026</a>
+                <br><a href="https://0404.go.kr/ntnSafetyInfo/179/detail" target="_blank" rel="noreferrer">외교부 해외안전여행 - 이탈리아</a>
+                <br><a href="https://it.mofa.go.kr/it-milano-ko/index.do" target="_blank" rel="noreferrer">주밀라노 대한민국 총영사관</a>
+              </li>
+              <li>
+                <strong>Practical Info | Weather &amp; Indoor Backup</strong>
+                7월 날씨와 폭염/비/컨디션 저하 시 실내 대체 카드
+                <br><a href="https://www.yesmilano.it/en/climate-and-temperature" target="_blank" rel="noreferrer">YesMilano - Climate and temperature</a>
+                <br><a href="https://weatherspark.com/m/62545/7/Average-Weather-in-July-in-Milan-Italy" target="_blank" rel="noreferrer">WeatherSpark - Milan July Weather</a>
+                <br><a href="https://www.adidesignmuseum.org/en/tickets/" target="_blank" rel="noreferrer">ADI Design Museum - Tickets</a>
+                <br><a href="https://www.adidesignmuseum.org/en/where-we-are/" target="_blank" rel="noreferrer">ADI Design Museum - Where we are</a>
+                <br><a href="https://triennale.org/en/visit/plan-your-visit" target="_blank" rel="noreferrer">Triennale Milano - Plan your visit</a>
+                <br><a href="https://triennale.org/en/about/support-and-faq" target="_blank" rel="noreferrer">Triennale Milano - Support and FAQ</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -2849,13 +3187,16 @@
                 <tr>
                   <td><strong>07.26 일</strong><br>밀라노 → 프라하</td>
                   <td>
-                    <strong>03:50</strong> 호텔 출발<br>
-                    <strong>05:45</strong> BGY(베르가모 공항) 보안 검색 / 탑승 대기<br>
+                    <strong>03:20</strong> 호텔 로비 출발 준비 완료<br>
+                    <strong>03:25</strong> Piazza Luigi Savoia 셔틀 정류장 이동<br>
+                    <strong>03:50</strong> Orioshuttle 탑승<br>
+                    <strong>04:40</strong> BGY(베르가모 공항) 도착 예상<br>
+                    <strong>04:45</strong> 체크인 / 보안 검색 / 탑승 대기<br>
                     <strong>06:35</strong> BGY 출발<br>
                     <strong>08:00</strong> PRG(프라하) 도착
                   </td>
                   <td>이 안의 단점은 매우 이른 출발이지만, <strong>프라하 반나절 이상 확보</strong>라는 장점이 분명해서 총 일정 관점에선 가장 추천합니다.</td>
-                  <td>Orioshuttle(오리오셔틀) 편도 <strong>€12(약 ₩20,900)</strong>, 온라인 프로모는 <strong>€10(약 ₩17,400)</strong>부터. 전날 밤 물·간식 미리 준비 추천.</td>
+                  <td>Orioshuttle(오리오셔틀) 공식 노선 기준 직행 약 50분, 편도 <strong>€12(약 ₩20,900)</strong>. 04:20 셔틀은 백업으로만 두고, 전날 밤 물·간식·여권·탑승권을 미리 준비.</td>
                 </tr>
               </tbody>
             </table>
@@ -2866,8 +3207,148 @@
 
     <footer>
       이 가이드는 현 시점 기준의 공식 또는 준공식 정보를 바탕으로 정리한 정적 문서입니다.
-      실예약 직전에는 레스토랑 운영, 두오모 슬롯, 꼬모 페리, 프라하 항공편을 다시 확인하세요.
+      요금, 운영시간, 파업, 항공편, 공연 일정은 변경될 수 있으므로 실제 여행 전 7일, 2일, 전날 밤에 공식 링크를 기준으로 재확인하세요.
     </footer>
   </div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    (function () {
+      const cards = Array.from(document.querySelectorAll("[data-map-card]"));
+      if (!cards.length) return;
+
+      let mapDataPromise;
+      const mapInstances = new Map();
+
+      function escapeHtml(value) {
+        return String(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll("\"", "&quot;");
+      }
+
+      function setStatus(card, message) {
+        const status = card.querySelector("[data-map-status]");
+        if (status) status.textContent = message;
+      }
+
+      function setView(card, view) {
+        card.dataset.currentView = view;
+        card.querySelectorAll("[data-map-view-button]").forEach((button) => {
+          button.setAttribute("aria-selected", button.dataset.mapViewButton === view ? "true" : "false");
+        });
+        const liveView = card.querySelector(".map-view-live");
+        if (liveView) liveView.setAttribute("aria-hidden", view === "interactive" ? "false" : "true");
+      }
+
+      async function loadMapData() {
+        if (!mapDataPromise) {
+          mapDataPromise = fetch("./assets/map-data.json", { cache: "no-cache" })
+            .then((response) => {
+              if (!response.ok) throw new Error("map-data.json load failed");
+              return response.json();
+            });
+        }
+        return mapDataPromise;
+      }
+
+      function makePin(point, index) {
+        return L.divIcon({
+          className: "map-number-icon",
+          html: `<span class="map-pin" style="background:${point.color}">${index + 1}</span>`,
+          iconSize: [30, 30],
+          iconAnchor: [15, 15],
+          popupAnchor: [0, -18]
+        });
+      }
+
+      function initMap(card, mapConfig) {
+        const target = card.querySelector("[data-map-target]");
+        if (!target || mapInstances.has(target)) return;
+
+        const map = L.map(target, {
+          scrollWheelZoom: false,
+          zoomControl: true
+        });
+
+        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "&copy; OpenStreetMap contributors"
+        }).addTo(map);
+
+        const byKey = new Map(mapConfig.points.map((point) => [point.place_key, point]));
+        const bounds = [];
+
+        mapConfig.routes.forEach((route) => {
+          const latLngs = route.keys
+            .map((key) => byKey.get(key))
+            .filter(Boolean)
+            .map((point) => [point.lat, point.lon]);
+
+          if (latLngs.length > 1) {
+            L.polyline(latLngs, {
+              color: route.color,
+              weight: 4,
+              opacity: 0.84,
+              dashArray: route.dashArray || null,
+              lineCap: "round",
+              lineJoin: "round"
+            }).addTo(map);
+          }
+        });
+
+        mapConfig.points.forEach((point, index) => {
+          const latLng = [point.lat, point.lon];
+          bounds.push(latLng);
+          L.marker(latLng, { icon: makePin(point, index) })
+            .bindPopup(
+              `<div class="map-popup"><strong>${escapeHtml(point.label)}</strong><span>${escapeHtml(point.role)}</span></div>`
+            )
+            .addTo(map);
+        });
+
+        map.fitBounds(bounds, {
+          padding: [32, 32],
+          maxZoom: mapConfig.id === "shopping" ? 15 : 9
+        });
+
+        mapInstances.set(target, map);
+        window.setTimeout(() => map.invalidateSize(), 120);
+        setStatus(card, "마커를 누르면 장소 역할을 확인할 수 있습니다.");
+      }
+
+      async function showInteractive(card) {
+        setView(card, "interactive");
+        if (!window.L) {
+          setStatus(card, "Leaflet 라이브러리를 불러오지 못해 정적 지도만 표시합니다.");
+          return;
+        }
+
+        try {
+          const data = await loadMapData();
+          const mapConfig = data.maps.find((item) => item.id === card.dataset.mapCard);
+          if (!mapConfig) throw new Error("missing map config");
+          initMap(card, mapConfig);
+          const target = card.querySelector("[data-map-target]");
+          const map = mapInstances.get(target);
+          if (map) window.setTimeout(() => map.invalidateSize(), 80);
+        } catch {
+          setStatus(card, "지도 데이터를 불러오지 못해 정적 지도만 표시합니다.");
+        }
+      }
+
+      cards.forEach((card) => {
+        card.querySelectorAll("[data-map-view-button]").forEach((button) => {
+          button.addEventListener("click", () => {
+            if (button.dataset.mapViewButton === "interactive") {
+              showInteractive(card);
+            } else {
+              setView(card, "static");
+            }
+          });
+        });
+      });
+    }());
+  </script>
 </body>
 </html>
