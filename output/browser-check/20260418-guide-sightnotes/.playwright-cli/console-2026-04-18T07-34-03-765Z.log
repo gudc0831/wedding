@@ -1,0 +1,7 @@
+[  203938ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8000/assets/cover-pattern.svg:0
+[  204204ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8000/assets/cover-pattern.svg:0
+[  206003ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8000/assets/cover-pattern.svg:0
+[  206221ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8000/assets/cover-pattern.svg:0
+[  208037ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8000/assets/cover-pattern.svg:0
+[  208252ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8000/assets/cover-pattern.svg:0
+[ 2399580ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:8000/assets/cover-pattern.svg:0

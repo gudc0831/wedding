@@ -1,0 +1,33 @@
+- generic "Google 지도" [ref=e2]:
+  - generic [ref=e3]:
+    - application "지도·지도를 이동하려면 화살표 키를 사용하세요.·특정 장소에 대한 세부정보를 확인하려면 해당 숫자 키를 누르세요." [ref=e8]
+    - generic [ref=e11]:
+      - search [ref=e14]:
+        - generic [ref=e15]:
+          - generic [ref=e16]:
+            - generic [ref=e17]: Google 지도 검색
+            - combobox "Google 지도 검색" [active] [ref=e18]
+          - button "검색" [ref=e20] [cursor=pointer]:
+            - generic [ref=e21]: 
+          - button "경로" [ref=e23] [cursor=pointer]:
+            - generic [ref=e24]: 
+      - generic [ref=e27]:
+        - generic:
+          - button [ref=e28] [cursor=pointer]
+          - button "Show the Input Tools menu" [ref=e30] [cursor=pointer]
+    - list [ref=e35]:
+      - listitem [ref=e36]:
+        - button "메뉴" [ref=e37] [cursor=pointer]:
+          - generic [ref=e39]: 
+      - listitem [ref=e40]:
+        - button "저장됨" [ref=e41] [cursor=pointer]:
+          - generic [ref=e43]: 
+          - generic [ref=e45]: 저장됨
+      - listitem [ref=e46]:
+        - button "최근 항목" [disabled] [ref=e47]:
+          - generic [ref=e49]: 
+          - generic [ref=e51]: 최근 항목
+      - listitem [ref=e53]:
+        - button "앱 설치" [ref=e54] [cursor=pointer]:
+          - generic [ref=e56]: 
+          - generic [ref=e58]: 앱 설치

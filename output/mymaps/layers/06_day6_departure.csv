@@ -1,0 +1,4 @@
+﻿"place_key","layer_key","layer_name_ko","name","query","category","category_ko","trip_role_ko","visit_window","visit_order","short_desc_ko","notes_ko","priority","backup_flag"
+"day6_mercato_centrale_milano","day6","06_07.26 출발일","Mercato Centrale Milano","Mercato Centrale Milano, Milan, Italy","food","식음","푸드홀","09:00-10:00","1","비행 시간이 늦어졌을 때 가장 유연하게 시간을 보내는 푸드홀","Centrale 인근이라 무거운 이동 없이 커피와 간단한 식사가 가능합니다.","backup","Y"
+"day6_milan_bergamo_airport","day6","06_07.26 출발일","Milan Bergamo Airport","Milan Bergamo Airport, Orio al Serio, Italy","airport","공항","공항","03:50-06:35","2","프라하 직항 기준 가장 빠른 출발 공항","Piazza Luigi Savoia 셔틀 접근이 좋아 아주 이른 출발에도 실전성이 높습니다.","must","N"
+"day6_milan_malpensa_airport","day6","06_07.26 출발일","Milan Malpensa Airport","Milan Malpensa Airport, Ferno, Italy","airport","공항","공항대안","06:00-09:00","3","수면과 마지막 밤의 안정감을 우선할 때 보는 공항 대안","Malpensa Express로 접근하고 늦은 오전편 비교용으로 유지합니다.","backup","Y"

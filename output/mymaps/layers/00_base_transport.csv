@@ -1,0 +1,3 @@
+﻿"place_key","layer_key","layer_name_ko","name","query","category","category_ko","trip_role_ko","visit_window","visit_order","short_desc_ko","notes_ko","priority","backup_flag"
+"base_una_hotels_century_milano","base","00_숙소·교통","UNA HOTELS Century Milano","UNA HOTELS Century Milano, Milan, Italy","hotel","호텔","숙소","상시","1","밀라노 첸트랄레 도보권의 베이스 호텔","초반 일정과 출발일 이동 동선이 가장 안정적입니다.","must","N"
+"base_milano_centrale","base","00_숙소·교통","Milano Centrale","Milano Centrale, Milan, Italy","transport","교통","교통거점","이동 시","2","꼬모·베르가모·공항 이동의 핵심 출발점","호텔에서 도보 5-7분이라 당일치기와 공항 이동이 단순합니다.","must","N"

@@ -1,0 +1,901 @@
+- generic [ref=e2]:
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]: M
+        - generic [ref=e7]:
+          - paragraph [ref=e8]: Milano Honeymoon Notes
+          - heading "2026.07.21 화 - 2026.07.26 일 | 밀라노·꼬모·베르가모" [level=1] [ref=e9]
+      - navigation "페이지 이동" [ref=e10]:
+        - link "Overview" [ref=e11] [cursor=pointer]:
+          - /url: "#overview"
+        - link "Hotel Base" [ref=e12] [cursor=pointer]:
+          - /url: "#hotel-base"
+        - link "Day 1" [ref=e13] [cursor=pointer]:
+          - /url: "#day-1"
+        - link "Day 2" [ref=e14] [cursor=pointer]:
+          - /url: "#day-2"
+        - link "Day 3" [ref=e15] [cursor=pointer]:
+          - /url: "#day-3"
+        - link "Day 4" [ref=e16] [cursor=pointer]:
+          - /url: "#day-4"
+        - link "Day 5" [ref=e17] [cursor=pointer]:
+          - /url: "#day-5"
+        - link "Day 6" [ref=e18] [cursor=pointer]:
+          - /url: "#day-6"
+        - link "Birthday" [ref=e19] [cursor=pointer]:
+          - /url: "#birthday-special"
+        - link "Shopping Map" [ref=e20] [cursor=pointer]:
+          - /url: "#shopping-map"
+        - link "Prague Transfer" [ref=e21] [cursor=pointer]:
+          - /url: "#prague-transfer"
+        - link "Checklist" [ref=e22] [cursor=pointer]:
+          - /url: "#checklist"
+        - link "Sources" [ref=e23] [cursor=pointer]:
+          - /url: "#sources"
+  - generic [ref=e25]:
+    - generic [ref=e26]:
+      - generic [ref=e27]: 07.23 Birthday Mood
+      - heading "밀라노를 베이스캠프로, 기념일은 더 특별하게." [level=2] [ref=e28]:
+        - text: 밀라노를 베이스캠프로,
+        - text: 기념일은 더 특별하게.
+      - paragraph [ref=e29]:
+        - text: 이 가이드는
+        - strong [ref=e30]: UNA HOTELS Century Milano
+        - text: 를 중심으로 움직이는 여유형 허니문 동선입니다.
+        - strong [ref=e31]: 2026년 7월 23일 목요일
+        - text: 에는 쇼핑과 선물 찾기에 집중하고, 저녁은
+        - strong [ref=e32]: 두오모 테라스의 목요 음악 연장 오픈
+        - text: 과 루프탑 디너를 엮어 평범한 일정이 아니라 “기억에 남는 하루”가 되도록 설계했습니다.
+      - generic [ref=e33]:
+        - generic [ref=e34]:
+          - generic [ref=e35]: Base Hotel
+          - generic [ref=e36]: 1곳
+        - generic [ref=e37]:
+          - generic [ref=e38]: Milan Nights
+          - generic [ref=e39]: 5박
+        - generic [ref=e40]:
+          - generic [ref=e41]: Day Trips
+          - generic [ref=e42]: 2일
+        - generic [ref=e43]:
+          - generic [ref=e44]: Birthday Focus
+          - generic [ref=e45]: Shopping
+      - generic [ref=e46]:
+        - link "07/23 생일 코스 보기" [ref=e47] [cursor=pointer]:
+          - /url: "#day-3"
+        - link "프라하 이동안 보기" [ref=e48] [cursor=pointer]:
+          - /url: "#prague-transfer"
+    - generic [ref=e49]:
+      - generic [ref=e50]:
+        - generic [ref=e51]:
+          - img "밀라노 두오모 전경" [ref=e52]
+          - generic [ref=e53]: 두오모는 이번 일정의 중심 무대입니다. 생일 저녁엔 목요일 특별 오픈 시간을 활용해 해질녘까지 머무는 구성이 가장 좋습니다.
+        - generic [ref=e54]:
+          - figure "베이스캠프는 Milano Centrale 도보권의 UNA HOTELS Century Milano" [ref=e55]:
+            - img "UNA Hotels Century Milano 외관" [ref=e56]
+            - generic [ref=e57]: 베이스캠프는 Milano Centrale 도보권의 UNA HOTELS Century Milano
+          - figure "기념일 디너 후보는 도시 야경이 살아있는 루프탑 위주로" [ref=e58]:
+            - img "Ceresio 7 레스토랑 풍경" [ref=e59]
+            - generic [ref=e60]: 기념일 디너 후보는 도시 야경이 살아있는 루프탑 위주로
+      - generic [ref=e61]:
+        - figure "꼬모 데이는 Varenna + Bellagio 두 곳만 천천히" [ref=e62]:
+          - img "바렌나 호숫가 전경" [ref=e63]
+          - generic [ref=e64]: 꼬모 데이는 Varenna + Bellagio 두 곳만 천천히
+        - figure "베르가모는 Citta Alta 중심으로 압축" [ref=e65]:
+          - img "베르가모 치타 알타 전경" [ref=e66]
+          - generic [ref=e67]: 베르가모는 Citta Alta 중심으로 압축
+        - figure "호숫가 풍경은 일정 전체의 템포를 부드럽게 조정해 줍니다" [ref=e68]:
+          - img "여름의 벨라지오" [ref=e69]
+          - generic [ref=e70]: 호숫가 풍경은 일정 전체의 템포를 부드럽게 조정해 줍니다
+  - generic [ref=e72]:
+    - article [ref=e73]:
+      - strong [ref=e74]: 07.21 화
+      - heading "밀라노 도착" [level=3] [ref=e75]
+      - paragraph [ref=e76]: 오후 체크인 후 무리 없이 Porta Nuova 또는 Brera에서 첫 산책.
+    - article [ref=e77]:
+      - strong [ref=e78]: 07.22 수
+      - heading "밀라노 핵심일" [level=3] [ref=e79]
+      - paragraph [ref=e80]: Duomo, Galleria, Brera, Navigli를 하루에 연결하되 템포는 느긋하게.
+    - article [ref=e81]:
+      - strong [ref=e82]: 07.23 목
+      - heading "생일 쇼핑 데이" [level=3] [ref=e83]
+      - paragraph [ref=e84]: Rinascente, Galleria, Quadrilatero, Brera, 그리고 루프탑 디너.
+    - article [ref=e85]:
+      - strong [ref=e86]: 07.24 금
+      - heading "꼬모 당일치기" [level=3] [ref=e87]
+      - paragraph [ref=e88]: Milano Centrale에서 Varenna까지 직행, Bellagio까지 짧고 우아하게.
+    - article [ref=e89]:
+      - strong [ref=e90]: 07.25 토
+      - heading "베르가모 당일치기" [level=3] [ref=e91]
+      - paragraph [ref=e92]: 48분 열차 후 Citta Alta와 San Vigilio까지 기분 좋게.
+    - article [ref=e93]:
+      - strong [ref=e94]: 07.26 일
+      - heading "프라하 이동" [level=3] [ref=e95]
+      - paragraph [ref=e96]: 오전 직항 우선이면 BGY, 마지막 아침의 편안함이면 MXP 비교.
+  - main [ref=e97]:
+    - generic [ref=e99]:
+      - generic [ref=e100]:
+        - generic [ref=e101]:
+          - generic [ref=e102]: Overview
+          - heading "이번 일정의 톤과 운영 원칙" [level=2] [ref=e103]
+        - link "↗ ATM 티켓 정보" [ref=e104] [cursor=pointer]:
+          - /url: https://www.atm.it/en/ViaggiaConNoi/Biglietti/Pages/tickets_milan.aspx
+      - generic [ref=e105]:
+        - article [ref=e106]:
+          - heading "여행 템포" [level=3] [ref=e107]
+          - paragraph [ref=e108]: 핵심 명소는 보되 매일 2~3개의 큰 장면만 남기는 구성이 좋습니다. 허니문에서는 “많이 보기”보다 “예쁜 시간대를 제대로 쓰기”가 만족도가 높습니다.
+        - article [ref=e109]:
+          - heading "도시 이동 전략" [level=3] [ref=e110]
+          - paragraph [ref=e111]:
+            - text: 밀라노 시내는 도보 + ATM 지하철, 꼬모와 베르가모는
+            - strong [ref=e112]: Milano Centrale 출발
+            - text: 열차로 해결합니다. 호텔이 역과 셔틀 모두 가까워 짐을 들고 이동하기도 쉽습니다.
+        - article [ref=e113]:
+          - heading "교통 패스" [level=3] [ref=e114]
+          - paragraph [ref=e115]:
+            - text: 밀라노 시내만 진하게 움직이는 날은 ATM
+            - strong [ref=e116]: 24시간권 7.60€
+            - text: ", 더 넓게 쓰면"
+            - strong [ref=e117]: 3일권 15.50€
+            - text: 를 고려할 만합니다. 꼬모·베르가모 열차는 별도 구매가 더 명확합니다.
+    - generic [ref=e119]:
+      - generic [ref=e120]:
+        - generic [ref=e121]:
+          - generic [ref=e122]: Hotel Base
+          - heading "왜 이 호텔이 이번 일정에 잘 맞는가" [level=2] [ref=e123]
+          - paragraph [ref=e124]:
+            - strong [ref=e125]: UNA HOTELS Century Milano
+            - text: 는 체크인 후 일정을 다시 벌리기 좋은 위치입니다. 공식 안내 기준으로
+            - strong [ref=e126]: Milano Centrale 200m
+            - text: ","
+            - strong [ref=e127]: 공항 셔틀 정류장 200m
+            - text: ","
+            - strong [ref=e128]: M2/M3 지하철 200m
+            - text: ", 두오모는"
+            - strong [ref=e129]: 2.7km
+            - text: 입니다.
+        - link "↗ UNA HOTELS 공식 페이지" [ref=e130] [cursor=pointer]:
+          - /url: https://www.unaitalianhospitality.com/en/hotels/una-hotels-century-milano
+      - generic [ref=e131]:
+        - article [ref=e132]:
+          - img "호텔을 중심으로 밀라노, 꼬모, 베르가모, 공항을 연결한 개념도" [ref=e133]
+          - paragraph [ref=e134]:
+            - text: 개념상 핵심은 단순합니다.
+            - strong [ref=e135]: 호텔 - Centrale - 당일치기 - 공항
+            - text: 이 모두 한 축으로 이어집니다. 그래서 일정 내내 숙소를 옮기지 않아도 됩니다.
+        - generic [ref=e136]:
+          - img "UNA HOTELS Century Milano 외관 및 접근 분위기" [ref=e137]
+          - generic [ref=e139]:
+            - generic [ref=e140]:
+              - strong [ref=e141]: 체크인 / 체크아웃
+              - text: 14:00 이후 체크인, 12:00 이전 체크아웃 기준으로 잡으면 무리가 없습니다.
+            - generic [ref=e142]:
+              - strong [ref=e143]: 첫날 운영
+              - text: 그린델발트에서 내려와 15:00 전후 밀라노 도착이라면, 첫날은 Porta Nuova 정도만 보아도 충분합니다.
+            - generic [ref=e144]:
+              - strong [ref=e145]: 마지막 날 장점
+              - text: MXP/BGY 셔틀 접근이 쉬워
+              - strong [ref=e146]: 프라하 이동 아침
+              - text: 까지 동선이 깔끔합니다.
+    - generic [ref=e148]:
+      - generic [ref=e149]:
+        - generic [ref=e150]:
+          - generic [ref=e151]: Day 1
+          - heading "2026.07.21 화 | 도착일은 밀라노에 몸을 맞추는 날" [level=2] [ref=e152]
+        - link "↗ YesMilano 중심가 참고" [ref=e153] [cursor=pointer]:
+          - /url: https://www.yesmilano.it/en/neighborhoods/central-milano
+      - article [ref=e154]:
+        - generic [ref=e155]:
+          - generic [ref=e156]:
+            - strong [ref=e157]: 07.21 Tue
+            - generic [ref=e158]: 밀라노 도착 · 호텔 체크인
+          - generic [ref=e159]:
+            - 'heading "추천 톤: “이동 피로를 풀면서도, 첫인상은 예쁘게”" [level=3] [ref=e160]'
+            - paragraph [ref=e161]:
+              - text: 스위스에서 넘어와 밀라노에 적응하는 날입니다. 이 날 욕심을 부리면 다음 날부터 페이스가 무너집니다. 첫날은
+              - strong [ref=e162]: 호텔 반경이 좋은 Porta Nuova / Gae Aulenti
+              - text: 또는
+              - strong [ref=e163]: Brera
+              - text: 만 보고, 밤은 너무 늦지 않게 마무리하는 것이 좋습니다.
+        - generic [ref=e164]:
+          - generic [ref=e165]:
+            - generic [ref=e166]:
+              - generic [ref=e167]: 15:00
+              - generic [ref=e168]:
+                - strong [ref=e169]: 밀라노 도착 후 호텔 체크인
+                - generic [ref=e170]: 소요 60-90분
+                - paragraph [ref=e171]: Milano Centrale에서 숙소까지 이동이 짧아 짐을 바로 두고 재정비하기 좋습니다. 객실에서 40~60분 정도 쉬는 시간을 반드시 확보하세요.
+            - generic [ref=e172]:
+              - generic [ref=e173]: 17:30
+              - generic [ref=e174]:
+                - strong [ref=e175]: Porta Nuova / Gae Aulenti 산책
+                - generic [ref=e176]: 소요 90분
+                - paragraph [ref=e177]: 도시 감각적인 첫인상을 원하면 이쪽이 가장 안정적입니다. 현대적인 스카이라인, 평탄한 보행, 카페 접근성이 좋아 첫날 컨디션과 잘 맞습니다.
+            - generic [ref=e178]:
+              - generic [ref=e179]: 19:30
+              - generic [ref=e180]:
+                - strong [ref=e181]: 가벼운 첫 저녁
+                - generic [ref=e182]: 소요 90-120분
+                - paragraph [ref=e183]:
+                  - text: 첫날은 “맛집 도장깨기”보다 이동 적은 곳이 낫습니다. Porta Nuova에서 식사 후 돌아오거나, 호텔의
+                  - strong [ref=e184]: The Hall Bar & Restaurant
+                  - text: 를 안전한 옵션으로 둡니다.
+            - generic [ref=e185]:
+              - generic [ref=e186]: 21:30
+              - generic [ref=e187]:
+                - strong [ref=e188]: 이른 귀환
+                - generic [ref=e189]: 남은 밤은 휴식 위주
+                - paragraph [ref=e190]: 꼬모와 베르가모 일정을 포함하면 전체 일정이 길기 때문에, 첫날은 수면을 확보하는 편이 총 만족도가 높습니다.
+          - complementary [ref=e191]:
+            - generic [ref=e192]:
+              - heading "카페 / 식당 추천" [level=4] [ref=e193]
+              - list [ref=e194]:
+                - listitem [ref=e195]:
+                  - strong [ref=e196]: Pavé Milano
+                  - paragraph [ref=e197]: 호텔과 Centrale 사이에서 들르기 좋은 대표 카페입니다. 첫날은 긴 식사보다 에스프레소와 페이스트리로 템포를 맞추는 편이 부담이 적습니다.
+                - listitem [ref=e198]:
+                  - strong [ref=e199]: Ratanà
+                  - paragraph [ref=e200]: Porta Nuova 쪽에서 저녁을 먹고 돌아오기 좋고, 현대적으로 풀어낸 밀라노식 요리가 강점입니다. “첫날부터 너무 무겁지 않지만 지역색은 있는” 선택입니다.
+                - listitem [ref=e201]:
+                  - strong [ref=e202]: The Hall Bar & Restaurant
+                  - paragraph [ref=e203]: 이동 피로가 크면 숙소 안에서 끝내는 편이 낫습니다. 허니문 일정 전체 컨디션 관리까지 생각하면 가장 안전한 백업 카드입니다.
+            - generic [ref=e204]:
+              - heading "사진 포인트" [level=4] [ref=e205]
+              - paragraph [ref=e206]: Gae Aulenti 광장의 원형 수공간, 유리 타워 반사면, 석양이 깔리는 시각의 광장 테두리.
+            - generic [ref=e207]:
+              - heading "우천 시 대안" [level=4] [ref=e208]
+              - paragraph [ref=e209]: Porta Nuova 대신 Eataly Milano Smeraldo나 호텔 라운지 중심으로 단순화해도 충분합니다.
+            - generic [ref=e210]:
+              - heading "이 날의 기준" [level=4] [ref=e211]
+              - list [ref=e212]:
+                - listitem [ref=e213]: 지하철 2회 이내
+                - listitem [ref=e214]: 저녁 9시대 귀환
+                - listitem [ref=e215]: 첫날에 두오모까지 욕심내지 않기
+    - generic [ref=e217]:
+      - generic [ref=e218]:
+        - generic [ref=e219]:
+          - generic [ref=e220]: Day 2
+          - heading "2026.07.22 수 | 밀라노의 정석을 가장 예쁘게 보는 날" [level=2] [ref=e221]
+        - link "↗ 두오모 운영 참고" [ref=e222] [cursor=pointer]:
+          - /url: https://www.duomomilano.it/en/special-openings-spring-summer-2026/
+      - article [ref=e223]:
+        - generic [ref=e224]:
+          - generic [ref=e225]:
+            - strong [ref=e226]: 07.22 Wed
+            - generic [ref=e227]: Duomo · Galleria · Brera · Navigli
+          - generic [ref=e228]:
+            - 'heading "추천 톤: “밀라노다운 하루를 한 번에, 하지만 빡빡하지 않게”" [level=3] [ref=e229]'
+            - paragraph [ref=e230]:
+              - text: 두오모권에서 출발해 브레라, 저녁은 나빌리로 흐르는 구조가 가장 자연스럽습니다. 두오모 루프탑은 생일 저녁에도 활용할 수 있으므로 이 날은
+              - strong [ref=e231]: 가볍게 내부 또는 외부 중심
+              - text: 으로 보아도 충분합니다.
+        - generic [ref=e232]:
+          - generic [ref=e233]:
+            - generic [ref=e234]:
+              - generic [ref=e235]: 09:00
+              - generic [ref=e236]:
+                - strong [ref=e237]: Duomo Piazza 진입
+                - generic [ref=e238]: 소요 90-120분
+                - paragraph [ref=e239]: 오전의 두오모 광장은 사진이 가장 깨끗합니다. 내부 관람을 넣더라도 전체 흐름은 90~120분 안에서 마무리하는 편이 좋습니다.
+            - generic [ref=e240]:
+              - generic [ref=e241]: 11:00
+              - generic [ref=e242]:
+                - strong [ref=e243]: Galleria Vittorio Emanuele II
+                - generic [ref=e244]: 소요 60-90분
+                - paragraph [ref=e245]: 광장에서 갤러리아로 바로 연결해 아케이드 분위기와 쇼윈도를 즐깁니다. 이날은 “탐색용 워밍업” 정도로만 보고 생일 쇼핑의 사전 답사 느낌으로 접근하세요.
+            - generic [ref=e246]:
+              - generic [ref=e247]: 13:00
+              - generic [ref=e248]:
+                - strong [ref=e249]: 브레라 점심과 산책
+                - generic [ref=e250]: 소요 2.5-3시간
+                - paragraph [ref=e251]: 브레라는 골목 결이 아름다워 허니문 사진이 잘 나옵니다. 길을 정해 걷기보다, 소규모 광장과 카페를 중심으로 느리게 걷는 편이 더 좋습니다.
+            - generic [ref=e252]:
+              - generic [ref=e253]: 18:00
+              - generic [ref=e254]:
+                - strong [ref=e255]: Navigli 아페리티보
+                - generic [ref=e256]: 소요 2.5-3시간
+                - paragraph [ref=e257]: 저녁은 나빌리의 물가 분위기로 마무리하세요. 해 질 무렵부터 조명이 들어오는 시점이 예쁘고, 너무 깊은 밤 전 돌아오면 컨디션 관리가 쉽습니다.
+          - complementary [ref=e258]:
+            - generic [ref=e259]:
+              - heading "카페 / 식당 추천" [level=4] [ref=e260]
+              - list [ref=e261]:
+                - listitem [ref=e262]:
+                  - strong [ref=e263]: Marchesi 1824 Galleria
+                  - paragraph [ref=e264]: 두오모와 갤러리아 사이에서 가장 우아한 커피 브레이크를 만들기 좋습니다. 하루의 중심 장면을 흐트러뜨리지 않으면서 “밀라노답다”는 감도가 확실합니다.
+                - listitem [ref=e265]:
+                  - strong [ref=e266]: N'Ombra de Vin
+                  - paragraph [ref=e267]: 브레라에서 긴 점심이나 이른 저녁으로 붙이기 좋습니다. 골목 분위기와 와인 셀러 무드가 살아 있어, 브레라 산책 흐름을 자연스럽게 이어 줍니다.
+                - listitem [ref=e268]:
+                  - strong [ref=e269]: Osteria del Binari
+                  - paragraph [ref=e270]: Navigli 쪽 마감 식사로 안정적입니다. 운하권 특유의 붐비는 바보다 앉아서 저녁을 길게 가져가기 좋고, 허니문 템포와도 잘 맞습니다.
+            - generic [ref=e271]:
+              - heading "예약형 선택 옵션" [level=4] [ref=e272]
+              - paragraph [ref=e273]:
+                - strong [ref=e274]: The Last Supper
+                - text: 는 초고수요라 지금 단계에서는 “추가되면 좋음” 정도로만 두고 핵심 동선에서 제외하는 것이 안전합니다.
+            - generic [ref=e275]:
+              - heading "사진 포인트" [level=4] [ref=e276]
+              - paragraph [ref=e277]: 두오모 광장 바닥 패턴, 갤러리아 유리 천장, 브레라의 석재 골목, Navigli 수면 반사.
+            - generic [ref=e278]:
+              - heading "이 날의 교통" [level=4] [ref=e279]
+              - list [ref=e280]:
+                - listitem [ref=e281]: 시내 중심이라 ATM 24시간권 활용 가치가 큽니다.
+                - listitem [ref=e282]: 브레라는 도보, Navigli는 지하철 또는 택시가 편합니다.
+    - generic [ref=e284]:
+      - generic [ref=e285]:
+        - generic [ref=e286]:
+          - generic [ref=e287]: Day 3
+          - heading "2026.07.23 목 | 생일은 쇼핑과 황금빛 저녁으로" [level=2] [ref=e288]
+        - link "↗ 2026 두오모 여름 연장 오픈" [ref=e289] [cursor=pointer]:
+          - /url: https://www.duomomilano.it/en/special-openings-spring-summer-2026/
+      - generic [ref=e290]:
+        - heading "이 날의 핵심 한 줄" [level=3] [ref=e291]
+        - paragraph [ref=e292]:
+          - text: 생일 코스는
+          - strong [ref=e293]: Rinascente - Galleria - Quadrilatero - Brera
+          - text: 로 선물 찾기를 끝낸 뒤,
+          - strong [ref=e294]: 2026년 여름 목요일 두오모 테라스 특별 연장 오픈
+          - text: 을 활용해 일몰 무드를 얹는 방식이 가장 좋습니다. 공식 안내 기준으로 2026년 여름 목요일은
+          - strong [ref=e295]: 20:00 종료, 18:50 마지막 티켓, 19:00 마지막 입장
+          - text: 패턴이 공지되어 있습니다.
+      - article [ref=e296]:
+        - generic [ref=e297]:
+          - generic [ref=e298]:
+            - strong [ref=e299]: 07.23 Thu
+            - generic [ref=e300]: Birthday Shopping + Sunset
+          - generic [ref=e301]:
+            - 'heading "추천 톤: “선물은 도시 한가운데서, 저녁은 확실하게 기념일처럼”" [level=3] [ref=e302]'
+            - paragraph [ref=e303]: 이날은 많은 명소를 섞지 않는 것이 중요합니다. 쇼핑 구역을 두오모 주변과 브레라 축에 묶어야 물건도 비교되고, 피팅과 휴식 시간도 여유롭게 쓸 수 있습니다.
+        - generic [ref=e304]:
+          - generic [ref=e305]:
+            - generic [ref=e306]:
+              - generic [ref=e307]: 10:30
+              - generic [ref=e308]:
+                - strong [ref=e309]: 느긋한 시작 + Duomo 진입
+                - generic [ref=e310]: 소요 30-45분
+                - paragraph [ref=e311]: 생일날은 아침부터 스케줄을 촘촘히 넣지 않는 편이 좋습니다. 두오모 광장에서 기념 사진을 먼저 남기고 쇼핑을 시작하세요.
+            - generic [ref=e312]:
+              - generic [ref=e313]: 11:00
+              - generic [ref=e314]:
+                - strong [ref=e315]: Rinascente 1차 쇼핑
+                - generic [ref=e316]: 소요 90-120분
+                - paragraph [ref=e317]: 백, 액세서리, 뷰티, 홈 기프트를 한 건물 안에서 비교할 수 있어 생일 선물 출발점으로 가장 효율적입니다. “일단 넓게 보고, 구매는 오후에 확정” 방식이 좋습니다.
+            - generic [ref=e318]:
+              - generic [ref=e319]: 13:00
+              - generic [ref=e320]:
+                - strong [ref=e321]: Galleria + 점심
+                - generic [ref=e322]: 소요 90분
+                - paragraph [ref=e323]: 갤러리아는 식사와 달콤한 휴식, 그리고 쇼윈도 보는 맛이 좋습니다. 점심은 너무 무겁지 않게 두오모권에서 해결하고 쇼핑 후반부 에너지를 남겨두세요.
+            - generic [ref=e324]:
+              - generic [ref=e325]: 14:30
+              - generic [ref=e326]:
+                - strong [ref=e327]: Quadrilatero della Moda 집중 시간
+                - generic [ref=e328]: 소요 2시간
+                - paragraph [ref=e329]: Via Montenapoleone, Via della Spiga, Via Manzoni 쪽은 주얼리와 명품, 기념일용 선물의 밀도가 높습니다. 브랜드 확신이 있다면 이 구간에서 구매를 확정하세요.
+            - generic [ref=e330]:
+              - generic [ref=e331]: 16:45
+              - generic [ref=e332]:
+                - strong [ref=e333]: Brera에서 마무리 쇼핑
+                - generic [ref=e334]: 소요 75-90분
+                - paragraph [ref=e335]: 향수, 디자인 소품, 감성적인 작은 선물은 브레라가 훨씬 예쁩니다. “값비싼 선물 + 감성 선물” 조합으로 가고 싶다면 브레라가 마지막 퍼즐입니다.
+            - generic [ref=e336]:
+              - generic [ref=e337]: 18:40
+              - generic [ref=e338]:
+                - strong [ref=e339]: 두오모 테라스 또는 바로 루프탑 디너로 이동
+                - generic [ref=e340]: 소요 60-75분
+                - paragraph [ref=e341]: 목요일 특별 오픈을 활용한다면 18:00대 후반 입장권으로 해질녘 분위기를 가져가고, 이동을 줄이고 싶다면 Maio에서 바로 저녁을 시작해도 좋습니다.
+            - generic [ref=e342]:
+              - generic [ref=e343]: 20:30
+              - generic [ref=e344]:
+                - strong [ref=e345]: 생일 디너
+                - generic [ref=e346]: 소요 2시간 내외
+                - paragraph [ref=e347]:
+                  - text: 기념일 무드는
+                  - strong [ref=e348]: Duomo 뷰 우선이면 Maio
+                  - text: ","
+                  - strong [ref=e349]: 밀라노 스카이라인 우선이면 Ceresio 7
+                  - text: 이 더 선명합니다. 둘 다 예약은 일찍 잡는 편이 안전합니다.
+          - complementary [ref=e350]:
+            - generic [ref=e351]:
+              - heading "카페 / 식당 추천" [level=4] [ref=e352]
+              - list [ref=e353]:
+                - listitem [ref=e354]:
+                  - strong [ref=e355]: Maio Restaurant & Terrace
+                  - paragraph [ref=e356]: Rinascente 상층의 두오모 뷰가 생일 저녁과 정확히 맞습니다. 쇼핑 동선과 한 건물에 있어 체력 소모가 적고, “선물 쇼핑 후 바로 기념일 저녁” 흐름이 가장 깔끔합니다.
+                - listitem [ref=e357]:
+                  - strong [ref=e358]: Marchesi 1824 Galleria
+                  - paragraph [ref=e359]: 생일 점심 전후 디저트·티타임 장소로 좋습니다. 클래식한 패키지와 분위기가 “작은 선물 같은 휴식” 역할을 합니다.
+                - listitem [ref=e360]:
+                  - strong [ref=e361]: Ceresio 7
+                  - paragraph [ref=e362]: 두오모보다 도시 야경 쪽 감도를 원하면 이쪽이 더 강합니다. 루프탑 특유의 장면성이 분명해, 사진과 식사 모두 ‘특별한 날’ 느낌을 만들기 좋습니다.
+            - generic [ref=e363]:
+              - heading "선물 후보 3축" [level=4] [ref=e364]
+              - list [ref=e365]:
+                - listitem [ref=e366]:
+                  - strong [ref=e367]: 백 / 액세서리
+                  - text: ": Rinascente와 Quadrilatero 비교 후 구매"
+                - listitem [ref=e368]:
+                  - strong [ref=e369]: 주얼리 / 시계
+                  - text: ": Montenapoleone 축에서 최종 결정"
+                - listitem [ref=e370]:
+                  - strong [ref=e371]: 향수 / 디자인 소품
+                  - text: ": Brera에서 감성 있는 마무리"
+            - generic [ref=e372]:
+              - heading "사진 포인트" [level=4] [ref=e373]
+              - paragraph [ref=e374]: 두오모 석재 색감, 갤러리아 돔, Montenapoleone의 쇼윈도 리듬, 브레라의 조용한 골목, 루프탑에서의 해질녘 실루엣.
+            - generic [ref=e375]:
+              - heading "실전 팁" [level=4] [ref=e376]
+              - paragraph [ref=e377]: 비싼 구매는 오후 후반, 소품 구매는 브레라에서. 비EU 여행자라면 택스 프리 표식을 보고 즉시 서류 요청을 해두세요.
+    - generic [ref=e379]:
+      - generic [ref=e380]:
+        - generic [ref=e381]:
+          - generic [ref=e382]: Birthday Special
+          - 'heading "생일 저녁 비교: 어디가 더 “두 분답게” 좋을까" [level=2] [ref=e383]'
+          - paragraph [ref=e384]: 7월 23일은 목요일이라 두오모 테라스의 여름 특별 운영과 겹칩니다. 이 날은 “한 곳에서 오래 머무는” 방식이 더 만족스럽습니다.
+        - link "↗ Ceresio 7 공식 페이지" [ref=e385] [cursor=pointer]:
+          - /url: https://www.ceresio7.com/milano/ristorante/
+      - table [ref=e387]:
+        - rowgroup [ref=e388]:
+          - row "후보 장점 이 날에 특히 좋은 이유 예약 메모" [ref=e389]:
+            - columnheader "후보" [ref=e390]
+            - columnheader "장점" [ref=e391]
+            - columnheader "이 날에 특히 좋은 이유" [ref=e392]
+            - columnheader "예약 메모" [ref=e393]
+        - rowgroup [ref=e394]:
+          - row "Maio Restaurant & Terrace Rinascente Duomo 두오모 뷰가 직접적이고, 쇼핑 동선과 완전히 같은 축에 있습니다. 선물 쇼핑 후 이동이 거의 없고, 테라스 운영 안내 메뉴 기준으로 18:00 - 22:00 흐름이 보여 생일 저녁과 연결하기 좋습니다. 두오모 뷰 좌석 요청이 핵심. 쇼핑 데이와 붙이기 가장 편합니다." [ref=e395]:
+            - cell "Maio Restaurant & Terrace Rinascente Duomo" [ref=e396]:
+              - strong [ref=e397]: Maio Restaurant & Terrace
+              - text: Rinascente Duomo
+            - cell "두오모 뷰가 직접적이고, 쇼핑 동선과 완전히 같은 축에 있습니다." [ref=e398]
+            - cell "선물 쇼핑 후 이동이 거의 없고, 테라스 운영 안내 메뉴 기준으로 18:00 - 22:00 흐름이 보여 생일 저녁과 연결하기 좋습니다." [ref=e399]:
+              - text: 선물 쇼핑 후 이동이 거의 없고, 테라스 운영 안내 메뉴 기준으로
+              - strong [ref=e400]: 18:00 - 22:00
+              - text: 흐름이 보여 생일 저녁과 연결하기 좋습니다.
+            - cell "두오모 뷰 좌석 요청이 핵심. 쇼핑 데이와 붙이기 가장 편합니다." [ref=e401]
+          - row "Ceresio 7 Porta Garibaldi 쪽 도시 야경, 수영장, 루프탑 무드가 강해서 “기념일” 느낌이 확실합니다. Brera에서 이동하기 좋고, 밀라노 스카이라인 자체를 배경으로 삼는 선택입니다. 일몰 시간대는 조기 예약 권장. 택시 이동 전제로 보면 편합니다." [ref=e402]:
+            - cell "Ceresio 7 Porta Garibaldi 쪽" [ref=e403]:
+              - strong [ref=e404]: Ceresio 7
+              - text: Porta Garibaldi 쪽
+            - cell "도시 야경, 수영장, 루프탑 무드가 강해서 “기념일” 느낌이 확실합니다." [ref=e405]
+            - cell "Brera에서 이동하기 좋고, 밀라노 스카이라인 자체를 배경으로 삼는 선택입니다." [ref=e406]
+            - cell "일몰 시간대는 조기 예약 권장. 택시 이동 전제로 보면 편합니다." [ref=e407]
+          - row "Duomo Terraces + 늦은 디너 두오모 특별 오픈 활용 이 날만의 장면을 만들 수 있습니다. 목요일 음악 연장 오픈이 포인트입니다. 2026-07-23은 목요일이라 두오모 테라스의 특별한 감도가 살아납니다. 저녁 식사는 Maio 또는 Brera 쪽으로 붙이면 됩니다. 테라스 입장권을 먼저 잡고, 디너는 20:15 이후로 예약하는 방식이 안정적입니다." [ref=e408]:
+            - cell "Duomo Terraces + 늦은 디너 두오모 특별 오픈 활용" [ref=e409]:
+              - strong [ref=e410]: Duomo Terraces + 늦은 디너
+              - text: 두오모 특별 오픈 활용
+            - cell "이 날만의 장면을 만들 수 있습니다. 목요일 음악 연장 오픈이 포인트입니다." [ref=e411]
+            - cell "2026-07-23은 목요일이라 두오모 테라스의 특별한 감도가 살아납니다. 저녁 식사는 Maio 또는 Brera 쪽으로 붙이면 됩니다." [ref=e412]:
+              - strong [ref=e413]: 2026-07-23은 목요일
+              - text: 이라 두오모 테라스의 특별한 감도가 살아납니다. 저녁 식사는 Maio 또는 Brera 쪽으로 붙이면 됩니다.
+            - cell "테라스 입장권을 먼저 잡고, 디너는 20:15 이후로 예약하는 방식이 안정적입니다." [ref=e414]
+    - generic [ref=e416]:
+      - generic [ref=e417]:
+        - generic [ref=e418]:
+          - generic [ref=e419]: Day 4
+          - heading "2026.07.24 금 | 꼬모는 “두 곳만, 충분히”가 정답" [level=2] [ref=e420]
+        - link "↗ Trenord Varenna 노선" [ref=e421] [cursor=pointer]:
+          - /url: https://www.trenord.it/en/routes-and-timetables/most-searched-lines/milano-central-station-varenna-esino/
+      - article [ref=e422]:
+        - generic [ref=e423]:
+          - generic [ref=e424]:
+            - strong [ref=e425]: 07.24 Fri
+            - generic [ref=e426]: Milano Centrale → Varenna + Bellagio
+          - generic [ref=e427]:
+            - 'heading "추천 톤: “한 장면씩 천천히, 호수에서는 욕심을 줄일수록 좋다”" [level=3] [ref=e428]'
+            - paragraph [ref=e429]:
+              - text: 공식 기준으로
+              - strong [ref=e430]: Milano Centrale - Varenna Esino
+              - text: 는 직행 약
+              - strong [ref=e431]: 64분
+              - text: 입니다. 여기에 Bellagio까지 더하면 하루가 꽉 차므로, 세 번째 마을을 넣지 않는 것이 좋습니다.
+        - generic [ref=e432]:
+          - generic [ref=e433]:
+            - generic [ref=e434]:
+              - generic [ref=e435]: 08:20
+              - generic [ref=e436]:
+                - strong [ref=e437]: 호텔 출발, Centrale로 도보 이동
+                - generic [ref=e438]: 소요 20-30분
+                - paragraph [ref=e439]: 짐은 가볍게, 물과 얇은 겉옷만 챙기면 충분합니다. 기차표는 전날 앱 또는 역 자동발권으로 해결해 두면 편합니다.
+            - generic [ref=e440]:
+              - generic [ref=e441]: 09:20
+              - generic [ref=e442]:
+                - strong [ref=e443]: Milano Centrale → Varenna Esino
+                - generic [ref=e444]: 소요 약 64분
+                - paragraph [ref=e445]:
+                  - text: 시간대는 현장 상황에 맞춰 조정하되, 오전 출발 열차를 타야 호숫가 체류시간이 예뻐집니다. 공식 요약 기준으로 2등석 단일권은
+                  - strong [ref=e446]: 7.40€
+                  - text: 에서 시작합니다.
+            - generic [ref=e447]:
+              - generic [ref=e448]: 10:35
+              - generic [ref=e449]:
+                - strong [ref=e450]: Varenna 산책
+                - generic [ref=e451]: 소요 90-120분
+                - paragraph [ref=e452]: Lovers' Walk와 호숫가 골목, 작은 계단길이 포인트입니다. 오전의 바렌나는 사람 밀도가 아직 높지 않아 허니문 사진이 좋습니다.
+            - generic [ref=e453]:
+              - generic [ref=e454]: 12:30
+              - generic [ref=e455]:
+                - strong [ref=e456]: 페리로 Bellagio 이동
+                - generic [ref=e457]: 소요 15-25분 + 대기
+                - paragraph [ref=e458]: Navigazione Laghi 공식 시간표를 기준으로 당일 오전 배편을 확인하세요. 핵심은 “바렌나에서 충분히 본 뒤, 벨라지오에서 점심과 산책”입니다.
+            - generic [ref=e459]:
+              - generic [ref=e460]: 13:00
+              - generic [ref=e461]:
+                - strong [ref=e462]: Bellagio 점심 + 상점 구경
+                - generic [ref=e463]: 소요 3-3.5시간
+                - paragraph [ref=e464]: 벨라지오는 기념품과 간단한 선물 보기 좋습니다. 정원 입장까지 넣으면 동선이 길어지므로, 오늘은 마을 산책에 무게를 둡니다.
+            - generic [ref=e465]:
+              - generic [ref=e466]: 17:00
+              - generic [ref=e467]:
+                - strong [ref=e468]: Varenna 경유 후 밀라노 복귀
+                - generic [ref=e469]: 소요 2-2.5시간
+                - paragraph [ref=e470]: 돌아오는 동선은 저녁 전에 밀라노로 복귀하는 것을 권합니다. 호수 일정은 해가 길어도 걸음 수가 많아 생각보다 피곤합니다.
+          - complementary [ref=e471]:
+            - generic [ref=e472]:
+              - heading "카페 / 식당 추천" [level=4] [ref=e473]
+              - list [ref=e474]:
+                - listitem [ref=e475]:
+                  - strong [ref=e476]: Varenna Caffè Bistrot
+                  - paragraph [ref=e477]: 바렌나에서 가장 쓰기 쉬운 호숫가 휴식 카드입니다. 열차와 산책 사이에 커피나 가벼운 브런치를 끼우기 좋고, 일정이 흔들려도 대응이 쉽습니다.
+                - listitem [ref=e478]:
+                  - strong [ref=e479]: Bellagio Restaurant & Bar
+                  - paragraph [ref=e480]: 벨라지오 중심에서 점심을 안정적으로 넣기 좋은 선택입니다. 이동 동선에서 크게 벗어나지 않고, 호수 분위기를 식사 안으로 가져올 수 있습니다.
+                - listitem [ref=e481]:
+                  - strong [ref=e482]: La Pergola Bellagio
+                  - paragraph [ref=e483]: 점심을 조금 더 로맨틱하게 가져가고 싶다면 좋습니다. 정찬보다도 “호숫가에서 허니문답게 한 끼”라는 느낌이 분명합니다.
+            - generic [ref=e484]:
+              - heading "권장 이유" [level=4] [ref=e485]
+              - paragraph [ref=e486]: 두 곳만 보면 각 장소에서 “앉아 있는 시간”이 생깁니다. 허니문에서는 이 시간이 사진보다 더 기억에 남습니다.
+            - generic [ref=e487]:
+              - heading "우천 / 강풍 대안" [level=4] [ref=e488]
+              - paragraph [ref=e489]:
+                - text: 배편이 불안정하면
+                - strong [ref=e490]: Varenna 단독
+                - text: 으로 전환하세요. 기차로 접근이 쉽고, 마을 분위기만으로도 하루 가치가 충분합니다.
+            - generic [ref=e491]:
+              - heading "예약 메모" [level=4] [ref=e492]
+              - list [ref=e493]:
+                - listitem [ref=e494]: 열차는 Trenord 앱 또는 역 발권
+                - listitem [ref=e495]: 페리는 당일 아침 공식 시간표 재확인
+                - listitem [ref=e496]: 호수에서는 신발이 편한 것이 더 중요
+    - generic [ref=e498]:
+      - generic [ref=e499]:
+        - generic [ref=e500]:
+          - generic [ref=e501]: Day 5
+          - heading "2026.07.25 토 | 베르가모는 상부도시에 집중하는 것이 가장 좋다" [level=2] [ref=e502]
+        - link "↗ Visit Bergamo" [ref=e503] [cursor=pointer]:
+          - /url: https://www.visitbergamo.net/en/upper-bergamo/
+      - article [ref=e504]:
+        - generic [ref=e505]:
+          - generic [ref=e506]:
+            - strong [ref=e507]: 07.25 Sat
+            - generic [ref=e508]: Milano Centrale → Bergamo → Citta Alta
+          - generic [ref=e509]:
+            - 'heading "추천 톤: “수직 이동은 짧게, 풍경은 충분히”" [level=3] [ref=e510]'
+            - paragraph [ref=e511]:
+              - text: 공식 안내 기준으로
+              - strong [ref=e512]: Milano Centrale - Bergamo
+              - text: 는 약
+              - strong [ref=e513]: 48분
+              - text: 이고, Bergamo 역에서 버스와 푸니쿨라를 통해 Citta Alta로 올라가면 핵심이 바로 시작됩니다.
+        - generic [ref=e514]:
+          - generic [ref=e515]:
+            - generic [ref=e516]:
+              - generic [ref=e517]: 09:00
+              - generic [ref=e518]:
+                - strong [ref=e519]: Milano Centrale 출발
+                - generic [ref=e520]: 소요 45-50분 열차
+                - paragraph [ref=e521]: 토요일은 너무 이르게 서두를 필요는 없습니다. 오전 9시대 출발이면 점심 전 Citta Alta 핵심 구역에 들어갈 수 있습니다.
+            - generic [ref=e522]:
+              - generic [ref=e523]: 10:15
+              - generic [ref=e524]:
+                - strong [ref=e525]: 역 도착 후 Citta Alta 이동
+                - generic [ref=e526]: 소요 35-45분
+                - paragraph [ref=e527]: ATB 관광 안내 기준으로 역에서 버스 1번과 푸니쿨라 연결이 가장 일반적입니다. 에너지를 아끼고 상부도시에서 더 걷는 편이 좋습니다.
+            - generic [ref=e528]:
+              - generic [ref=e529]: 11:00
+              - generic [ref=e530]:
+                - strong [ref=e531]: Piazza Vecchia, Basilica, Cappella Colleoni
+                - generic [ref=e532]: 소요 2.5-3시간
+                - paragraph [ref=e533]: 베르가모의 핵심은 이 축입니다. 미술관이나 박물관을 더 넣기보다 광장과 성당군, 골목 자체의 분위기를 즐기세요.
+            - generic [ref=e534]:
+              - generic [ref=e535]: 14:30
+              - generic [ref=e536]:
+                - strong [ref=e537]: San Vigilio 선택
+                - generic [ref=e538]: 소요 60-90분
+                - paragraph [ref=e539]: 컨디션이 좋다면 푸니쿨라를 한 번 더 타고 San Vigilio까지 오르는 선택이 훌륭합니다. 풍경은 좋지만 생략해도 일정 완성도는 충분합니다.
+            - generic [ref=e540]:
+              - generic [ref=e541]: 17:30
+              - generic [ref=e542]:
+                - strong [ref=e543]: 밀라노 귀환
+                - generic [ref=e544]: 소요 75-90분
+                - paragraph [ref=e545]: 마지막 밤은 밀라노에서 편안하게 보내는 편이 좋습니다. 브레라나 호텔 주변에서 조용한 저녁으로 마무리하세요.
+          - complementary [ref=e546]:
+            - generic [ref=e547]:
+              - heading "카페 / 식당 추천" [level=4] [ref=e548]
+              - list [ref=e549]:
+                - listitem [ref=e550]:
+                  - strong [ref=e551]: Caffè del Tasso
+                  - paragraph [ref=e552]: Piazza Vecchia에서 가장 그림처럼 쉬기 좋은 자리입니다. 역사성과 광장 풍경이 함께 살아 있어 커피 한 잔도 “베르가모에 왔다”는 느낌을 줍니다.
+                - listitem [ref=e553]:
+                  - strong [ref=e554]: Il Circolino Città Alta
+                  - paragraph [ref=e555]: 상부도시 한가운데서 점심을 안정적으로 넣기 좋습니다. 오래된 수도원 공간을 활용한 분위기가 있어 베르가모의 질감과 잘 맞습니다.
+                - listitem [ref=e556]:
+                  - strong [ref=e557]: Da Mimmo
+                  - paragraph [ref=e558]: 클래식한 식사를 원하면 좋은 선택입니다. 상부도시에서의 마지막 한 끼를 “전통 있는 레스토랑”처럼 마무리하고 싶을 때 잘 맞습니다.
+            - generic [ref=e559]:
+              - heading "사진 포인트" [level=4] [ref=e560]
+              - paragraph [ref=e561]: Piazza Vecchia 아케이드, Basilica 인근 석재 입면, 성벽 위 산책로, San Vigilio 쪽 언덕 풍경.
+            - generic [ref=e562]:
+              - heading "이 날의 승부처" [level=4] [ref=e563]
+              - paragraph [ref=e564]: 낮은 도시를 넓게 보지 말고 상부도시의 밀도에 집중하세요. 이 방식이 훨씬 우아합니다.
+            - generic [ref=e565]:
+              - heading "교통 메모" [level=4] [ref=e566]
+              - list [ref=e567]:
+                - listitem [ref=e568]: 푸니쿨라는 도시 풍경 자체가 일정의 일부입니다.
+                - listitem [ref=e569]: 평지보다 돌바닥이 많아 신발은 안정감이 중요합니다.
+    - generic [ref=e571]:
+      - generic [ref=e572]:
+        - generic [ref=e573]:
+          - generic [ref=e574]: Day 6
+          - heading "2026.07.26 일 | 밀라노에서 프라하로 넘어가는 아침" [level=2] [ref=e575]
+        - link "↗ Skyscanner 항공 검색" [ref=e576] [cursor=pointer]:
+          - /url: https://skyscanner.net/g/referrals/v1/flights/home?mediaPartnerId=2850210&utm_term=skyscanner_chatgpt_app_data
+      - article [ref=e577]:
+        - generic [ref=e578]:
+          - generic [ref=e579]:
+            - strong [ref=e580]: 07.26 Sun
+            - generic [ref=e581]: 밀라노 → 프라하
+          - generic [ref=e582]:
+            - 'heading "추천 톤: “도착 시각이 우선인지, 마지막 밤의 편안함이 우선인지”를 먼저 고르기" [level=3] [ref=e583]'
+            - paragraph [ref=e584]:
+              - text: 현재 확인한 실시간 검색 기준으로는
+              - strong [ref=e585]: BGY 출발 06:35 → PRG 08:00 직항
+              - text: 이 가장 깔끔합니다. 다만 아주 이른 아침이므로, 마지막 밤의 피로도를 줄이고 싶다면
+              - strong [ref=e586]: MXP 출발편
+              - text: 을 비교해 예약하는 것이 낫습니다.
+        - generic [ref=e587]:
+          - generic [ref=e588]:
+            - generic [ref=e589]:
+              - generic [ref=e590]: 03:50
+              - generic [ref=e591]:
+                - strong [ref=e592]: BGY 직항 기준 호텔 출발
+                - generic [ref=e593]: 소요 90-100분 이동
+                - paragraph [ref=e594]: 호텔이 공항 셔틀 정류장 200m권이라 접근은 좋지만, 06:35 항공편은 매우 이른 출발이 필요합니다. 수하물이 있으면 더 여유를 두는 편이 안전합니다.
+            - generic [ref=e595]:
+              - generic [ref=e596]: 05:45
+              - generic [ref=e597]:
+                - strong [ref=e598]: 보안 검색 및 탑승 대기
+                - generic [ref=e599]: 소요 45-50분
+                - paragraph [ref=e600]: 저가 항공과 주말 공항 특성상 여유 버퍼를 넉넉히 잡는 편이 낫습니다. 마지막 날은 조식보다 공항 도착 안정성이 우선입니다.
+            - generic [ref=e601]:
+              - generic [ref=e602]: 08:00
+              - generic [ref=e603]:
+                - strong [ref=e604]: 프라하 도착
+                - generic [ref=e605]: 비행시간 약 85분
+                - paragraph [ref=e606]: 도착 시간이 이르기 때문에 프라하 시내 반나절 이상을 벌 수 있다는 것이 BGY 직항의 가장 큰 장점입니다.
+          - complementary [ref=e607]:
+            - generic [ref=e608]:
+              - heading "식사 전략" [level=4] [ref=e609]
+              - list [ref=e610]:
+                - listitem [ref=e611]:
+                  - strong [ref=e612]: BGY 06:35 직항
+                  - paragraph [ref=e613]: 호텔 조식보다는 전날 밤 간단한 간식과 물을 미리 사두는 편이 낫습니다. 이 시간대는 “공항 도착 안정성”이 식당 선택보다 우선입니다.
+                - listitem [ref=e614]:
+                  - strong [ref=e615]: MXP 대안편을 고를 경우
+                  - paragraph [ref=e616]: 좀 더 늦은 오전편이면 Centrale 근처 카페 한 곳을 끼울 여유가 생깁니다. 그때는 Pavé처럼 동선 짧은 곳이 가장 합리적입니다.
+            - generic [ref=e617]:
+              - heading "BGY 접근" [level=4] [ref=e618]
+              - paragraph [ref=e619]:
+                - text: Orioshuttle 공식 안내 기준으로
+                - strong [ref=e620]: Bergamo Airport - Milan Central
+                - text: 는 약
+                - strong [ref=e621]: 50분
+                - text: 입니다. 호텔과 셔틀 정류장의 거리가 짧다는 점이 유리합니다.
+            - generic [ref=e622]:
+              - heading "MXP 접근" [level=4] [ref=e623]
+              - paragraph [ref=e624]:
+                - text: Malpensa Express 공식 안내 기준으로
+                - strong [ref=e625]: Milano Centrale - Malpensa T1
+                - text: 는 약
+                - strong [ref=e626]: 51분
+                - text: 이며, 30분 간격 운행 패턴이 있습니다.
+            - generic [ref=e627]:
+              - heading "최종 판단 기준" [level=4] [ref=e628]
+              - list [ref=e629]:
+                - listitem [ref=e630]: "프라하 도착시간 우선: BGY"
+                - listitem [ref=e631]: "마지막 아침의 안정감 우선: MXP"
+                - listitem [ref=e632]: 현재 검색상 아침 직항 가치는 BGY 쪽이 더 선명함
+    - generic [ref=e634]:
+      - generic [ref=e635]:
+        - generic [ref=e636]:
+          - generic [ref=e637]: Shopping Map
+          - heading "07.23 생일 선물 찾기 지도를 눈에 보이게 정리하면" [level=2] [ref=e638]
+          - paragraph [ref=e639]:
+            - text: 이 섹션은 “브랜드를 아직 못 정했다”는 상황에도 쓸 수 있게, 매장 이름보다
+            - strong [ref=e640]: 성격이 다른 쇼핑 구역
+            - text: 을 분리해서 정리했습니다.
+        - link "↗ YesMilano 패션 지구" [ref=e641] [cursor=pointer]:
+          - /url: https://www.yesmilano.it/en/see-and-do/venues/quadrilatero-della-moda-fashion-district
+      - generic [ref=e642]:
+        - article [ref=e643]:
+          - img "생일날 쇼핑 동선을 보여 주는 개념도" [ref=e644]
+          - paragraph [ref=e645]:
+            - text: 동선의 키워드는
+            - strong [ref=e646]: 두오모에서 시작해 브레라에서 끝낸다
+            - text: 입니다. 그래야 명품, 실용 선물, 감성 소품이 모두 한날에 정리됩니다.
+        - generic [ref=e647]:
+          - article [ref=e648]:
+            - heading "백 / 액세서리" [level=3] [ref=e649]
+            - paragraph [ref=e650]: 빠르게 넓게 보려면 Rinascente, 확실한 기념일용으로 좁히려면 Quadrilatero가 좋습니다.
+          - article [ref=e651]:
+            - heading "주얼리 / 시계" [level=3] [ref=e652]
+            - paragraph [ref=e653]: Montenapoleone 축이 가장 “생일 선물답다”는 느낌을 주는 구역입니다. 비교는 짧게, 결정은 명확하게.
+          - article [ref=e654]:
+            - heading "향수 / 뷰티" [level=3] [ref=e655]
+            - paragraph [ref=e656]: Rinascente 뷰티홀은 브랜드 밀도가 높아 탐색 효율이 좋고, 구매 후 바로 포장받기 편합니다.
+          - article [ref=e657]:
+            - heading "디자인 소품 / 감성 선물" [level=3] [ref=e658]
+            - paragraph [ref=e659]: 브레라가 가장 잘 맞습니다. 값보다 “기억에 남는 작은 물건”을 고르기 좋은 구역입니다.
+    - generic [ref=e661]:
+      - generic [ref=e662]:
+        - generic [ref=e663]:
+          - generic [ref=e664]: Prague Transfer
+          - heading "BGY와 MXP 중 무엇을 예약하는 게 더 좋은가" [level=2] [ref=e665]
+          - paragraph [ref=e666]:
+            - text: 이미 숙소가 Milano Centrale 인근이라 둘 다 접근은 좋습니다. 차이는
+            - strong [ref=e667]: 공항까지의 체감 난이도
+            - text: 보다
+            - strong [ref=e668]: 항공편 시간대
+            - text: 에서 생깁니다.
+        - link "↗ Orioshuttle" [ref=e669] [cursor=pointer]:
+          - /url: https://www.orioshuttle.com/_eng/le-linee.cfm
+      - generic [ref=e670]:
+        - article [ref=e671]:
+          - generic [ref=e672]: Recommended if arrival time matters
+          - heading "BGY 우선 추천안" [level=3] [ref=e673]
+          - paragraph [ref=e674]:
+            - text: 실시간 검색상 확인된 가장 선명한 옵션은
+            - strong [ref=e675]: 2026-07-26 06:35 출발, 08:00 프라하 도착 직항
+            - text: 입니다. 호텔에서 공항 셔틀 정류장이 가까워 공항 접근 논리가 깔끔합니다.
+          - list [ref=e676]:
+            - listitem [ref=e677]: "장점: 프라하 반나절을 거의 온전히 확보"
+            - listitem [ref=e678]: "단점: 마지막 날 새벽 이동이 매우 이름"
+            - listitem [ref=e679]: "잘 맞는 경우: 프라하 일정이 빡빡하거나, 낮 시간을 벌고 싶을 때"
+        - article [ref=e680]:
+          - generic [ref=e681]: Best if comfort matters
+          - heading "MXP 대안" [level=3] [ref=e682]
+          - paragraph [ref=e683]:
+            - text: Malpensa Express는 Milano Centrale와 공항을 약
+            - strong [ref=e684]: 51분
+            - text: 으로 연결합니다. 만약 더 늦은 오전 항공편을 잡을 수 있다면, 마지막 밤의 안정감은 MXP가 조금 더 낫습니다.
+          - list [ref=e685]:
+            - listitem [ref=e686]: "장점: 철도 접근이 명확하고, 출발 패턴이 익숙함"
+            - listitem [ref=e687]: "단점: 현재 확인 시점 기준으로 아침 직항 매력은 BGY보다 덜 선명함"
+            - listitem [ref=e688]: "잘 맞는 경우: 마지막 날 새벽 4시 전후 이동을 피하고 싶을 때"
+    - generic [ref=e690]:
+      - generic [ref=e691]:
+        - generic [ref=e692]:
+          - generic [ref=e693]: Checklist
+          - heading "출발 30~45일 전, 그리고 현지에서 확인할 것" [level=2] [ref=e694]
+        - link "↗ Navigazione Laghi" [ref=e695] [cursor=pointer]:
+          - /url: https://www.navigazionelaghi.it/en/tickets-and-timetables-lake-como
+      - generic [ref=e696]:
+        - article [ref=e697]:
+          - heading "1. 생일 디너 예약" [level=3] [ref=e698]
+          - paragraph [ref=e699]: Maio 또는 Ceresio 7 중 어디를 선택할지 먼저 정하고, 두오모 테라스를 끼울지 여부에 따라 시간을 확정합니다.
+        - article [ref=e700]:
+          - heading "2. 두오모 테라스 입장권" [level=3] [ref=e701]
+          - paragraph [ref=e702]: 2026년 7월 23일 목요일 특별 연장 오픈을 활용하려면 저녁 시간대 슬롯을 우선 확인하세요.
+        - article [ref=e703]:
+          - heading "3. 프라하 항공 예약" [level=3] [ref=e704]
+          - paragraph [ref=e705]: BGY 직항과 MXP 대안을 비교한 뒤, 마지막 밤의 피로도와 프라하 도착 시간을 기준으로 결정하세요.
+        - article [ref=e706]:
+          - heading "4. 꼬모 열차와 페리" [level=3] [ref=e707]
+          - paragraph [ref=e708]: 열차는 전날 사전 구매가 편하고, 페리는 당일 바람과 운항 상황을 공식 시간표로 재확인하는 편이 안전합니다.
+        - article [ref=e709]:
+          - heading "5. 택스 프리 여부" [level=3] [ref=e710]
+          - paragraph [ref=e711]: 생일 선물이 고가 물품이라면 즉시 택스 프리 가능 여부와 서류 발급 조건을 매장에서 확인하세요.
+        - article [ref=e712]:
+          - heading "6. 날씨에 따른 일자 스왑" [level=3] [ref=e713]
+          - paragraph [ref=e714]: 비가 오면 꼬모와 밀라노 시내 날짜를 바꾸는 것이 가장 효과적입니다. 베르가모는 흐려도 일정이 크게 무너지지 않습니다.
+      - list [ref=e716]:
+        - listitem [ref=e717]:
+          - strong [ref=e718]: 우천시 교체 우선순위
+          - text: ": 꼬모 ↔ 밀라노 시내, 베르가모는 유지."
+        - listitem [ref=e719]:
+          - strong [ref=e720]: 쇼핑 전력 배분
+          - text: ": 오전 탐색, 오후 확정, 브레라에서는 소품과 향수로 마감."
+        - listitem [ref=e721]:
+          - strong [ref=e722]: 허니문 사진
+          - text: ": 인파 적은 오전 광장, 해질녘 루프탑, 호숫가 산책로 세 장면만 잘 챙겨도 충분합니다."
+    - generic [ref=e724]:
+      - generic [ref=e726]:
+        - generic [ref=e727]: Sources
+        - heading "이번 가이드에 반영한 주요 공식 / 준공식 정보원" [level=2] [ref=e728]
+        - paragraph [ref=e729]: 실제 예약 직전에는 운영시간과 운행시간을 한 번 더 확인하는 것이 좋습니다. 특히 두오모, 레스토랑, 꼬모 페리, 항공편은 변동 가능성이 있습니다.
+      - list [ref=e731]:
+        - listitem [ref=e732]:
+          - strong [ref=e733]: UNA HOTELS Century Milano
+          - text: 호텔 위치, 접근, 체크인/체크아웃, 주변 허브 거리
+          - link "https://www.unaitalianhospitality.com/en/hotels/una-hotels-century-milano" [ref=e734] [cursor=pointer]:
+            - /url: https://www.unaitalianhospitality.com/en/hotels/una-hotels-century-milano
+        - listitem [ref=e735]:
+          - strong [ref=e736]: YesMilano
+          - text: 패션 지구, Brera, Navigli 등 밀라노 지역 성격 파악
+          - link "Quadrilatero" [ref=e737] [cursor=pointer]:
+            - /url: https://www.yesmilano.it/en/see-and-do/venues/quadrilatero-della-moda-fashion-district
+          - link "Brera" [ref=e738] [cursor=pointer]:
+            - /url: https://www.yesmilano.it/en/neighborhoods/milano-brera-things-to-do
+          - link "Navigli" [ref=e739] [cursor=pointer]:
+            - /url: https://www.yesmilano.it/en/evening-navigli
+        - listitem [ref=e740]:
+          - strong [ref=e741]: Duomo di Milano
+          - text: 2026 여름 목요일 특별 오픈 및 기본 운영 정보
+          - link "https://www.duomomilano.it/en/special-openings-spring-summer-2026/" [ref=e742] [cursor=pointer]:
+            - /url: https://www.duomomilano.it/en/special-openings-spring-summer-2026/
+        - listitem [ref=e743]:
+          - strong [ref=e744]: ATM Milano
+          - text: 시내권 교통 티켓 가격과 모바일/컨택트리스 이용 흐름
+          - link "https://www.atm.it/en/ViaggiaConNoi/Biglietti/Pages/tickets_milan.aspx" [ref=e745] [cursor=pointer]:
+            - /url: https://www.atm.it/en/ViaggiaConNoi/Biglietti/Pages/tickets_milan.aspx
+        - listitem [ref=e746]:
+          - strong [ref=e747]: Trenord
+          - text: Milano Centrale - Varenna Esino, Milano Centrale - Bergamo 이동 기본 정보
+          - link "Milano Centrale - Varenna Esino" [ref=e748] [cursor=pointer]:
+            - /url: https://www.trenord.it/en/routes-and-timetables/most-searched-lines/milano-central-station-varenna-esino/
+          - link "Milano Centrale - Bergamo" [ref=e749] [cursor=pointer]:
+            - /url: https://www.trenord.it/en/routes-and-timetables/most-searched-lines/milano-centrale-bergamo-route/
+        - listitem [ref=e750]:
+          - strong [ref=e751]: Navigazione Laghi
+          - text: 꼬모 페리 시간표 확인
+          - link "https://www.navigazionelaghi.it/en/tickets-and-timetables-lake-como" [ref=e752] [cursor=pointer]:
+            - /url: https://www.navigazionelaghi.it/en/tickets-and-timetables-lake-como
+        - listitem [ref=e753]:
+          - strong [ref=e754]: Visit Bergamo / ATB
+          - text: Citta Alta와 푸니쿨라 동선
+          - link "Visit Bergamo" [ref=e755] [cursor=pointer]:
+            - /url: https://www.visitbergamo.net/en/upper-bergamo/
+          - link "ATB Tourist Services" [ref=e756] [cursor=pointer]:
+            - /url: https://www.atb.bergamo.it/en/other-services/tourist-services
+        - listitem [ref=e757]:
+          - strong [ref=e758]: Malpensa Express / Orioshuttle / Skyscanner
+          - text: 프라하 이동 및 공항 접근 비교
+          - link "Malpensa Express" [ref=e759] [cursor=pointer]:
+            - /url: https://www.malpensaexpress.it/en/lines-and-timetable/lines-and-timetables/our-lines/malpensa-milano-centrale/
+          - link "Orioshuttle" [ref=e760] [cursor=pointer]:
+            - /url: https://www.orioshuttle.com/_eng/le-linee.cfm
+          - link "Skyscanner" [ref=e761] [cursor=pointer]:
+            - /url: https://skyscanner.net/g/referrals/v1/flights/home?mediaPartnerId=2850210&utm_term=skyscanner_chatgpt_app_data
+        - listitem [ref=e762]:
+          - strong [ref=e763]: Food Picks | Milan
+          - text: 도착일, 시내일, 생일일에 붙이기 좋은 카페·식당 공식 페이지
+          - link "Pavé Milano" [ref=e764] [cursor=pointer]:
+            - /url: https://www.pavemilano.com/
+          - link "Ratanà" [ref=e765] [cursor=pointer]:
+            - /url: https://www.ratana.it/
+          - link "Marchesi 1824" [ref=e766] [cursor=pointer]:
+            - /url: https://www.marchesi1824.com/
+          - link "N'Ombra de Vin" [ref=e767] [cursor=pointer]:
+            - /url: https://www.nombradevin.it/about
+          - link "Osteria del Binari" [ref=e768] [cursor=pointer]:
+            - /url: https://osteriadelbinari.it/
+          - link "Maio Restaurant" [ref=e769] [cursor=pointer]:
+            - /url: https://milano.maiorestaurant.com/
+          - link "Ceresio 7" [ref=e770] [cursor=pointer]:
+            - /url: https://www.ceresio7.com/milano/ristorante/
+        - listitem [ref=e771]:
+          - strong [ref=e772]: Food Picks | Lake Como & Bergamo
+          - text: 호수 데이와 베르가모 데이에 맞는 식사 / 카페 후보
+          - link "Varenna Turismo - Cafe and Restaurant" [ref=e773] [cursor=pointer]:
+            - /url: https://varennaturismo.com/en/cafe-and-restaurant/
+          - link "Bellagio Restaurant & Bar" [ref=e774] [cursor=pointer]:
+            - /url: https://www.hotelbellagio.it/en/bellagio-restaurant-bar/
+          - link "La Pergola Bellagio" [ref=e775] [cursor=pointer]:
+            - /url: https://www.lapergolabellagio.com/en/
+          - link "Caffè del Tasso" [ref=e776] [cursor=pointer]:
+            - /url: https://www.caffedeltasso.com/en/homepage-english/
+          - link "Il Circolino Città Alta" [ref=e777] [cursor=pointer]:
+            - /url: https://www.ilcircolinocittaalta.it/en/
+          - link "Da Mimmo" [ref=e778] [cursor=pointer]:
+            - /url: https://www.damimmoelina.com/en/da-mimmo-restaurant/
+  - contentinfo [ref=e779]: 이 가이드는 현 시점 기준의 공식 또는 준공식 정보를 바탕으로 정리한 정적 문서입니다. 실예약 직전에는 레스토랑 운영, 두오모 슬롯, 꼬모 페리, 프라하 항공편을 다시 확인하세요.

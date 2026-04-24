@@ -1,0 +1,28 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="36" fill="#18362F"/>
+  <rect x="34" y="34" width="1132" height="652" rx="28" fill="#F7F2E8"/>
+  <path d="M258 378C350 310 404 274 514 274C614 274 648 378 758 378C866 378 892 274 1000 274" stroke="#CDA16A" stroke-width="8" stroke-linecap="round" stroke-dasharray="10 16"/>
+  <path d="M256 408C354 472 412 504 526 504C642 504 700 382 820 382C914 382 964 444 1040 494" stroke="#D6A090" stroke-width="8" stroke-linecap="round" stroke-dasharray="10 16"/>
+  <circle cx="208" cy="392" r="54" fill="#18362F"/>
+  <circle cx="516" cy="274" r="34" fill="#CDA16A"/>
+  <circle cx="522" cy="504" r="34" fill="#D6A090"/>
+  <circle cx="1000" cy="274" r="34" fill="#CDA16A"/>
+  <circle cx="1040" cy="494" r="34" fill="#D6A090"/>
+  <circle cx="820" cy="382" r="34" fill="#18362F"/>
+  <path d="M205 350C188 350 176 363 176 379C176 412 208 440 208 440C208 440 240 412 240 379C240 363 228 350 211 350H205Z" fill="#F7F2E8"/>
+  <text x="118" y="494" fill="#18362F" font-size="28" font-family="'Noto Sans KR', sans-serif" font-weight="700">UNA HOTELS</text>
+  <text x="106" y="530" fill="#18362F" font-size="28" font-family="'Noto Sans KR', sans-serif" font-weight="700">Century Milano</text>
+  <text x="120" y="565" fill="#48645B" font-size="19" font-family="'Noto Sans KR', sans-serif">Milano Centrale · 셔틀 정류장 모두 도보권</text>
+  <text x="470" y="220" fill="#18362F" font-size="26" font-family="'Noto Sans KR', sans-serif" font-weight="700">밀라노 중심</text>
+  <text x="455" y="248" fill="#48645B" font-size="18" font-family="'Noto Sans KR', sans-serif">Duomo / Brera / Navigli</text>
+  <text x="480" y="564" fill="#18362F" font-size="26" font-family="'Noto Sans KR', sans-serif" font-weight="700">꼬모 데이</text>
+  <text x="420" y="592" fill="#48645B" font-size="18" font-family="'Noto Sans KR', sans-serif">Varenna + Bellagio</text>
+  <text x="939" y="220" fill="#18362F" font-size="26" font-family="'Noto Sans KR', sans-serif" font-weight="700">Bergamo</text>
+  <text x="906" y="248" fill="#48645B" font-size="18" font-family="'Noto Sans KR', sans-serif">Citta Alta</text>
+  <text x="978" y="560" fill="#18362F" font-size="26" font-family="'Noto Sans KR', sans-serif" font-weight="700">Prague</text>
+  <text x="935" y="588" fill="#48645B" font-size="18" font-family="'Noto Sans KR', sans-serif">BGY/MXP 출발 비교</text>
+  <text x="742" y="340" fill="#18362F" font-size="24" font-family="'Noto Sans KR', sans-serif" font-weight="700">공항 셔틀 허브</text>
+  <text x="735" y="368" fill="#48645B" font-size="18" font-family="'Noto Sans KR', sans-serif">MXP / BGY / LIN 접근</text>
+  <rect x="116" y="112" width="268" height="72" rx="18" fill="#18362F"/>
+  <text x="146" y="157" fill="#F7F2E8" font-size="26" font-family="'Cormorant Garamond', serif" font-weight="700">Basecamp Strategy</text>
+</svg>
