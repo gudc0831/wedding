@@ -1,0 +1,172 @@
+{
+  "maps": [
+    {
+      "id": "basecamp",
+      "points": [
+        {
+          "place_key": "hotel",
+          "label": "UNA HOTELS Century Milano",
+          "role": "숙소 베이스",
+          "lat": 45.4857,
+          "lon": 9.2032,
+          "color": "#17372f"
+        },
+        {
+          "place_key": "centrale",
+          "label": "Milano Centrale",
+          "role": "기차와 공항 셔틀 거점",
+          "lat": 45.4863,
+          "lon": 9.2030,
+          "color": "#cda16a"
+        },
+        {
+          "place_key": "duomo",
+          "label": "Duomo di Milano",
+          "role": "밀라노 중심 일정",
+          "lat": 45.4642,
+          "lon": 9.1916,
+          "color": "#d6a090"
+        },
+        {
+          "place_key": "varenna",
+          "label": "Varenna",
+          "role": "꼬모 호수 당일치기",
+          "lat": 46.0106,
+          "lon": 9.2836,
+          "color": "#78917e"
+        },
+        {
+          "place_key": "bellagio",
+          "label": "Bellagio",
+          "role": "꼬모 호수 페리 코스",
+          "lat": 45.9876,
+          "lon": 9.2615,
+          "color": "#78917e"
+        },
+        {
+          "place_key": "bergamo",
+          "label": "Bergamo Citta Alta",
+          "role": "베르가모 당일치기",
+          "lat": 45.7033,
+          "lon": 9.6623,
+          "color": "#cda16a"
+        },
+        {
+          "place_key": "bgy",
+          "label": "Milan Bergamo Airport",
+          "role": "프라하 이동 후보 공항",
+          "lat": 45.6689,
+          "lon": 9.7005,
+          "color": "#d6a090"
+        },
+        {
+          "place_key": "mxp",
+          "label": "Milan Malpensa Airport",
+          "role": "프라하 이동 후보 공항",
+          "lat": 45.6301,
+          "lon": 8.7255,
+          "color": "#d6a090"
+        },
+        {
+          "place_key": "lin",
+          "label": "Milan Linate Airport",
+          "role": "도심 접근 공항",
+          "lat": 45.4451,
+          "lon": 9.2767,
+          "color": "#d6a090"
+        }
+      ],
+      "routes": [
+        {
+          "label": "City base",
+          "keys": ["hotel", "centrale", "duomo"],
+          "color": "#17372f"
+        },
+        {
+          "label": "Lake Como day",
+          "keys": ["centrale", "varenna", "bellagio"],
+          "color": "#78917e",
+          "dashArray": "7 10"
+        },
+        {
+          "label": "Bergamo day",
+          "keys": ["centrale", "bergamo", "bgy"],
+          "color": "#cda16a",
+          "dashArray": "7 10"
+        },
+        {
+          "label": "Airport options",
+          "keys": ["centrale", "mxp", "lin", "bgy"],
+          "color": "#d6a090",
+          "dashArray": "4 8"
+        }
+      ]
+    },
+    {
+      "id": "shopping",
+      "points": [
+        {
+          "place_key": "duomo",
+          "label": "Duomo di Milano",
+          "role": "생일 코스 시작점",
+          "lat": 45.4642,
+          "lon": 9.1916,
+          "color": "#17372f"
+        },
+        {
+          "place_key": "rinascente",
+          "label": "Rinascente Milano Duomo",
+          "role": "백화점과 Maio 후보",
+          "lat": 45.4640,
+          "lon": 9.1928,
+          "color": "#cda16a"
+        },
+        {
+          "place_key": "galleria",
+          "label": "Galleria Vittorio Emanuele II",
+          "role": "산책과 디저트",
+          "lat": 45.4658,
+          "lon": 9.1900,
+          "color": "#cda16a"
+        },
+        {
+          "place_key": "montenapoleone",
+          "label": "Via Montenapoleone",
+          "role": "명품과 주얼리 쇼핑",
+          "lat": 45.4703,
+          "lon": 9.1948,
+          "color": "#d6a090"
+        },
+        {
+          "place_key": "brera",
+          "label": "Brera",
+          "role": "향수, 소품, 휴식",
+          "lat": 45.4719,
+          "lon": 9.1881,
+          "color": "#78917e"
+        },
+        {
+          "place_key": "ceresio",
+          "label": "Ceresio 7",
+          "role": "루프탑 디너 대안",
+          "lat": 45.4847,
+          "lon": 9.1847,
+          "color": "#17372f"
+        }
+      ],
+      "routes": [
+        {
+          "label": "Birthday shopping route",
+          "keys": ["duomo", "rinascente", "galleria", "montenapoleone", "brera"],
+          "color": "#cda16a"
+        },
+        {
+          "label": "Dinner option",
+          "keys": ["brera", "ceresio"],
+          "color": "#d6a090",
+          "dashArray": "6 9"
+        }
+      ]
+    }
+  ]
+}

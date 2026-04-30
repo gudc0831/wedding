@@ -34,6 +34,7 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-y: auto;
     }
 
     section[id] {
@@ -53,6 +54,9 @@
       margin: 0;
       color: var(--ink);
       font-family: "Noto Sans KR", sans-serif;
+      font-size: 15px;
+      overflow-x: hidden;
+      overflow-y: auto;
       background:
         radial-gradient(circle at 18% 18%, rgba(205, 161, 106, 0.16), transparent 28%),
         radial-gradient(circle at 82% 14%, rgba(214, 160, 144, 0.18), transparent 24%),
@@ -83,6 +87,7 @@
     .page-shell {
       position: relative;
       z-index: 1;
+      min-height: 100vh;
     }
 
     .topbar {
@@ -97,11 +102,11 @@
     .topbar-inner {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 16px 20px;
+      padding: 12px 18px;
       display: grid;
       grid-template-columns: 1fr;
       align-items: stretch;
-      gap: 12px;
+      gap: 10px;
     }
 
     .brand {
@@ -151,25 +156,41 @@
     .nav-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      overflow: visible;
-      padding-bottom: 0;
+      align-content: flex-start;
+      gap: 8px;
+      max-height: 96px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 4px 4px 0;
       width: 100%;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(23, 55, 47, 0.28) transparent;
     }
 
     .nav-links::-webkit-scrollbar {
-      display: none;
+      width: 6px;
+    }
+
+    .nav-links::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .nav-links::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+      background: rgba(23, 55, 47, 0.24);
     }
 
     .nav-links a {
       flex: 0 0 auto;
-      padding: 9px 14px;
+      padding: 7px 12px;
       border: 1px solid var(--line);
       border-radius: 999px;
       text-decoration: none;
       background: rgba(255, 255, 255, 0.56);
       color: var(--ink-soft);
-      font-size: 0.9rem;
+      font-size: 0.84rem;
       line-height: 1.2;
     }
 
@@ -181,13 +202,13 @@
     .hero {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 34px 20px 16px;
+      padding: 20px 18px 10px;
     }
 
     .hero-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
-      gap: 24px;
+      gap: 18px;
       align-items: stretch;
     }
 
@@ -201,7 +222,7 @@
     }
 
     .hero-copy {
-      padding: 38px 36px 32px;
+      padding: 22px 24px 20px;
       position: relative;
       background:
         linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(255, 248, 241, 0.68)),
@@ -211,10 +232,10 @@
     .hero-copy::after {
       content: "";
       position: absolute;
-      right: -64px;
-      bottom: -52px;
-      width: 240px;
-      height: 240px;
+      right: -72px;
+      bottom: -64px;
+      width: 210px;
+      height: 210px;
       border: 1px solid rgba(23, 55, 47, 0.14);
       border-radius: 50%;
     }
@@ -222,8 +243,8 @@
     .hero-kicker {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 10px 16px;
+      gap: 8px;
+      padding: 8px 13px;
       border-radius: 999px;
       background: rgba(23, 55, 47, 0.06);
       color: var(--ink);
@@ -237,12 +258,12 @@
       content: "07.23";
       display: inline-grid;
       place-items: center;
-      padding: 4px 9px;
+      padding: 3px 8px;
       border-radius: 999px;
       background: var(--gold);
       color: white;
       font-family: "Cormorant Garamond", serif;
-      font-size: 0.92rem;
+      font-size: 0.8rem;
       letter-spacing: 0.06em;
     }
 
@@ -251,26 +272,26 @@
       font-family: "Noto Sans KR", sans-serif;
       font-weight: 800;
       line-height: 1.12;
-      font-size: clamp(2.2rem, 5.6vw, 4.6rem);
+      font-size: clamp(1.65rem, 3.9vw, 3.05rem);
     }
 
     .hero-copy p {
-      margin: 18px 0 0;
+      margin: 14px 0 0;
       color: var(--ink-soft);
-      line-height: 1.8;
-      font-size: 1.02rem;
+      line-height: 1.58;
+      font-size: 0.9rem;
       max-width: 62ch;
     }
 
     .hero-stats {
-      margin-top: 28px;
+      margin-top: 16px;
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
+      gap: 8px;
     }
 
     .stat-card {
-      padding: 16px;
+      padding: 11px;
       border-radius: var(--radius-md);
       background: rgba(255, 255, 255, 0.7);
       border: 1px solid rgba(23, 55, 47, 0.08);
@@ -278,8 +299,8 @@
 
     .stat-label {
       display: block;
-      margin-bottom: 10px;
-      font-size: 0.78rem;
+      margin-bottom: 8px;
+      font-size: 0.7rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--ink-soft);
@@ -288,13 +309,13 @@
     .stat-value {
       display: block;
       font-family: "Noto Sans KR", sans-serif;
-      font-size: 1.52rem;
+      font-size: 1.18rem;
       font-weight: 800;
       line-height: 1;
     }
 
     .hero-actions {
-      margin-top: 24px;
+      margin-top: 20px;
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
@@ -307,9 +328,9 @@
       gap: 10px;
       text-decoration: none;
       border-radius: 999px;
-      padding: 13px 18px;
+      padding: 10px 15px;
       font-weight: 700;
-      font-size: 0.94rem;
+      font-size: 0.8rem;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
@@ -463,9 +484,9 @@
     main {
       max-width: var(--max);
       margin: 0 auto;
-      padding: 26px 20px 60px;
+      padding: 22px 18px 52px;
       display: grid;
-      gap: 28px;
+      gap: 22px;
     }
 
     section {
@@ -477,50 +498,62 @@
     }
 
     .section-inner {
-      padding: 32px;
+      padding: 26px;
+    }
+
+    #practical-info .section-inner {
+      padding: 20px;
+    }
+
+    #practical-info .check-grid {
+      gap: 10px;
+    }
+
+    #practical-info .check-item {
+      padding: 14px 16px;
     }
 
     .section-head {
       display: flex;
       align-items: flex-end;
       justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 22px;
+      gap: 14px;
+      margin-bottom: 14px;
     }
 
     .section-head p {
       margin: 0;
       color: var(--ink-soft);
-      line-height: 1.7;
+      line-height: 1.6;
       max-width: 62ch;
     }
 
     .section-index {
       display: inline-block;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       color: var(--ink-soft);
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
     }
 
     .section-head h2 {
       margin: 0;
-      font-family: "Song Myung", serif;
-      font-weight: 400;
-      font-size: clamp(1.8rem, 3.3vw, 3rem);
-      line-height: 1.1;
+      font-family: "Noto Sans KR", sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.35rem, 2.3vw, 2rem);
+      line-height: 1.18;
     }
 
     .source-chip,
     .micro-chip {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
+      gap: 6px;
+      padding: 6px 10px;
       border-radius: 999px;
       text-decoration: none;
-      font-size: 0.86rem;
+      font-size: 0.76rem;
       border: 1px solid rgba(23, 55, 47, 0.12);
       background: rgba(255, 255, 255, 0.72);
       color: var(--ink-soft);
@@ -533,8 +566,8 @@
     }
 
     .micro-chip {
-      font-size: 0.82rem;
-      padding: 7px 11px;
+      font-size: 0.74rem;
+      padding: 6px 10px;
     }
 
     .quick-grid,
@@ -546,15 +579,15 @@
     .spot-grid,
     .source-grid {
       display: grid;
-      gap: 18px;
+      gap: 14px;
     }
 
     .quick-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     }
 
     .info-card {
-      padding: 22px;
+      padding: 18px;
       border-radius: 24px;
       background: rgba(255, 255, 255, 0.68);
       border: 1px solid rgba(23, 55, 47, 0.09);
@@ -565,7 +598,7 @@
     .airport-card h3,
     .gift-card h3 {
       margin: 0 0 10px;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 800;
     }
 
@@ -578,7 +611,7 @@
     .check-item p {
       margin: 0;
       color: var(--ink-soft);
-      line-height: 1.75;
+      line-height: 1.62;
     }
 
     .two-col {
@@ -700,8 +733,8 @@
 
     .map-card .caption,
     .editorial-card .caption {
-      padding: 16px 18px 18px;
-      font-size: 0.92rem;
+      padding: 14px 16px 16px;
+      font-size: 0.76rem;
     }
 
     .editorial-card {
@@ -717,12 +750,12 @@
 
     .detail-list {
       display: grid;
-      gap: 14px;
-      margin-top: 18px;
+      gap: 10px;
+      margin-top: 14px;
     }
 
     .detail-item {
-      padding: 14px 16px;
+      padding: 12px 14px;
       border-radius: 18px;
       background: rgba(246, 240, 227, 0.74);
       border: 1px solid rgba(23, 55, 47, 0.08);
@@ -734,12 +767,17 @@
       font-size: 0.94rem;
     }
 
+    .detail-item .line-break {
+      display: block;
+      margin-top: 3px;
+    }
+
     .day-grid {
       grid-template-columns: 1fr;
     }
 
     .day-card {
-      padding: 26px;
+      padding: 22px;
     }
 
     .day-header {
@@ -779,12 +817,12 @@
     .day-content {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(290px, 0.9fr);
-      gap: 20px;
+      gap: 16px;
     }
 
     .timeline {
       display: grid;
-      gap: 14px;
+      gap: 11px;
     }
 
     .timeline-item {
@@ -792,7 +830,7 @@
       grid-template-columns: 94px minmax(0, 1fr);
       gap: 14px;
       align-items: start;
-      padding: 14px 0;
+      padding: 11px 0;
       border-top: 1px solid rgba(23, 55, 47, 0.08);
     }
 
@@ -824,8 +862,8 @@
     .timeline-item p {
       margin: 0;
       color: var(--ink-soft);
-      line-height: 1.72;
-      font-size: 0.95rem;
+      line-height: 1.6;
+      font-size: 0.9rem;
     }
 
     .duration-tag {
@@ -849,7 +887,7 @@
     }
 
     .aside-card {
-      padding: 18px;
+      padding: 15px;
       border-radius: 20px;
       background: rgba(246, 240, 227, 0.7);
       border: 1px solid rgba(23, 55, 47, 0.08);
@@ -865,8 +903,8 @@
     .aside-card li {
       margin: 0;
       color: var(--ink-soft);
-      line-height: 1.72;
-      font-size: 0.93rem;
+      line-height: 1.6;
+      font-size: 0.88rem;
     }
 
     .aside-card ul {
@@ -881,33 +919,58 @@
       margin: 0;
       padding: 0;
       display: grid;
-      gap: 12px;
+      gap: 10px;
     }
 
     .food-pick {
-      padding: 12px 14px;
+      padding: 10px 12px;
       border-radius: 16px;
       background: rgba(255, 255, 255, 0.6);
       border: 1px solid rgba(23, 55, 47, 0.08);
     }
 
     .food-pick strong {
-      display: block;
-      margin-bottom: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
       font-size: 0.93rem;
       color: var(--ink);
+    }
+
+    .food-type {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(23, 55, 47, 0.08);
+      color: var(--ink-soft);
+      font-size: 0.68rem;
+      font-weight: 800;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+
+    .food-address {
+      display: block;
+      margin: 0 0 6px;
+      color: rgba(77, 101, 94, 0.82);
+      font-size: 0.72rem;
+      line-height: 1.35;
     }
 
     .food-pick p {
       margin: 0;
       color: var(--ink-soft);
-      line-height: 1.68;
-      font-size: 0.9rem;
+      line-height: 1.58;
+      font-size: 0.8rem;
     }
 
     .birthday-banner {
       margin-bottom: 22px;
-      padding: 22px;
+      padding: 18px;
       border-radius: 24px;
       background:
         linear-gradient(135deg, rgba(214, 160, 144, 0.18), rgba(205, 161, 106, 0.16)),
@@ -940,7 +1003,7 @@
 
     th,
     td {
-      padding: 16px 18px;
+      padding: 13px 15px;
       text-align: left;
       vertical-align: top;
       border-bottom: 1px solid rgba(23, 55, 47, 0.08);
@@ -969,7 +1032,7 @@
     .airport-card,
     .gift-card,
     .check-item {
-      padding: 22px;
+      padding: 18px;
     }
 
     .airport-card.best {
@@ -997,16 +1060,16 @@
     }
 
     .tip-panel {
-      padding: 24px;
+      padding: 20px;
     }
 
     .tip-panel ul {
       margin: 0;
       padding-left: 18px;
       display: grid;
-      gap: 10px;
+      gap: 8px;
       color: var(--ink-soft);
-      line-height: 1.72;
+      line-height: 1.6;
     }
 
     .source-list {
@@ -1134,25 +1197,50 @@
 
     @media (max-width: 760px) {
       :root {
-        --anchor-offset: 220px;
+        --anchor-offset: 190px;
       }
 
       .topbar-inner {
-        padding: 14px 16px;
+        padding: 10px 14px;
+      }
+
+      .eyebrow {
+        font-size: 0.68rem;
+      }
+
+      .brand-copy h1 {
+        font-size: 0.92rem;
+      }
+
+      .nav-links a {
+        padding: 6px 11px;
+        font-size: 0.8rem;
       }
 
       .hero,
       .overview-strip,
       main,
       footer {
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-left: 14px;
+        padding-right: 14px;
       }
 
       .hero-copy,
       .section-inner,
       .day-card {
-        padding: 22px;
+        padding: 16px;
+      }
+
+      #practical-info .section-inner {
+        padding: 16px;
+      }
+
+      .hero-copy h2 {
+        font-size: 1.75rem;
+      }
+
+      .section-head h2 {
+        font-size: 1.45rem;
       }
 
       .hero-stats,
@@ -1256,7 +1344,7 @@
       <div class="hero-grid">
         <div class="hero-copy">
           <div class="hero-kicker">Birthday Mood</div>
-          <h2>밀라노를 베이스캠프로,<br>기념일은 더 특별하게.</h2>
+          <h2>이탈리아 여행</h2>
           <p>
             이 가이드는 <strong>UNA HOTELS Century Milano</strong>를 중심으로 움직이는 여유형 허니문 동선입니다.
             <strong>2026년 7월 23일 목요일</strong>에는 쇼핑과 선물 찾기에 집중하고,
@@ -1366,19 +1454,12 @@
           <div class="section-head">
             <div>
               <span class="section-index">Overview</span>
-              <h2>이번 일정의 톤과 운영 원칙</h2>
+              <h2>일정개요</h2>
             </div>
             <a class="source-chip" href="https://www.atm.it/en/ViaggiaConNoi/Biglietti/Pages/tickets_milan.aspx" target="_blank" rel="noreferrer">ATM 티켓 정보</a>
           </div>
 
           <div class="quick-grid">
-            <article class="info-card">
-              <h3>여행 템포</h3>
-              <p>
-                핵심 명소는 보되 매일 2~3개의 큰 장면만 남기는 구성이 좋습니다.
-                허니문에서는 “많이 보기”보다 “예쁜 시간대를 제대로 쓰기”가 만족도가 높습니다.
-              </p>
-            </article>
             <article class="info-card">
               <h3>도시 이동 전략</h3>
               <p>
@@ -1399,9 +1480,7 @@
 
           <div class="tip-panel" style="margin-top: 18px;">
             <ul>
-              <li><strong>환율 기준</strong>: 요청 기준일은 <strong>2026-04-18(토)</strong>이지만 ECB(Euro Foreign Exchange Reference Rates)는 토요일 고시가 없어, 문서 내 KRW 환산은 <strong>2026-04-17(금)</strong> 공식 고시를 사용했습니다.</li>
               <li><strong>기준 환율</strong>: <strong>EUR 1 = ₩1,744.76</strong>, <strong>CHF 1 = ₩1,890.11</strong>, <strong>CZK 1 = ₩71.75</strong>.</li>
-              <li><strong>표기 원칙</strong>: 문서 안의 원화는 전부 <strong>가장 가까운 100원</strong>으로 반올림했고, 장소명·메뉴명·교통 상품명은 <strong>원어 + 한국어</strong> 공동표기로 통일했습니다.</li>
             </ul>
           </div>
         </div>
@@ -1424,7 +1503,7 @@
           <div class="check-grid">
             <article class="check-item">
               <h3>City Tax</h3>
-              <p>UNA HOTELS Century Milano는 밀라노 4성급 호텔 기준으로 숙박세를 별도 예산에 둡니다. 예상액은 <strong>€10 × 2명 × 5박 = €100</strong>이고, 체크아웃 시 현장 결제될 수 있습니다.</p>
+              <p>UNA HOTELS Century Milano는 밀라노 4성급 호텔 기준으로 숙박세를 별도 예산에 둡니다. 예상액은 <strong>€10 × 2명 × 5박 = €100(약 ₩174,500)</strong>이고, 체크아웃 시 현장 결제될 수 있습니다.</p>
             </article>
             <article class="check-item">
               <h3>Tax Free</h3>
@@ -1439,8 +1518,8 @@
               <p>꼬모, 베르가모, 공항 이동 전에는 <strong>T-7일, T-2일, 전날 밤</strong>에 MIT 캘린더에서 Ferroviario, Trasporto pubblico locale, Aereo, Lombardia를 확인합니다.</p>
             </article>
             <article class="check-item">
-              <h3>BGY Early Morning</h3>
-              <p>06:35 BGY 출발편 기준으로는 <strong>03:20 로비 준비, 03:25 호텔 출발, 03:50 Orioshuttle 탑승</strong>을 기본안으로 둡니다. 04:20 셔틀은 백업으로만 봅니다.</p>
+              <h3>BGY Early Morning (베르가모 공항 새벽 출발)</h3>
+              <p>2026년 7월 26일 일요일 BGY → PRG 공개 장기 스케줄은 <strong>06:35 출발, 08:00 도착</strong>으로 보는 것이 가장 일관됩니다. <strong>03:20 로비 준비, 03:25 호텔 출발, 03:50 Orioshuttle 탑승</strong>을 기본안으로 두되, 항공권 예약 화면에서 최종 출발시각과 위탁수하물 조건은 다시 확인합니다.</p>
             </article>
             <article class="check-item">
               <h3>비상연락처</h3>
@@ -1463,7 +1542,7 @@
           <div class="section-head">
             <div>
               <span class="section-index">Hotel Base</span>
-              <h2>왜 이 호텔이 이번 일정에 잘 맞는가</h2>
+              <h2>호텔개요</h2>
               <p>
                 <strong>UNA HOTELS Century Milano</strong>는 체크인 후 일정을 다시 벌리기 좋은 위치입니다.
                 공식 안내 기준으로 <strong>Milano Centrale 200m</strong>, <strong>공항 셔틀 정류장 200m</strong>,
@@ -1480,16 +1559,12 @@
                 <button type="button" data-map-view-button="interactive" role="tab" aria-selected="false">인터랙티브</button>
               </div>
               <div class="map-view map-view-static" role="tabpanel">
-                <img class="static-map" src="./assets/basecamp-map.png" alt="호텔을 중심으로 밀라노, 꼬모, 베르가모, 공항을 연결한 실제 지도 기반 이미지">
+                <img class="static-map" src="./assets/basecamp-map.svg" alt="호텔을 중심으로 밀라노, 꼬모, 베르가모, 공항을 연결한 실제 지도 기반 이미지">
               </div>
               <div class="map-view map-view-live" role="tabpanel" aria-hidden="true">
                 <div class="live-map" data-map-target="basecamp" aria-label="호텔, 밀라노 첸트랄레, 두오모, 꼬모, 베르가모, 공항 위치를 보여 주는 인터랙티브 지도"></div>
                 <p class="map-status" data-map-status>OpenStreetMap 지도를 불러오는 중입니다.</p>
               </div>
-              <p class="caption">
-                실제 지도 기준으로 봐도 핵심은 단순합니다. <strong>호텔 - Centrale - 당일치기 - 공항</strong>이 모두 한 축으로 이어집니다.
-                그래서 일정 내내 숙소를 옮기지 않아도 됩니다.
-              </p>
             </article>
 
             <div class="editorial-card">
@@ -1506,7 +1581,12 @@
                   </div>
                   <div class="detail-item">
                     <strong>마지막 날 장점</strong>
-                    MXP/BGY 셔틀 접근이 쉬워 <strong>프라하 이동 아침</strong>까지 동선이 깔끔합니다.
+                    MXP/BGY 셔틀 접근이 쉽습니다.
+                    <span class="line-break"><strong>프라하 이동 아침까지</strong> 동선이 깔끔합니다.</span>
+                  </div>
+                  <div class="detail-item">
+                    <strong>호텔 서비스 활용</strong>
+                    공식 안내 기준으로 무료 Wi-Fi, 조식 뷔페, 컨시어지, 택시 서비스, 세탁, 바/레스토랑이 있어 첫날·마지막 날 백업 운영에 유용합니다.
                   </div>
                 </div>
               </div>
@@ -1516,6 +1596,7 @@
           <div class="tip-panel" style="margin-top: 18px;">
             <ul>
               <li><strong>현장 결제 예산: City Tax</strong>: 밀라노 4성급 호텔 기준 숙박세는 2026년 12월 31일까지 1인 1박 <strong>€10</strong>로 안내되어 있습니다. 이번 일정은 <strong>2명 × 5박 = 약 €100</strong>을 별도 예산으로 둡니다.</li>
+              <li><strong>호텔에서 누릴 수 있는 서비스</strong>: 공식 페이지에서 <strong>조식 뷔페, 무료 Wi-Fi, 컨시어지, 택시 서비스, 세탁, Business Centre, Bar / lounge, Restaurant</strong>를 확인했습니다. 추가로 <strong>제휴 주차장, Rinascente Shopping Experience, Caricami 보조배터리 대여, 친환경 호텔/BikeMi 인근 스테이션</strong>도 안내되어 있습니다.</li>
               <li><strong>짐 보관 백업</strong>: 항공편 변경이나 체크아웃 후 낮 일정이 생기면 Milano Centrale 공식 짐 보관소를 후보로 둡니다. 안내 기준 운영시간은 매일 <strong>07:00-21:00</strong>, 요금은 <strong>€6부터</strong>입니다.</li>
               <li><strong>재확인</strong>: 숙박세와 짐 보관 요금은 체크인 또는 실제 예약 시점에 호텔과 공식 페이지에서 다시 확인합니다.</li>
             </ul>
@@ -1528,7 +1609,7 @@
           <div class="section-head">
             <div>
               <span class="section-index">Day 1</span>
-              <h2>2026.07.21 화 | 도착일은 밀라노에 몸을 맞추는 날</h2>
+              <h2>2026.07.21 화 | 밀라노 첫날</h2>
             </div>
             <a class="source-chip" href="https://www.yesmilano.it/en/neighborhoods/central-milano" target="_blank" rel="noreferrer">YesMilano 중심가 참고</a>
           </div>
@@ -1539,7 +1620,6 @@
                 <span>밀라노 도착 · 호텔 체크인</span>
               </div>
               <div class="day-intro">
-                <h3>추천 톤: “이동 피로를 풀면서도, 첫인상은 예쁘게”</h3>
                 <p>
                   스위스에서 넘어와 밀라노에 적응하는 날입니다. 이 날 욕심을 부리면 다음 날부터 페이스가 무너집니다.
                   첫날은 <strong>호텔 반경이 좋은 Porta Nuova / Gae Aulenti</strong> 또는 <strong>Brera</strong>만 보고,
@@ -1570,7 +1650,7 @@
                     <div>
                       <strong>가벼운 첫 저녁</strong>
                       <span class="duration-tag">소요 90-120분</span>
-                      <p>첫날은 “맛집 도장깨기”보다 이동 적은 곳이 낫습니다. Porta Nuova에서 식사 후 돌아오거나, 호텔의 <strong>The Hall Bar &amp; Restaurant</strong>를 안전한 옵션으로 둡니다.</p>
+                      <p>첫날은 이동 적은 곳이 낫습니다.<br>Porta Nuova에서 식사 후 돌아오거나, 호텔의 <strong>The Hall Bar &amp; Restaurant</strong>를 안전한 옵션으로 둡니다.</p>
                     </div>
                   </div>
                   <div class="timeline-item">
@@ -1587,15 +1667,18 @@
                     <h4>카페 / 식당 추천 | Food Picks</h4>
                     <ul class="food-list">
                       <li class="food-pick">
-                        <strong><a href="https://www.pavemilano.com/" target="_blank" rel="noreferrer">Pavé Milano(파베 밀라노)</a></strong>
-                        <p>종류: bakery cafe(베이커리 카페). 메뉴: pain au chocolat(팽 오 쇼콜라), double baked croissant(더블 베이크드 크루아상), avocado toast(아보카도 토스트), seasonal fresh pastries(제철 생과자). 이유: 호텔과 Milano Centrale(밀라노 첸트랄레) 사이에 있어 첫날 긴 식사보다 짧은 브레이크를 넣기 좋습니다.</p>
+                        <strong><a href="https://pavemilano.com/negozi/" target="_blank" rel="noreferrer">Pavé Milano(파베 밀라노)</a><span class="food-type">카페</span></strong>
+                        <span class="food-address">Via Felice Casati 27, 20124 Milano</span>
+                        <p>종류: bakery cafe(베이커리 카페). Casati 지점은 공식 안내 기준 매일 08:00-19:00 운영입니다. 메뉴: pain au chocolat(팽 오 쇼콜라), double baked croissant(더블 베이크드 크루아상), avocado toast(아보카도 토스트), seasonal fresh pastries(제철 생과자). 이유: 호텔과 Milano Centrale(밀라노 첸트랄레) 사이에 있어 첫날 긴 식사보다 짧은 브레이크를 넣기 좋습니다.</p>
                       </li>
                       <li class="food-pick">
-                        <strong><a href="https://www.ratana.it/menu/?lang=en" target="_blank" rel="noreferrer">Ratanà(라타나)</a></strong>
-                        <p>종류: modern Milanese / Lombard cuisine(현대적으로 푼 밀라노·롬바르디아 요리). 메뉴: risotto alla Vecchia Milano(리소토 알라 베키아 밀라노) €26(약 ₩45,400), risotto alla Vecchia Milano with braised fassona beef(브레이즈드 소고기 리소토) €34(약 ₩59,300), risotto alla Vecchia Milano with veal ossobuco croquettes(오소부코 크로켓 리소토) €34(약 ₩59,300). 이유: Porta Nuova 첫 저녁에 지역색을 가장 세련되게 느끼기 좋은 카드입니다.</p>
+                        <strong><a href="https://www.ratana.it/menu/?lang=en" target="_blank" rel="noreferrer">Ratanà(라타나)</a><span class="food-type">식당</span></strong>
+                        <span class="food-address">Via Gaetano de Castillia 28, 20124 Milano</span>
+                        <p>종류: modern Milanese / Lombard cuisine(현대적으로 푼 밀라노·롬바르디아 요리). 공식 안내 기준 매일 점심·저녁 운영, 주방은 12:00-16:00 / 18:00-23:00입니다. 메뉴는 자주 바뀌므로 특정 가격보다 <strong>5코스 테이스팅 €70</strong>, 평일 점심 schiscetta €24, costoletta는 48시간 전 주문 필요로 보는 편이 안전합니다. 이유: Porta Nuova 첫 저녁에 지역색을 가장 세련되게 느끼기 좋은 카드입니다.</p>
                       </li>
                       <li class="food-pick">
-                        <strong><a href="https://www.unaitalianhospitality.com/en/hotels/una-hotels-century-milano" target="_blank" rel="noreferrer">The Hall Bar &amp; Restaurant(더 홀 바 &amp; 레스토랑)</a></strong>
+                        <strong><a href="https://www.unaitalianhospitality.com/en/hotels/una-hotels-century-milano" target="_blank" rel="noreferrer">The Hall Bar &amp; Restaurant(더 홀 바 &amp; 레스토랑)</a><span class="food-type">호텔 바</span></strong>
+                        <span class="food-address">Via Fabio Filzi 25/B, 20124 Milano</span>
                         <p>종류: hotel bar &amp; light dinner(호텔 바 &amp; 라이트 디너). 메뉴 성격: aperitivo(아페리티보), cocktails(칵테일), simple dinner plates(가벼운 디너 플레이트). 이유: 이동 피로가 크거나 비가 오면 가장 안정적인 백업이며, 첫날 체력 보존이라는 목적에 정확히 맞습니다.</p>
                       </li>
                     </ul>
@@ -1688,15 +1771,18 @@
                     <h4>카페 / 식당 추천 | Food Picks</h4>
                     <ul class="food-list">
                       <li class="food-pick">
-                        <strong><a href="https://www.marchesi1824.com/en/" target="_blank" rel="noreferrer">Marchesi 1824 Galleria(마르케시 1824 갤러리아)</a></strong>
+                        <strong><a href="https://www.marchesi1824.com/en/" target="_blank" rel="noreferrer">Marchesi 1824 Galleria(마르케시 1824 갤러리아)</a><span class="food-type">카페</span></strong>
+                        <span class="food-address">Galleria Vittorio Emanuele II, Milano</span>
                         <p>종류: historic pastry &amp; tea room(히스토릭 파스티체리아 / 티룸). 메뉴: croissant with apricot jam(살구잼 크루아상), croissant with cream(크림 크루아상), chocolate bundle(초콜릿 번들 페이스트리), kipferl(키프를), rice cake(라이스 케이크). 이유: Duomo di Milano와 갤러리아 사이에서 가장 분위기 있게 쉬기 좋고, 생일 전날 답사 느낌으로도 좋습니다.</p>
                       </li>
                       <li class="food-pick">
-                        <strong><a href="https://www.nombradevin.it/menu" target="_blank" rel="noreferrer">N'Ombra de Vin(놈브라 데 빈)</a></strong>
-                        <p>종류: wine bar / cellar(와인 바 / 와인 셀러). 공식 메뉴 구성: all day menu(올데이 메뉴), evening food menu(이브닝 푸드 메뉴), menu sfiziosità(스몰플레이트), vini &amp; drinks(와인·드링크). 이유: Brera(브레라) 골목 감도와 가장 잘 맞아 점심을 길게 가져가거나 와인 한 잔으로 쉬기 좋습니다.</p>
+                        <strong><a href="https://www.nombradevin.it/menu" target="_blank" rel="noreferrer">N'Ombra de Vin(놈브라 데 빈)</a><span class="food-type">와인바</span></strong>
+                        <span class="food-address">Via San Marco 2, 20121 Milano</span>
+                        <p>종류: wine bar / cellar(와인 바 / 와인 셀러). 공식 메뉴 구성은 all day menu(올데이 메뉴), evening food menu(이브닝 푸드 메뉴 20:00-00:00), menu sfiziosità(스몰플레이트 16:00-21:00), vini &amp; drinks(와인·드링크)입니다. 이유: Brera(브레라) 골목 감도와 가장 잘 맞아 점심을 길게 가져가거나 와인 한 잔으로 쉬기 좋습니다.</p>
                       </li>
                       <li class="food-pick">
-                        <strong><a href="https://www.osteriadelbinari.it/menu/" target="_blank" rel="noreferrer">Osteria del Binari(오스테리아 델 비나리)</a></strong>
+                        <strong><a href="https://www.osteriadelbinari.it/menu/" target="_blank" rel="noreferrer">Osteria del Binari(오스테리아 델 비나리)</a><span class="food-type">식당</span></strong>
+                        <span class="food-address">Via Tortona 1/3, 20144 Milano</span>
                         <p>종류: Milanese / Lombard classics(밀라노·롬바르디아 전통 요리). 메뉴: mondeghili(몬데길리 / 밀라노식 미트볼), risotto(리소토), riso al salto(리조 알 살토 / 구운 리소토), cotoletta alla milanese(코톨레타 알라 밀라네세), ossobuco con risotto(오소부코와 리소토). 이유: Navigli(나빌리)에서 너무 시끄럽지 않게 앉아서 저녁을 마무리하기 좋습니다.</p>
                       </li>
                     </ul>
@@ -1824,16 +1910,19 @@
                     <h4>카페 / 식당 추천 | Food Picks</h4>
                     <ul class="food-list">
                       <li class="food-pick">
-                        <strong><a href="https://milano.maiorestaurant.com/" target="_blank" rel="noreferrer">Maio Restaurant &amp; Terrace(마이오 레스토랑 &amp; 테라스)</a></strong>
-                        <p>종류: rooftop Italian dining(루프탑 이탈리안 다이닝). 메뉴: risotto alla milanese(리소토 알라 밀라네세 / 밀라노식 리소토) €19(약 ₩33,200), tagliatelle all’uovo al ragù d’ossobuco(오소부코 라구 탈리아텔레) €19(약 ₩33,200), ravioli di ricotta e spinaci(리코타·시금치 라비올리) €21(약 ₩36,600), costoletta di vitello alla milanese(밀라노식 송아지 커틀릿) €39(약 ₩68,000), classico tiramisù(클래식 티라미수) €14(약 ₩24,400), coperto(커버 차지) €4(약 ₩7,000). 이유: Rinascente(리나센테) 상층이라 쇼핑과 생일 저녁을 한 건물 안에서 마무리할 수 있습니다.</p>
+                        <strong><a href="https://milano.maiorestaurant.com/" target="_blank" rel="noreferrer">Maio Restaurant &amp; Terrace(마이오 레스토랑 &amp; 테라스)</a><span class="food-type">식당</span></strong>
+                        <span class="food-address">Piazza del Duomo, Rinascente 7° piano, 20121 Milano</span>
+                        <p>종류: rooftop Italian dining(루프탑 이탈리안 다이닝). 공식 안내 기준 매일 운영하며 레스토랑은 월-금 12:00-00:00, 토-일 11:30-00:00, Champagne Bar는 09:30-00:00입니다. 메뉴 가격은 예약 직전 최신 PDF로 재확인하고, 이 일정에서는 Duomo 뷰와 Rinascente 상층 동선이 핵심 장점입니다.</p>
                       </li>
                       <li class="food-pick">
-                        <strong><a href="https://www.marchesi1824.com/en/" target="_blank" rel="noreferrer">Marchesi 1824 Galleria(마르케시 1824 갤러리아)</a></strong>
+                        <strong><a href="https://www.marchesi1824.com/en/" target="_blank" rel="noreferrer">Marchesi 1824 Galleria(마르케시 1824 갤러리아)</a><span class="food-type">카페</span></strong>
+                        <span class="food-address">Galleria Vittorio Emanuele II, Milano</span>
                         <p>종류: pastry &amp; giftable sweets(파스티체리아 / 선물용 스위트). 메뉴 성격: pralines(프랄린), gianduiotti(지안두이오티), fresh pastries(생과자), monoportions(모노포션 케이크), Milanese aperitif(밀라노식 아페리티프). 이유: 쇼핑 중간에 쉬면서도 “패키지 자체가 선물처럼 보이는” 디저트 타임을 만들기 좋습니다.</p>
                       </li>
                       <li class="food-pick">
-                        <strong><a href="https://www.ceresio7.com/milano/ristorante/" target="_blank" rel="noreferrer">Ceresio 7(체레시오 7)</a></strong>
-                        <p>종류: skyline rooftop dining(스카이라인 루프탑 다이닝). 메뉴: tasting menu(테이스팅 메뉴) €95(약 ₩165,800), spaghetti “cacio e pepe” lime e bottarga(카초 에 페페 라임·보타르가 스파게티) €26(약 ₩45,400), agnolotti del plin(아뇰로티 델 플린) €24(약 ₩41,900), branzino(브란지노 / 농어) €35(약 ₩61,100), filetto alla Rossini(필레토 알라 로시니) €44(약 ₩76,800), dessert(디저트) 약 €13(약 ₩22,700). 이유: 두오모 뷰보다 도시 야경을 더 강하게 느끼고 싶다면 이쪽이 훨씬 선명합니다.</p>
+                        <strong><a href="https://www.ceresio7.com/milano/ristorante/" target="_blank" rel="noreferrer">Ceresio 7(체레시오 7)</a><span class="food-type">식당</span></strong>
+                        <span class="food-address">Via Ceresio 7, 20154 Milano</span>
+                        <p>종류: skyline rooftop dining(스카이라인 루프탑 다이닝). 최신 공개 메뉴 자료 기준 2026년 signature menu는 €110, 평균 식사 예산은 약 €90로 보는 편이 안전합니다. 현재 공개 메뉴는 plin ravioli €32, seabass €42, Angus fillet €51, dessert €15-25 수준이라 기념일 예산은 넉넉하게 잡습니다. 이유: 두오모 뷰보다 도시 야경을 더 강하게 느끼고 싶다면 이쪽이 훨씬 선명합니다.</p>
                       </li>
                     </ul>
                   </div>
@@ -1906,7 +1995,7 @@
                 <tr>
                   <td><strong>Maio Restaurant &amp; Terrace</strong><br>Rinascente Duomo</td>
                   <td>두오모 뷰가 직접적이고, 쇼핑 동선과 완전히 같은 축에 있습니다.</td>
-                  <td>선물 쇼핑 후 이동이 거의 없고, 테라스 운영 안내 메뉴 기준으로 <strong>18:00 - 22:00</strong> 흐름이 보여 생일 저녁과 연결하기 좋습니다.</td>
+                  <td>선물 쇼핑 후 이동이 거의 없고, 공식 운영시간상 자정까지 열려 생일 저녁과 연결하기 좋습니다.</td>
                   <td>두오모 뷰 좌석 요청이 핵심. 쇼핑 데이와 붙이기 가장 편합니다.</td>
                 </tr>
                 <tr>
@@ -2013,16 +2102,19 @@
                     <h4>카페 / 식당 추천 | Food Picks</h4>
                     <ul class="food-list">
                       <li class="food-pick">
-                        <strong><a href="https://varennaturismo.com/en/cafe-and-restaurant/" target="_blank" rel="noreferrer">Varenna Caffè Bistrot(바렌나 카페 비스트로)</a></strong>
+                        <strong><a href="https://varennaturismo.com/en/cafe-and-restaurant/" target="_blank" rel="noreferrer">Varenna Caffè Bistrot(바렌나 카페 비스트로)</a><span class="food-type">카페</span></strong>
+                        <span class="food-address">Contrada Scoscesa 13, Riva Grande, 23829 Varenna</span>
                         <p>종류: lakefront cafe bistrot(호숫가 카페 비스트로). 메뉴 성격: Italian breakfast(이탈리안 조식), continental breakfast(컨티넨털 조식), lunch(점심), dinner(저녁), cocktails(칵테일), aperitivo(아페리티보). 이유: 선착장과 골목 산책 사이에 쉬기 좋고, 예약 없이도 쓰기 편해 당일치기 일정과 잘 맞습니다.</p>
                       </li>
                       <li class="food-pick">
-                        <strong><a href="https://www.hotelbellagio.it/en/bellagio-restaurant-bar/" target="_blank" rel="noreferrer">Bellagio Restaurant &amp; Bar(벨라지오 레스토랑 &amp; 바)</a></strong>
-                        <p>종류: terrace lunch / aperitivo(테라스 런치 / 아페리티보). 메뉴 성격: light lunch(라이트 런치), aperitifs(아페리티프), snacks(스낵), desserts(디저트), romantic dinner(로맨틱 디너). 이유: Bellagio(벨라지오) 중심에서 동선을 거의 벗어나지 않고 호수 전망 테라스를 바로 쓸 수 있습니다.</p>
+                        <strong><a href="https://www.hotelbellagio.it/en/bellagio-restaurant-bar/" target="_blank" rel="noreferrer">Bellagio Restaurant &amp; Bar(벨라지오 레스토랑 &amp; 바)</a><span class="food-type">식당</span></strong>
+                        <span class="food-address">Salita Grandi 6, 22021 Bellagio</span>
+                        <p>종류: terrace lunch / aperitivo(테라스 런치 / 아페리티보). 공식 안내 기준 12:00-17:30에 drinks, snacks, desserts 등 가벼운 이용이 선명합니다. 이유: Bellagio(벨라지오) 중심에서 동선을 거의 벗어나지 않고 호수 전망 테라스를 바로 쓸 수 있습니다.</p>
                       </li>
                       <li class="food-pick">
-                        <strong><a href="https://lapergolabellagio.com/en/" target="_blank" rel="noreferrer">La Pergola Bellagio(라 페르골라 벨라지오)</a></strong>
-                        <p>종류: romantic lake-view restaurant(로맨틱 레이크뷰 레스토랑). 메뉴: mix appetizer of local lake fish(현지 호수생선 애피타이저) €19(약 ₩33,200), ravioli with shellfish and Franciacorta sauce(갑각류 라비올리) €19(약 ₩33,200), risotto with peas and asparagus(완두·아스파라거스 리소토) €20(약 ₩34,900), spaghetti with saffron cream and lamb ragù(사프란 크림·양고기 라구 스파게티) €19(약 ₩33,200). 이유: 당일치기 중 가장 “허니문답게 앉아 있는 점심”을 만들기 좋은 선택입니다.</p>
+                        <strong><a href="https://lapergolabellagio.com/en/" target="_blank" rel="noreferrer">La Pergola Bellagio(라 페르골라 벨라지오)</a><span class="food-type">식당</span></strong>
+                        <span class="food-address">Piazza del Porto 4, Pescallo, Bellagio</span>
+                        <p>종류: romantic lake-view restaurant(로맨틱 레이크뷰 레스토랑). 공식 사이트 기준 4월-11월 시즌 운영이며 Pescallo bay 호숫가 위치가 강점입니다. 메뉴는 계절형으로 예약 직전 최신판을 확인하고, 당일치기 중 가장 “허니문답게 앉아 있는 점심”을 만들기 좋은 선택지로 둡니다.</p>
                       </li>
                     </ul>
                   </div>
@@ -2031,7 +2123,7 @@
                     <ul>
                       <li><strong>호텔 → Milano Centrale</strong>: 도보 5-7분, 결제 없음. 역이 매우 가까워 당일치기치고 준비가 단순합니다.</li>
                       <li><strong>Milano Centrale → Varenna-Esino</strong>: <strong>Trenord(트레노르드)</strong> 2등석 편도 <strong>€7.40(약 ₩12,900)</strong>부터. 구매는 앱·공식 사이트·역 자동발권기. 왕복 기준 약 <strong>€14.80(약 ₩25,800)</strong>.</li>
-                      <li><strong>Varenna ↔ Bellagio</strong>: <strong>Navigazione Laghi Ferry(나비가치오네 라기 페리)</strong> route 3 편도 <strong>€7.50(약 ₩13,100)</strong>, 왕복 약 <strong>€15.00(약 ₩26,200)</strong>. 선상 구매 시 <strong>€1(약 ₩1,700)</strong> 추가 가능성이 있어 선착장 매표소나 공식 예매가 낫습니다.</li>
+                      <li><strong>Varenna ↔ Bellagio</strong>: <strong>Navigazione Laghi Ferry(나비가치오네 라기 페리)</strong>를 이용합니다. 2026년 4월 1일부터 적용되는 승객 요금표가 공개되어 있으나, 7월 24일 실제 시간표는 확인 시점에 아직 여름 전체표가 아닌 5월 31일까지의 봄 시간표가 중심입니다. 선착장 매표소나 공식 예매로 요금과 배편을 다시 확인하세요.</li>
                     </ul>
                   </div>
                 <div class="aside-card">
@@ -2122,16 +2214,19 @@
                     <h4>카페 / 식당 추천 | Food Picks</h4>
                     <ul class="food-list">
                       <li class="food-pick">
-                        <strong><a href="https://www.caffedeltasso.com/wp-content/uploads/Menu.pdf" target="_blank" rel="noreferrer">Caffè del Tasso(카페 델 타소)</a></strong>
-                        <p>종류: historic café &amp; restaurant(역사적인 카페 &amp; 레스토랑). 메뉴: bruschetta del Tasso with Parma ham and buffalo stracciatella(브루스케타 델 타소) €19(약 ₩33,200), risotto Carnaroli with saffron, taleggio and braised leek(사프란·탈레조 리소토) €18(약 ₩31,400), casoncelli(카손첼리 / 베르가모식 라비올리), gelato al fiordilatte con caffè(피오르디라테 젤라토와 커피). 이유: Piazza Vecchia(피아차 베키아) 한가운데에서 가장 “베르가모에 왔다”는 분위기를 주는 휴식 카드입니다.</p>
+                        <strong><a href="https://www.thefork.com/restaurant/caffe-del-tasso-r294821/menu" target="_blank" rel="noreferrer">Caffè del Tasso(카페 델 타소)</a><span class="food-type">카페</span></strong>
+                        <span class="food-address">Piazza Vecchia 3, 24129 Bergamo</span>
+                        <p>종류: historic café &amp; restaurant(역사적인 카페 &amp; 레스토랑). 2026년 공개 메뉴 기준 평균 예산은 약 €30, casoncelli alla bergamasca(베르가모식 라비올리) €16, saffron risotto(사프란 리소토) €18, local tasting plate(지역 플레이트) €20 수준입니다. 이유: Piazza Vecchia(피아차 베키아) 한가운데에서 가장 “베르가모에 왔다”는 분위기를 주는 휴식 카드입니다.</p>
                       </li>
                       <li class="food-pick">
-                        <strong><a href="https://www.ilcircolinocittaalta.it/menu/" target="_blank" rel="noreferrer">Il Circolino Città Alta(일 치르콜리노 치타 알타)</a></strong>
-                        <p>종류: Bergamo traditional cuisine(베르가모 전통 요리). 메뉴: Bergamo flavors platter(베르가모 플래터) €22(약 ₩38,400), casoncelli alla bergamasca(베르가모식 카손첼리) €9.50(약 ₩16,600), scarpinocc de Parr(스카르피노크) €10(약 ₩17,400), Bergamo style baked rabbit(베르가모식 토끼 요리) €14(약 ₩24,400), coperto €2(약 ₩3,500). 이유: 수도원 공간을 활용한 분위기가 상부도시의 석재 풍경과 가장 잘 맞습니다.</p>
+                        <strong><a href="https://www.ilcircolinocittaalta.it/menu/" target="_blank" rel="noreferrer">Il Circolino Città Alta(일 치르콜리노 치타 알타)</a><span class="food-type">식당</span></strong>
+                        <span class="food-address">Vicolo Sant’Agata 19, 24129 Bergamo</span>
+                        <p>종류: Bergamo traditional cuisine(베르가모 전통 요리). 공식 안내 기준 매일 08:00-01:00 운영입니다. 메뉴는 점심/저녁·주말 구성이 나뉘므로 예약 직전 최신 메뉴를 확인하고, 베르가모식 카손첼리와 지역 요리를 우선 후보로 둡니다. 이유: 수도원 공간을 활용한 분위기가 상부도시의 석재 풍경과 가장 잘 맞습니다.</p>
                       </li>
                       <li class="food-pick">
-                        <strong><a href="https://www.damimmoelina.com/en/da-mimmo-restaurant/" target="_blank" rel="noreferrer">Da Mimmo(다 밈모)</a></strong>
-                        <p>종류: classic restaurant with Bergamo staples(전통 레스토랑). 메뉴: Menu Bergamo(메누 베르가모) €50(약 ₩87,200), casoncelli alla bergamasca €17(약 ₩29,700), maccheroni Mimmo(마케로니 밈모) €18(약 ₩31,400), costoletta alla milanese(코톨레타 알라 밀라네세) €24(약 ₩41,900), filetto di manzo(소고기 안심) €35(약 ₩61,100). 이유: 마지막 저녁을 조금 더 클래식하게 가져가고 싶을 때 가장 안정적입니다.</p>
+                        <strong><a href="https://www.damimmoelina.com/en/da-mimmo-restaurant/" target="_blank" rel="noreferrer">Da Mimmo(다 밈모)</a><span class="food-type">식당</span></strong>
+                        <span class="food-address">Via Bartolomeo Colleoni 17, 24129 Bergamo</span>
+                        <p>종류: classic restaurant with Bergamo staples(전통 레스토랑). 공식 공개 메뉴 기준 Menu Bergamo(메누 베르가모) €50(약 ₩87,200), casoncelli alla bergamasca €17(약 ₩29,700), maccheroni Mimmo(마케로니 밈모) €18(약 ₩31,400), costoletta alla milanese(코톨레타 알라 밀라네세) €24(약 ₩41,900), filetto di manzo(소고기 안심) €35(약 ₩61,100)입니다. 이유: 마지막 저녁을 조금 더 클래식하게 가져가고 싶을 때 가장 안정적입니다.</p>
                       </li>
                     </ul>
                   </div>
@@ -2178,8 +2273,8 @@
               <div class="day-intro">
                 <h3>추천 톤: “도착 시각이 우선인지, 마지막 밤의 편안함이 우선인지”를 먼저 고르기</h3>
                 <p>
-                  현재 확인한 실시간 검색 기준으로는 <strong>BGY 출발 06:35 → PRG 08:00 직항</strong>이 가장 깔끔합니다.
-                  다만 아주 이른 아침이므로, 마지막 밤의 피로도를 줄이고 싶다면 <strong>MXP 출발편</strong>을 비교해 예약하는 것이 낫습니다.
+                  현재 검색 기준으로는 <strong>BGY 06:35 새벽 직항</strong>이 가장 깔끔합니다.
+                  예약 화면에서 실제 시간을 확정한 뒤 역산하고, 마지막 밤의 피로도를 줄이고 싶다면 <strong>MXP 출발편</strong>을 비교해 예약하는 것이 낫습니다.
                 </p>
               </div>
             </div>
@@ -2215,15 +2310,18 @@
                     <h4>출발 전 카페 / 식사 | Before Flight</h4>
                     <ul class="food-list">
                       <li class="food-pick">
-                        <strong><a href="https://www.pavemilano.com/" target="_blank" rel="noreferrer">Pavé Milano(파베 밀라노)</a></strong>
+                        <strong><a href="https://pavemilano.com/negozi/" target="_blank" rel="noreferrer">Pavé Milano(파베 밀라노)</a><span class="food-type">카페</span></strong>
+                        <span class="food-address">Via Felice Casati 27, 20124 Milano</span>
                         <p>종류: bakery breakfast(베이커리 브렉퍼스트). 메뉴: pain au chocolat(팽 오 쇼콜라), croissant(크루아상), avocado toast(아보카도 토스트), coffee(커피). 이유: MXP 늦은 오전편으로 바뀌면 Centrale 근처에서 가장 동선이 짧고 실패 확률이 낮은 아침 카드입니다.</p>
                       </li>
                       <li class="food-pick">
-                        <strong><a href="https://www.mercatocentrale.it/milano/" target="_blank" rel="noreferrer">Mercato Centrale Milano(메르카토 첸트랄레 밀라노)</a></strong>
+                        <strong><a href="https://www.mercatocentrale.it/milano/" target="_blank" rel="noreferrer">Mercato Centrale Milano(메르카토 첸트랄레 밀라노)</a><span class="food-type">푸드홀</span></strong>
+                        <span class="food-address">Via Sammartini, angolo Piazza Quattro Novembre, 20125 Milano</span>
                         <p>종류: food hall(푸드홀). 메뉴 성격: coffee(커피), pizza al taglio(조각 피자), bakery(베이커리), sandwiches(샌드위치), quick pasta(퀵 파스타). 이유: Centrale 내부/인근에서 비행 시간이 늦어졌을 때 가장 유연하게 시간을 보내기 좋습니다.</p>
                       </li>
                       <li class="food-pick">
-                        <strong><a href="https://www.unaitalianhospitality.com/en/hotels/una-hotels-century-milano" target="_blank" rel="noreferrer">UNA HOTELS Century Milano(우나 호텔스 센추리 밀라노)</a></strong>
+                        <strong><a href="https://www.unaitalianhospitality.com/en/hotels/una-hotels-century-milano" target="_blank" rel="noreferrer">UNA HOTELS Century Milano(우나 호텔스 센추리 밀라노)</a><span class="food-type">호텔 조식</span></strong>
+                        <span class="food-address">Via Fabio Filzi 25/B, 20124 Milano</span>
                         <p>종류: hotel breakfast(호텔 조식). 이유: BGY 06:35처럼 아주 이른 항공편은 실제 조식 이용보다 전날 밤 간식 확보가 더 중요합니다. 이 날은 식당보다 공항 도착 안정성이 우선입니다.</p>
                       </li>
                     </ul>
@@ -2274,7 +2372,7 @@
                 <button type="button" data-map-view-button="interactive" role="tab" aria-selected="false">인터랙티브</button>
               </div>
               <div class="map-view map-view-static" role="tabpanel">
-                <img class="static-map" src="./assets/shopping-map.png" alt="생일날 쇼핑 동선을 실제 지도 위에 정리한 이미지">
+                <img class="static-map" src="./assets/shopping-map.svg" alt="생일날 쇼핑 동선을 실제 지도 위에 정리한 이미지">
               </div>
               <div class="map-view map-view-live" role="tabpanel" aria-hidden="true">
                 <div class="live-map" data-map-target="shopping" aria-label="두오모, 갤러리아, 리나센테, 패션 지구, 브레라, 디너 후보를 보여 주는 인터랙티브 지도"></div>
@@ -2798,7 +2896,7 @@
               <span class="micro-chip">Recommended if arrival time matters</span>
               <h3>BGY 우선 추천안</h3>
               <p>
-                실시간 검색상 확인된 가장 선명한 옵션은 <strong>2026-07-26 06:35 출발, 08:00 프라하 도착 직항</strong>입니다.
+                현재 검색상 가장 선명한 옵션은 <strong>2026년 7월 26일 일요일 BGY 06:35 출발, PRG 08:00 도착</strong> 새벽 직항입니다.
                 호텔에서 공항 셔틀 정류장이 가까워 공항 접근 논리가 깔끔합니다.
               </p>
               <ul>
@@ -2829,7 +2927,7 @@
               <thead>
                 <tr>
                   <th>시간</th>
-                  <th>BGY Early Morning Shuttle Plan</th>
+                  <th>BGY Early Morning Shuttle Plan (베르가모 공항 새벽 셔틀 계획)</th>
                 </tr>
               </thead>
               <tbody>
@@ -2847,11 +2945,11 @@
                 </tr>
                 <tr>
                   <td><strong>04:40 전후</strong></td>
-                  <td>BGY 도착 예상. 04:20 셔틀은 보안검색 여유가 줄어들 수 있어 백업으로만 둡니다.</td>
+                  <td>BGY 도착 예상. 04:20 셔틀은 온라인 체크인과 기내수하물만 있는 경우의 백업으로 보고, 위탁수하물이 있으면 03:50 셔틀을 우선합니다.</td>
                 </tr>
                 <tr>
                   <td><strong>06:35</strong></td>
-                  <td>프라하행 항공편 출발. 항공편 시간이 바뀌면 출발 2시간 전 공항 도착 기준으로 다시 역산합니다.</td>
+                  <td>프라하행 항공편 출발 후보. 실제 예약 시간이 확정되면 출발 2시간 전 공항 도착 기준으로 다시 역산합니다.</td>
                 </tr>
               </tbody>
             </table>
@@ -2985,37 +3083,39 @@
               </li>
               <li>
                 <strong>Navigazione Laghi</strong>
-                꼬모 페리 시간표 확인
+                꼬모 페리 시간표와 2026년 요금 확인
                 <br><a href="https://www.navigazionelaghi.it/en/tickets-and-timetables-lake-como" target="_blank" rel="noreferrer">https://www.navigazionelaghi.it/en/tickets-and-timetables-lake-como</a>
+                <br><a href="https://www.navigazionelaghi.it/en/tickets-and-timetables-lake-como/rates-lake-como/" target="_blank" rel="noreferrer">Navigazione Laghi rates</a>
               </li>
               <li>
                 <strong>Visit Bergamo / ATB</strong>
                 Citta Alta와 푸니쿨라 동선
                 <br><a href="https://www.visitbergamo.net/en/upper-bergamo/" target="_blank" rel="noreferrer">Visit Bergamo</a>
                 <br><a href="https://www.atb.bergamo.it/en/other-services/tourist-services" target="_blank" rel="noreferrer">ATB Tourist Services</a>
+                <br><a href="https://atb.bergamo.it/en/public-transport/tickets/points-of-sale/passa-e-vai" target="_blank" rel="noreferrer">ATB Passa e Vai fares</a>
               </li>
               <li>
-                <strong>Malpensa Express / Orioshuttle / Skyscanner</strong>
+                <strong>Malpensa Express / Orioshuttle / Flight.info</strong>
                 프라하 이동 및 공항 접근 비교
                 <br><a href="https://www.malpensaexpress.it/en/lines-and-timetable/lines-and-timetables/our-lines/malpensa-milano-centrale/" target="_blank" rel="noreferrer">Malpensa Express</a>
                 <br><a href="https://www.orioshuttle.com/_eng/le-linee.cfm" target="_blank" rel="noreferrer">Orioshuttle</a>
+                <br><a href="https://www.flight.info/FR3528" target="_blank" rel="noreferrer">Flight.info FR3528 schedule</a>
                 <br><a href="https://skyscanner.net/g/referrals/v1/flights/home?mediaPartnerId=2850210&utm_term=skyscanner_chatgpt_app_data" target="_blank" rel="noreferrer">Skyscanner</a>
               </li>
               <li>
                 <strong>Food Picks | Milan</strong>
                 도착일, 시내일, 생일일에 붙이기 좋은 카페·식당 공식 페이지
-                <br><a href="https://www.pavemilano.com/" target="_blank" rel="noreferrer">Pavé Milano</a>
+                <br><a href="https://pavemilano.com/negozi/" target="_blank" rel="noreferrer">Pavé Milano shops</a>
                 <br><a href="https://www.ratana.it/" target="_blank" rel="noreferrer">Ratanà</a>
-                <br><a href="https://www.ratana.it/wp-content/uploads/2025/01/25_01_22_menugenerale_eng.pdf" target="_blank" rel="noreferrer">Ratanà menu PDF</a>
+                <br><a href="https://www.ratana.it/menu/?lang=en" target="_blank" rel="noreferrer">Ratanà menu</a>
                 <br><a href="https://www.marchesi1824.com/" target="_blank" rel="noreferrer">Marchesi 1824</a>
                 <br><a href="https://www.nombradevin.it/about" target="_blank" rel="noreferrer">N'Ombra de Vin</a>
                 <br><a href="https://www.nombradevin.it/menu" target="_blank" rel="noreferrer">N'Ombra de Vin menu</a>
                 <br><a href="https://osteriadelbinari.it/" target="_blank" rel="noreferrer">Osteria del Binari</a>
                 <br><a href="https://www.osteriadelbinari.it/menu/" target="_blank" rel="noreferrer">Osteria del Binari menu</a>
                 <br><a href="https://milano.maiorestaurant.com/" target="_blank" rel="noreferrer">Maio Restaurant</a>
-                <br><a href="https://milano.maiorestaurant.com/wp-content/uploads/2025/04/MR_MENU_A4-APR25_Lunch.pdf" target="_blank" rel="noreferrer">Maio lunch menu PDF</a>
                 <br><a href="https://www.ceresio7.com/milano/ristorante/" target="_blank" rel="noreferrer">Ceresio 7</a>
-                <br><a href="https://www.ceresio7.com/files/ceresio-7-menu-2021-03.pdf" target="_blank" rel="noreferrer">Ceresio 7 menu PDF</a>
+                <br><a href="https://www.thefork.com/restaurant/ceresio-7-r61218/menu" target="_blank" rel="noreferrer">TheFork Ceresio 7 menu 2026</a>
               </li>
               <li>
                 <strong>Food Picks | Lake Como &amp; Bergamo</strong>
@@ -3023,13 +3123,12 @@
                 <br><a href="https://varennaturismo.com/en/cafe-and-restaurant/" target="_blank" rel="noreferrer">Varenna Turismo - Cafe and Restaurant</a>
                 <br><a href="https://www.hotelbellagio.it/en/bellagio-restaurant-bar/" target="_blank" rel="noreferrer">Bellagio Restaurant &amp; Bar</a>
                 <br><a href="https://www.lapergolabellagio.com/en/" target="_blank" rel="noreferrer">La Pergola Bellagio</a>
-                <br><a href="https://lapergolabellagio.com/wp-content/uploads/2025/04/Menu-Aprile-2025.pdf" target="_blank" rel="noreferrer">La Pergola menu PDF</a>
                 <br><a href="https://www.caffedeltasso.com/en/homepage-english/" target="_blank" rel="noreferrer">Caffè del Tasso</a>
-                <br><a href="https://www.caffedeltasso.com/wp-content/uploads/Menu.pdf" target="_blank" rel="noreferrer">Caffè del Tasso menu PDF</a>
+                <br><a href="https://www.thefork.com/restaurant/caffe-del-tasso-r294821/menu" target="_blank" rel="noreferrer">TheFork Caffè del Tasso menu 2026</a>
                 <br><a href="https://www.ilcircolinocittaalta.it/en/" target="_blank" rel="noreferrer">Il Circolino Città Alta</a>
                 <br><a href="https://www.ilcircolinocittaalta.it/wp-content/uploads/Menu_cena_weekend_festivi-en.pdf" target="_blank" rel="noreferrer">Il Circolino menu PDF</a>
                 <br><a href="https://www.damimmoelina.com/en/da-mimmo-restaurant/" target="_blank" rel="noreferrer">Da Mimmo</a>
-                <br><a href="https://www.damimmoelina.com/wp-content/uploads/2025/06/menu_da_mimmo-06-25-DEF.pdf" target="_blank" rel="noreferrer">Da Mimmo menu PDF</a>
+                <br><a href="https://www.damimmoelina.com/wp-content/uploads/2025/06/menu_da_mimmo-06-25-DEF.pdf" target="_blank" rel="noreferrer">Da Mimmo official menu PDF 2025.06</a>
               </li>
               <li>
                 <strong>Backup Spots | Milan &amp; Lake Como</strong>
@@ -3196,7 +3295,7 @@
                     <strong>08:00</strong> PRG(프라하) 도착
                   </td>
                   <td>이 안의 단점은 매우 이른 출발이지만, <strong>프라하 반나절 이상 확보</strong>라는 장점이 분명해서 총 일정 관점에선 가장 추천합니다.</td>
-                  <td>Orioshuttle(오리오셔틀) 공식 노선 기준 직행 약 50분, 편도 <strong>€12(약 ₩20,900)</strong>. 04:20 셔틀은 백업으로만 두고, 전날 밤 물·간식·여권·탑승권을 미리 준비.</td>
+                  <td>Orioshuttle(오리오셔틀) 공식 노선 기준 직행 약 50분, 편도 <strong>€12(약 ₩20,900)</strong>. 03:50 셔틀을 기본으로 잡고, 전날 밤 물·간식·여권·탑승권을 미리 준비.</td>
                 </tr>
               </tbody>
             </table>
