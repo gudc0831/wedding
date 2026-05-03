@@ -1,0 +1,318 @@
+{
+  "generated_at": "2026-04-24T13:57:33.691Z",
+  "source": "output/mymaps/layers/*.csv",
+  "tile_attribution": "OpenStreetMap contributors",
+  "maps": [
+    {
+      "id": "basecamp",
+      "title": "Basecamp Strategy",
+      "subtitle": "Hotel, Centrale, day trips, and airport exits",
+      "points": [
+        {
+          "place_key": "base_una_hotels_century_milano",
+          "label": "UNA HOTELS",
+          "role": "Hotel",
+          "color": "#17372f",
+          "label_dx": -430,
+          "label_dy": -128,
+          "visit_order": "1",
+          "query": "UNA HOTELS Century Milano, Milan, Italy",
+          "category_ko": "호텔",
+          "short_desc_ko": "밀라노 첸트랄레 도보권의 베이스 호텔",
+          "lat": 45.4844476,
+          "lon": 9.200165
+        },
+        {
+          "place_key": "base_milano_centrale",
+          "label": "Milano Centrale",
+          "role": "Rail hub",
+          "color": "#4b635a",
+          "label_dx": 42,
+          "label_dy": -124,
+          "visit_order": "2",
+          "query": "Milano Centrale, Milan, Italy",
+          "category_ko": "교통",
+          "short_desc_ko": "꼬모·베르가모·공항 이동의 핵심 출발점",
+          "lat": 45.4858786,
+          "lon": 9.2042617
+        },
+        {
+          "place_key": "day2_duomo_di_milano",
+          "label": "Duomo",
+          "role": "Milan core",
+          "color": "#cda16a",
+          "label_dx": 42,
+          "label_dy": -66,
+          "visit_order": "1",
+          "query": "Duomo di Milano, Milan, Italy",
+          "category_ko": "랜드마크",
+          "short_desc_ko": "오전 사진과 분위기가 가장 좋은 밀라노 핵심 랜드마크",
+          "lat": 45.4641669,
+          "lon": 9.1916121
+        },
+        {
+          "place_key": "day4_varenna",
+          "label": "Varenna",
+          "role": "Lake Como",
+          "color": "#78917e",
+          "label_dx": 42,
+          "label_dy": -78,
+          "visit_order": "1",
+          "query": "Varenna, Italy",
+          "category_ko": "당일치기",
+          "short_desc_ko": "꼬모 호수 당일치기의 가장 예쁜 출발 마을",
+          "lat": 46.0099785,
+          "lon": 9.2831593
+        },
+        {
+          "place_key": "day4_bellagio",
+          "label": "Bellagio",
+          "role": "Lake Como",
+          "color": "#78917e",
+          "label_dx": 42,
+          "label_dy": -24,
+          "visit_order": "4",
+          "query": "Bellagio, Italy",
+          "category_ko": "당일치기",
+          "short_desc_ko": "점심과 상점 구경을 함께 하기 좋은 벨라지오 중심 마을",
+          "lat": 45.9872549,
+          "lon": 9.2613001
+        },
+        {
+          "place_key": "day5_bergamo_citta_alta",
+          "label": "Bergamo Citta Alta",
+          "role": "Day trip",
+          "color": "#d6a090",
+          "label_dx": null,
+          "label_dy": null,
+          "visit_order": "1",
+          "query": "Bergamo Città Alta, Bergamo, Italy",
+          "category_ko": "당일치기",
+          "short_desc_ko": "베르가모에서 핵심만 보기 가장 좋은 상부도시 축",
+          "lat": 45.70442,
+          "lon": 9.66268
+        },
+        {
+          "place_key": "day6_milan_bergamo_airport",
+          "label": "BGY",
+          "role": "Airport",
+          "color": "#7c8a99",
+          "label_dx": null,
+          "label_dy": null,
+          "visit_order": "2",
+          "query": "Milan Bergamo Airport, Orio al Serio, Italy",
+          "category_ko": "공항",
+          "short_desc_ko": "프라하 직항 기준 가장 빠른 출발 공항",
+          "lat": 45.6708936,
+          "lon": 9.6987542
+        },
+        {
+          "place_key": "day6_milan_malpensa_airport",
+          "label": "MXP",
+          "role": "Airport backup",
+          "color": "#7c8a99",
+          "label_dx": null,
+          "label_dy": null,
+          "visit_order": "3",
+          "query": "Milan Malpensa Airport, Ferno, Italy",
+          "category_ko": "공항",
+          "short_desc_ko": "수면과 마지막 밤의 안정감을 우선할 때 보는 공항 대안",
+          "lat": 45.6296273,
+          "lon": 8.7235475
+        }
+      ],
+      "routes": [
+        {
+          "label": "Milan core",
+          "color": "#cda16a",
+          "keys": [
+            "base_una_hotels_century_milano",
+            "base_milano_centrale",
+            "day2_duomo_di_milano"
+          ]
+        },
+        {
+          "label": "Lake Como",
+          "color": "#78917e",
+          "keys": [
+            "base_una_hotels_century_milano",
+            "base_milano_centrale",
+            "day4_varenna",
+            "day4_bellagio"
+          ]
+        },
+        {
+          "label": "Bergamo / BGY",
+          "color": "#d6a090",
+          "keys": [
+            "base_una_hotels_century_milano",
+            "base_milano_centrale",
+            "day5_bergamo_citta_alta",
+            "day6_milan_bergamo_airport"
+          ]
+        },
+        {
+          "label": "MXP backup",
+          "color": "#657fbd",
+          "dashArray": "16 18",
+          "keys": [
+            "base_una_hotels_century_milano",
+            "base_milano_centrale",
+            "day6_milan_malpensa_airport"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shopping",
+      "title": "Birthday Shopping Circuit",
+      "subtitle": "Duomo start, fashion quarter focus, Brera finish",
+      "points": [
+        {
+          "place_key": "day2_duomo_di_milano",
+          "label": "Duomo",
+          "role": "Photo start",
+          "color": "#d6a090",
+          "label_dx": -385,
+          "label_dy": 28,
+          "visit_order": "1",
+          "query": "Duomo di Milano, Milan, Italy",
+          "category_ko": "랜드마크",
+          "short_desc_ko": "오전 사진과 분위기가 가장 좋은 밀라노 핵심 랜드마크",
+          "lat": 45.4641669,
+          "lon": 9.1916121
+        },
+        {
+          "place_key": "day2_galleria_vittorio_emanuele_ii",
+          "label": "Galleria",
+          "role": "Arcade",
+          "color": "#cda16a",
+          "label_dx": -385,
+          "label_dy": -32,
+          "visit_order": "2",
+          "query": "Galleria Vittorio Emanuele II, Milan, Italy",
+          "category_ko": "랜드마크",
+          "short_desc_ko": "두오모에서 바로 이어지는 아케이드 산책의 중심",
+          "lat": 45.4656113,
+          "lon": 9.1900062
+        },
+        {
+          "place_key": "day2_rinascente_milano_duomo",
+          "label": "Rinascente",
+          "role": "Beauty / gifts",
+          "color": "#cda16a",
+          "label_dx": -385,
+          "label_dy": -92,
+          "visit_order": "3",
+          "query": "Rinascente Milano Duomo, Milan, Italy",
+          "category_ko": "쇼핑",
+          "short_desc_ko": "생일 쇼핑 전에 감을 잡기 좋은 두오모권 백화점",
+          "lat": 45.4652946,
+          "lon": 9.1919035
+        },
+        {
+          "place_key": "day3_via_montenapoleone",
+          "label": "Via Montenapoleone",
+          "role": "Jewelry / luxury",
+          "color": "#cda16a",
+          "label_dx": 76,
+          "label_dy": -32,
+          "visit_order": "1",
+          "query": "Via Montenapoleone, Milan, Italy",
+          "category_ko": "쇼핑",
+          "short_desc_ko": "주얼리와 명품 밀도가 가장 높은 생일 쇼핑 핵심 축",
+          "lat": 45.4685811,
+          "lon": 9.1948277
+        },
+        {
+          "place_key": "day3_quadrilatero_della_moda",
+          "label": "Quadrilatero",
+          "role": "Fashion district",
+          "color": "#cda16a",
+          "label_dx": 76,
+          "label_dy": -92,
+          "visit_order": "2",
+          "query": "Quadrilatero della Moda, Milan, Italy",
+          "category_ko": "쇼핑",
+          "short_desc_ko": "생일 선물을 집중적으로 비교하기 좋은 패션 지구",
+          "lat": 45.46982,
+          "lon": 9.19488
+        },
+        {
+          "place_key": "day2_brera",
+          "label": "Brera",
+          "role": "Small design gifts",
+          "color": "#78917e",
+          "label_dx": null,
+          "label_dy": null,
+          "visit_order": "4",
+          "query": "Brera, Milan, Italy",
+          "category_ko": "지역",
+          "short_desc_ko": "골목과 소광장 결이 아름다운 허니문 산책 구역",
+          "lat": 45.47195,
+          "lon": 9.18783
+        },
+        {
+          "place_key": "day3_maio_restaurant_terrace",
+          "label": "Maio",
+          "role": "Birthday dinner",
+          "color": "#d6a090",
+          "label_dx": 76,
+          "label_dy": 28,
+          "visit_order": "3",
+          "query": "Maio Restaurant & Terrace, Milan, Italy",
+          "category_ko": "식음",
+          "short_desc_ko": "두오모 뷰를 우선할 때 가장 잘 맞는 기념일 디너",
+          "lat": 45.46458,
+          "lon": 9.19179
+        },
+        {
+          "place_key": "day3_ceresio_7",
+          "label": "Ceresio 7",
+          "role": "Dinner backup",
+          "color": "#7c8a99",
+          "label_dx": null,
+          "label_dy": null,
+          "visit_order": "4",
+          "query": "Ceresio 7, Milan, Italy",
+          "category_ko": "식음",
+          "short_desc_ko": "밀라노 스카이라인 야경을 우선할 때 더 선명한 루프탑 디너",
+          "lat": 45.4835174,
+          "lon": 9.1803112
+        }
+      ],
+      "routes": [
+        {
+          "label": "Main walking flow",
+          "color": "#cda16a",
+          "keys": [
+            "day2_duomo_di_milano",
+            "day2_rinascente_milano_duomo",
+            "day2_galleria_vittorio_emanuele_ii",
+            "day3_via_montenapoleone",
+            "day3_quadrilatero_della_moda",
+            "day2_brera"
+          ]
+        },
+        {
+          "label": "Duomo dinner close",
+          "color": "#d6a090",
+          "keys": [
+            "day2_brera",
+            "day3_maio_restaurant_terrace",
+            "day2_duomo_di_milano"
+          ]
+        },
+        {
+          "label": "Rooftop backup",
+          "color": "#657fbd",
+          "dashArray": "14 16",
+          "keys": [
+            "day2_brera",
+            "day3_ceresio_7"
+          ]
+        }
+      ]
+    }
+  ]
+}

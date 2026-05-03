@@ -1,0 +1,170 @@
+{
+  "generated_at": "2026-04-24T13:57:33.690Z",
+  "places": {
+    "base_una_hotels_century_milano": {
+      "place_key": "base_una_hotels_century_milano",
+      "query": "UNA HOTELS Century Milano, Milan, Italy",
+      "name": "UNA HOTELS Century Milano",
+      "category_ko": "호텔",
+      "lat": 45.4844476,
+      "lon": 9.200165,
+      "display_name": "UNA HOTELS Century Milano, Via Fabio Filzi 25, Milan, Italy",
+      "source": "override",
+      "resolved_at": "2026-04-24T13:43:27.597Z"
+    },
+    "base_milano_centrale": {
+      "place_key": "base_milano_centrale",
+      "query": "Milano Centrale, Milan, Italy",
+      "name": "Milano Centrale",
+      "category_ko": "교통",
+      "lat": 45.4858786,
+      "lon": 9.2042617,
+      "display_name": "Milano Centrale, Milan, Italy",
+      "source": "override",
+      "resolved_at": "2026-04-24T13:43:27.597Z"
+    },
+    "day2_duomo_di_milano": {
+      "place_key": "day2_duomo_di_milano",
+      "query": "Duomo di Milano, Milan, Italy",
+      "name": "Duomo di Milano",
+      "category_ko": "랜드마크",
+      "lat": 45.4641669,
+      "lon": 9.1916121,
+      "display_name": "Duomo di Milano, Milan, Italy",
+      "source": "override",
+      "resolved_at": "2026-04-24T13:43:27.597Z"
+    },
+    "day4_varenna": {
+      "place_key": "day4_varenna",
+      "query": "Varenna, Italy",
+      "name": "Varenna",
+      "category_ko": "당일치기",
+      "lat": 46.0099785,
+      "lon": 9.2831593,
+      "display_name": "Varenna, Italy",
+      "source": "override",
+      "resolved_at": "2026-04-24T13:43:27.597Z"
+    },
+    "day4_bellagio": {
+      "place_key": "day4_bellagio",
+      "query": "Bellagio, Italy",
+      "name": "Bellagio",
+      "category_ko": "당일치기",
+      "lat": 45.9872549,
+      "lon": 9.2613001,
+      "display_name": "Bellagio, Italy",
+      "source": "override",
+      "resolved_at": "2026-04-24T13:43:27.597Z"
+    },
+    "day5_bergamo_citta_alta": {
+      "place_key": "day5_bergamo_citta_alta",
+      "query": "Bergamo Città Alta, Bergamo, Italy",
+      "name": "Bergamo Città Alta",
+      "category_ko": "당일치기",
+      "lat": 45.70442,
+      "lon": 9.66268,
+      "display_name": "Citta Alta, Bergamo, Italy",
+      "source": "override",
+      "resolved_at": "2026-04-24T13:43:27.597Z"
+    },
+    "day6_milan_bergamo_airport": {
+      "place_key": "day6_milan_bergamo_airport",
+      "query": "Milan Bergamo Airport, Orio al Serio, Italy",
+      "name": "Milan Bergamo Airport",
+      "category_ko": "공항",
+      "lat": 45.6708936,
+      "lon": 9.6987542,
+      "display_name": "Aeroporto internazionale il Caravaggio di Bergamo-Orio al Serio",
+      "source": "override",
+      "resolved_at": "2026-04-24T13:43:27.597Z"
+    },
+    "day6_milan_malpensa_airport": {
+      "place_key": "day6_milan_malpensa_airport",
+      "query": "Milan Malpensa Airport, Ferno, Italy",
+      "name": "Milan Malpensa Airport",
+      "category_ko": "공항",
+      "lat": 45.6296273,
+      "lon": 8.7235475,
+      "display_name": "Aeroporto internazionale Milano Malpensa - Silvio Berlusconi",
+      "source": "override",
+      "resolved_at": "2026-04-24T13:43:27.597Z"
+    },
+    "day2_galleria_vittorio_emanuele_ii": {
+      "place_key": "day2_galleria_vittorio_emanuele_ii",
+      "query": "Galleria Vittorio Emanuele II, Milan, Italy",
+      "name": "Galleria Vittorio Emanuele II",
+      "category_ko": "랜드마크",
+      "lat": 45.4656113,
+      "lon": 9.1900062,
+      "display_name": "Galleria Vittorio Emanuele II, Milan, Italy",
+      "source": "override",
+      "resolved_at": "2026-04-24T13:43:27.597Z"
+    },
+    "day2_rinascente_milano_duomo": {
+      "place_key": "day2_rinascente_milano_duomo",
+      "query": "Rinascente Milano Duomo, Milan, Italy",
+      "name": "Rinascente Milano Duomo",
+      "category_ko": "쇼핑",
+      "lat": 45.4652946,
+      "lon": 9.1919035,
+      "display_name": "Rinascente Milano Duomo, Milan, Italy",
+      "source": "override",
+      "resolved_at": "2026-04-24T13:43:27.597Z"
+    },
+    "day3_via_montenapoleone": {
+      "place_key": "day3_via_montenapoleone",
+      "query": "Via Montenapoleone, Milan, Italy",
+      "name": "Via Montenapoleone",
+      "category_ko": "쇼핑",
+      "lat": 45.4685811,
+      "lon": 9.1948277,
+      "display_name": "Via Monte Napoleone, Milan, Italy",
+      "source": "override",
+      "resolved_at": "2026-04-24T13:43:27.597Z"
+    },
+    "day3_quadrilatero_della_moda": {
+      "place_key": "day3_quadrilatero_della_moda",
+      "query": "Quadrilatero della Moda, Milan, Italy",
+      "name": "Quadrilatero della Moda",
+      "category_ko": "쇼핑",
+      "lat": 45.46982,
+      "lon": 9.19488,
+      "display_name": "Quadrilatero della Moda, Milan, Italy",
+      "source": "override",
+      "resolved_at": "2026-04-24T13:43:27.597Z"
+    },
+    "day2_brera": {
+      "place_key": "day2_brera",
+      "query": "Brera, Milan, Italy",
+      "name": "Brera",
+      "category_ko": "지역",
+      "lat": 45.47195,
+      "lon": 9.18783,
+      "display_name": "Brera, Milan, Italy",
+      "source": "override",
+      "resolved_at": "2026-04-24T13:43:27.597Z"
+    },
+    "day3_maio_restaurant_terrace": {
+      "place_key": "day3_maio_restaurant_terrace",
+      "query": "Maio Restaurant & Terrace, Milan, Italy",
+      "name": "Maio Restaurant & Terrace",
+      "category_ko": "식음",
+      "lat": 45.46458,
+      "lon": 9.19179,
+      "display_name": "Maio Restaurant & Terrace, Rinascente Milano Duomo, Milan, Italy",
+      "source": "override",
+      "resolved_at": "2026-04-24T13:43:27.597Z"
+    },
+    "day3_ceresio_7": {
+      "place_key": "day3_ceresio_7",
+      "query": "Ceresio 7, Milan, Italy",
+      "name": "Ceresio 7",
+      "category_ko": "식음",
+      "lat": 45.4835174,
+      "lon": 9.1803112,
+      "display_name": "Ceresio 7, Milan, Italy",
+      "source": "override",
+      "resolved_at": "2026-04-24T13:43:27.597Z"
+    }
+  }
+}

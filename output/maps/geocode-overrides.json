@@ -1,0 +1,92 @@
+{
+  "base_una_hotels_century_milano": {
+    "lat": 45.4844476,
+    "lon": 9.200165,
+    "display_name": "UNA HOTELS Century Milano, Via Fabio Filzi 25, Milan, Italy",
+    "reason": "Nominatim resolves the address more reliably than the hotel brand name"
+  },
+  "base_milano_centrale": {
+    "lat": 45.4858786,
+    "lon": 9.2042617,
+    "display_name": "Milano Centrale, Milan, Italy",
+    "reason": "OSM station node"
+  },
+  "day2_duomo_di_milano": {
+    "lat": 45.4641669,
+    "lon": 9.1916121,
+    "display_name": "Duomo di Milano, Milan, Italy",
+    "reason": "OSM relation"
+  },
+  "day2_galleria_vittorio_emanuele_ii": {
+    "lat": 45.4656113,
+    "lon": 9.1900062,
+    "display_name": "Galleria Vittorio Emanuele II, Milan, Italy",
+    "reason": "OSM pedestrian way"
+  },
+  "day2_rinascente_milano_duomo": {
+    "lat": 45.4652946,
+    "lon": 9.1919035,
+    "display_name": "Rinascente Milano Duomo, Milan, Italy",
+    "reason": "OSM point inside Rinascente building"
+  },
+  "day3_via_montenapoleone": {
+    "lat": 45.4685811,
+    "lon": 9.1948277,
+    "display_name": "Via Monte Napoleone, Milan, Italy",
+    "reason": "OSM road centroid"
+  },
+  "day3_quadrilatero_della_moda": {
+    "lat": 45.46982,
+    "lon": 9.19488,
+    "display_name": "Quadrilatero della Moda, Milan, Italy",
+    "reason": "District centroid for the fashion quarter"
+  },
+  "day2_brera": {
+    "lat": 45.47195,
+    "lon": 9.18783,
+    "display_name": "Brera, Milan, Italy",
+    "reason": "District centroid"
+  },
+  "day5_bergamo_citta_alta": {
+    "lat": 45.70442,
+    "lon": 9.66268,
+    "display_name": "Citta Alta, Bergamo, Italy",
+    "reason": "Historic upper town centroid"
+  },
+  "day3_maio_restaurant_terrace": {
+    "lat": 45.46458,
+    "lon": 9.19179,
+    "display_name": "Maio Restaurant & Terrace, Rinascente Milano Duomo, Milan, Italy",
+    "reason": "Rinascente rooftop location"
+  },
+  "day3_ceresio_7": {
+    "lat": 45.4835174,
+    "lon": 9.1803112,
+    "display_name": "Ceresio 7, Milan, Italy",
+    "reason": "OSM bar node"
+  },
+  "day4_varenna": {
+    "lat": 46.0099785,
+    "lon": 9.2831593,
+    "display_name": "Varenna, Italy",
+    "reason": "OSM administrative relation"
+  },
+  "day4_bellagio": {
+    "lat": 45.9872549,
+    "lon": 9.2613001,
+    "display_name": "Bellagio, Italy",
+    "reason": "OSM administrative relation"
+  },
+  "day6_milan_bergamo_airport": {
+    "lat": 45.6708936,
+    "lon": 9.6987542,
+    "display_name": "Aeroporto internazionale il Caravaggio di Bergamo-Orio al Serio",
+    "reason": "OSM aerodrome way"
+  },
+  "day6_milan_malpensa_airport": {
+    "lat": 45.6296273,
+    "lon": 8.7235475,
+    "display_name": "Aeroporto internazionale Milano Malpensa - Silvio Berlusconi",
+    "reason": "OSM aerodrome relation"
+  }
+}
