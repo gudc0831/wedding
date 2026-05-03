@@ -737,6 +737,111 @@
       font-size: 0.76rem;
     }
 
+    .route-map-card {
+      margin: 0 0 20px;
+      border-radius: 22px;
+      background: rgba(246, 240, 227, 0.72);
+      border: 1px solid rgba(23, 55, 47, 0.08);
+      overflow: hidden;
+    }
+
+    .route-map-toolbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      padding: 15px 16px;
+    }
+
+    .route-map-copy strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+      font-size: 0.98rem;
+      font-weight: 800;
+    }
+
+    .route-map-copy span {
+      display: block;
+      color: var(--ink-soft);
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+
+    .route-map-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .route-legend {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--ink-soft);
+      font-size: 0.78rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .route-legend::before {
+      content: "";
+      width: 28px;
+      height: 0;
+      border-top: 4px solid var(--ink);
+      border-radius: 999px;
+    }
+
+    .route-legend.backup::before {
+      border-top-color: #d46f5d;
+      border-top-style: dashed;
+    }
+
+    .route-map-button {
+      appearance: none;
+      border: 1px solid rgba(23, 55, 47, 0.14);
+      border-radius: 999px;
+      padding: 9px 13px;
+      background: var(--ink);
+      color: #fff8f0;
+      font: inherit;
+      font-size: 0.84rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .route-map-button:hover {
+      background: #244d43;
+    }
+
+    .route-map-shell {
+      border-top: 1px solid rgba(23, 55, 47, 0.08);
+      background: rgba(255, 255, 255, 0.62);
+    }
+
+    .route-map-shell[hidden] {
+      display: none;
+    }
+
+    .google-route-map {
+      width: 100%;
+      height: 390px;
+      min-height: 320px;
+      background: #f7f2e8;
+    }
+
+    .route-map-status {
+      margin: 0;
+      padding: 12px 16px;
+      color: var(--ink-soft);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      border-top: 1px solid rgba(23, 55, 47, 0.08);
+      background: rgba(246, 240, 227, 0.72);
+    }
+
     .editorial-card {
       display: grid;
       gap: 0;
@@ -1293,12 +1398,25 @@
       .live-map {
         height: 340px;
       }
+
+      .route-map-toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .route-map-actions {
+        justify-content: flex-start;
+      }
+
+      .google-route-map {
+        height: 330px;
+      }
     }
 
     @media print {
       .map-view-toggle,
       .map-view-live,
-      .map-status {
+      .map-status,
+      .route-map-card {
         display: none !important;
       }
 
@@ -1627,6 +1745,23 @@
                 </p>
               </div>
             </div>
+            <div class="route-map-card" data-route-map-card="day1">
+              <div class="route-map-toolbar">
+                <div class="route-map-copy">
+                  <strong>Day 1 실제 동선 지도</strong>
+                  <span>번호는 방문 순서입니다. 코랄 점선은 비·피로 상황의 대안 동선입니다.</span>
+                </div>
+                <div class="route-map-actions">
+                  <span class="route-legend primary">기본</span>
+                  <span class="route-legend backup">대안</span>
+                  <button class="route-map-button" type="button" data-route-map-open>지도 열기</button>
+                </div>
+              </div>
+              <div class="route-map-shell" data-route-map-shell hidden>
+                <div class="google-route-map" data-route-map-target aria-label="Day 1 밀라노 첫날 실제 동선 지도"></div>
+                <p class="route-map-status" data-route-map-status>Google Maps 지도를 준비 중입니다.</p>
+              </div>
+            </div>
             <div class="day-content">
                 <div class="timeline">
                   <div class="timeline-item">
@@ -1729,6 +1864,23 @@
                   두오모권에서 출발해 브레라, 저녁은 나빌리로 흐르는 구조가 가장 자연스럽습니다.
                   두오모 루프탑은 생일 저녁에도 활용할 수 있으므로 이 날은 <strong>가볍게 내부 또는 외부 중심</strong>으로 보아도 충분합니다.
                 </p>
+              </div>
+            </div>
+            <div class="route-map-card" data-route-map-card="day2">
+              <div class="route-map-toolbar">
+                <div class="route-map-copy">
+                  <strong>Day 2 실제 동선 지도</strong>
+                  <span>Duomo, Galleria, Brera, Navigli를 순서대로 표시합니다. 건축 대안은 코랄 점선입니다.</span>
+                </div>
+                <div class="route-map-actions">
+                  <span class="route-legend primary">기본</span>
+                  <span class="route-legend backup">대안</span>
+                  <button class="route-map-button" type="button" data-route-map-open>지도 열기</button>
+                </div>
+              </div>
+              <div class="route-map-shell" data-route-map-shell hidden>
+                <div class="google-route-map" data-route-map-target aria-label="Day 2 밀라노 핵심 실제 동선 지도"></div>
+                <p class="route-map-status" data-route-map-status>Google Maps 지도를 준비 중입니다.</p>
               </div>
             </div>
             <div class="day-content">
@@ -1844,6 +1996,23 @@
                   쇼핑 구역을 두오모 주변과 브레라 축에 묶어야 물건도 비교되고,
                   피팅과 휴식 시간도 여유롭게 쓸 수 있습니다.
                 </p>
+              </div>
+            </div>
+            <div class="route-map-card" data-route-map-card="day3">
+              <div class="route-map-toolbar">
+                <div class="route-map-copy">
+                  <strong>Day 3 실제 동선 지도</strong>
+                  <span>생일 쇼핑 순서와 디너 후보를 함께 봅니다. Ceresio 7, CityLife는 대안 색상입니다.</span>
+                </div>
+                <div class="route-map-actions">
+                  <span class="route-legend primary">기본</span>
+                  <span class="route-legend backup">대안</span>
+                  <button class="route-map-button" type="button" data-route-map-open>지도 열기</button>
+                </div>
+              </div>
+              <div class="route-map-shell" data-route-map-shell hidden>
+                <div class="google-route-map" data-route-map-target aria-label="Day 3 생일 쇼핑 실제 동선 지도"></div>
+                <p class="route-map-status" data-route-map-status>Google Maps 지도를 준비 중입니다.</p>
               </div>
             </div>
             <div class="day-content">
@@ -2046,6 +2215,23 @@
                 </p>
               </div>
             </div>
+            <div class="route-map-card" data-route-map-card="day4">
+              <div class="route-map-toolbar">
+                <div class="route-map-copy">
+                  <strong>Day 4 실제 동선 지도</strong>
+                  <span>Milano Centrale, Varenna, Bellagio 흐름을 실제 지도 위에서 봅니다. Villa Monastero와 Punta Spartivento는 대안입니다.</span>
+                </div>
+                <div class="route-map-actions">
+                  <span class="route-legend primary">기본</span>
+                  <span class="route-legend backup">대안</span>
+                  <button class="route-map-button" type="button" data-route-map-open>지도 열기</button>
+                </div>
+              </div>
+              <div class="route-map-shell" data-route-map-shell hidden>
+                <div class="google-route-map" data-route-map-target aria-label="Day 4 꼬모 실제 동선 지도"></div>
+                <p class="route-map-status" data-route-map-status>Google Maps 지도를 준비 중입니다.</p>
+              </div>
+            </div>
             <div class="day-content">
                 <div class="timeline">
                   <div class="timeline-item">
@@ -2166,6 +2352,23 @@
                 </p>
               </div>
             </div>
+            <div class="route-map-card" data-route-map-card="day5">
+              <div class="route-map-toolbar">
+                <div class="route-map-copy">
+                  <strong>Day 5 실제 동선 지도</strong>
+                  <span>베르가모 상부도시 핵심 축과 San Vigilio, 성벽 산책 대안을 분리해 표시합니다.</span>
+                </div>
+                <div class="route-map-actions">
+                  <span class="route-legend primary">기본</span>
+                  <span class="route-legend backup">대안</span>
+                  <button class="route-map-button" type="button" data-route-map-open>지도 열기</button>
+                </div>
+              </div>
+              <div class="route-map-shell" data-route-map-shell hidden>
+                <div class="google-route-map" data-route-map-target aria-label="Day 5 베르가모 실제 동선 지도"></div>
+                <p class="route-map-status" data-route-map-status>Google Maps 지도를 준비 중입니다.</p>
+              </div>
+            </div>
             <div class="day-content">
                 <div class="timeline">
                   <div class="timeline-item">
@@ -2276,6 +2479,23 @@
                   현재 검색 기준으로는 <strong>BGY 06:35 새벽 직항</strong>이 가장 깔끔합니다.
                   예약 화면에서 실제 시간을 확정한 뒤 역산하고, 마지막 밤의 피로도를 줄이고 싶다면 <strong>MXP 출발편</strong>을 비교해 예약하는 것이 낫습니다.
                 </p>
+              </div>
+            </div>
+            <div class="route-map-card" data-route-map-card="day6">
+              <div class="route-map-toolbar">
+                <div class="route-map-copy">
+                  <strong>Day 6 실제 동선 지도</strong>
+                  <span>BGY 새벽 이동을 기본으로, MXP와 Centrale 주변 백업을 코랄 점선으로 표시합니다.</span>
+                </div>
+                <div class="route-map-actions">
+                  <span class="route-legend primary">기본</span>
+                  <span class="route-legend backup">대안</span>
+                  <button class="route-map-button" type="button" data-route-map-open>지도 열기</button>
+                </div>
+              </div>
+              <div class="route-map-shell" data-route-map-shell hidden>
+                <div class="google-route-map" data-route-map-target aria-label="Day 6 프라하 이동 실제 동선 지도"></div>
+                <p class="route-map-status" data-route-map-status>Google Maps 지도를 준비 중입니다.</p>
               </div>
             </div>
             <div class="day-content">
@@ -3309,6 +3529,7 @@
       요금, 운영시간, 파업, 항공편, 공연 일정은 변경될 수 있으므로 실제 여행 전 7일, 2일, 전날 밤에 공식 링크를 기준으로 재확인하세요.
     </footer>
   </div>
+  <script src="./assets/google-maps-config.js"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     (function () {
@@ -3446,6 +3667,348 @@
             }
           });
         });
+      });
+    }());
+
+    (function () {
+      const routeCards = Array.from(document.querySelectorAll("[data-route-map-card]"));
+      if (!routeCards.length) return;
+
+      const PRIMARY_ROUTE_COLOR = "#17372f";
+      const BACKUP_ROUTE_COLOR = "#d46f5d";
+      const mapStates = new Map();
+      let dailyMapDataPromise;
+      let googleMapsLoaderPromise;
+      let routeLibrariesPromise;
+
+      function escapeHtml(value) {
+        return String(value || "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll("\"", "&quot;");
+      }
+
+      function setRouteStatus(card, message) {
+        const status = card.querySelector("[data-route-map-status]");
+        if (status) status.textContent = message;
+      }
+
+      function getConfig() {
+        return window.GOOGLE_MAPS_CONFIG || {};
+      }
+
+      async function loadDailyMapData() {
+        if (!dailyMapDataPromise) {
+          dailyMapDataPromise = fetch("./assets/map-data.json", { cache: "no-cache" })
+            .then((response) => {
+              if (!response.ok) throw new Error("map-data.json load failed");
+              return response.json();
+            });
+        }
+        return dailyMapDataPromise;
+      }
+
+      async function ensureGoogleMapsApi() {
+        const config = getConfig();
+        if (!config.apiKey) {
+          throw new Error("missing-google-maps-key");
+        }
+
+        if (window.google && window.google.maps) return;
+        if (googleMapsLoaderPromise) return googleMapsLoaderPromise;
+
+        googleMapsLoaderPromise = new Promise((resolve, reject) => {
+          const callbackName = "__weddingGoogleMapsLoaded";
+          const params = new URLSearchParams({
+            key: config.apiKey,
+            v: config.version || "weekly",
+            language: config.language || "ko",
+            region: config.region || "IT",
+            loading: "async",
+            libraries: "routes",
+            callback: callbackName
+          });
+
+          if (config.authReferrerPolicy) {
+            params.set("auth_referrer_policy", config.authReferrerPolicy);
+          }
+
+          const script = document.createElement("script");
+          window[callbackName] = () => {
+            delete window[callbackName];
+            resolve();
+          };
+          script.src = `https://maps.googleapis.com/maps/api/js?${params.toString()}`;
+          script.async = true;
+          script.onerror = () => {
+            delete window[callbackName];
+            reject(new Error("google-maps-load-failed"));
+          };
+          document.head.append(script);
+        });
+
+        return googleMapsLoaderPromise;
+      }
+
+      async function getRouteLibraries() {
+        if (!routeLibrariesPromise) {
+          routeLibrariesPromise = ensureGoogleMapsApi().then(async () => {
+            if (google.maps.importLibrary) {
+              const [mapsLibrary, routesLibrary] = await Promise.all([
+                google.maps.importLibrary("maps"),
+                google.maps.importLibrary("routes")
+              ]);
+              return {
+                Map: mapsLibrary.Map || google.maps.Map,
+                Route: routesLibrary.Route || google.maps.routes.Route,
+                TravelMode: routesLibrary.TravelMode || google.maps.routes.TravelMode,
+                PolylineQuality: routesLibrary.PolylineQuality || google.maps.routes.PolylineQuality
+              };
+            }
+
+            return {
+              Map: google.maps.Map,
+              Route: google.maps.routes.Route,
+              TravelMode: google.maps.routes.TravelMode,
+              PolylineQuality: google.maps.routes.PolylineQuality
+            };
+          });
+        }
+        return routeLibrariesPromise;
+      }
+
+      function makeLegacyMarkerIcon(color) {
+        return {
+          path: google.maps.SymbolPath.CIRCLE,
+          fillColor: color,
+          fillOpacity: 1,
+          strokeColor: "#fffaf3",
+          strokeWeight: 3,
+          scale: 14
+        };
+      }
+
+      function pointPosition(point) {
+        return { lat: point.lat, lng: point.lng };
+      }
+
+      function routeLocation(point) {
+        return point.query || pointPosition(point);
+      }
+
+      function routeStyle(routeType) {
+        const isBackup = routeType === "backup";
+        return {
+          color: isBackup ? BACKUP_ROUTE_COLOR : PRIMARY_ROUTE_COLOR,
+          opacity: isBackup ? 0.88 : 0.92,
+          weight: isBackup ? 4 : 5,
+          dashed: isBackup
+        };
+      }
+
+      function applyPolylineStyle(polyline, style) {
+        polyline.setOptions({
+          strokeColor: style.color,
+          strokeOpacity: style.dashed ? 0 : style.opacity,
+          strokeWeight: style.weight,
+          zIndex: style.dashed ? 3 : 4,
+          icons: style.dashed
+            ? [{
+                icon: {
+                  path: "M 0,-1 0,1",
+                  strokeColor: style.color,
+                  strokeOpacity: style.opacity,
+                  strokeWeight: style.weight,
+                  scale: 3
+                },
+                offset: "0",
+                repeat: "16px"
+              }]
+            : null
+        });
+      }
+
+      function drawFallbackLine(map, fromPoint, toPoint, segment) {
+        const style = routeStyle(segment.routeType);
+        const line = new google.maps.Polyline({
+          map,
+          path: [pointPosition(fromPoint), pointPosition(toPoint)],
+          strokeColor: style.color,
+          strokeOpacity: style.dashed ? 0 : 0.55,
+          strokeWeight: style.weight,
+          geodesic: true,
+          zIndex: 2,
+          icons: style.dashed
+            ? [{
+                icon: {
+                  path: "M 0,-1 0,1",
+                  strokeColor: style.color,
+                  strokeOpacity: 0.72,
+                  strokeWeight: style.weight,
+                  scale: 3
+                },
+                offset: "0",
+                repeat: "16px"
+              }]
+            : null
+        });
+        return line;
+      }
+
+      function travelModeValue(travelModeMap, mode) {
+        const normalized = String(mode || "WALKING").toUpperCase();
+        return travelModeMap[normalized] || normalized;
+      }
+
+      function addMarkers(map, mapConfig, bounds) {
+        const infoWindow = new google.maps.InfoWindow();
+        mapConfig.points
+          .slice()
+          .sort((a, b) => (a.visitOrder || 0) - (b.visitOrder || 0))
+          .forEach((point) => {
+            const color = point.backup ? BACKUP_ROUTE_COLOR : PRIMARY_ROUTE_COLOR;
+            const position = pointPosition(point);
+            bounds.extend(position);
+
+            const marker = new google.maps.Marker({
+              map,
+              position,
+              title: point.label,
+              icon: makeLegacyMarkerIcon(color),
+              label: {
+                text: String(point.visitOrder || ""),
+                color: "#fffaf3",
+                fontWeight: "900",
+                fontSize: "12px"
+              }
+            });
+
+            marker.addListener("click", () => {
+              infoWindow.setContent(
+                `<div class="map-popup"><strong>${escapeHtml(point.label)}</strong><span>${escapeHtml(point.role)}</span></div>`
+              );
+              infoWindow.open({ map, anchor: marker });
+            });
+          });
+      }
+
+      async function drawRouteSegment(map, segment, pointsByKey, libraries) {
+        const fromPoint = pointsByKey.get(segment.from);
+        const toPoint = pointsByKey.get(segment.to);
+        if (!fromPoint || !toPoint) return { fallback: true, skipped: true };
+
+        const style = routeStyle(segment.routeType);
+
+        try {
+          const request = {
+            origin: routeLocation(fromPoint),
+            destination: routeLocation(toPoint),
+            travelMode: travelModeValue(libraries.TravelMode, segment.travelMode),
+            fields: ["path", "legs", "viewport"],
+            language: "ko",
+            region: "IT",
+            polylineQuality: libraries.PolylineQuality.HIGH_QUALITY
+          };
+
+          const response = await libraries.Route.computeRoutes(request);
+          const route = response.routes && response.routes[0];
+          if (!route) throw new Error("missing-route");
+
+          const polylines = route.createPolylines({
+            strokeColor: style.color,
+            strokeOpacity: style.opacity,
+            strokeWeight: style.weight
+          });
+
+          polylines.forEach((polyline) => {
+            applyPolylineStyle(polyline, style);
+            polyline.setMap(map);
+          });
+
+          return { fallback: false };
+        } catch {
+          drawFallbackLine(map, fromPoint, toPoint, segment);
+          return { fallback: true };
+        }
+      }
+
+      async function initRouteMap(card, mapConfig) {
+        const target = card.querySelector("[data-route-map-target]");
+        if (!target) return;
+        const existingState = mapStates.get(target);
+        if (existingState) {
+          google.maps.event.trigger(existingState.map, "resize");
+          existingState.map.fitBounds(existingState.bounds, 34);
+          return;
+        }
+
+        const libraries = await getRouteLibraries();
+        const map = new libraries.Map(target, {
+          center: mapConfig.center,
+          zoom: 13,
+          mapTypeControl: false,
+          fullscreenControl: true,
+          streetViewControl: false
+        });
+        const bounds = new google.maps.LatLngBounds();
+        const pointsByKey = new Map(mapConfig.points.map((point) => [point.place_key, point]));
+
+        addMarkers(map, mapConfig, bounds);
+
+        const routeResults = await Promise.all(
+          mapConfig.routes.map((segment) => drawRouteSegment(map, segment, pointsByKey, libraries))
+        );
+        const fallbackCount = routeResults.filter((result) => result.fallback && !result.skipped).length;
+
+        if (!bounds.isEmpty()) {
+          map.fitBounds(bounds, 34);
+        }
+
+        mapStates.set(target, { map, bounds });
+
+        const note = mapConfig.note ? ` ${mapConfig.note}` : "";
+        if (fallbackCount) {
+          setRouteStatus(card, `일부 구간은 Google Routes 결과를 받지 못해 좌표 기반 보조선으로 표시했습니다.${note}`);
+        } else {
+          setRouteStatus(card, `마커를 누르면 장소 역할을 확인할 수 있습니다.${note}`);
+        }
+      }
+
+      async function openRouteMap(card) {
+        const shell = card.querySelector("[data-route-map-shell]");
+        const button = card.querySelector("[data-route-map-open]");
+        if (!shell) return;
+
+        if (!shell.hidden) {
+          shell.hidden = true;
+          if (button) button.textContent = "지도 열기";
+          return;
+        }
+
+        shell.hidden = false;
+        if (button) button.textContent = "지도 닫기";
+        setRouteStatus(card, "Google Maps와 실제 경로 데이터를 불러오는 중입니다.");
+
+        try {
+          const data = await loadDailyMapData();
+          const mapConfig = data.dailyMaps.find((item) => item.id === card.dataset.routeMapCard);
+          if (!mapConfig) throw new Error("missing-daily-map");
+          await initRouteMap(card, mapConfig);
+        } catch (error) {
+          if (error && error.message === "missing-google-maps-key") {
+            setRouteStatus(card, "Google Maps API 키가 설정되지 않았습니다. assets/google-maps-config.js 또는 GitHub Secret GOOGLE_MAPS_API_KEY를 설정하면 실제 경로 지도가 열립니다.");
+          } else {
+            setRouteStatus(card, "실제 경로 지도를 불러오지 못했습니다. API 키, Maps JavaScript API, Routes API 활성화 상태를 확인하세요.");
+          }
+        }
+      }
+
+      routeCards.forEach((card) => {
+        const button = card.querySelector("[data-route-map-open]");
+        if (button) {
+          button.addEventListener("click", () => openRouteMap(card));
+        }
       });
     }());
   </script>

@@ -28,6 +28,15 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
+      - name: Write Google Maps config
+        shell: bash
+        env:
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+        run: |
+          if [ -n "$GOOGLE_MAPS_API_KEY" ]; then
+            printf 'window.GOOGLE_MAPS_CONFIG = { apiKey: "%s", language: "ko", region: "IT", authReferrerPolicy: "origin" };\n' "$GOOGLE_MAPS_API_KEY" > assets/google-maps-config.js
+          fi
+
       - name: Upload static files
         uses: actions/upload-pages-artifact@v3
         with:
