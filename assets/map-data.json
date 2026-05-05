@@ -174,7 +174,8 @@
       "id": "day1",
       "label": "Day 1 | 07.21 밀라노 첫날",
       "summary": "호텔 체크인 후 Porta Nuova와 Gae Aulenti를 가볍게 걷는 도착일 동선입니다.",
-      "note": "진녹색 실선은 기본 도보 흐름, 코랄 점선은 비·피로 상황의 실내/호텔 백업입니다.",
+      "note": "Day 1은 도심 산책 일정이라 실제 도보 최단 경로로 표시합니다. 코랄 점선은 비·피로 상황의 백업 경로입니다.",
+      "useCoordinateRouting": true,
       "center": { "lat": 45.4822, "lng": 9.1955 },
       "points": [
         { "place_key": "day1_hotel", "label": "UNA HOTELS Century Milano", "role": "숙소 체크인", "lat": 45.4857, "lng": 9.2032, "visitOrder": 1, "priority": "must", "backup": false, "query": "UNA HOTELS Century Milano, Milan, Italy" },
@@ -204,7 +205,7 @@
       "id": "day2",
       "label": "Day 2 | 07.22 밀라노 핵심",
       "summary": "Duomo, Galleria, Brera, Navigli로 이어지는 밀라노 대표 하루입니다.",
-      "note": "대중교통 구간은 Google Transit 결과를 구간별로 계산합니다. 실제 시간표는 예약 전 재확인하세요.",
+      "note": "지도 표시는 일정에 지정한 이동수단 기준 최단/최적 경로로 계산합니다. 실제 대중교통 시간표는 예약 전 재확인하세요.",
       "center": { "lat": 45.4647, "lng": 9.1865 },
       "points": [
         { "place_key": "day2_hotel", "label": "UNA HOTELS Century Milano", "role": "숙소 출발", "lat": 45.4857, "lng": 9.2032, "visitOrder": 1, "priority": "must", "backup": false, "query": "UNA HOTELS Century Milano, Milan, Italy" },
@@ -238,7 +239,7 @@
       "id": "day3",
       "label": "Day 3 | 07.23 생일 쇼핑",
       "summary": "Rinascente, Galleria, Montenapoleone, Brera, 루프탑 디너로 이어지는 생일 동선입니다.",
-      "note": "쇼핑 구간은 도보 중심, 디너 대안은 코랄 점선으로 따로 표시합니다.",
+      "note": "쇼핑 순서는 도보 최단/최적 경로로 이어서 표시하고, 디너 대안은 코랄 점선으로 따로 표시합니다.",
       "center": { "lat": 45.469, "lng": 9.1915 },
       "points": [
         { "place_key": "day3_hotel", "label": "UNA HOTELS Century Milano", "role": "느긋한 출발", "lat": 45.4857, "lng": 9.2032, "visitOrder": 1, "priority": "must", "backup": false, "query": "UNA HOTELS Century Milano, Milan, Italy" },
@@ -270,7 +271,7 @@
       "id": "day4",
       "label": "Day 4 | 07.24 꼬모",
       "summary": "Milano Centrale에서 Varenna, Bellagio까지 이어지는 호수 당일치기입니다.",
-      "note": "기차·페리 구간은 Google Transit으로 요청하되, 실제 여름 시간표와 페리 운항은 예약 전 공식 페이지에서 재확인하세요.",
+      "note": "지도 표시는 일정에 지정한 이동수단 기준 최단/최적 경로로 계산합니다. 실제 열차와 페리 운항은 예약 전 공식 페이지에서 재확인하세요.",
       "center": { "lat": 45.806, "lng": 9.245 },
       "points": [
         { "place_key": "day4_hotel", "label": "UNA HOTELS Century Milano", "role": "숙소 출발", "lat": 45.4857, "lng": 9.2032, "visitOrder": 1, "priority": "must", "backup": false, "query": "UNA HOTELS Century Milano, Milan, Italy" },
@@ -302,7 +303,7 @@
       "id": "day5",
       "label": "Day 5 | 07.25 베르가모",
       "summary": "Milano Centrale에서 Bergamo, Citta Alta 중심부로 올라가는 당일치기입니다.",
-      "note": "기차와 상부도시 접근은 구간별로 계산하고, San Vigilio와 성벽 산책은 백업 점선으로 표시합니다.",
+      "note": "지도 표시는 일정에 지정한 이동수단 기준 최단/최적 경로로 계산하고, San Vigilio와 성벽 산책은 백업 점선으로 표시합니다.",
       "center": { "lat": 45.621, "lng": 9.43 },
       "points": [
         { "place_key": "day5_hotel", "label": "UNA HOTELS Century Milano", "role": "숙소 출발", "lat": 45.4857, "lng": 9.2032, "visitOrder": 1, "priority": "must", "backup": false, "query": "UNA HOTELS Century Milano, Milan, Italy" },
@@ -329,14 +330,14 @@
         { "label": "Il Circolino", "from": "day5_caffe_tasso", "to": "day5_circolino", "travelMode": "WALKING", "routeType": "primary" },
         { "label": "Da Mimmo", "from": "day5_circolino", "to": "day5_da_mimmo", "travelMode": "WALKING", "routeType": "primary" },
         { "label": "성벽 산책 대체", "from": "day5_piazza_vecchia", "to": "day5_mura", "travelMode": "WALKING", "routeType": "backup" },
-        { "label": "San Vigilio 추가", "from": "day5_citta_alta", "to": "day5_san_vigilio", "travelMode": "TRANSIT", "routeType": "backup" }
+        { "label": "San Vigilio 추가", "from": "day5_citta_alta", "to": "day5_san_vigilio", "travelMode": "WALKING", "routeType": "backup", "useCoordinateRouting": true }
       ]
     },
     {
       "id": "day6",
       "label": "Day 6 | 07.26 프라하 이동",
       "summary": "BGY 새벽 직항 기준 공항 이동과 MXP·Centrale 주변 백업을 함께 봅니다.",
-      "note": "공항 셔틀은 실제 도로 경로로, MXP 대안은 Google Transit으로 계산합니다. 항공편 확정 후 다시 확인하세요.",
+      "note": "지도 표시는 공항과 시내 백업까지 일정 이동수단 기준 최단/최적 경로로 계산합니다. 항공편 확정 후 다시 확인하세요.",
       "center": { "lat": 45.574, "lng": 9.460 },
       "points": [
         { "place_key": "day6_hotel", "label": "UNA HOTELS Century Milano", "role": "새벽 출발", "lat": 45.4857, "lng": 9.2032, "visitOrder": 1, "priority": "must", "backup": false, "query": "UNA HOTELS Century Milano, Milan, Italy" },
