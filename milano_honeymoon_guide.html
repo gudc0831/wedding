@@ -4273,6 +4273,7 @@
       const PRIMARY_ROUTE_COLOR = "#17372f";
       const BACKUP_ROUTE_COLOR = "#d46f5d";
       const mapStates = new Map();
+      const leafletRouteStates = new Map();
       let dailyMapDataPromise;
       let googleMapsLoaderPromise;
       let routeLibrariesPromise;
@@ -4292,6 +4293,12 @@
 
       function getConfig() {
         return window.GOOGLE_MAPS_CONFIG || {};
+      }
+
+      function shouldUseLeafletRouteMaps() {
+        const config = getConfig();
+        if (config.routeMapProvider === "google") return false;
+        return config.routeMapProvider === "leaflet" || !config.apiKey || window.location.hostname.endsWith("github.io");
       }
 
       async function loadDailyMapData() {
@@ -4417,6 +4424,21 @@
           weight: isBackup ? 4 : 5,
           dashed: isBackup
         };
+      }
+
+      function leafletPointPosition(point) {
+        return [point.lat, point.lng];
+      }
+
+      function makeLeafletMarkerIcon(point) {
+        const color = point.backup ? BACKUP_ROUTE_COLOR : "#f0b84f";
+        return L.divIcon({
+          className: "map-number-icon",
+          html: `<span class="map-pin" style="background:${color}">${point.visitOrder || ""}</span>`,
+          iconSize: [40, 40],
+          iconAnchor: [20, 20],
+          popupAnchor: [0, -20]
+        });
       }
 
       function applyPolylineStyle(polyline, style) {
@@ -4666,6 +4688,82 @@
         }
       }
 
+      function initLeafletRouteMap(card, mapConfig, reason) {
+        const target = card.querySelector("[data-route-map-target]");
+        if (!target || !window.L) {
+          throw new Error("missing-leaflet-route-map");
+        }
+
+        const existingState = leafletRouteStates.get(target);
+        if (existingState) {
+          setTimeout(() => {
+            existingState.map.invalidateSize();
+            if (existingState.bounds.isValid()) {
+              existingState.map.fitBounds(existingState.bounds, { padding: [48, 48] });
+            }
+          }, 0);
+          return;
+        }
+
+        target.replaceChildren();
+        const map = L.map(target, {
+          scrollWheelZoom: false,
+          zoomControl: true
+        });
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: "&copy; OpenStreetMap contributors"
+        }).addTo(map);
+
+        const bounds = L.latLngBounds([]);
+        const pointsByKey = new Map(mapConfig.points.map((point) => [point.place_key, point]));
+
+        mapConfig.routes.forEach((segment) => {
+          const fromPoint = pointsByKey.get(segment.from);
+          const toPoint = pointsByKey.get(segment.to);
+          if (!fromPoint || !toPoint) return;
+
+          const style = routeStyle(segment.routeType);
+          const path = [leafletPointPosition(fromPoint), leafletPointPosition(toPoint)];
+          L.polyline(path, {
+            color: style.color,
+            opacity: style.opacity,
+            weight: style.weight,
+            dashArray: style.dashed ? "7 10" : null
+          }).addTo(map);
+          bounds.extend(path[0]);
+          bounds.extend(path[1]);
+        });
+
+        mapConfig.points
+          .slice()
+          .sort((a, b) => (a.visitOrder || 0) - (b.visitOrder || 0))
+          .forEach((point) => {
+            const position = leafletPointPosition(point);
+            bounds.extend(position);
+            L.marker(position, {
+              title: point.label,
+              icon: makeLeafletMarkerIcon(point)
+            })
+              .addTo(map)
+              .bindPopup(`<div class="map-popup"><strong>${escapeHtml(point.label)}</strong><span>${escapeHtml(point.role)}</span></div>`);
+          });
+
+        if (bounds.isValid()) {
+          map.fitBounds(bounds, { padding: [48, 48] });
+        } else {
+          map.setView([mapConfig.center.lat, mapConfig.center.lng], 13);
+        }
+
+        leafletRouteStates.set(target, { map, bounds });
+        setTimeout(() => map.invalidateSize(), 0);
+
+        const note = mapConfig.note ? ` ${mapConfig.note}` : "";
+        const reasonText = reason === "configured-leaflet"
+          ? "OpenStreetMap fallback route map is displayed for GitHub Pages."
+          : "Google Maps is unavailable, so an OpenStreetMap fallback route map is displayed.";
+        setRouteStatus(card, `${reasonText}${note}`);
+      }
+
       async function openRouteMap(card) {
         const shell = card.querySelector("[data-route-map-shell]");
         const button = card.querySelector("[data-route-map-open]");
@@ -4685,8 +4783,25 @@
           const data = await loadDailyMapData();
           const mapConfig = data.dailyMaps.find((item) => item.id === card.dataset.routeMapCard);
           if (!mapConfig) throw new Error("missing-daily-map");
+
+          if (shouldUseLeafletRouteMaps()) {
+            initLeafletRouteMap(card, mapConfig, getConfig().routeMapProvider === "leaflet" ? "configured-leaflet" : "google-unavailable");
+            return;
+          }
+
           await initRouteMap(card, mapConfig);
         } catch (error) {
+          try {
+            const data = await loadDailyMapData();
+            const mapConfig = data.dailyMaps.find((item) => item.id === card.dataset.routeMapCard);
+            if (mapConfig) {
+              initLeafletRouteMap(card, mapConfig, error && error.message);
+              return;
+            }
+          } catch {
+            // Keep the original status messaging below if the fallback cannot render.
+          }
+
           if (error && error.message === "missing-google-maps-key") {
             setRouteStatus(card, "Google Maps API 키가 설정되지 않았습니다. assets/google-maps-config.js 또는 GitHub Secret GOOGLE_MAPS_API_KEY를 설정하면 도로 최단 경로 지도가 열립니다.");
           } else {
