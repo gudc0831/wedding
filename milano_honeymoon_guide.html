@@ -832,6 +832,62 @@
       background: #f7f2e8;
     }
 
+    .google-route-map iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .route-map-viewer {
+      display: grid;
+      gap: 12px;
+      padding: 14px;
+    }
+
+    .route-map-tabs {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 8px;
+      border: 1px solid rgba(23, 55, 47, 0.08);
+      border-radius: 18px;
+      background: rgba(246, 240, 227, 0.72);
+    }
+
+    .route-map-tab {
+      appearance: none;
+      border: 1px solid rgba(23, 55, 47, 0.1);
+      border-radius: 999px;
+      padding: 9px 12px;
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--ink-soft);
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .route-map-tab[aria-selected="true"] {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #fff8f0;
+    }
+
+    .route-map-panel {
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid rgba(23, 55, 47, 0.09);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .route-map-panel[hidden] {
+      display: none;
+    }
+
     .route-map-status {
       margin: 0;
       padding: 12px 16px;
@@ -4286,8 +4342,11 @@
           .replaceAll("\"", "&quot;");
       }
 
-      function setRouteStatus(card, message) {
-        const status = card.querySelector("[data-route-map-status]");
+      function setRouteStatus(card, message, provider = "google") {
+        const selector = provider === "interactive"
+          ? "[data-interactive-route-map-status]"
+          : "[data-google-route-map-status], [data-route-map-status]";
+        const status = card.querySelector(selector);
         if (status) status.textContent = message;
       }
 
@@ -4295,10 +4354,8 @@
         return window.GOOGLE_MAPS_CONFIG || {};
       }
 
-      function shouldUseLeafletRouteMaps() {
-        const config = getConfig();
-        if (config.routeMapProvider === "google") return false;
-        return config.routeMapProvider === "leaflet" || !config.apiKey || window.location.hostname.endsWith("github.io");
+      function shouldUseGoogleRoutesApi() {
+        return getConfig().googleRouteEngine === "routes";
       }
 
       async function loadDailyMapData() {
@@ -4338,6 +4395,22 @@
           }
 
           const script = document.createElement("script");
+          window.gm_authFailure = () => {
+            loadDailyMapData()
+              .then((data) => {
+                routeCards.forEach((card) => {
+                  const shell = card.querySelector("[data-route-map-shell]");
+                  if (!shell || shell.hidden) return;
+                  const mapConfig = data.dailyMaps.find((item) => item.id === card.dataset.routeMapCard);
+                  if (mapConfig) renderGoogleMapsEmbed(card, mapConfig, "auth-failure");
+                });
+              })
+              .catch(() => {
+                routeCards.forEach((card) => {
+                  setRouteStatus(card, "Google Maps API 키의 referrer 또는 API 제한 설정을 확인하세요.");
+                });
+              });
+          };
           window[callbackName] = () => {
             delete window[callbackName];
             resolve();
@@ -4439,6 +4512,185 @@
           iconAnchor: [20, 20],
           popupAnchor: [0, -20]
         });
+      }
+
+      function makeRouteMapTab(label, view, selected) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "route-map-tab";
+        button.dataset.routeMapView = view;
+        button.setAttribute("role", "tab");
+        button.setAttribute("aria-selected", String(selected));
+        button.textContent = label;
+        return button;
+      }
+
+      function setActiveRouteMapView(card, view) {
+        const isInteractive = view === "interactive";
+        card.querySelectorAll("[data-route-map-view]").forEach((button) => {
+          button.setAttribute("aria-selected", String(button.dataset.routeMapView === view));
+        });
+
+        const googlePanel = card.querySelector("[data-google-route-map-panel]");
+        const interactivePanel = card.querySelector("[data-interactive-route-map-panel]");
+        if (googlePanel) googlePanel.hidden = isInteractive;
+        if (interactivePanel) interactivePanel.hidden = !isInteractive;
+      }
+
+      function ensureRouteMapLayout(card, mapConfig) {
+        const shell = card.querySelector("[data-route-map-shell]");
+        if (!shell) return null;
+
+        let googleTarget = shell.querySelector("[data-google-route-map-target]");
+        let interactiveTarget = shell.querySelector("[data-interactive-route-map-target]");
+        if (googleTarget && interactiveTarget) {
+          return { googleTarget, interactiveTarget };
+        }
+
+        const legacyTarget = shell.querySelector("[data-route-map-target]");
+        const legacyStatus = shell.querySelector("[data-route-map-status]");
+        const mapLabel = legacyTarget?.getAttribute("aria-label") || `${mapConfig.id} 실제 동선 지도`;
+
+        const viewer = document.createElement("div");
+        viewer.className = "route-map-viewer";
+        viewer.dataset.routeMapViewer = "";
+
+        const tabs = document.createElement("div");
+        tabs.className = "route-map-tabs";
+        tabs.setAttribute("role", "tablist");
+        tabs.setAttribute("aria-label", "지도 종류 선택");
+
+        const googleTab = makeRouteMapTab("Google 지도", "google", true);
+        const interactiveTab = makeRouteMapTab("인터랙티브 지도", "interactive", false);
+        tabs.append(googleTab, interactiveTab);
+
+        const googlePanel = document.createElement("section");
+        googlePanel.className = "route-map-panel route-map-panel-google";
+        googlePanel.dataset.googleRouteMapPanel = "";
+
+        googleTarget = legacyTarget || document.createElement("div");
+        googleTarget.classList.add("google-route-map");
+        googleTarget.setAttribute("data-google-route-map-target", "");
+        googleTarget.removeAttribute("data-route-map-target");
+        googleTarget.setAttribute("aria-label", `${mapLabel} - Google 지도`);
+
+        const googleStatus = legacyStatus || document.createElement("p");
+        googleStatus.className = "route-map-status";
+        googleStatus.setAttribute("data-google-route-map-status", "");
+        googleStatus.removeAttribute("data-route-map-status");
+        googleStatus.textContent = "Google Maps에서 도로 기준 최단 경로를 불러오는 중입니다.";
+        googlePanel.append(googleTarget, googleStatus);
+
+        const interactivePanel = document.createElement("section");
+        interactivePanel.className = "route-map-panel route-map-panel-interactive";
+        interactivePanel.dataset.interactiveRouteMapPanel = "";
+        interactivePanel.hidden = true;
+
+        interactiveTarget = document.createElement("div");
+        interactiveTarget.className = "google-route-map";
+        interactiveTarget.setAttribute("data-interactive-route-map-target", "");
+        interactiveTarget.setAttribute("aria-label", `${mapLabel} - 인터랙티브 지도`);
+
+        const interactiveStatus = document.createElement("p");
+        interactiveStatus.className = "route-map-status";
+        interactiveStatus.setAttribute("data-interactive-route-map-status", "");
+        interactiveStatus.textContent = "인터랙티브 지도를 준비 중입니다.";
+        interactivePanel.append(interactiveTarget, interactiveStatus);
+
+        googleTab.addEventListener("click", () => {
+          setActiveRouteMapView(card, "google");
+          renderGoogleMapsEmbed(card, mapConfig, "default-google-embed");
+        });
+
+        interactiveTab.addEventListener("click", () => {
+          setActiveRouteMapView(card, "interactive");
+          try {
+            initLeafletRouteMap(card, mapConfig);
+          } catch {
+            setRouteStatus(card, "Leaflet 라이브러리를 불러오지 못해 인터랙티브 지도를 표시하지 못했습니다.", "interactive");
+          }
+        });
+
+        viewer.append(tabs, googlePanel, interactivePanel);
+        shell.replaceChildren(viewer);
+        return { googleTarget, interactiveTarget };
+      }
+
+      function mainRoutePoints(mapConfig) {
+        const routePointKeys = new Set();
+        mapConfig.routes
+          .filter((segment) => segment.routeType !== "backup")
+          .forEach((segment) => {
+            routePointKeys.add(segment.from);
+            routePointKeys.add(segment.to);
+          });
+
+        const points = mapConfig.points
+          .filter((point) => routePointKeys.has(point.place_key) && !point.backup)
+          .slice()
+          .sort((a, b) => (a.visitOrder || 0) - (b.visitOrder || 0));
+
+        return points.length >= 2
+          ? points
+          : mapConfig.points.slice().sort((a, b) => (a.visitOrder || 0) - (b.visitOrder || 0));
+      }
+
+      function mapsUrlPoint(point) {
+        return `${point.lat},${point.lng}`;
+      }
+
+      function mapsUrlTravelMode(mapConfig) {
+        const primarySegment = mapConfig.routes.find((segment) => segment.routeType !== "backup");
+        const mode = String(primarySegment?.mapTravelMode || primarySegment?.travelMode || "walking").toLowerCase();
+        if (mode.includes("driv")) return "driving";
+        if (mode.includes("transit")) return "transit";
+        if (mode.includes("bicycl")) return "bicycling";
+        return "walking";
+      }
+
+      function googleMapsEmbedUrl(mapConfig) {
+        const points = mainRoutePoints(mapConfig);
+        const params = new URLSearchParams({
+          hl: getConfig().language || "ko",
+          output: "embed"
+        });
+        if (points.length >= 2) {
+          params.set("f", "d");
+          params.set("source", "s_d");
+          params.set("saddr", mapsUrlPoint(points[0]));
+          params.set("daddr", points.slice(1).map(mapsUrlPoint).join(" to:"));
+
+          const mode = mapsUrlTravelMode(mapConfig);
+          params.set("dirflg", mode === "driving" ? "d" : mode === "transit" ? "r" : mode === "bicycling" ? "b" : "w");
+          return `https://maps.google.com/maps?${params.toString()}`;
+        }
+
+        params.set("q", `${mapConfig.center.lat},${mapConfig.center.lng}`);
+        params.set("z", "13");
+        return `https://maps.google.com/maps?${params.toString()}`;
+      }
+
+      function renderGoogleMapsEmbed(card, mapConfig, reason) {
+        const layout = ensureRouteMapLayout(card, mapConfig);
+        const target = layout?.googleTarget;
+        if (!target) return;
+
+        target.replaceChildren();
+        const iframe = document.createElement("iframe");
+        iframe.src = googleMapsEmbedUrl(mapConfig);
+        iframe.title = "Google Maps route preview";
+        iframe.loading = "lazy";
+        iframe.referrerPolicy = "no-referrer-when-downgrade";
+        iframe.allowFullscreen = true;
+        target.append(iframe);
+
+        const note = mapConfig.note ? ` ${mapConfig.note}` : "";
+        const reasonText = reason === "default-google-embed"
+          ? "Google Maps 기본 경로 보기로 표시했습니다."
+          : reason === "missing-google-maps-key"
+          ? "API 키 없이 열 수 있는 Google Maps 기본 보기로 표시했습니다."
+          : "Google Maps JavaScript API가 제한되어 Google Maps 기본 보기로 표시했습니다.";
+        setRouteStatus(card, `${reasonText}${note}`);
       }
 
       function applyPolylineStyle(polyline, style) {
@@ -4647,7 +4899,8 @@
       }
 
       async function initRouteMap(card, mapConfig) {
-        const target = card.querySelector("[data-route-map-target]");
+        const layout = ensureRouteMapLayout(card, mapConfig);
+        const target = layout?.googleTarget;
         if (!target) return;
         const existingState = mapStates.get(target);
         if (existingState) {
@@ -4688,8 +4941,9 @@
         }
       }
 
-      function initLeafletRouteMap(card, mapConfig, reason) {
-        const target = card.querySelector("[data-route-map-target]");
+      function initLeafletRouteMap(card, mapConfig) {
+        const layout = ensureRouteMapLayout(card, mapConfig);
+        const target = layout?.interactiveTarget;
         if (!target || !window.L) {
           throw new Error("missing-leaflet-route-map");
         }
@@ -4758,10 +5012,7 @@
         setTimeout(() => map.invalidateSize(), 0);
 
         const note = mapConfig.note ? ` ${mapConfig.note}` : "";
-        const reasonText = reason === "configured-leaflet"
-          ? "OpenStreetMap fallback route map is displayed for GitHub Pages."
-          : "Google Maps is unavailable, so an OpenStreetMap fallback route map is displayed.";
-        setRouteStatus(card, `${reasonText}${note}`);
+        setRouteStatus(card, `OpenStreetMap 기반 인터랙티브 지도를 함께 표시했습니다.${note}`, "interactive");
       }
 
       async function openRouteMap(card) {
@@ -4779,34 +5030,30 @@
         if (button) button.textContent = "지도 닫기";
         setRouteStatus(card, "Google Maps에서 도로 기준 최단 경로를 불러오는 중입니다.");
 
+        let mapConfig;
         try {
           const data = await loadDailyMapData();
-          const mapConfig = data.dailyMaps.find((item) => item.id === card.dataset.routeMapCard);
+          mapConfig = data.dailyMaps.find((item) => item.id === card.dataset.routeMapCard);
           if (!mapConfig) throw new Error("missing-daily-map");
+        } catch {
+          setRouteStatus(card, "지도 데이터를 불러오지 못했습니다.");
+          return;
+        }
 
-          if (shouldUseLeafletRouteMaps()) {
-            initLeafletRouteMap(card, mapConfig, getConfig().routeMapProvider === "leaflet" ? "configured-leaflet" : "google-unavailable");
-            return;
-          }
+        ensureRouteMapLayout(card, mapConfig);
+        setActiveRouteMapView(card, "google");
+        setRouteStatus(card, "Google Maps에서 도로 기준 최단 경로를 불러오는 중입니다.");
+        setRouteStatus(card, "인터랙티브 지도를 준비 중입니다.", "interactive");
 
+        if (!shouldUseGoogleRoutesApi()) {
+          renderGoogleMapsEmbed(card, mapConfig, "default-google-embed");
+          return;
+        }
+
+        try {
           await initRouteMap(card, mapConfig);
         } catch (error) {
-          try {
-            const data = await loadDailyMapData();
-            const mapConfig = data.dailyMaps.find((item) => item.id === card.dataset.routeMapCard);
-            if (mapConfig) {
-              initLeafletRouteMap(card, mapConfig, error && error.message);
-              return;
-            }
-          } catch {
-            // Keep the original status messaging below if the fallback cannot render.
-          }
-
-          if (error && error.message === "missing-google-maps-key") {
-            setRouteStatus(card, "Google Maps API 키가 설정되지 않았습니다. assets/google-maps-config.js 또는 GitHub Secret GOOGLE_MAPS_API_KEY를 설정하면 도로 최단 경로 지도가 열립니다.");
-          } else {
-            setRouteStatus(card, "실제 경로 지도를 불러오지 못했습니다. API 키, Maps JavaScript API, Routes API 활성화 상태를 확인하세요.");
-          }
+          renderGoogleMapsEmbed(card, mapConfig, error && error.message);
         }
       }
 
