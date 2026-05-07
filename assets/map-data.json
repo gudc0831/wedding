@@ -55,16 +55,16 @@
           "place_key": "bgy",
           "label": "Milan Bergamo Airport",
           "role": "프라하 이동 후보 공항",
-          "lat": 45.6689,
-          "lon": 9.7005,
+          "lat": 45.66577,
+          "lon": 9.69809,
           "color": "#d6a090"
         },
         {
           "place_key": "mxp",
           "label": "Milan Malpensa Airport",
           "role": "프라하 이동 후보 공항",
-          "lat": 45.6301,
-          "lon": 8.7255,
+          "lat": 45.63145,
+          "lon": 8.73558,
           "color": "#d6a090"
         },
         {
@@ -342,10 +342,10 @@
       "points": [
         { "place_key": "day6_hotel", "label": "UNA HOTELS Century Milano", "role": "새벽 출발", "lat": 45.4857, "lng": 9.2032, "visitOrder": 1, "priority": "must", "backup": false, "query": "UNA HOTELS Century Milano, Milan, Italy" },
         { "place_key": "day6_savoia", "label": "Piazza Luigi Savoia shuttle stop", "role": "BGY 셔틀 접근", "lat": 45.4864, "lng": 9.204, "visitOrder": 2, "priority": "must", "backup": false, "query": "Piazza Luigi Savoia, Milan, Italy" },
-        { "place_key": "day6_bgy", "label": "Milan Bergamo Airport", "role": "프라하 직항 후보", "lat": 45.6689, "lng": 9.7005, "visitOrder": 3, "priority": "must", "backup": false, "query": "Milan Bergamo Airport, Orio al Serio, Italy" },
+        { "place_key": "day6_bgy", "label": "Milan Bergamo Airport", "role": "프라하 직항 후보", "lat": 45.66577, "lng": 9.69809, "visitOrder": 3, "priority": "must", "backup": false, "query": "Milan Bergamo Airport, Orio al Serio, Italy" },
         { "place_key": "day6_mercato", "label": "Mercato Centrale Milano", "role": "늦은 출발 시 푸드홀", "lat": 45.4867, "lng": 9.2034, "visitOrder": 4, "priority": "backup", "backup": true, "query": "Mercato Centrale Milano, Milan, Italy" },
         { "place_key": "day6_centrale", "label": "Milano Centrale", "role": "MXP 대안 출발", "lat": 45.4863, "lng": 9.203, "visitOrder": 5, "priority": "backup", "backup": true, "query": "Milano Centrale, Milan, Italy" },
-        { "place_key": "day6_mxp", "label": "Milan Malpensa Airport", "role": "수면 우선 공항 대안", "lat": 45.6301, "lng": 8.7255, "visitOrder": 6, "priority": "backup", "backup": true, "query": "Milan Malpensa Airport, Ferno, Italy" },
+        { "place_key": "day6_mxp", "label": "Milan Malpensa Airport", "role": "수면 우선 공항 대안", "lat": 45.63145, "lng": 8.73558, "visitOrder": 6, "priority": "backup", "backup": true, "query": "Milan Malpensa Airport, Ferno, Italy" },
         { "place_key": "day6_gae", "label": "Piazza Gae Aulenti", "role": "지연 시 짧은 산책", "lat": 45.4832, "lng": 9.1897, "visitOrder": 7, "priority": "backup", "backup": true, "query": "Piazza Gae Aulenti, Milan, Italy" }
       ],
       "routes": [

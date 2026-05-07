@@ -4405,8 +4405,8 @@
         return null;
       }
 
-      function routeLocation(point, useCoordinates) {
-        return useCoordinates ? pointPosition(point) : point.query || pointPosition(point);
+      function routeLocation(point) {
+        return pointPosition(point);
       }
 
       function routeStyle(routeType) {
@@ -4526,7 +4526,14 @@
           Array.isArray(route.routeLabels) &&
           route.routeLabels.some((label) => String(label).includes("SHORTER_DISTANCE"))
         );
-        return shorterRoute || routes[0];
+        if (shorterRoute) return shorterRoute;
+
+        const distanceSortedRoutes = routes
+          .slice()
+          .filter((route) => Number.isFinite(route.distanceMeters))
+          .sort((a, b) => a.distanceMeters - b.distanceMeters);
+
+        return distanceSortedRoutes[0] || routes[0];
       }
 
       function addMarkers(map, mapConfig, bounds) {
@@ -4573,8 +4580,8 @@
         try {
           const travelMode = routeDisplayTravelMode(libraries, segment);
           const request = {
-            origin: routeLocation(fromPoint, useCoordinateRouting || segment.useCoordinateRouting),
-            destination: routeLocation(toPoint, useCoordinateRouting || segment.useCoordinateRouting),
+            origin: routeLocation(fromPoint),
+            destination: routeLocation(toPoint),
             travelMode,
             fields: ["path", "legs", "routeLabels", "distanceMeters"],
             polylineQuality: libraries.PolylineQuality.HIGH_QUALITY
