@@ -34,7 +34,7 @@ jobs:
           GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
         run: |
           if [ -n "$GOOGLE_MAPS_API_KEY" ]; then
-            printf 'window.GOOGLE_MAPS_CONFIG = { apiKey: "%s", language: "ko", region: "IT", authReferrerPolicy: "origin" };\n' "$GOOGLE_MAPS_API_KEY" > assets/google-maps-config.js
+            printf 'window.GOOGLE_MAPS_CONFIG = { apiKey: "%s", language: "ko", region: "IT" };\n' "$GOOGLE_MAPS_API_KEY" > assets/google-maps-config.js
           fi
 
       - name: Upload static files
