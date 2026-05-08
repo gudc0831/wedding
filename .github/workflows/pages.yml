@@ -23,25 +23,35 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Configure Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
+
+      - name: Build Pages artifact
+        shell: bash
+        run: |
+          rm -rf _site
+          mkdir -p _site
+          cp index.html milano_honeymoon_guide.html .nojekyll _site/
+          cp -R assets _site/assets
+          rm -f _site/assets/google-maps-config.local.json
 
       - name: Write Google Maps config
         shell: bash
         env:
           GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+          GOOGLE_MAPS_MAP_ID: ${{ secrets.GOOGLE_MAPS_MAP_ID }}
         run: |
           if [ -n "$GOOGLE_MAPS_API_KEY" ]; then
-            printf 'window.GOOGLE_MAPS_CONFIG = { apiKey: "%s", language: "ko", region: "IT", routeMapProvider: "google", googleRouteEngine: "routes" };\n' "$GOOGLE_MAPS_API_KEY" > assets/google-maps-config.js
+            printf 'window.GOOGLE_MAPS_CONFIG = { apiKey: "%s", language: "ko", region: "IT", routeMapProvider: "google", googleRouteEngine: "routes", authReferrerPolicy: "origin", mapId: "%s" };\n' "$GOOGLE_MAPS_API_KEY" "${GOOGLE_MAPS_MAP_ID:-DEMO_MAP_ID}" > _site/assets/google-maps-config.js
           fi
 
       - name: Upload static files
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
-          path: .
+          path: _site
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
