@@ -4656,6 +4656,50 @@
         if (interactivePanel) interactivePanel.hidden = !isInteractive;
       }
 
+      function refreshExistingGoogleRouteMap(card, mapConfig) {
+        const layout = ensureRouteMapLayout(card, mapConfig);
+        const target = layout?.googleTarget;
+        const existingState = target ? mapStates.get(target) : null;
+        if (!existingState) return false;
+
+        window.setTimeout(() => {
+          if (window.google?.maps?.event) {
+            google.maps.event.trigger(existingState.map, "resize");
+          }
+          if (existingState.bounds && !existingState.bounds.isEmpty()) {
+            existingState.map.fitBounds(existingState.bounds, 84);
+          }
+        }, 0);
+        return true;
+      }
+
+      function hasGoogleRouteFallback(card, mapConfig) {
+        const layout = ensureRouteMapLayout(card, mapConfig);
+        return Boolean(layout?.googleTarget?.querySelector("iframe"));
+      }
+
+      async function showGoogleRouteMap(card, mapConfig) {
+        setActiveRouteMapView(card, "google");
+        if (refreshExistingGoogleRouteMap(card, mapConfig) || hasGoogleRouteFallback(card, mapConfig)) {
+          return;
+        }
+
+        if (window.GOOGLE_MAPS_CONFIG_READY) {
+          await window.GOOGLE_MAPS_CONFIG_READY;
+        }
+
+        if (!shouldUseGoogleRoutesApi()) {
+          renderGoogleMapsEmbed(card, mapConfig, "default-google-embed");
+          return;
+        }
+
+        try {
+          await initRouteMap(card, mapConfig);
+        } catch (error) {
+          renderGoogleMapsEmbed(card, mapConfig, error && error.message);
+        }
+      }
+
       function ensureRouteMapLayout(card, mapConfig) {
         const shell = card.querySelector("[data-route-map-shell]");
         if (!shell) return null;
@@ -4717,8 +4761,7 @@
         interactivePanel.append(interactiveTarget, interactiveStatus);
 
         googleTab.addEventListener("click", () => {
-          setActiveRouteMapView(card, "google");
-          renderGoogleMapsEmbed(card, mapConfig, "default-google-embed");
+          showGoogleRouteMap(card, mapConfig);
         });
 
         interactiveTab.addEventListener("click", () => {
@@ -4794,6 +4837,7 @@
         const target = layout?.googleTarget;
         if (!target) return;
 
+        mapStates.delete(target);
         target.replaceChildren();
         const iframe = document.createElement("iframe");
         iframe.src = googleMapsEmbedUrl(mapConfig);
@@ -5167,24 +5211,9 @@
         }
 
         ensureRouteMapLayout(card, mapConfig);
-        setActiveRouteMapView(card, "google");
         setRouteStatus(card, "Google Maps에서 도로 기준 최단 경로를 불러오는 중입니다.");
         setRouteStatus(card, "인터랙티브 지도를 준비 중입니다.", "interactive");
-
-        if (window.GOOGLE_MAPS_CONFIG_READY) {
-          await window.GOOGLE_MAPS_CONFIG_READY;
-        }
-
-        if (!shouldUseGoogleRoutesApi()) {
-          renderGoogleMapsEmbed(card, mapConfig, "default-google-embed");
-          return;
-        }
-
-        try {
-          await initRouteMap(card, mapConfig);
-        } catch (error) {
-          renderGoogleMapsEmbed(card, mapConfig, error && error.message);
-        }
+        await showGoogleRouteMap(card, mapConfig);
       }
 
       routeCards.forEach((card) => {
