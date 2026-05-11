@@ -1048,6 +1048,49 @@
       font-size: 0.9rem;
     }
 
+    .architecture-looklist {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .architecture-looklist figure {
+      margin: 0;
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr);
+      align-items: center;
+      gap: 10px;
+      min-height: 76px;
+      padding: 8px;
+      border: 1px solid rgba(23, 55, 47, 0.1);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.68);
+    }
+
+    .architecture-looklist img {
+      width: 76px;
+      height: 60px;
+      display: block;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .architecture-looklist figcaption {
+      min-width: 0;
+      color: var(--ink-soft);
+      line-height: 1.35;
+      font-size: 0.78rem;
+    }
+
+    .architecture-looklist figcaption strong {
+      display: block;
+      margin: 0 0 2px;
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.2;
+    }
+
     .duration-tag {
       display: inline-flex;
       align-items: center;
@@ -1833,6 +1876,10 @@
         grid-template-columns: 1fr;
       }
 
+      .architecture-looklist {
+        grid-template-columns: 1fr;
+      }
+
       .time-tag {
         justify-self: start;
       }
@@ -2275,6 +2322,32 @@
                       <strong data-place-keys="day1_porta_nuova day1_piazza_gae_aulenti">Porta Nuova(포르타 누오바) / Piazza Gae Aulenti(가에 아울렌티 광장) 산책</strong>
                       <span class="duration-tag">소요 90분</span>
                       <p>도시 감각적인 첫인상을 원하면 이쪽이 가장 안정적입니다. 현대적인 스카이라인, 평탄한 보행, 카페 접근성이 좋아 첫날 컨디션과 잘 맞습니다.</p>
+                      <div class="architecture-looklist" aria-label="Piazza Gae Aulenti 주변에서 보이는 건축물">
+                        <figure>
+                          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Unicredit%20Tower%2C%20Porta%20Nuova%2C%20Milan%2C%20Italy.jpg?width=420" alt="Piazza Gae Aulenti에서 보이는 UniCredit Tower" loading="lazy">
+                          <figcaption><strong>UniCredit Tower</strong><span>광장 정면을 잡아주는 곡선 타워와 긴 첨탑.</span></figcaption>
+                        </figure>
+                        <figure>
+                          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Unicredit%20Pavilon.JPG?width=420" alt="Piazza Gae Aulenti 옆 IBM Studios 목재 파빌리온" loading="lazy">
+                          <figcaption><strong>IBM Studios</strong><span>광장과 BAM 사이에 낮게 놓인 목재 곡선 파빌리온.</span></figcaption>
+                        </figure>
+                        <figure>
+                          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Il%20Bosco%20Verticale%20Milano%20Px%20%28137734459%29.jpeg?width=420" alt="BAM 너머로 보이는 Bosco Verticale" loading="lazy">
+                          <figcaption><strong>Bosco Verticale</strong><span>BAM 너머로 보이는 식물 테라스 주거 타워.</span></figcaption>
+                        </figure>
+                        <figure>
+                          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Torre%20Diamante%20Milano.jpg?width=420" alt="Porta Nuova의 Torre Diamante" loading="lazy">
+                          <figcaption><strong>Torre Diamante</strong><span>남쪽 스카이라인에 각진 유리 실루엣을 더하는 타워.</span></figcaption>
+                        </figure>
+                        <figure>
+                          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Piazza%20Gae%20Aulenti%20with%20Palazzo%20Lombardia.jpg?width=420" alt="Piazza Gae Aulenti에서 보이는 Palazzo Lombardia" loading="lazy">
+                          <figcaption><strong>Palazzo Lombardia</strong><span>북동쪽 배경으로 잡히는 물결형 유리 행정청사.</span></figcaption>
+                        </figure>
+                        <figure>
+                          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/TorreSolaria%20vialeLiberazione.jpg?width=420" alt="Porta Nuova의 Torre Solaria 주거 타워" loading="lazy">
+                          <figcaption><strong>Torre Solaria / Solea / Aria</strong><span>Varesine 쪽에 겹쳐 보이는 슬림한 주거 타워군.</span></figcaption>
+                        </figure>
+                      </div>
                     </div>
                   </div>
                   <div class="timeline-item">
