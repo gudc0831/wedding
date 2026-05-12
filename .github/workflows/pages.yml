@@ -40,12 +40,22 @@ jobs:
       - name: Write Google Maps config
         shell: bash
         env:
-          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
-          GOOGLE_MAPS_MAP_ID: ${{ secrets.GOOGLE_MAPS_MAP_ID }}
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY || vars.GOOGLE_MAPS_API_KEY }}
+          GOOGLE_MAPS_MAP_ID: ${{ secrets.GOOGLE_MAPS_MAP_ID || vars.GOOGLE_MAPS_MAP_ID }}
+          GOOGLE_MAPS_PLACES_ENRICHMENT: ${{ secrets.GOOGLE_MAPS_PLACES_ENRICHMENT || vars.GOOGLE_MAPS_PLACES_ENRICHMENT || 'true' }}
+          GOOGLE_MAPS_MAP_MONTHLY_LIMIT: ${{ secrets.GOOGLE_MAPS_MAP_MONTHLY_LIMIT || vars.GOOGLE_MAPS_MAP_MONTHLY_LIMIT || '990' }}
+          GOOGLE_MAPS_ROUTE_COMPUTE_MONTHLY_LIMIT: ${{ secrets.GOOGLE_MAPS_ROUTE_COMPUTE_MONTHLY_LIMIT || vars.GOOGLE_MAPS_ROUTE_COMPUTE_MONTHLY_LIMIT || '990' }}
+          GOOGLE_MAPS_PLACES_MONTHLY_LIMIT: ${{ secrets.GOOGLE_MAPS_PLACES_MONTHLY_LIMIT || vars.GOOGLE_MAPS_PLACES_MONTHLY_LIMIT || '990' }}
         run: |
-          if [ -n "$GOOGLE_MAPS_API_KEY" ]; then
-            printf 'window.GOOGLE_MAPS_CONFIG = { apiKey: "%s", language: "ko", region: "IT", routeMapProvider: "google", googleRouteEngine: "routes", authReferrerPolicy: "origin", mapId: "%s" };\n' "$GOOGLE_MAPS_API_KEY" "${GOOGLE_MAPS_MAP_ID:-DEMO_MAP_ID}" > _site/assets/google-maps-config.js
+          if [ -z "$GOOGLE_MAPS_API_KEY" ]; then
+            echo "::error::Missing GOOGLE_MAPS_API_KEY. Add it as a GitHub Actions Secret or Repository Variable before deploying Pages."
+            exit 1
           fi
+          case "${GOOGLE_MAPS_PLACES_ENRICHMENT,,}" in
+            true|1|yes|y|on) GOOGLE_MAPS_PLACES_ENRICHMENT_JSON=true ;;
+            *) GOOGLE_MAPS_PLACES_ENRICHMENT_JSON=false ;;
+          esac
+          printf 'window.GOOGLE_MAPS_CONFIG = { apiKey: "%s", language: "ko", region: "IT", routeMapProvider: "google", googleRouteEngine: "routes", googlePlacesEnrichment: %s, googleMapMonthlyLimit: %s, googleRouteComputeMonthlyLimit: %s, googlePlacesMonthlyLimit: %s, authReferrerPolicy: "origin", mapId: "%s" };\n' "$GOOGLE_MAPS_API_KEY" "$GOOGLE_MAPS_PLACES_ENRICHMENT_JSON" "$GOOGLE_MAPS_MAP_MONTHLY_LIMIT" "$GOOGLE_MAPS_ROUTE_COMPUTE_MONTHLY_LIMIT" "$GOOGLE_MAPS_PLACES_MONTHLY_LIMIT" "${GOOGLE_MAPS_MAP_ID:-DEMO_MAP_ID}" > _site/assets/google-maps-config.js
 
       - name: Upload static files
         uses: actions/upload-pages-artifact@v5

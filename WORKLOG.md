@@ -32,6 +32,10 @@
 - 재발 방지 체크: 지도 관련 작업 후에는 `assets/google-maps-config.js` 또는 배포 Secret에 키가 설정된 상태인지 먼저 확인하고, `http://127.0.0.1:8000/milano_honeymoon_guide.html`에서 Day 1-6의 `지도 열기`를 각각 눌러 지도 타일/iframe/canvas 생성과 성공 상태 문구를 확인한다.
 - 재발 방지 체크: `assets/map-data.json` 검증은 반드시 UTF-8로 읽는다. PowerShell 기본 인코딩으로 읽으면 한글이 깨져 JSON 파싱 오류처럼 보일 수 있으므로 `Get-Content -Raw -Encoding UTF8 assets\map-data.json | ConvertFrom-Json` 형태를 사용한다.
 - API 키 값 자체는 워크로그나 커밋에 남기지 않는다. 로컬 확인용 값은 개인 작업트리에만 두고, 배포용 값은 GitHub Secret `GOOGLE_MAPS_API_KEY`로 관리한다.
+- 2026-05-11 업데이트: 로컬 Google Maps 확인은 `scripts/start-local-server.ps1`로 시작한다. 이 스크립트가 `.env` 또는 환경변수의 `GOOGLE_MAPS_API_KEY`를 읽어 `assets/google-maps-config.local.json`을 생성한 뒤 `http://localhost:8000/` 정적 서버를 띄운다. 해당 JSON은 git ignore 대상이다.
+- 2026-05-11 업데이트: API 키 누락/인증 실패/Google Maps JS 로드 실패 시 번호 마커 없는 Google 기본 iframe으로 조용히 fallback하지 않도록 막았다. 이 경우 지도 영역에 설정 오류가 직접 표시되어야 한다.
+- 2026-05-11 업데이트: Places API (New)가 활성화된 키에서는 Google 지도 번호 마커 클릭 시 Text Search로 해당 장소만 조회해 주소, 영업 상태, Google Maps/길찾기 링크를 보강한다. 고비용 필드인 평점, 리뷰 수, 영업시간, 공식 사이트는 기본 요청에서 제외했다. Places가 제한되어도 지도와 경로는 유지된다.
+- 2026-05-11 업데이트: 과금 방지를 위해 로컬/배포 config에 Google Maps, Routes, Places 월간 soft limit 기본값을 각각 990회로 둔다. 이 제한은 브라우저 localStorage 기반 보조 장치일 뿐이므로 실제 과금 방지는 Google Cloud Console에서 API별 quota 제한을 별도로 걸어야 한다.
 - 전체 Day 1-6 Google route geometry를 점검했다. 기존 구현은 Google Routes API 호출은 성공했지만, 대부분의 일일 지도 구간이 좌표가 아니라 장소명 `query`로 route origin/destination을 넘겨 일부 구간에서 마커와 실제 경로 시작·끝점이 수백 m-수 km 벌어졌다. 이 차이를 직선 커넥터가 잇기 때문에 Navigli, Bellagio, Fondazione Prada, MXP 같은 구간이 꼬인 선처럼 보일 수 있었다.
 - 재발 방지를 위해 `milano_honeymoon_guide.html`의 route origin/destination을 항상 `assets/map-data.json`의 정확한 마커 좌표로 넘기도록 수정했고, `distanceMeters`가 있는 복수 route 후보는 더 짧은 거리 순으로 선택하도록 보강했다. 운전 구간은 기존처럼 `SHORTER_DISTANCE` reference route를 우선 사용한다.
 - 공항 구간의 긴 직선 커넥터를 줄이기 위해 BGY와 MXP 좌표를 Google route가 실제 도착하는 터미널/접근 지점 쪽으로 보정했다.

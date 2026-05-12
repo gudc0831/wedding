@@ -1,3 +1,5 @@
 server-4000.*.log
 .codex-static-server.*.log
 .env
+.env.local
+assets/google-maps-config.local.json

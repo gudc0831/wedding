@@ -752,6 +752,77 @@
       color: var(--ink-soft);
     }
 
+    .map-popup {
+      min-width: min(260px, 72vw);
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .map-popup-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .map-popup-number {
+      display: grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      flex: 0 0 auto;
+      border-radius: 999px;
+      color: #17372f;
+      background: #f0b84f;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .map-popup-number[data-backup="true"] {
+      color: #fffaf3;
+      background: #d46f5d;
+    }
+
+    .map-popup-role {
+      display: block;
+      margin: 0 0 8px;
+      color: var(--ink-soft);
+    }
+
+    .map-popup-meta {
+      display: grid;
+      gap: 4px;
+      margin: 8px 0 0;
+      padding: 8px 0 0;
+      border-top: 1px solid rgba(23, 55, 47, 0.1);
+    }
+
+    .map-popup-meta div {
+      color: var(--ink-soft);
+    }
+
+    .map-popup-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .map-popup-actions a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 6px 9px;
+      border: 1px solid rgba(23, 55, 47, 0.13);
+      border-radius: 999px;
+      color: var(--ink);
+      background: rgba(246, 240, 227, 0.75);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
     .map-card .caption,
     .editorial-card .caption {
       padding: 14px 16px 16px;
@@ -858,6 +929,30 @@
       width: 100%;
       height: 100%;
       border: 0;
+    }
+
+    .route-map-error {
+      display: grid;
+      align-content: center;
+      gap: 10px;
+      min-height: 100%;
+      padding: 28px;
+      color: var(--ink);
+      background: #fff8f0;
+    }
+
+    .route-map-error strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    .route-map-error span {
+      display: block;
+      max-width: 720px;
+      color: var(--ink-soft);
+      font-size: 0.88rem;
+      line-height: 1.6;
     }
 
     .route-map-viewer {
@@ -1089,6 +1184,193 @@
       color: var(--ink);
       font-size: 0.82rem;
       line-height: 1.2;
+    }
+
+    .detail-popup-trigger {
+      appearance: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 12px 0 0;
+      padding: 9px 14px;
+      border: 1px solid rgba(23, 55, 47, 0.14);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--ink);
+      box-shadow: 0 10px 24px rgba(24, 54, 47, 0.08);
+      font: inherit;
+      font-size: 0.84rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .detail-popup-trigger::after {
+      content: "↗";
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+
+    .detail-popup-trigger:hover,
+    .detail-popup-trigger:focus-visible {
+      border-color: rgba(23, 55, 47, 0.24);
+      background: rgba(255, 250, 241, 0.95);
+      outline: none;
+    }
+
+    .detail-popup {
+      width: min(920px, calc(100vw - 32px));
+      max-height: min(82vh, 780px);
+      padding: 0;
+      border: 1px solid rgba(23, 55, 47, 0.16);
+      border-radius: 20px;
+      background: #fffaf1;
+      color: var(--ink);
+      box-shadow: 0 24px 70px rgba(24, 54, 47, 0.28);
+      overflow: hidden;
+    }
+
+    .detail-popup::backdrop {
+      background: rgba(14, 26, 23, 0.42);
+      backdrop-filter: blur(2px);
+    }
+
+    .detail-popup-shell {
+      display: grid;
+      max-height: min(82vh, 780px);
+      grid-template-rows: auto minmax(0, 1fr);
+    }
+
+    .detail-popup-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 22px 24px 18px;
+      border-bottom: 1px solid rgba(23, 55, 47, 0.1);
+      background: rgba(246, 240, 227, 0.72);
+    }
+
+    .detail-popup-head h3 {
+      margin: 0 0 6px;
+      font-size: clamp(1.28rem, 2vw, 1.72rem);
+      line-height: 1.2;
+    }
+
+    .detail-popup-head p {
+      margin: 0;
+      color: var(--ink-soft);
+      line-height: 1.58;
+      font-size: 0.9rem;
+    }
+
+    .detail-popup-close {
+      appearance: none;
+      flex: 0 0 auto;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(23, 55, 47, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--ink);
+      font: inherit;
+      font-size: 1.2rem;
+      font-weight: 800;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .detail-popup-close:hover,
+    .detail-popup-close:focus-visible {
+      border-color: rgba(23, 55, 47, 0.24);
+      background: #fff;
+      outline: none;
+    }
+
+    .detail-popup-body {
+      padding: 22px 24px 26px;
+      overflow: auto;
+    }
+
+    .detail-popup-section {
+      margin: 0;
+      padding: 0 0 22px;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      overflow: visible;
+    }
+
+    .detail-popup-section + .detail-popup-section {
+      padding-top: 22px;
+      border-top: 1px solid rgba(23, 55, 47, 0.1);
+    }
+
+    .detail-popup-section h4 {
+      margin: 0 0 10px;
+      font-size: 1.02rem;
+      line-height: 1.35;
+    }
+
+    .detail-popup-section p {
+      margin: 0 0 12px;
+      color: var(--ink-soft);
+      line-height: 1.68;
+      font-size: 0.9rem;
+    }
+
+    .detail-popup-section ul {
+      margin: 0 0 12px 18px;
+      padding: 0;
+      color: var(--ink-soft);
+      line-height: 1.66;
+      font-size: 0.9rem;
+    }
+
+    .detail-popup-table-wrap {
+      margin: 12px 0;
+      overflow-x: auto;
+      border: 1px solid rgba(23, 55, 47, 0.1);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.58);
+    }
+
+    .detail-popup-table {
+      width: 100%;
+      min-width: 520px;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+    }
+
+    .detail-popup-table th,
+    .detail-popup-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(23, 55, 47, 0.08);
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .detail-popup-table th {
+      width: 30%;
+      color: var(--ink);
+      background: rgba(246, 240, 227, 0.7);
+      font-weight: 800;
+    }
+
+    .detail-popup-table tr:last-child th,
+    .detail-popup-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .detail-popup-note {
+      padding: 12px 14px;
+      border-left: 3px solid var(--gold);
+      border-radius: 10px;
+      background: rgba(205, 161, 106, 0.12);
+      color: var(--ink);
+      font-weight: 700;
+      line-height: 1.55;
     }
 
     .duration-tag {
@@ -1880,6 +2162,29 @@
         grid-template-columns: 1fr;
       }
 
+      .detail-popup {
+        width: calc(100vw - 18px);
+        max-height: 88vh;
+        border-radius: 16px;
+      }
+
+      .detail-popup-shell {
+        max-height: 88vh;
+      }
+
+      .detail-popup-head {
+        padding: 18px 16px 14px;
+      }
+
+      .detail-popup-body {
+        padding: 18px 16px 22px;
+      }
+
+      .detail-popup-trigger {
+        width: 100%;
+        justify-content: center;
+      }
+
       .time-tag {
         justify-self: start;
       }
@@ -2322,6 +2627,231 @@
                       <strong data-place-keys="day1_porta_nuova day1_piazza_gae_aulenti">Porta Nuova(포르타 누오바) / Piazza Gae Aulenti(가에 아울렌티 광장) 산책</strong>
                       <span class="duration-tag">소요 90분</span>
                       <p>도시 감각적인 첫인상을 원하면 이쪽이 가장 안정적입니다. 현대적인 스카이라인, 평탄한 보행, 카페 접근성이 좋아 첫날 컨디션과 잘 맞습니다.</p>
+                      <button class="detail-popup-trigger" type="button" data-detail-popup-open="gae-aulenti-points" aria-haspopup="dialog" aria-controls="gae-aulenti-points">Piazza Gae Aulenti 감상 포인트</button>
+                      <dialog class="detail-popup" id="gae-aulenti-points" aria-labelledby="gae-aulenti-points-title">
+                        <div class="detail-popup-shell">
+                          <div class="detail-popup-head">
+                            <div>
+                              <h3 id="gae-aulenti-points-title">Piazza Gae Aulenti 감상 포인트</h3>
+                              <p>Piazza Gae Aulenti는 “광장 하나”라기보다, 고가 보행광장 + 초고층 타워 + 수공간 + 상업시설 + 주변 스카이라인이 결합된 현대 도시공간으로 보시면 됩니다. 설계는 Pelli Clarke Pelli Architects, 공공공간 설계는 AECOM/EDAW가 참여한 Porta Nuova 재개발의 핵심 공간입니다.</p>
+                            </div>
+                            <button class="detail-popup-close" type="button" data-detail-popup-close aria-label="팝업 닫기">×</button>
+                          </div>
+                          <div class="detail-popup-body">
+                            <section class="detail-popup-section">
+                              <h4>1. 원형 고가 광장 구조</h4>
+                              <p>가장 먼저 볼 포인트는 광장이 지상보다 들어 올려진 원형 공간이라는 점입니다. 일반적인 유럽 광장처럼 건물 사이에 평면적으로 놓인 광장이 아니라, 보행자가 계단·램프·브리지로 올라와서 도시를 내려다보는 구조입니다.</p>
+                              <div class="detail-popup-table-wrap">
+                                <table class="detail-popup-table">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">감상 포인트</th>
+                                      <th scope="col">보는 방법</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <th scope="row">원형 평면</th>
+                                      <td>광장 중앙에 서서 바닥 패턴과 주변 건물의 곡선을 함께 보시면 됩니다.</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">고가 보행데크</th>
+                                      <td>도로와 분리된 보행 중심 도시공간이라는 점을 보시면 됩니다.</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">주변 연결성</th>
+                                      <td>Garibaldi역, Corso Como, BAM 공원, Bosco Verticale 쪽으로 동선이 자연스럽게 이어집니다.</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <p>이 광장은 약 6m 정도 들어 올려진 구조로 소개되며, Porta Nuova의 보행 중심 재개발을 상징합니다.</p>
+                            </section>
+
+                            <section class="detail-popup-section">
+                              <h4>2. UniCredit Tower와 곡선형 스카이라인</h4>
+                              <p>광장에서 가장 강하게 보이는 건축물은 UniCredit Tower입니다. Piazza Gae Aulenti에 붙어 있는 대표 초고층 건물이고, 밀라노 현대 스카이라인의 상징입니다.</p>
+                              <div class="detail-popup-table-wrap">
+                                <table class="detail-popup-table">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">요소</th>
+                                      <th scope="col">감상 포인트</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <th scope="row">곡선형 유리 파사드</th>
+                                      <td>광장을 감싸는 듯한 곡면이 도시공간을 부드럽게 만듭니다.</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">첨탑</th>
+                                      <td>멀리서도 인식되는 밀라노 현대 스카이라인의 표식입니다.</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">반사 유리</th>
+                                      <td>시간대에 따라 하늘, 주변 건물, 광장 분위기가 유리면에 반사됩니다.</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">저층부</th>
+                                      <td>고층 타워가 광장과 어떻게 만나는지, 즉 “건물-광장 접점”을 보시면 됩니다.</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <p>UniCredit Tower는 높이 231m로 소개되는 밀라노의 대표 초고층 건물입니다.</p>
+                            </section>
+
+                            <section class="detail-popup-section">
+                              <h4>3. 캐노피와 상업시설 저층부</h4>
+                              <p>광장 주변에는 철골, 유리, 목재 느낌의 캐노피와 저층 상업시설이 배치되어 있습니다. 초고층만 있으면 차가운 업무지구가 되기 쉬운데, Piazza Gae Aulenti는 저층부에 카페·상점·보행공간을 두어 사람이 머무는 장소로 만들었습니다.</p>
+                              <div class="detail-popup-table-wrap">
+                                <table class="detail-popup-table">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">위치</th>
+                                      <th scope="col">감상 포인트</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <th scope="row">광장 가장자리</th>
+                                      <td>상업시설과 보행공간이 어떻게 이어지는지</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">캐노피 하부</th>
+                                      <td>그늘, 빛, 비를 조절하는 도시 장치</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">유리 입면</th>
+                                      <td>광장의 활동이 실내외로 어떻게 연결되는지</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <p>건축 실무 관점으로 보면, 이곳은 고층 업무지구를 사람 중심의 보행공간으로 풀어낸 저층부 계획 사례로 볼 수 있습니다.</p>
+                            </section>
+
+                            <section class="detail-popup-section">
+                              <h4>4. 중앙 수공간과 야간 조명</h4>
+                              <p>광장 중앙부의 분수와 수공간도 중요한 포인트입니다. 낮에는 바닥과 하늘을 반사하면서 광장을 넓어 보이게 하고, 밤에는 조명과 함께 분위기를 만듭니다. 첫날 저녁에 방문하신다면, 이 부분이 가장 신혼여행 분위기에 잘 맞습니다.</p>
+                              <div class="detail-popup-table-wrap">
+                                <table class="detail-popup-table">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">시간대</th>
+                                      <th scope="col">느낌</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <th scope="row">오후</th>
+                                      <td>유리 파사드와 하늘 반사가 잘 보임</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">해질 무렵</th>
+                                      <td>광장, 타워, 조명이 동시에 살아남</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">야간</th>
+                                      <td>분수·조명·상업시설 불빛으로 도시적인 분위기 강함</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <p>Piazza Gae Aulenti는 중앙 분수와 야간 조명, 태양광 조명 장치가 특징으로 소개됩니다.</p>
+                            </section>
+
+                            <section class="detail-popup-section">
+                              <h4>5. Bosco Verticale 조망 방향</h4>
+                              <p>Bosco Verticale는 Piazza Gae Aulenti “안”에 있는 건물은 아니지만, 광장에서 BAM 공원 방향으로 이동하면 자연스럽게 보입니다. 그래서 Piazza Gae Aulenti를 볼 때는 광장 자체만 보고 끝내지 말고, Bosco Verticale 방향까지 시야를 열어보는 것이 좋습니다.</p>
+                              <div class="detail-popup-table-wrap">
+                                <table class="detail-popup-table">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">비교 대상</th>
+                                      <th scope="col">감상 포인트</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <th scope="row">UniCredit Tower</th>
+                                      <td>유리, 금속, 업무지구, 수직 스카이라인</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">Bosco Verticale</th>
+                                      <td>식재, 주거, 생태적 입면</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">BAM 공원</th>
+                                      <td>광장과 주거타워 사이를 연결하는 녹지 인프라</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                              <p>즉, 이 구역은 업무 초고층 + 생태형 주거 + 도시공원 + 상업광장이 한 번에 읽히는 곳입니다.</p>
+                            </section>
+
+                            <section class="detail-popup-section">
+                              <h4>첫날 실제 감상 순서</h4>
+                              <div class="detail-popup-table-wrap">
+                                <table class="detail-popup-table">
+                                  <thead>
+                                    <tr>
+                                      <th scope="col">순서</th>
+                                      <th scope="col">장소</th>
+                                      <th scope="col">보는 포인트</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <th scope="row">1</th>
+                                      <td>Piazza Gae Aulenti 진입부</td>
+                                      <td>고가광장으로 올라가는 방식</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">2</th>
+                                      <td>광장 중앙</td>
+                                      <td>원형 평면, 수공간, 주변 건물 배치</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">3</th>
+                                      <td>UniCredit Tower 하부</td>
+                                      <td>곡선 유리 입면, 초고층과 광장의 접점</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">4</th>
+                                      <td>캐노피·상업시설</td>
+                                      <td>보행자 중심 저층부 계획</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">5</th>
+                                      <td>BAM 방향 이동</td>
+                                      <td>광장과 공원이 연결되는 방식</td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">6</th>
+                                      <td>Bosco Verticale 조망</td>
+                                      <td>현대 밀라노의 친환경 주거 이미지</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </section>
+
+                            <section class="detail-popup-section">
+                              <h4>제 추천 체류 방식</h4>
+                              <p class="detail-popup-note">첫날에는 건축답사처럼 오래 분석하기보다 60~90분 정도 산책형으로 보는 것이 가장 좋습니다. 추천 시간은 18:00~19:30 전후이고, 해 질 무렵부터 야간 조명까지 이어서 보는 흐름이 가장 좋습니다.</p>
+                              <ul>
+                                <li>UniCredit Tower를 아래에서 올려다보는 구도</li>
+                                <li>광장 중앙 수공간에 반사되는 타워 구도</li>
+                                <li>캐노피 아래에서 타워를 프레임처럼 잡는 구도</li>
+                                <li>BAM 방향으로 걸어가며 Bosco Verticale를 배경으로 잡는 구도</li>
+                              </ul>
+                            </section>
+                          </div>
+                        </div>
+                      </dialog>
                       <div class="architecture-looklist" aria-label="Piazza Gae Aulenti 주변에서 보이는 건축물">
                         <figure>
                           <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Unicredit%20Tower%2C%20Porta%20Nuova%2C%20Milan%2C%20Italy.jpg?width=420" alt="Piazza Gae Aulenti에서 보이는 UniCredit Tower" loading="lazy">
@@ -4305,6 +4835,37 @@
       applyVersion(preferredVersion(), false);
     }());
   </script>
+  <script>
+    (function () {
+      const openButtons = document.querySelectorAll("[data-detail-popup-open]");
+      const closeButtons = document.querySelectorAll("[data-detail-popup-close]");
+
+      openButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const popup = document.getElementById(button.dataset.detailPopupOpen);
+          if (!popup) return;
+          if (typeof popup.showModal === "function") {
+            popup.showModal();
+          } else {
+            popup.setAttribute("open", "");
+          }
+        });
+      });
+
+      closeButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const popup = button.closest("dialog");
+          if (popup) popup.close();
+        });
+      });
+
+      document.querySelectorAll(".detail-popup").forEach((popup) => {
+        popup.addEventListener("click", (event) => {
+          if (event.target === popup) popup.close();
+        });
+      });
+    }());
+  </script>
   <script src="./assets/google-maps-config.js"></script>
   <script>
     window.GOOGLE_MAPS_CONFIG_READY = (async function () {
@@ -4517,7 +5078,10 @@
       const leafletRouteStates = new Map();
       let dailyMapDataPromise;
       let googleMapsLoaderPromise;
+      let baseMapLibrariesPromise;
       let routeLibrariesPromise;
+      let placesLibraryPromise;
+      const placeDetailsCache = new Map();
 
       function escapeHtml(value) {
         return String(value || "")
@@ -4541,6 +5105,35 @@
 
       function shouldUseGoogleRoutesApi() {
         return getConfig().googleRouteEngine === "routes";
+      }
+
+      function isGooglePlacesEnrichmentEnabled() {
+        return getConfig().googlePlacesEnrichment !== false;
+      }
+
+      function integerConfig(name, fallback) {
+        const value = Number(getConfig()[name]);
+        return Number.isFinite(value) && value > 0 ? Math.floor(value) : fallback;
+      }
+
+      function localUsageMonthKey() {
+        const now = new Date();
+        const month = String(now.getMonth() + 1).padStart(2, "0");
+        return `${now.getFullYear()}-${month}`;
+      }
+
+      function tryConsumeMonthlyUsage(metric, limit, amount = 1) {
+        if (!Number.isFinite(limit) || limit < amount) return false;
+
+        try {
+          const key = `wedding-google-maps-usage:${metric}:${localUsageMonthKey()}`;
+          const current = Number(window.localStorage.getItem(key) || "0");
+          if (!Number.isFinite(current) || current + amount > limit) return false;
+          window.localStorage.setItem(key, String(current + amount));
+          return true;
+        } catch {
+          return true;
+        }
       }
 
       async function loadDailyMapData() {
@@ -4575,7 +5168,7 @@
             language: config.language || "ko",
             region: config.region || "IT",
             loading: "async",
-            libraries: "routes,marker",
+            libraries: "marker",
             callback: callbackName
           });
 
@@ -4591,7 +5184,7 @@
                   const shell = card.querySelector("[data-route-map-shell]");
                   if (!shell || shell.hidden) return;
                   const mapConfig = data.dailyMaps.find((item) => item.id === card.dataset.routeMapCard);
-                  if (mapConfig) renderGoogleMapsEmbed(card, mapConfig, "auth-failure");
+                  if (mapConfig) renderRouteMapError(card, mapConfig, "auth-failure");
                 });
               })
               .catch(() => {
@@ -4616,38 +5209,86 @@
         return googleMapsLoaderPromise;
       }
 
-      async function getRouteLibraries() {
-        if (!routeLibrariesPromise) {
-          routeLibrariesPromise = ensureGoogleMapsApi().then(async () => {
+      async function getBaseMapLibraries() {
+        if (!baseMapLibrariesPromise) {
+          baseMapLibrariesPromise = ensureGoogleMapsApi().then(async () => {
+            let mapsLibrary = {};
+            let markerLibrary = {};
+
             if (google.maps.importLibrary) {
-              const [mapsLibrary, routesLibrary, markerLibrary] = await Promise.all([
-                google.maps.importLibrary("maps"),
-                google.maps.importLibrary("routes"),
-                google.maps.importLibrary("marker")
-              ]);
-              return {
-                Map: mapsLibrary.Map || google.maps.Map,
-                AdvancedMarkerElement: markerLibrary.AdvancedMarkerElement || google.maps.marker?.AdvancedMarkerElement,
-                Route: routesLibrary.Route || google.maps.routes.Route,
-                ReferenceRoute: routesLibrary.ReferenceRoute || google.maps.routes.ReferenceRoute,
-                RoutingPreference: routesLibrary.RoutingPreference || google.maps.routes.RoutingPreference,
-                TravelMode: routesLibrary.TravelMode || google.maps.routes.TravelMode,
-                PolylineQuality: routesLibrary.PolylineQuality || google.maps.routes.PolylineQuality
-              };
+              mapsLibrary = await google.maps.importLibrary("maps");
+              try {
+                markerLibrary = await google.maps.importLibrary("marker");
+              } catch {
+                markerLibrary = {};
+              }
             }
 
             return {
-              Map: google.maps.Map,
-              AdvancedMarkerElement: google.maps.marker?.AdvancedMarkerElement,
-              Route: google.maps.routes.Route,
-              ReferenceRoute: google.maps.routes.ReferenceRoute,
-              RoutingPreference: google.maps.routes.RoutingPreference,
-              TravelMode: google.maps.routes.TravelMode,
-              PolylineQuality: google.maps.routes.PolylineQuality
+              Map: mapsLibrary.Map || google.maps.Map,
+              AdvancedMarkerElement: markerLibrary.AdvancedMarkerElement || google.maps.marker?.AdvancedMarkerElement || null
             };
           });
         }
+
+        return baseMapLibrariesPromise;
+      }
+
+      async function getRouteLibraries() {
+        if (!routeLibrariesPromise) {
+          routeLibrariesPromise = ensureGoogleMapsApi()
+            .then(async () => {
+              let routesLibrary = {};
+              if (google.maps.importLibrary) {
+                routesLibrary = await google.maps.importLibrary("routes");
+              } else if (google.maps.routes) {
+                routesLibrary = google.maps.routes;
+              }
+
+              const Route = routesLibrary.Route || google.maps.routes?.Route;
+              if (!Route || typeof Route.computeRoutes !== "function") {
+                throw new Error("missing-routes-library");
+              }
+
+              return {
+                available: true,
+                Route,
+                ReferenceRoute: routesLibrary.ReferenceRoute || google.maps.routes?.ReferenceRoute,
+                RoutingPreference: routesLibrary.RoutingPreference || google.maps.routes?.RoutingPreference,
+                TravelMode: routesLibrary.TravelMode || google.maps.routes?.TravelMode || {},
+                PolylineQuality: routesLibrary.PolylineQuality || google.maps.routes?.PolylineQuality || {}
+              };
+            })
+            .catch((error) => ({
+              available: false,
+              reason: error && error.message ? error.message : "routes-library-unavailable"
+            }));
+        }
+
         return routeLibrariesPromise;
+      }
+
+      async function getPlacesLibrary() {
+        if (!placesLibraryPromise) {
+          placesLibraryPromise = ensureGoogleMapsApi()
+            .then(async () => {
+              if (!google.maps.importLibrary) throw new Error("missing-import-library");
+              const placesLibrary = await google.maps.importLibrary("places");
+              if (!placesLibrary.Place || typeof placesLibrary.Place.searchByText !== "function") {
+                throw new Error("missing-places-library");
+              }
+              return {
+                available: true,
+                Place: placesLibrary.Place
+              };
+            })
+            .catch((error) => ({
+              available: false,
+              reason: error && error.message ? error.message : "places-library-unavailable"
+            }));
+        }
+
+        return placesLibraryPromise;
       }
 
       function makeLegacyMarkerIcon(color) {
@@ -4769,7 +5410,7 @@
         try {
           await initRouteMap(card, mapConfig);
         } catch (error) {
-          renderGoogleMapsEmbed(card, mapConfig, error && error.message);
+          renderRouteMapError(card, mapConfig, error && error.message);
         }
       }
 
@@ -4923,10 +5564,60 @@
         const note = mapConfig.note ? ` ${mapConfig.note}` : "";
         const reasonText = reason === "default-google-embed"
           ? "Google Maps 기본 경로 보기로 표시했습니다."
-          : reason === "missing-google-maps-key"
-          ? "API 키 없이 열 수 있는 Google Maps 기본 보기로 표시했습니다."
-          : "Google Maps JavaScript API가 제한되어 Google Maps 기본 보기로 표시했습니다.";
+          : "Google Maps 기본 경로 보기로 표시했습니다.";
         setRouteStatus(card, `${reasonText}${note}`);
+      }
+
+      function routeMapErrorCopy(reason) {
+        if (reason === "missing-google-maps-key") {
+          return {
+            title: "Google Maps API 키가 로컬에 없습니다.",
+            body: "로컬에서는 .env의 GOOGLE_MAPS_API_KEY를 assets/google-maps-config.local.json으로 만들어야 합니다. scripts/start-local-server.ps1로 실행하면 키 파일 생성과 로컬 서버 시작을 한 번에 처리합니다."
+          };
+        }
+
+        if (reason === "auth-failure") {
+          return {
+            title: "Google Maps API 키 인증에 실패했습니다.",
+            body: "Google Cloud Console에서 Maps JavaScript API, Routes API 사용 설정과 HTTP referrer 제한에 현재 로컬 주소가 포함되어 있는지 확인하세요. 로컬 기본 주소는 http://localhost:8000/* 입니다."
+          };
+        }
+
+        if (reason === "google-maps-load-failed") {
+          return {
+            title: "Google Maps JavaScript API를 불러오지 못했습니다.",
+            body: "네트워크 연결, API 키 제한, 브라우저 콘솔 오류를 확인하세요. 번호 마커가 없는 Google 기본 보기로 조용히 대체하지 않도록 차단했습니다."
+          };
+        }
+
+        if (reason === "map-soft-limit") {
+          return {
+            title: "이번 달 Google 지도 조회 제한에 도달했습니다.",
+            body: "과금 방지를 위해 이 브라우저에서는 이번 달 추가 Google 지도 로드를 막았습니다. 실제 과금 방지는 Google Cloud Console의 API별 quota 제한도 함께 설정해야 합니다."
+          };
+        }
+
+        return {
+          title: "Google Maps 경로 지도를 표시하지 못했습니다.",
+          body: "API 키와 API 제한 설정을 확인하세요. 이 화면은 번호 마커와 경로가 빠진 기본 보기로 잘못 보이는 것을 막기 위해 표시됩니다."
+        };
+      }
+
+      function renderRouteMapError(card, mapConfig, reason) {
+        const layout = ensureRouteMapLayout(card, mapConfig);
+        const target = layout?.googleTarget;
+        if (!target) return;
+
+        mapStates.delete(target);
+        target.replaceChildren();
+
+        const copy = routeMapErrorCopy(reason);
+        const error = document.createElement("div");
+        error.className = "route-map-error";
+        error.setAttribute("role", "alert");
+        error.innerHTML = `<strong>${escapeHtml(copy.title)}</strong><span>${escapeHtml(copy.body)}</span>`;
+        target.append(error);
+        setRouteStatus(card, `${copy.title} ${copy.body}`);
       }
 
       function applyPolylineStyle(polyline, style) {
@@ -5012,7 +5703,7 @@
 
       function routeDisplayTravelMode(libraries, segment) {
         const requestedMode = String(segment.mapTravelMode || segment.travelMode || "DRIVING").toUpperCase();
-        return libraries.TravelMode[requestedMode] || requestedMode;
+        return libraries.TravelMode?.[requestedMode] || requestedMode;
       }
 
       function shortestDistanceReference(libraries) {
@@ -5056,11 +5747,142 @@
         return pin;
       }
 
-      function addMarkers(map, mapConfig, bounds, libraries) {
-        if (!libraries.AdvancedMarkerElement) {
-          throw new Error("missing-advanced-marker");
+      function googleMapsPlaceUrl(point) {
+        const query = point.query || point.label || `${point.lat},${point.lng}`;
+        return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+      }
+
+      function googleMapsDirectionsUrl(point) {
+        const destination = point.query || point.label || `${point.lat},${point.lng}`;
+        return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`;
+      }
+
+      function placeBusinessStatusLabel(status) {
+        const normalized = String(status || "").toUpperCase();
+        if (normalized.includes("OPERATIONAL")) return "운영 중인 장소";
+        if (normalized.includes("CLOSED_TEMPORARILY")) return "임시 휴업 가능";
+        if (normalized.includes("CLOSED_PERMANENTLY")) return "폐업 가능";
+        return "";
+      }
+
+      function placeRatingLabel(place) {
+        if (!Number.isFinite(place?.rating)) return "";
+        const count = Number.isFinite(place.userRatingCount) ? ` · ${place.userRatingCount.toLocaleString("ko-KR")}개` : "";
+        return `평점 ${place.rating.toFixed(1)}${count}`;
+      }
+
+      function placeHoursLabel(place) {
+        const descriptions = place?.regularOpeningHours?.weekdayDescriptions;
+        if (!Array.isArray(descriptions) || !descriptions.length) return "";
+        const today = new Date().getDay();
+        const mondayBasedIndex = today === 0 ? 6 : today - 1;
+        return descriptions[mondayBasedIndex] || descriptions[0] || "";
+      }
+
+      function renderPlacePopupContent(point, details, state) {
+        const wrapper = document.createElement("div");
+        wrapper.className = "map-popup";
+
+        const title = document.createElement("div");
+        title.className = "map-popup-title";
+
+        const number = document.createElement("span");
+        number.className = "map-popup-number";
+        number.dataset.backup = String(Boolean(point.backup));
+        number.textContent = String(point.visitOrder || "");
+
+        const name = document.createElement("strong");
+        name.textContent = details?.displayName || point.label;
+        title.append(number, name);
+
+        const role = document.createElement("span");
+        role.className = "map-popup-role";
+        role.textContent = point.role || "";
+
+        const meta = document.createElement("div");
+        meta.className = "map-popup-meta";
+
+        [
+          details?.formattedAddress,
+          placeBusinessStatusLabel(details?.businessStatus),
+          placeRatingLabel(details),
+          placeHoursLabel(details),
+          state === "loading" ? "Google Places에서 최신 장소 정보를 확인하는 중입니다." : "",
+          state === "unavailable" ? "Places 상세정보를 사용할 수 없어 저장된 일정 정보만 표시합니다." : ""
+        ].filter(Boolean).forEach((text) => {
+          const row = document.createElement("div");
+          row.textContent = text;
+          meta.append(row);
+        });
+
+        const actions = document.createElement("div");
+        actions.className = "map-popup-actions";
+
+        const mapLink = document.createElement("a");
+        mapLink.href = details?.googleMapsURI || details?.googleMapsLinks?.placeURI || googleMapsPlaceUrl(point);
+        mapLink.target = "_blank";
+        mapLink.rel = "noreferrer";
+        mapLink.textContent = "Google Maps";
+
+        const directionsLink = document.createElement("a");
+        directionsLink.href = details?.googleMapsLinks?.directionsURI || googleMapsDirectionsUrl(point);
+        directionsLink.target = "_blank";
+        directionsLink.rel = "noreferrer";
+        directionsLink.textContent = "길찾기";
+
+        actions.append(mapLink, directionsLink);
+
+        if (details?.websiteURI) {
+          const websiteLink = document.createElement("a");
+          websiteLink.href = details.websiteURI;
+          websiteLink.target = "_blank";
+          websiteLink.rel = "noreferrer";
+          websiteLink.textContent = "공식 사이트";
+          actions.append(websiteLink);
         }
 
+        wrapper.append(title, role);
+        if (meta.childElementCount) wrapper.append(meta);
+        wrapper.append(actions);
+        return wrapper;
+      }
+
+      async function fetchPlaceDetails(point, map) {
+        const cacheKey = point.place_key || point.query || point.label;
+        if (placeDetailsCache.has(cacheKey)) return placeDetailsCache.get(cacheKey);
+
+        const detailsPromise = (async () => {
+          if (!isGooglePlacesEnrichmentEnabled()) return null;
+          const placesMonthlyLimit = integerConfig("googlePlacesMonthlyLimit", 990);
+          if (!tryConsumeMonthlyUsage("places-text-search", placesMonthlyLimit)) return null;
+
+          const placesLibrary = await getPlacesLibrary();
+          if (!placesLibrary.available) return null;
+
+          const { places } = await placesLibrary.Place.searchByText({
+            textQuery: point.query || point.label,
+            fields: [
+              "displayName",
+              "formattedAddress",
+              "location",
+              "googleMapsURI",
+              "googleMapsLinks",
+              "businessStatus"
+            ],
+            locationBias: map.getCenter(),
+            language: getConfig().language || "ko",
+            region: getConfig().region || "IT",
+            maxResultCount: 1
+          });
+
+          return places && places.length ? places[0] : null;
+        })().catch(() => null);
+
+        placeDetailsCache.set(cacheKey, detailsPromise);
+        return detailsPromise;
+      }
+
+      function addMarkers(map, mapConfig, bounds, libraries) {
         const infoWindow = new google.maps.InfoWindow();
         mapConfig.points
           .slice()
@@ -5069,20 +5891,41 @@
             const position = pointPosition(point);
             bounds.extend(position);
 
-            const marker = new libraries.AdvancedMarkerElement({
+            const openInfoWindow = async (anchor) => {
+              infoWindow.setContent(renderPlacePopupContent(point, null, "loading"));
+              infoWindow.open({ map, anchor });
+
+              const details = await fetchPlaceDetails(point, map);
+              infoWindow.setContent(renderPlacePopupContent(point, details, details ? "ready" : "unavailable"));
+            };
+
+            if (libraries.AdvancedMarkerElement) {
+              const marker = new libraries.AdvancedMarkerElement({
+                map,
+                position,
+                title: point.label,
+                zIndex: point.backup ? 20 : 30,
+                content: makeAdvancedMarkerContent(point)
+              });
+              marker.addListener("click", () => openInfoWindow(marker));
+              return;
+            }
+
+            const color = point.backup ? BACKUP_ROUTE_COLOR : "#f0b84f";
+            const marker = new google.maps.Marker({
               map,
               position,
               title: point.label,
               zIndex: point.backup ? 20 : 30,
-              content: makeAdvancedMarkerContent(point)
+              icon: makeLegacyMarkerIcon(color),
+              label: {
+                text: String(point.visitOrder || ""),
+                color: point.backup ? "#fffaf3" : "#17372f",
+                fontSize: "14px",
+                fontWeight: "900"
+              }
             });
-
-            marker.addListener("click", () => {
-              infoWindow.setContent(
-                `<div class="map-popup"><strong>${escapeHtml(point.label)}</strong><span>${escapeHtml(point.role)}</span></div>`
-              );
-              infoWindow.open({ map, anchor: marker });
-            });
+            marker.addListener("click", () => openInfoWindow(marker));
           });
       }
 
@@ -5092,6 +5935,16 @@
         if (!fromPoint || !toPoint) return { fallback: true, skipped: true };
 
         const style = routeStyle(segment.routeType);
+        if (!libraries || !libraries.available) {
+          drawFallbackLine(map, fromPoint, toPoint, segment);
+          return { fallback: true, reason: libraries?.reason || "routes-library-unavailable" };
+        }
+
+        const routeComputeMonthlyLimit = integerConfig("googleRouteComputeMonthlyLimit", 990);
+        if (!tryConsumeMonthlyUsage("route-compute", routeComputeMonthlyLimit)) {
+          drawFallbackLine(map, fromPoint, toPoint, segment);
+          return { fallback: true, reason: "route-soft-limit" };
+        }
 
         try {
           const travelMode = routeDisplayTravelMode(libraries, segment);
@@ -5100,8 +5953,11 @@
             destination: routeLocation(toPoint),
             travelMode,
             fields: ["path", "legs", "routeLabels", "distanceMeters"],
-            polylineQuality: libraries.PolylineQuality.HIGH_QUALITY
           };
+
+          if (libraries.PolylineQuality?.HIGH_QUALITY) {
+            request.polylineQuality = libraries.PolylineQuality.HIGH_QUALITY;
+          }
 
           if (isDrivingRouteMode(travelMode)) {
             request.routingPreference = trafficUnawarePreference(libraries);
@@ -5151,8 +6007,14 @@
           return;
         }
 
-        const libraries = await getRouteLibraries();
-        const map = new libraries.Map(target, {
+        const mapMonthlyLimit = integerConfig("googleMapMonthlyLimit", 990);
+        if (!tryConsumeMonthlyUsage("map-load", mapMonthlyLimit)) {
+          renderRouteMapError(card, mapConfig, "map-soft-limit");
+          return;
+        }
+
+        const baseLibraries = await getBaseMapLibraries();
+        const map = new baseLibraries.Map(target, {
           center: mapConfig.center,
           zoom: 13,
           mapId: getConfig().mapId || "DEMO_MAP_ID",
@@ -5163,12 +6025,15 @@
         const bounds = new google.maps.LatLngBounds();
         const pointsByKey = new Map(mapConfig.points.map((point) => [point.place_key, point]));
 
-        addMarkers(map, mapConfig, bounds, libraries);
+        addMarkers(map, mapConfig, bounds, baseLibraries);
 
+        const routeLibraries = await getRouteLibraries();
         const routeResults = await Promise.all(
-          mapConfig.routes.map((segment) => drawRouteSegment(map, segment, pointsByKey, libraries, bounds, mapConfig.useCoordinateRouting))
+          mapConfig.routes.map((segment) => drawRouteSegment(map, segment, pointsByKey, routeLibraries, bounds, mapConfig.useCoordinateRouting))
         );
         const fallbackCount = routeResults.filter((result) => result.fallback && !result.skipped).length;
+        const routeLibraryUnavailable = !routeLibraries.available;
+        const routeSoftLimited = routeResults.some((result) => result.reason === "route-soft-limit");
 
         if (!bounds.isEmpty()) {
           map.fitBounds(bounds, 84);
@@ -5177,7 +6042,11 @@
         mapStates.set(target, { map, bounds });
 
         const note = mapConfig.note ? ` ${mapConfig.note}` : "";
-        if (fallbackCount) {
+        if (routeLibraryUnavailable) {
+          setRouteStatus(card, `Google Routes 라이브러리를 사용할 수 없어 좌표 기반 경로선으로 표시했습니다. 번호 마커와 방문 순서는 Google 지도 위에 유지됩니다.${note}`);
+        } else if (routeSoftLimited) {
+          setRouteStatus(card, `이번 달 Google Routes 호출 제한에 도달해 일부 구간은 좌표 기반 보조선으로 표시했습니다. 번호 마커와 방문 순서는 유지됩니다.${note}`);
+        } else if (fallbackCount) {
           setRouteStatus(card, `일부 구간은 Google Routes 결과를 받지 못해 좌표 기반 보조선으로 표시했습니다.${note}`);
         } else {
           setRouteStatus(card, `최단/최적 경로로 이어서 표시했습니다. 마커를 누르면 장소 역할을 확인할 수 있습니다.${note}`);

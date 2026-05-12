@@ -28,7 +28,7 @@ https://<GitHub아이디>.github.io/wedding/
 단순 HTML이지만 인터랙티브 지도는 `fetch()`로 `assets/map-data.json`을 읽기 때문에 `file://`로 직접 열면 일부 브라우저에서 차단될 수 있습니다. 로컬에서 전체 동작을 확인할 때는 간단한 정적 서버로 여는 편이 안정적입니다.
 
 ```powershell
-python -m http.server 8000
+.\scripts\start-local-server.ps1
 ```
 
 그다음 브라우저에서 아래 주소를 엽니다.
@@ -36,3 +36,37 @@ python -m http.server 8000
 ```text
 http://localhost:8000/
 ```
+
+## Local Google Maps config
+
+Do not start the local site with `python -m http.server` directly when testing the route maps. The browser cannot read `.env` by itself, so the local Google Maps config must be generated first.
+
+1. Copy `.env.example` to `.env`.
+2. Set `GOOGLE_MAPS_API_KEY`.
+3. Start the local site through the wrapper:
+
+```powershell
+.\scripts\start-local-server.ps1
+```
+
+The wrapper writes `assets/google-maps-config.local.json` from `.env` and then serves `http://localhost:8000/`. That generated JSON file is ignored by git so the API key is not committed.
+
+For a restricted Google Maps key, allow these HTTP referrers in Google Cloud Console when testing locally:
+
+```text
+http://localhost:8000/*
+```
+
+The key also needs Maps JavaScript API enabled. Routes API should be enabled for road-following routes; if Routes is unavailable, the guide keeps the Google basemap and numbered markers visible and falls back to coordinate-based route lines.
+
+Places API (New) is optional but recommended. When it is enabled, clicking a numbered marker can show fresher place details such as address, business status, and Google Maps links. Details are loaded on marker click only so the page does not call Places for every location on initial load.
+
+The site includes browser-side soft limits to avoid accidental repeated usage:
+
+```text
+GOOGLE_MAPS_MAP_MONTHLY_LIMIT=990
+GOOGLE_MAPS_ROUTE_COMPUTE_MONTHLY_LIMIT=990
+GOOGLE_MAPS_PLACES_MONTHLY_LIMIT=990
+```
+
+These are convenience guards only. For real billing protection, set matching or lower quota limits in Google Cloud Console for the enabled APIs. Google Cloud quotas apply at the project/API level; the local browser limit cannot see usage from other browsers, devices, or referrers using the same key.
