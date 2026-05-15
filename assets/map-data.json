@@ -174,31 +174,32 @@
       "id": "day1",
       "label": "Day 1 | 07.21 밀라노 첫날",
       "summary": "호텔 체크인 후 Porta Nuova와 Gae Aulenti를 가볍게 걷는 도착일 동선입니다.",
-      "note": "Day 1은 도심 산책 일정이라 실제 도보 최단 경로로 표시합니다. 코랄 점선은 비·피로 상황의 백업 경로입니다.",
+      "note": "Day 1은 도심 산책 일정이라 실제 도보 최단 경로로 표시합니다. 코랄 점선은 비·피로 상황의 백업 경로이고, 작은 옵션 식당 마커는 위치만 표시하며 동선에는 연결하지 않습니다.",
       "useCoordinateRouting": true,
       "center": { "lat": 45.4822, "lng": 9.1955 },
       "points": [
         { "place_key": "day1_hotel", "label": "UNA HOTELS Century Milano", "role": "숙소 체크인", "lat": 45.4857, "lng": 9.2032, "visitOrder": 1, "priority": "must", "backup": false, "query": "UNA HOTELS Century Milano, Milan, Italy" },
-        { "place_key": "day1_pave", "label": "Pave Milano", "role": "짧은 카페 브레이크", "lat": 45.4795, "lng": 9.2054, "visitOrder": 2, "priority": "nice", "backup": false, "query": "Pave Milano, Milan, Italy" },
-        { "place_key": "day1_porta_nuova", "label": "Porta Nuova", "role": "첫날 산책 시작", "lat": 45.4781, "lng": 9.1963, "visitOrder": 3, "priority": "must", "backup": false, "query": "Porta Nuova, Milan, Italy" },
-        { "place_key": "day1_piazza_gae_aulenti", "label": "Piazza Gae Aulenti", "role": "포토스팟", "lat": 45.4832, "lng": 9.1897, "visitOrder": 4, "priority": "must", "backup": false, "query": "Piazza Gae Aulenti, Milan, Italy" },
-        { "place_key": "day1_bam", "label": "BAM Biblioteca degli Alberi Milano", "role": "시간이 남을 때 공원 산책", "lat": 45.4844, "lng": 9.1906, "visitOrder": 5, "priority": "nice", "backup": false, "query": "BAM Biblioteca degli Alberi Milano, Milan, Italy" },
-        { "place_key": "day1_bosco_verticale", "label": "Bosco Verticale", "role": "현대 건축 포인트", "lat": 45.485, "lng": 9.1902, "visitOrder": 6, "priority": "must", "backup": false, "query": "Bosco Verticale, Milan, Italy" },
-        { "place_key": "day1_casa_memoria", "label": "Casa della Memoria", "role": "짧은 건축 마무리", "lat": 45.4841, "lng": 9.1872, "visitOrder": 7, "priority": "nice", "backup": false, "query": "Casa della Memoria, Milan, Italy" },
-        { "place_key": "day1_ratana", "label": "Ratana", "role": "Porta Nuova 첫 저녁", "lat": 45.4845, "lng": 9.1926, "visitOrder": 8, "priority": "nice", "backup": false, "query": "Ratana, Milan, Italy" },
-        { "place_key": "day1_eataly", "label": "Eataly Milano Smeraldo", "role": "비·피로 시 실내 백업", "lat": 45.481, "lng": 9.1877, "visitOrder": 9, "priority": "backup", "backup": true, "query": "Eataly Milano Smeraldo, Milan, Italy" },
-        { "place_key": "day1_hall", "label": "The Hall Bar & Restaurant", "role": "호텔 레스토랑 백업", "lat": 45.4857, "lng": 9.2032, "visitOrder": 10, "priority": "backup", "backup": true, "query": "The Hall Bar & Restaurant, UNA HOTELS Century Milano, Milan, Italy" }
+        { "place_key": "day1_porta_nuova", "label": "Porta Nuova", "role": "첫날 산책 시작", "lat": 45.4781, "lng": 9.1963, "visitOrder": 2, "priority": "must", "backup": false, "query": "Porta Nuova, Milan, Italy" },
+        { "place_key": "day1_piazza_gae_aulenti", "label": "Piazza Gae Aulenti", "role": "포토스팟", "lat": 45.4832, "lng": 9.1897, "visitOrder": 3, "priority": "must", "backup": false, "query": "Piazza Gae Aulenti, Milan, Italy" },
+        { "place_key": "day1_bam", "label": "BAM Biblioteca degli Alberi Milano", "role": "시간이 남을 때 공원 산책", "lat": 45.4844, "lng": 9.1906, "visitOrder": 4, "priority": "nice", "backup": false, "query": "BAM Biblioteca degli Alberi Milano, Milan, Italy" },
+        { "place_key": "day1_bosco_verticale", "label": "Bosco Verticale", "role": "현대 건축 포인트", "lat": 45.485, "lng": 9.1902, "visitOrder": 5, "priority": "must", "backup": false, "query": "Bosco Verticale, Milan, Italy" },
+        { "place_key": "day1_casa_memoria", "label": "Casa della Memoria", "role": "짧은 건축 마무리", "lat": 45.4841, "lng": 9.1872, "visitOrder": 6, "priority": "nice", "backup": false, "query": "Casa della Memoria, Milan, Italy" },
+        { "place_key": "day1_bosco_restaurant", "label": "Bosco Verticale Restaurant", "role": "저장 목록 첫 저녁", "lat": 45.4867115, "lng": 9.1910436, "visitOrder": 7, "priority": "nice", "backup": false, "query": "Bosco Verticale Restaurant, Milan, Italy" },
+        { "place_key": "day1_pitbeef", "label": "PitBeef Milano", "role": "옵션 식당 · 스테이크 · 4.9 · €30-80", "lat": 45.4854512, "lng": 9.18961, "visitOrder": 7.1, "mapLabel": "7-1", "markerVariant": "option", "priority": "option", "backup": false, "query": "PitBeef Milano, Via de Castillia 7, Milan, Italy" },
+        { "place_key": "day1_sapemare", "label": "Sapemare", "role": "옵션 식당 · 타파스 바 · 4.8 · €20-60", "lat": 45.4864655, "lng": 9.1883675, "visitOrder": 7.2, "mapLabel": "7-2", "markerVariant": "option", "priority": "option", "backup": false, "query": "Sapemare, Via Pastrengo 2, Milan, Italy" },
+        { "place_key": "day1_da_pecchia", "label": "Da Pecchia Pizza e Sfizi Napoletani", "role": "옵션 식당 · 피자 · 4.6 · €10-20", "lat": 45.4859247, "lng": 9.1930964, "visitOrder": 7.3, "mapLabel": "7-3", "markerVariant": "option", "priority": "option", "backup": false, "query": "Da Pecchia Pizza e Sfizi Napoletani, Via Gaetano de Castillia 23, Milan, Italy" },
+        { "place_key": "day1_mancuso", "label": "Mancuso Gelati Italiani 1920", "role": "저녁 뒤 젤라또", "lat": 45.4856107, "lng": 9.1914686, "visitOrder": 8, "priority": "nice", "backup": false, "query": "Mancuso Gelati Italiani 1920, Milan, Italy" },
+        { "place_key": "day1_eataly", "label": "Eataly Milano Smeraldo", "role": "비·피로 시 실내 백업", "lat": 45.481, "lng": 9.1877, "visitOrder": 9, "priority": "backup", "backup": true, "query": "Eataly Milano Smeraldo, Milan, Italy" }
       ],
       "routes": [
-        { "label": "호텔에서 카페", "from": "day1_hotel", "to": "day1_pave", "travelMode": "WALKING", "routeType": "primary" },
-        { "label": "카페에서 Porta Nuova", "from": "day1_pave", "to": "day1_porta_nuova", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "호텔에서 Porta Nuova", "from": "day1_hotel", "to": "day1_porta_nuova", "travelMode": "WALKING", "routeType": "primary" },
         { "label": "Porta Nuova 산책", "from": "day1_porta_nuova", "to": "day1_piazza_gae_aulenti", "travelMode": "WALKING", "routeType": "primary" },
         { "label": "BAM 연결", "from": "day1_piazza_gae_aulenti", "to": "day1_bam", "travelMode": "WALKING", "routeType": "primary" },
         { "label": "Bosco Verticale 연결", "from": "day1_bam", "to": "day1_bosco_verticale", "travelMode": "WALKING", "routeType": "primary" },
         { "label": "Casa della Memoria 연결", "from": "day1_bosco_verticale", "to": "day1_casa_memoria", "travelMode": "WALKING", "routeType": "primary" },
-        { "label": "첫 저녁", "from": "day1_casa_memoria", "to": "day1_ratana", "travelMode": "WALKING", "routeType": "primary" },
-        { "label": "실내 백업", "from": "day1_piazza_gae_aulenti", "to": "day1_eataly", "travelMode": "WALKING", "routeType": "backup" },
-        { "label": "호텔 백업", "from": "day1_hotel", "to": "day1_hall", "travelMode": "WALKING", "routeType": "backup" }
+        { "label": "저장 식당 첫 저녁", "from": "day1_casa_memoria", "to": "day1_bosco_restaurant", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "저녁 뒤 젤라또", "from": "day1_bosco_restaurant", "to": "day1_mancuso", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "실내 백업", "from": "day1_piazza_gae_aulenti", "to": "day1_eataly", "travelMode": "WALKING", "routeType": "backup" }
       ]
     },
     {
