@@ -53,27 +53,44 @@ Set-Location -LiteralPath $root
 $dotenv = Read-DotEnv -Path $EnvPath
 $apiKey = if ($env:GOOGLE_MAPS_API_KEY) { $env:GOOGLE_MAPS_API_KEY } else { $dotenv["GOOGLE_MAPS_API_KEY"] }
 $mapId = if ($env:GOOGLE_MAPS_MAP_ID) { $env:GOOGLE_MAPS_MAP_ID } else { $dotenv["GOOGLE_MAPS_MAP_ID"] }
+$routeEngine = if ($env:GOOGLE_MAPS_ROUTE_ENGINE) { $env:GOOGLE_MAPS_ROUTE_ENGINE } else { $dotenv["GOOGLE_MAPS_ROUTE_ENGINE"] }
+$authReferrerPolicy = if ($env:GOOGLE_MAPS_AUTH_REFERRER_POLICY) { $env:GOOGLE_MAPS_AUTH_REFERRER_POLICY } else { $dotenv["GOOGLE_MAPS_AUTH_REFERRER_POLICY"] }
 $placesEnrichment = if ($env:GOOGLE_MAPS_PLACES_ENRICHMENT) { $env:GOOGLE_MAPS_PLACES_ENRICHMENT } else { $dotenv["GOOGLE_MAPS_PLACES_ENRICHMENT"] }
 $mapMonthlyLimit = if ($env:GOOGLE_MAPS_MAP_MONTHLY_LIMIT) { $env:GOOGLE_MAPS_MAP_MONTHLY_LIMIT } else { $dotenv["GOOGLE_MAPS_MAP_MONTHLY_LIMIT"] }
 $routeComputeMonthlyLimit = if ($env:GOOGLE_MAPS_ROUTE_COMPUTE_MONTHLY_LIMIT) { $env:GOOGLE_MAPS_ROUTE_COMPUTE_MONTHLY_LIMIT } else { $dotenv["GOOGLE_MAPS_ROUTE_COMPUTE_MONTHLY_LIMIT"] }
 $placesMonthlyLimit = if ($env:GOOGLE_MAPS_PLACES_MONTHLY_LIMIT) { $env:GOOGLE_MAPS_PLACES_MONTHLY_LIMIT } else { $dotenv["GOOGLE_MAPS_PLACES_MONTHLY_LIMIT"] }
 
-if (-not $apiKey -or $apiKey -eq "your-google-maps-api-key") {
-  throw "GOOGLE_MAPS_API_KEY is missing. Create .env from .env.example or set the environment variable before starting the local site."
+$normalizedRouteEngine = "$routeEngine".Trim().ToLowerInvariant()
+if ($normalizedRouteEngine -in @("routes", "google-routes")) {
+  $normalizedRouteEngine = "routes"
+} else {
+  $normalizedRouteEngine = "embed"
+}
+
+if ($normalizedRouteEngine -eq "routes" -and (-not $apiKey -or $apiKey -eq "your-google-maps-api-key")) {
+  throw "GOOGLE_MAPS_ROUTE_ENGINE=routes requires GOOGLE_MAPS_API_KEY. Create .env from .env.example or set the environment variable before starting the local site."
 }
 
 $config = [ordered]@{
-  apiKey = $apiKey
+  apiKey = if ($apiKey -and $apiKey -ne "your-google-maps-api-key") { $apiKey } else { "" }
   language = "ko"
   region = "IT"
   routeMapProvider = "google"
-  googleRouteEngine = "routes"
+  googleRouteEngine = $normalizedRouteEngine
   googlePlacesEnrichment = if ($placesEnrichment) { Convert-ToBoolean -Value $placesEnrichment } else { $true }
   googleMapMonthlyLimit = if ($mapMonthlyLimit) { [int]$mapMonthlyLimit } else { 990 }
   googleRouteComputeMonthlyLimit = if ($routeComputeMonthlyLimit) { [int]$routeComputeMonthlyLimit } else { 990 }
   googlePlacesMonthlyLimit = if ($placesMonthlyLimit) { [int]$placesMonthlyLimit } else { 990 }
-  authReferrerPolicy = "origin"
-  mapId = if ($mapId -and $mapId -ne "your-google-maps-map-id") { $mapId } else { "DEMO_MAP_ID" }
+}
+
+if ($authReferrerPolicy) {
+  $config.authReferrerPolicy = $authReferrerPolicy
+}
+
+if ($mapId -and $mapId -ne "your-google-maps-map-id") {
+  $config.mapId = $mapId
+} elseif ($normalizedRouteEngine -eq "routes") {
+  $config.mapId = "DEMO_MAP_ID"
 }
 
 $outputFullPath = Join-Path $root $OutputPath

@@ -40,3 +40,11 @@
 - 재발 방지를 위해 `milano_honeymoon_guide.html`의 route origin/destination을 항상 `assets/map-data.json`의 정확한 마커 좌표로 넘기도록 수정했고, `distanceMeters`가 있는 복수 route 후보는 더 짧은 거리 순으로 선택하도록 보강했다. 운전 구간은 기존처럼 `SHORTER_DISTANCE` reference route를 우선 사용한다.
 - 공항 구간의 긴 직선 커넥터를 줄이기 위해 BGY와 MXP 좌표를 Google route가 실제 도착하는 터미널/접근 지점 쪽으로 보정했다.
 - 검증 기준: Google Routes REST API로 Day 1-6의 56개 구간을 재계산해 `polyline` 포인트 수, route distance, 마커와 경로 시작·끝점 간격을 확인했다. 수정 전에는 큰 endpoint gap이 다수 있었고, 수정 후에는 문제 목록이 0건이었다. 브라우저에서도 Day 1-6 `지도 열기`를 모두 다시 눌러 지도 DOM, iframe, 타일 이미지, canvas, 성공 상태 문구를 확인했다.
+
+## 2026-05-25
+
+- 배포 URL `https://gudc0831.github.io/wedding/`에서 Day 1 `지도 열기`를 실제 브라우저로 재현했고, 콘솔의 핵심 오류가 `BillingNotEnabledMapError`임을 확인했다. API 키는 배포 자산에 주입되어 있었지만, Google Cloud 프로젝트 billing이 비활성화된 키는 Maps JavaScript API 지도를 정상 렌더링하지 못한다.
+- 재발 방지를 위해 GitHub Pages 기본 배포 엔진을 `GOOGLE_MAPS_ROUTE_ENGINE=embed`로 바꿨다. 이 모드는 API 키 없이 Google Maps iframe 경로 보기를 표시하므로 GitHub에 키를 커밋하지 않아도 배포 URL에서 깨진 Google 지도 오버레이가 나오지 않는다.
+- full Google Maps JavaScript API 경로 렌더링이 필요하면 GitHub Secret 또는 Repository Variable에 `GOOGLE_MAPS_ROUTE_ENGINE=routes`와 `GOOGLE_MAPS_API_KEY`를 설정한다. 이 경우 Google Cloud Console에서 billing, Maps JavaScript API, Routes API, 필요 시 Places API (New)를 활성화해야 한다.
+- `auth_referrer_policy=origin`은 더 이상 강제로 넣지 않는다. 이 옵션을 켜려면 Cloud Console referrer 제한이 `https://gudc0831.github.io/*`처럼 origin 단위여야 한다. `https://gudc0831.github.io/wedding/*`처럼 path가 있는 제한을 쓸 때는 `GOOGLE_MAPS_AUTH_REFERRER_POLICY`를 비워둔다.
+- `routes` 엔진에서 billing/auth/quota 문제가 발생해도 페이지가 깨진 Google Maps JS 오버레이를 그대로 보여주지 않고 Google Maps iframe 경로 보기로 전환하도록 런타임 fallback을 추가했다.

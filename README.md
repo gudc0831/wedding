@@ -39,10 +39,12 @@ http://localhost:8000/
 
 ## Local Google Maps config
 
-Do not start the local site with `python -m http.server` directly when testing the route maps. The browser cannot read `.env` by itself, so the local Google Maps config must be generated first.
+The deployed site defaults to `GOOGLE_MAPS_ROUTE_ENGINE=embed`, which uses Google Maps iframe route previews and does not require committing an API key. Use `GOOGLE_MAPS_ROUTE_ENGINE=routes` only when the Google Cloud project has billing enabled and the required APIs are enabled.
+
+Do not start the local site with `python -m http.server` directly when testing the route maps with `GOOGLE_MAPS_ROUTE_ENGINE=routes`. The browser cannot read `.env` by itself, so the local Google Maps config must be generated first.
 
 1. Copy `.env.example` to `.env`.
-2. Set `GOOGLE_MAPS_API_KEY`.
+2. Leave `GOOGLE_MAPS_ROUTE_ENGINE=embed` for the no-key fallback, or set `GOOGLE_MAPS_ROUTE_ENGINE=routes` and `GOOGLE_MAPS_API_KEY` for full Maps JavaScript API route rendering.
 3. Start the local site through the wrapper:
 
 ```powershell
@@ -51,13 +53,18 @@ Do not start the local site with `python -m http.server` directly when testing t
 
 The wrapper writes `assets/google-maps-config.local.json` from `.env` and then serves `http://localhost:8000/`. That generated JSON file is ignored by git so the API key is not committed.
 
-For a restricted Google Maps key, allow these HTTP referrers in Google Cloud Console when testing locally:
+For deployment, keep the API key in GitHub Actions Secrets or Repository Variables as `GOOGLE_MAPS_API_KEY`; do not commit it to `assets/google-maps-config.js`. If `GOOGLE_MAPS_ROUTE_ENGINE=routes` is enabled in GitHub, the key's Google Cloud project must have billing enabled and Maps JavaScript API enabled. Routes API should be enabled for road-following routes; Places API (New) is optional for marker detail enrichment.
+
+For a restricted Google Maps key, allow these HTTP referrers in Google Cloud Console when testing locally and on GitHub Pages:
 
 ```text
 http://localhost:8000/*
+https://gudc0831.github.io/wedding/*
 ```
 
-The key also needs Maps JavaScript API enabled. Routes API should be enabled for road-following routes; if Routes is unavailable, the guide keeps the Google basemap and numbered markers visible and falls back to coordinate-based route lines.
+Only set `GOOGLE_MAPS_AUTH_REFERRER_POLICY=origin` if the Cloud Console referrer restriction is origin-only, for example `https://gudc0831.github.io/*`. If the restriction includes `/wedding/*`, leave `GOOGLE_MAPS_AUTH_REFERRER_POLICY` blank.
+
+If the Maps JavaScript API account, billing, referrer, or quota settings fail at runtime, the guide falls back to the Google Maps iframe route preview instead of showing the broken "Google Maps cannot load correctly" overlay.
 
 Places API (New) is optional but recommended. When it is enabled, clicking a numbered marker can show fresher place details such as address, business status, and Google Maps links. Details are loaded on marker click only so the page does not call Places for every location on initial load.
 

@@ -4432,6 +4432,9 @@
   <script>
     window.GOOGLE_MAPS_CONFIG_READY = (async function () {
       try {
+        const host = window.location.hostname;
+        const isLocalHost = host === "localhost" || host === "127.0.0.1" || host === "::1" || window.location.protocol === "file:";
+        if (!isLocalHost) return;
         const response = await fetch("./assets/google-maps-config.local.json", { cache: "no-cache" });
         if (!response.ok) return;
         const localConfig = await response.json();
@@ -4667,7 +4670,8 @@
       }
 
       function shouldUseGoogleRoutesApi() {
-        return getConfig().googleRouteEngine === "routes";
+        const config = getConfig();
+        return config.googleRouteEngine === "routes" && Boolean(config.apiKey);
       }
 
       function isGooglePlacesEnrichmentEnabled() {
@@ -4747,7 +4751,7 @@
                   const shell = card.querySelector("[data-route-map-shell]");
                   if (!shell || shell.hidden) return;
                   const mapConfig = data.dailyMaps.find((item) => item.id === card.dataset.routeMapCard);
-                  if (mapConfig) renderRouteMapError(card, mapConfig, "auth-failure");
+                  if (mapConfig) renderGoogleMapsEmbed(card, mapConfig, "auth-failure");
                 });
               })
               .catch(() => {
@@ -4755,6 +4759,8 @@
                   setRouteStatus(card, "Google Maps API 키의 referrer 또는 API 제한 설정을 확인하세요.");
                 });
               });
+            delete window[callbackName];
+            reject(new Error("auth-failure"));
           };
           window[callbackName] = () => {
             delete window[callbackName];
@@ -4993,7 +4999,7 @@
         try {
           await initRouteMap(card, mapConfig);
         } catch (error) {
-          renderRouteMapError(card, mapConfig, error && error.message);
+          renderGoogleMapsEmbed(card, mapConfig, error && error.message);
         }
       }
 
@@ -5145,10 +5151,27 @@
         target.append(iframe);
 
         const note = mapConfig.note ? ` ${mapConfig.note}` : "";
-        const reasonText = reason === "default-google-embed"
-          ? "Google Maps 기본 경로 보기로 표시했습니다."
+        const reasonText = reason && reason !== "default-google-embed"
+          ? "Google Maps API 설정 문제를 감지해 Google Maps 기본 경로 보기로 전환했습니다."
           : "Google Maps 기본 경로 보기로 표시했습니다.";
         setRouteStatus(card, `${reasonText}${note}`);
+      }
+
+      function hasGoogleMapsAccountOverlay(target) {
+        if (!target) return false;
+        const text = target.textContent || "";
+        return text.includes("Google 지도를 제대로 로드할 수 없습니다.")
+          || text.includes("This page can't load Google Maps correctly")
+          || text.includes("This page didn't load Google Maps correctly")
+          || Boolean(target.querySelector('a[href*="g.co/dev/maps-no-account"]'));
+      }
+
+      function fallbackIfGoogleMapsAccountError(card, mapConfig, target) {
+        window.setTimeout(() => {
+          if (hasGoogleMapsAccountOverlay(target)) {
+            renderGoogleMapsEmbed(card, mapConfig, "google-maps-account-error");
+          }
+        }, 1200);
       }
 
       function routeMapErrorCopy(reason) {
@@ -5595,7 +5618,7 @@
 
         const mapMonthlyLimit = integerConfig("googleMapMonthlyLimit", 990);
         if (!tryConsumeMonthlyUsage("map-load", mapMonthlyLimit)) {
-          renderRouteMapError(card, mapConfig, "map-soft-limit");
+          renderGoogleMapsEmbed(card, mapConfig, "map-soft-limit");
           return;
         }
 
@@ -5626,6 +5649,7 @@
         }
 
         mapStates.set(target, { map, bounds });
+        fallbackIfGoogleMapsAccountError(card, mapConfig, target);
 
         const note = mapConfig.note ? ` ${mapConfig.note}` : "";
         if (routeLibraryUnavailable) {
