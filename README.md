@@ -23,6 +23,12 @@
 https://<GitHub아이디>.github.io/wedding/
 ```
 
+현재 배포 확인 사이트는 아래 URL을 기준으로 합니다.
+
+```text
+https://gudc0831.github.io/wedding/milano_honeymoon_guide.html
+```
+
 ## 로컬 확인
 
 단순 HTML이지만 인터랙티브 지도는 `fetch()`로 `assets/map-data.json`을 읽기 때문에 `file://`로 직접 열면 일부 브라우저에서 차단될 수 있습니다. 로컬에서 전체 동작을 확인할 때는 간단한 정적 서버로 여는 편이 안정적입니다.

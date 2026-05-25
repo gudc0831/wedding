@@ -43,6 +43,7 @@
 
 ## 2026-05-25
 
+- 배포 확인 사이트는 `https://gudc0831.github.io/wedding/milano_honeymoon_guide.html`로 고정한다. Google Maps API 지도와 Routes API 루트 최종 확인은 이 URL의 Day 1-6 `지도 열기` 동작을 기준으로 판단한다.
 - 배포 URL `https://gudc0831.github.io/wedding/`에서 Day 1 `지도 열기`를 실제 브라우저로 재현했고, 콘솔의 핵심 오류가 `BillingNotEnabledMapError`임을 확인했다. API 키는 배포 자산에 주입되어 있었지만, Google Cloud 프로젝트 billing이 비활성화된 키는 Maps JavaScript API 지도를 정상 렌더링하지 못한다.
 - production 기준은 API 기반 지도와 route line이므로 GitHub Pages 기본 배포 엔진은 `GOOGLE_MAPS_ROUTE_ENGINE=routes`로 유지한다. GitHub에는 API 키를 커밋하지 않고 Secret 또는 Repository Variable `GOOGLE_MAPS_API_KEY`로만 주입한다.
 - Google Cloud Console에서 billing, Maps JavaScript API, Routes API, 필요 시 Places API (New)를 활성화해야 한다. 이 중 하나라도 누락되면 배포 URL에서 API 기반 지도와 루트가 정상 표시되지 않는다.
