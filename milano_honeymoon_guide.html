@@ -4751,7 +4751,7 @@
                   const shell = card.querySelector("[data-route-map-shell]");
                   if (!shell || shell.hidden) return;
                   const mapConfig = data.dailyMaps.find((item) => item.id === card.dataset.routeMapCard);
-                  if (mapConfig) renderGoogleMapsEmbed(card, mapConfig, "auth-failure");
+                  if (mapConfig) renderRouteMapError(card, mapConfig, "auth-failure");
                 });
               })
               .catch(() => {
@@ -4999,7 +4999,7 @@
         try {
           await initRouteMap(card, mapConfig);
         } catch (error) {
-          renderGoogleMapsEmbed(card, mapConfig, error && error.message);
+          renderRouteMapError(card, mapConfig, error && error.message);
         }
       }
 
@@ -5169,7 +5169,7 @@
       function fallbackIfGoogleMapsAccountError(card, mapConfig, target) {
         window.setTimeout(() => {
           if (hasGoogleMapsAccountOverlay(target)) {
-            renderGoogleMapsEmbed(card, mapConfig, "google-maps-account-error");
+            renderRouteMapError(card, mapConfig, "google-maps-account-error");
           }
         }, 1200);
       }
@@ -5185,7 +5185,14 @@
         if (reason === "auth-failure") {
           return {
             title: "Google Maps API 키 인증에 실패했습니다.",
-            body: "Google Cloud Console에서 Maps JavaScript API, Routes API 사용 설정과 HTTP referrer 제한에 현재 로컬 주소가 포함되어 있는지 확인하세요. 로컬 기본 주소는 http://localhost:8000/* 입니다."
+            body: "Google Cloud Console에서 billing, Maps JavaScript API, Routes API 사용 설정과 HTTP referrer 제한을 확인하세요. GitHub Pages referrer는 https://gudc0831.github.io/wedding/* 입니다."
+          };
+        }
+
+        if (reason === "google-maps-account-error") {
+          return {
+            title: "Google Maps API 프로젝트 설정이 완료되지 않았습니다.",
+            body: "브라우저가 Google Maps 계정/billing/API 설정 오류를 감지했습니다. API 기반 지도와 루트를 표시하려면 Google Cloud 프로젝트 billing, Maps JavaScript API, Routes API, referrer 제한을 정상화해야 합니다."
           };
         }
 
@@ -5618,7 +5625,7 @@
 
         const mapMonthlyLimit = integerConfig("googleMapMonthlyLimit", 990);
         if (!tryConsumeMonthlyUsage("map-load", mapMonthlyLimit)) {
-          renderGoogleMapsEmbed(card, mapConfig, "map-soft-limit");
+          renderRouteMapError(card, mapConfig, "map-soft-limit");
           return;
         }
 

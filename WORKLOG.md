@@ -44,7 +44,8 @@
 ## 2026-05-25
 
 - 배포 URL `https://gudc0831.github.io/wedding/`에서 Day 1 `지도 열기`를 실제 브라우저로 재현했고, 콘솔의 핵심 오류가 `BillingNotEnabledMapError`임을 확인했다. API 키는 배포 자산에 주입되어 있었지만, Google Cloud 프로젝트 billing이 비활성화된 키는 Maps JavaScript API 지도를 정상 렌더링하지 못한다.
-- 재발 방지를 위해 GitHub Pages 기본 배포 엔진을 `GOOGLE_MAPS_ROUTE_ENGINE=embed`로 바꿨다. 이 모드는 API 키 없이 Google Maps iframe 경로 보기를 표시하므로 GitHub에 키를 커밋하지 않아도 배포 URL에서 깨진 Google 지도 오버레이가 나오지 않는다.
-- full Google Maps JavaScript API 경로 렌더링이 필요하면 GitHub Secret 또는 Repository Variable에 `GOOGLE_MAPS_ROUTE_ENGINE=routes`와 `GOOGLE_MAPS_API_KEY`를 설정한다. 이 경우 Google Cloud Console에서 billing, Maps JavaScript API, Routes API, 필요 시 Places API (New)를 활성화해야 한다.
+- production 기준은 API 기반 지도와 route line이므로 GitHub Pages 기본 배포 엔진은 `GOOGLE_MAPS_ROUTE_ENGINE=routes`로 유지한다. GitHub에는 API 키를 커밋하지 않고 Secret 또는 Repository Variable `GOOGLE_MAPS_API_KEY`로만 주입한다.
+- Google Cloud Console에서 billing, Maps JavaScript API, Routes API, 필요 시 Places API (New)를 활성화해야 한다. 이 중 하나라도 누락되면 배포 URL에서 API 기반 지도와 루트가 정상 표시되지 않는다.
 - `auth_referrer_policy=origin`은 더 이상 강제로 넣지 않는다. 이 옵션을 켜려면 Cloud Console referrer 제한이 `https://gudc0831.github.io/*`처럼 origin 단위여야 한다. `https://gudc0831.github.io/wedding/*`처럼 path가 있는 제한을 쓸 때는 `GOOGLE_MAPS_AUTH_REFERRER_POLICY`를 비워둔다.
-- `routes` 엔진에서 billing/auth/quota 문제가 발생해도 페이지가 깨진 Google Maps JS 오버레이를 그대로 보여주지 않고 Google Maps iframe 경로 보기로 전환하도록 런타임 fallback을 추가했다.
+- `routes` 엔진에서 billing/auth/quota 문제가 발생하면 Google Maps iframe으로 조용히 대체하지 않고 설정 오류를 표시한다. API 기반 지도와 루트 표시가 production 요구사항이기 때문에, 오류를 숨기면 검증이 잘못 통과할 수 있다.
+- GitHub Pages 배포 후 Playwright smoke test를 실행해 Day 1 `지도 열기`가 Maps JavaScript API 지도와 Routes API 루트를 정상 표시하는지 확인한다. iframe fallback, Google account/billing overlay, route fallback 문구, Google API 콘솔 오류가 있으면 workflow를 실패시킨다.

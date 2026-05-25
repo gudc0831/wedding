@@ -61,10 +61,12 @@ $routeComputeMonthlyLimit = if ($env:GOOGLE_MAPS_ROUTE_COMPUTE_MONTHLY_LIMIT) { 
 $placesMonthlyLimit = if ($env:GOOGLE_MAPS_PLACES_MONTHLY_LIMIT) { $env:GOOGLE_MAPS_PLACES_MONTHLY_LIMIT } else { $dotenv["GOOGLE_MAPS_PLACES_MONTHLY_LIMIT"] }
 
 $normalizedRouteEngine = "$routeEngine".Trim().ToLowerInvariant()
-if ($normalizedRouteEngine -in @("routes", "google-routes")) {
+if ($normalizedRouteEngine -eq "") {
   $normalizedRouteEngine = "routes"
-} else {
+} elseif ($normalizedRouteEngine -in @("embed", "iframe", "google-embed")) {
   $normalizedRouteEngine = "embed"
+} else {
+  $normalizedRouteEngine = "routes"
 }
 
 if ($normalizedRouteEngine -eq "routes" -and (-not $apiKey -or $apiKey -eq "your-google-maps-api-key")) {

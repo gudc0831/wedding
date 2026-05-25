@@ -42,7 +42,7 @@ jobs:
         env:
           GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY || vars.GOOGLE_MAPS_API_KEY }}
           GOOGLE_MAPS_MAP_ID: ${{ secrets.GOOGLE_MAPS_MAP_ID || vars.GOOGLE_MAPS_MAP_ID }}
-          GOOGLE_MAPS_ROUTE_ENGINE: ${{ secrets.GOOGLE_MAPS_ROUTE_ENGINE || vars.GOOGLE_MAPS_ROUTE_ENGINE || 'embed' }}
+          GOOGLE_MAPS_ROUTE_ENGINE: ${{ secrets.GOOGLE_MAPS_ROUTE_ENGINE || vars.GOOGLE_MAPS_ROUTE_ENGINE || 'routes' }}
           GOOGLE_MAPS_AUTH_REFERRER_POLICY: ${{ secrets.GOOGLE_MAPS_AUTH_REFERRER_POLICY || vars.GOOGLE_MAPS_AUTH_REFERRER_POLICY }}
           GOOGLE_MAPS_PLACES_ENRICHMENT: ${{ secrets.GOOGLE_MAPS_PLACES_ENRICHMENT || vars.GOOGLE_MAPS_PLACES_ENRICHMENT || 'true' }}
           GOOGLE_MAPS_MAP_MONTHLY_LIMIT: ${{ secrets.GOOGLE_MAPS_MAP_MONTHLY_LIMIT || vars.GOOGLE_MAPS_MAP_MONTHLY_LIMIT || '990' }}
@@ -54,7 +54,7 @@ jobs:
             *) export GOOGLE_MAPS_ROUTE_ENGINE=embed ;;
           esac
           if [ "$GOOGLE_MAPS_ROUTE_ENGINE" = "routes" ] && [ -z "$GOOGLE_MAPS_API_KEY" ]; then
-            echo "::error::GOOGLE_MAPS_ROUTE_ENGINE=routes requires GOOGLE_MAPS_API_KEY. Add it as a GitHub Actions Secret or Repository Variable, or leave the engine as embed."
+            echo "::error::GOOGLE_MAPS_ROUTE_ENGINE=routes requires GOOGLE_MAPS_API_KEY. Add it as a GitHub Actions Secret or Repository Variable."
             exit 1
           fi
           python3 - <<'PY'
@@ -72,7 +72,7 @@ jobs:
               except ValueError:
                   return fallback
 
-          route_engine = os.environ.get("GOOGLE_MAPS_ROUTE_ENGINE", "embed")
+          route_engine = os.environ.get("GOOGLE_MAPS_ROUTE_ENGINE", "routes")
           config = {
               "apiKey": os.environ.get("GOOGLE_MAPS_API_KEY", ""),
               "language": "ko",
@@ -109,3 +109,61 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+
+      - name: Verify Google Maps API route rendering
+        shell: bash
+        env:
+          DEPLOYED_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          mkdir -p /tmp/google-route-verify
+          cd /tmp/google-route-verify
+          cat > verify-google-route-map.mjs <<'JS'
+          import { chromium } from 'playwright';
+
+          const rootUrl = process.env.DEPLOYED_URL.replace(/\/$/, '');
+          const pageUrl = `${rootUrl}/milano_honeymoon_guide.html?verify=${Date.now()}`;
+          const browser = await chromium.launch({ headless: true });
+          const page = await browser.newPage({ viewport: { width: 1366, height: 900 } });
+          const consoleEntries = [];
+          page.on('console', (message) => {
+            if (message.type() === 'error' || message.type() === 'warning') {
+              consoleEntries.push(`${message.type()}: ${message.text()}`);
+            }
+          });
+
+          try {
+            await page.goto(pageUrl, { waitUntil: 'networkidle', timeout: 60000 });
+            await page.locator('[data-route-map-card="day1"] [data-route-map-open]').click({ timeout: 30000 });
+            await page.waitForTimeout(9000);
+
+            const googlePanel = page.locator('[data-route-map-card="day1"] [data-google-route-map-target]');
+            const status = await page.locator('[data-route-map-card="day1"] [data-google-route-map-status]').innerText({ timeout: 30000 });
+            const hasIframe = await googlePanel.locator('iframe').count();
+            const hasMap = await googlePanel.locator('.gm-style').count();
+            const hasConfigError = await googlePanel.locator('.route-map-error').count();
+            const hasGoogleAccountOverlay = await googlePanel
+              .getByText(/Google 지도를 제대로 로드할 수 없습니다|This page (?:can't|didn't) load Google Maps correctly/)
+              .count();
+            const hasApiScript = await page.evaluate(() =>
+              Array.from(document.scripts).some((script) => script.src.includes('maps.googleapis.com/maps/api/js'))
+            );
+            const failedRouteStatus = /좌표 기반|받지 못해|전환했습니다|API 설정 문제|표시하지 못했습니다/.test(status);
+            const apiErrors = consoleEntries.filter((entry) =>
+              /Google Maps JavaScript API error|BillingNotEnabledMapError|RefererNotAllowedMapError|ApiNotActivatedMapError|InvalidKeyMapError|routes\.googleapis\.com/.test(entry)
+            );
+
+            if (hasIframe) throw new Error('Expected Google Maps JavaScript API map, but iframe fallback was rendered.');
+            if (!hasApiScript) throw new Error('Maps JavaScript API loader script was not requested.');
+            if (!hasMap) throw new Error('Google Maps JavaScript API map container was not rendered.');
+            if (hasConfigError || hasGoogleAccountOverlay) throw new Error('Google Maps account/API configuration error was rendered.');
+            if (failedRouteStatus) throw new Error(`Routes API did not render cleanly. Status: ${status}`);
+            if (apiErrors.length) throw new Error(`Google Maps API console errors found: ${apiErrors.join(' | ')}`);
+          } finally {
+            await browser.close();
+          }
+          JS
+
+          npm init -y >/dev/null
+          npm install playwright
+          npx playwright install --with-deps chromium
+          node verify-google-route-map.mjs

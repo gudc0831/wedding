@@ -3,7 +3,7 @@ window.GOOGLE_MAPS_CONFIG = {
   language: "ko",
   region: "IT",
   routeMapProvider: "google",
-  googleRouteEngine: "embed",
+  googleRouteEngine: "routes",
   googlePlacesEnrichment: true,
   googleMapMonthlyLimit: 990,
   googleRouteComputeMonthlyLimit: 990,
