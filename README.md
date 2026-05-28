@@ -59,6 +59,14 @@ Do not start the local site with `python -m http.server` directly when testing t
 
 The wrapper writes `assets/google-maps-config.local.json` from `.env` and then serves `http://localhost:8000/`. That generated JSON file is ignored by git so the API key is not committed.
 
+## Offline travel mode
+
+The guide registers `service-worker.js` and exposes `manifest.webmanifest` so the main guide can be installed or reopened as an offline-capable PWA after the first successful online visit.
+
+The service worker pre-caches the main HTML, `index.html`, `manifest.webmanifest`, `assets/map-data.json`, and the static map/image assets used by the guide. This keeps the core itinerary, checklist text, source links, place number badges, and static route context available when the network is weak.
+
+The service worker intentionally does not cache `assets/google-maps-config.js` or `assets/google-maps-config.local.json`, because those files may contain deployment or local Google Maps API key material. Google Maps JavaScript API, Routes API, Places enrichment, external images, Google Fonts, and Leaflet CDN assets still require network access. Offline use should therefore rely on the cached document content and static map images, not live Google route maps.
+
 For deployment, keep the API key in GitHub Actions Secrets or Repository Variables as `GOOGLE_MAPS_API_KEY`; do not commit it to `assets/google-maps-config.js`. The key's Google Cloud project must have billing enabled and Maps JavaScript API enabled. Routes API must be enabled for road-following route lines; Places API (New) is optional for marker detail enrichment.
 
 For a restricted Google Maps key, allow these HTTP referrers in Google Cloud Console when testing locally and on GitHub Pages:

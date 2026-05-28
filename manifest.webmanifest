@@ -1,0 +1,37 @@
+{
+  "id": "./milano_honeymoon_guide.html",
+  "name": "Milano Honeymoon Guide",
+  "short_name": "Milano Guide",
+  "description": "Offline-ready Milan, Como, and Bergamo honeymoon guide for July 2026.",
+  "lang": "ko",
+  "start_url": "./milano_honeymoon_guide.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6f0e3",
+  "theme_color": "#17372f",
+  "icons": [
+    {
+      "src": "./assets/cover-pattern.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "생일 쇼핑 데이",
+      "short_name": "Day 3",
+      "url": "./milano_honeymoon_guide.html#day-3"
+    },
+    {
+      "name": "체크리스트",
+      "short_name": "Checklist",
+      "url": "./milano_honeymoon_guide.html#checklist"
+    },
+    {
+      "name": "한 페이지 총 시간표",
+      "short_name": "Plan",
+      "url": "./milano_honeymoon_guide.html#master-plan"
+    }
+  ]
+}

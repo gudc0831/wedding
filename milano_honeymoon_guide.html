@@ -6,6 +6,10 @@
   <title>밀라노·꼬모·베르가모 허니문 가이드 | 2026.07.21 - 2026.07.26</title>
   <meta name="description" content="밀라노를 베이스캠프로 한 허니문 비주얼 가이드. 2026년 7월 21일부터 26일까지, 꼬모와 베르가모 당일치기와 7월 23일 생일 쇼핑 코스를 포함합니다.">
   <link rel="icon" href="./assets/cover-pattern.svg" type="image/svg+xml">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#17372f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Milano Guide">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Song+Myung&family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700;800&display=swap');
@@ -4424,6 +4428,18 @@
       document.querySelectorAll(".detail-popup").forEach((popup) => {
         popup.addEventListener("click", (event) => {
           if (event.target === popup) popup.close();
+        });
+      });
+    }());
+  </script>
+  <script>
+    (function () {
+      if (!("serviceWorker" in navigator)) return;
+      if (window.location.protocol === "file:") return;
+
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js").catch(() => {
+          // Offline mode is optional; the guide remains usable as a normal static page.
         });
       });
     }());
