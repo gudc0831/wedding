@@ -215,7 +215,9 @@ async function verifyRouteMap(page, routeId) {
   await waitForRouteStatus(page, routeId);
 
   const status = await card.locator("[data-google-route-map-status]").innerText({ timeout: 30000 });
-  const hasIframe = await googlePanel.locator("iframe").count();
+  const hasEmbedIframe = await googlePanel.evaluate((node) =>
+    Array.from(node.children).some((child) => child.tagName === "IFRAME")
+  );
   const hasMap = await googlePanel.locator(".gm-style").count();
   const hasConfigError = await googlePanel.locator(".route-map-error").count();
   const hasGoogleAccountOverlay = await googlePanel.getByText(googleAccountOverlayPattern).count();
@@ -223,7 +225,7 @@ async function verifyRouteMap(page, routeId) {
     Array.from(document.scripts).some((script) => script.src.includes("maps.googleapis.com/maps/api/js"))
   );
 
-  if (hasIframe) {
+  if (hasEmbedIframe) {
     throw new Error(`${routeId}: expected Google Maps JavaScript API map, but iframe fallback was rendered.`);
   }
   if (!hasApiScript) {
