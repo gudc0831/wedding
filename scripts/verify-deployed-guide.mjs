@@ -40,7 +40,11 @@ let currentStep = "startup";
 function attachDiagnostics(page) {
   page.on("console", (message) => {
     if (message.type() === "error") {
-      diagnostics.consoleErrors.push(`[${currentStep}] ${message.text()}`);
+      const text = message.text();
+      if (currentStep === "pwa-offline" && text.includes("net::ERR_INTERNET_DISCONNECTED")) {
+        return;
+      }
+      diagnostics.consoleErrors.push(`[${currentStep}] ${text}`);
     }
   });
 
@@ -57,9 +61,18 @@ async function requireVisible(locator, label) {
   }
 }
 
+async function gotoGuidePage(page, url, label) {
+  await page.goto(url, { waitUntil: "domcontentloaded", timeout: 60000 });
+  try {
+    await page.waitForLoadState("load", { timeout: 15000 });
+  } catch {
+    console.log(`${label} load event did not settle; continuing with targeted checks.`);
+  }
+}
+
 async function verifyGuideStructure(page, label) {
   currentStep = `${label}-structure`;
-  await page.goto(`${pageUrl}&view=${label}`, { waitUntil: "networkidle", timeout: 60000 });
+  await gotoGuidePage(page, `${pageUrl}&view=${label}`, `${label} structure`);
 
   await requireVisible(page.locator("h2", { hasText: "이탈리아 여행" }), `${label} hero heading`);
   await requireVisible(page.locator("#master-plan"), `${label} master plan`);
@@ -110,7 +123,7 @@ async function verifyGuideStructure(page, label) {
 
 async function verifyPwaOffline(page, context) {
   currentStep = "pwa-offline";
-  await page.goto(`${pageUrl}&pwa=1`, { waitUntil: "networkidle", timeout: 60000 });
+  await gotoGuidePage(page, `${pageUrl}&pwa=1`, "PWA offline");
 
   const pwa = await page.evaluate(async () => {
     const manifestHref = document.querySelector('link[rel="manifest"]')?.href;
@@ -165,7 +178,7 @@ async function verifyPwaOffline(page, context) {
     throw new Error(`Expected offline assets were not cached: ${uncached.join(", ")}`);
   }
 
-  await page.reload({ waitUntil: "networkidle", timeout: 60000 });
+  await page.reload({ waitUntil: "domcontentloaded", timeout: 60000 });
   await page.waitForFunction(() => Boolean(navigator.serviceWorker?.controller), null, { timeout: 30000 });
 
   await context.setOffline(true);
@@ -246,7 +259,7 @@ async function verifyRouteMap(page, routeId) {
 
 async function verifyRouteMaps(page) {
   currentStep = "route-page";
-  await page.goto(`${pageUrl}&routes=1`, { waitUntil: "networkidle", timeout: 60000 });
+  await gotoGuidePage(page, `${pageUrl}&routes=1`, "route maps");
 
   for (const routeId of routeIds) {
     await verifyRouteMap(page, routeId);
