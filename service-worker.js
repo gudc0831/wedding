@@ -1,7 +1,9 @@
-const CACHE_VERSION = "swiss-italy-honeymoon-guide-v20260615-mapconfig";
+const CACHE_VERSION = "swiss-italy-honeymoon-guide-v20260615-swiss-photo-fix";
 const PRECACHE_URLS = [
   "./",
   "./index.html",
+  "./switzerland_honeymoon_guide.html",
+  "./italy_honeymoon_guide.html",
   "./milano_honeymoon_guide.html",
   "./manifest.webmanifest",
   "./assets/cover-pattern.svg",
@@ -12,7 +14,7 @@ const PRECACHE_URLS = [
   "./assets/map-data.json"
 ];
 
-const GUIDE_URL = "./milano_honeymoon_guide.html";
+const GUIDE_URL = "./index.html";
 const SECRET_CONFIG_RE = /\/assets\/google-maps-config(?:\.local)?\.(?:json|js)$/;
 
 self.addEventListener("install", (event) => {

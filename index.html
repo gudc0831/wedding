@@ -3,14 +3,123 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=./milano_honeymoon_guide.html">
-  <link rel="canonical" href="./milano_honeymoon_guide.html">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#17372f">
   <title>Swiss & Italy Honeymoon Guide</title>
-  <script>
-    window.location.replace("./milano_honeymoon_guide.html");
-  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Noto+Sans+KR:wght@400;700;800&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 28px;
+      color: #17372f;
+      font-family: "Noto Sans KR", sans-serif;
+      background:
+        linear-gradient(180deg, rgba(250, 246, 238, 0.86), rgba(243, 236, 222, 0.92)),
+        url("./assets/cover-pattern.svg") center/cover no-repeat;
+    }
+
+    main {
+      width: min(920px, 100%);
+      display: grid;
+      gap: 22px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 6vw, 4.25rem);
+      line-height: 1.03;
+      font-weight: 800;
+    }
+
+    p {
+      margin: 0;
+      color: #4b635a;
+      line-height: 1.7;
+      max-width: 66ch;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    a.card {
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 12px;
+      padding: 22px;
+      border: 1px solid rgba(23, 55, 47, 0.13);
+      border-radius: 26px;
+      color: #fffaf3;
+      text-decoration: none;
+      background: #17372f;
+      box-shadow: 0 18px 46px rgba(24, 54, 47, 0.13);
+      overflow: hidden;
+      position: relative;
+    }
+
+    a.card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 16%, rgba(23, 55, 47, 0.78));
+      z-index: 1;
+    }
+
+    a.card.swiss {
+      background: url("https://commons.wikimedia.org/wiki/Special:FilePath/Lucerne%20Chapel%20Bridge%20and%20Water%20Tower.jpg?width=1100") center/cover no-repeat;
+    }
+
+    a.card.italy {
+      background: url("https://www.duomomilano.it/wp-content/uploads/2023/08/duomo-fotocherchi32-scaled.jpg") center/cover no-repeat;
+    }
+
+    .card span,
+    .card strong {
+      position: relative;
+      z-index: 2;
+    }
+
+    .card span {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .card strong {
+      font-size: 1.55rem;
+      line-height: 1.22;
+    }
+  </style>
 </head>
 <body>
-  <p><a href="./milano_honeymoon_guide.html">Open Swiss & Italy Honeymoon Guide</a></p>
+  <main>
+    <div>
+      <h1>Swiss & Italy Honeymoon Guide</h1>
+      <p>스위스 일정과 이탈리아 일정을 독립 페이지로 나눴습니다. 각 페이지의 상단 탭에서 서로 이동할 수 있습니다.</p>
+    </div>
+    <div class="cards" aria-label="나라별 일정 선택">
+      <a class="card swiss" href="./switzerland_honeymoon_guide.html">
+        <span>07.16 - 07.18</span>
+        <strong>스위스 일정 열기</strong>
+      </a>
+      <a class="card italy" href="./italy_honeymoon_guide.html">
+        <span>07.21 - 07.26</span>
+        <strong>이탈리아 일정 열기</strong>
+      </a>
+    </div>
+  </main>
 </body>
 </html>

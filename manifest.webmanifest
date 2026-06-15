@@ -1,10 +1,10 @@
 {
-  "id": "./milano_honeymoon_guide.html",
-  "name": "Milano Honeymoon Guide",
-  "short_name": "Milano Guide",
-  "description": "Offline-ready Milan, Como, and Bergamo honeymoon guide for July 2026.",
+  "id": "./index.html",
+  "name": "Swiss & Italy Honeymoon Guide",
+  "short_name": "Honeymoon Guide",
+  "description": "Offline-ready Switzerland and Italy honeymoon guide for July 2026.",
   "lang": "ko",
-  "start_url": "./milano_honeymoon_guide.html",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f6f0e3",
@@ -19,19 +19,19 @@
   ],
   "shortcuts": [
     {
+      "name": "스위스 일정",
+      "short_name": "Swiss",
+      "url": "./switzerland_honeymoon_guide.html"
+    },
+    {
+      "name": "이탈리아 일정",
+      "short_name": "Italy",
+      "url": "./italy_honeymoon_guide.html"
+    },
+    {
       "name": "생일 쇼핑 데이",
-      "short_name": "Day 3",
-      "url": "./milano_honeymoon_guide.html#day-3"
-    },
-    {
-      "name": "체크리스트",
-      "short_name": "Checklist",
-      "url": "./milano_honeymoon_guide.html#checklist"
-    },
-    {
-      "name": "한 페이지 총 시간표",
-      "short_name": "Plan",
-      "url": "./milano_honeymoon_guide.html#master-plan"
+      "short_name": "Birthday",
+      "url": "./italy_honeymoon_guide.html#day-3"
     }
   ]
 }

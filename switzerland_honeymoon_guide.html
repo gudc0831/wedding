@@ -1,0 +1,4100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스위스 허니문 가이드 | 2026.07.16 - 2026.07.18</title>
+  <meta name="description" content="루체른 도착, 리기산 라운드트립, 인터라켄 이동까지 보는 스위스 허니문 일정 가이드입니다.">
+  <link rel="icon" href="./assets/cover-pattern.svg" type="image/svg+xml">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#17372f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Swiss Guide">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Song+Myung&family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700;800&display=swap');
+
+    :root {
+      --bg: #f6f0e3;
+      --paper: rgba(255, 250, 241, 0.82);
+      --panel: rgba(255, 255, 255, 0.72);
+      --ink: #17372f;
+      --ink-soft: #4b635a;
+      --line: rgba(23, 55, 47, 0.14);
+      --gold: #cda16a;
+      --rose: #d6a090;
+      --sage: #78917e;
+      --shadow: 0 18px 46px rgba(24, 54, 47, 0.12);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-sm: 14px;
+      --max: 1220px;
+      --anchor-offset: 170px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-y: auto;
+    }
+
+    section[id] {
+      scroll-margin-top: 0;
+    }
+
+    section[id]::before {
+      content: "";
+      display: block;
+      height: var(--anchor-offset);
+      margin-top: calc(var(--anchor-offset) * -1);
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: 15px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(205, 161, 106, 0.16), transparent 28%),
+        radial-gradient(circle at 82% 14%, rgba(214, 160, 144, 0.18), transparent 24%),
+        radial-gradient(circle at 62% 78%, rgba(120, 145, 126, 0.12), transparent 26%),
+        linear-gradient(180deg, #faf6ee 0%, #f3ecde 100%);
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("./assets/cover-pattern.svg") center/cover no-repeat;
+      opacity: 0.16;
+      pointer-events: none;
+      mix-blend-mode: multiply;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .page-shell {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 8;
+      backdrop-filter: blur(18px);
+      background: rgba(246, 240, 227, 0.84);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 12px 18px;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: stretch;
+      gap: 10px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--ink), #2e5c50);
+      color: #fff8f0;
+      display: grid;
+      place-items: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      box-shadow: var(--shadow);
+    }
+
+    .brand-copy {
+      min-width: 0;
+      width: 100%;
+    }
+
+    .eyebrow {
+      margin: 0 0 4px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--ink-soft);
+    }
+
+    .brand-copy h1 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.35;
+      white-space: normal;
+      display: block;
+      overflow: visible;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      gap: 8px;
+      max-height: 96px;
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 4px 4px 0;
+      width: 100%;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(23, 55, 47, 0.28) transparent;
+    }
+
+    .nav-links::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .nav-links::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .nav-links::-webkit-scrollbar-thumb {
+      border-radius: 999px;
+      background: rgba(23, 55, 47, 0.24);
+    }
+
+    .nav-links a {
+      flex: 0 0 auto;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.56);
+      color: var(--ink-soft);
+      font-size: 0.84rem;
+      line-height: 1.2;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+      border-color: rgba(23, 55, 47, 0.24);
+    }
+
+    .country-tabs {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px;
+      border: 1px solid rgba(23, 55, 47, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.54);
+      width: fit-content;
+    }
+
+    .country-tabs a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      color: var(--ink-soft);
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .country-tabs a:hover {
+      background: var(--ink);
+      color: #fff9f1;
+    }
+
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 20px 18px 10px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-visual {
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      background: var(--paper);
+    }
+
+    .hero-copy {
+      padding: 22px 24px 20px;
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(255, 248, 241, 0.68)),
+        linear-gradient(120deg, rgba(205, 161, 106, 0.07), rgba(214, 160, 144, 0.10));
+    }
+
+    .hero-copy::after {
+      content: "";
+      position: absolute;
+      right: -72px;
+      bottom: -64px;
+      width: 210px;
+      height: 210px;
+      border: 1px solid rgba(23, 55, 47, 0.14);
+      border-radius: 50%;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: rgba(23, 55, 47, 0.06);
+      color: var(--ink);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 18px;
+    }
+
+    .hero-kicker::before {
+      content: "07.16";
+      display: inline-grid;
+      place-items: center;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: white;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+    }
+
+    .hero-copy h2 {
+      margin: 0;
+      font-family: "Noto Sans KR", sans-serif;
+      font-weight: 800;
+      line-height: 1.12;
+      font-size: clamp(1.65rem, 3.9vw, 3.05rem);
+    }
+
+    .hero-copy p {
+      margin: 14px 0 0;
+      color: var(--ink-soft);
+      line-height: 1.58;
+      font-size: 0.9rem;
+      max-width: 62ch;
+    }
+
+    .hero-stats {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .stat-card {
+      padding: 11px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(23, 55, 47, 0.08);
+    }
+
+    .stat-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .stat-value {
+      display: block;
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: 1.18rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .hero-actions {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      border-radius: 999px;
+      padding: 10px 15px;
+      font-weight: 700;
+      font-size: 0.8rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(23, 55, 47, 0.12);
+    }
+
+    .button-primary {
+      background: var(--ink);
+      color: #fff9f1;
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--ink);
+      border: 1px solid rgba(23, 55, 47, 0.14);
+    }
+
+    .hero-visual {
+      display: grid;
+      grid-template-rows: 1.12fr 0.88fr;
+      background: #fff8f1;
+    }
+
+    .image-stack {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      min-height: 420px;
+    }
+
+    .primary-photo,
+    .mini-collage {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .primary-photo img,
+    .mini-collage img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .primary-photo::after,
+    .mini-collage::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 35%, rgba(23, 55, 47, 0.42));
+    }
+
+    .photo-tag {
+      position: absolute;
+      left: 20px;
+      bottom: 18px;
+      z-index: 2;
+      color: #fff9f1;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      max-width: 82%;
+    }
+
+    .mini-collage {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .mini-collage figure,
+    .photo-grid figure {
+      margin: 0;
+      position: relative;
+    }
+
+    .mini-collage figure::after,
+    .photo-grid figure::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 48%, rgba(23, 55, 47, 0.56));
+    }
+
+    .mini-collage figcaption,
+    .photo-grid figcaption {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 14px;
+      z-index: 2;
+      color: #fffaf3;
+      font-size: 0.86rem;
+      line-height: 1.45;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border-top: 1px solid rgba(23, 55, 47, 0.08);
+    }
+
+    .photo-grid figure {
+      min-height: 190px;
+    }
+
+    .photo-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .overview-strip {
+      max-width: var(--max);
+      margin: 10px auto 0;
+      padding: 0 20px;
+    }
+
+    .schedule-ribbon {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .schedule-ribbon.journey-ribbon {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .ribbon-card {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .ribbon-card strong {
+      display: block;
+      margin-bottom: 12px;
+      font-size: 0.92rem;
+      color: var(--ink-soft);
+    }
+
+    .ribbon-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.16rem;
+      font-weight: 800;
+    }
+
+    .ribbon-card p {
+      margin: 0;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      font-size: 0.92rem;
+    }
+
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 22px 18px 52px;
+      display: grid;
+      gap: 22px;
+    }
+
+    section {
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .section-inner {
+      padding: 26px;
+    }
+
+    #practical-info .section-inner {
+      padding: 20px;
+    }
+
+    #practical-info .check-grid {
+      gap: 10px;
+    }
+
+    #practical-info .check-item {
+      padding: 14px 16px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      max-width: 62ch;
+    }
+
+    .section-index {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--ink-soft);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-family: "Noto Sans KR", sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.35rem, 2.3vw, 2rem);
+      line-height: 1.18;
+    }
+
+    .source-chip,
+    .micro-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.76rem;
+      border: 1px solid rgba(23, 55, 47, 0.12);
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--ink-soft);
+    }
+
+    .source-chip::before {
+      content: "↗";
+      font-size: 0.88rem;
+      color: var(--gold);
+    }
+
+    .micro-chip {
+      font-size: 0.74rem;
+      padding: 6px 10px;
+    }
+
+    .quick-grid,
+    .two-col,
+    .day-grid,
+    .check-grid,
+    .airport-grid,
+    .gift-grid,
+    .spot-grid,
+    .source-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .quick-grid {
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    }
+
+    .info-card {
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(23, 55, 47, 0.09);
+    }
+
+    .info-card h3,
+    .day-intro h3,
+    .airport-card h3,
+    .gift-card h3 {
+      margin: 0 0 10px;
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .info-card p,
+    .day-intro p,
+    .airport-card p,
+    .gift-card p,
+    .caption,
+    .source-grid li,
+    .check-item p {
+      margin: 0;
+      color: var(--ink-soft);
+      line-height: 1.62;
+    }
+
+    .two-col {
+      grid-template-columns: minmax(0, 1.02fr) minmax(320px, 0.98fr);
+      align-items: start;
+    }
+
+    .map-card,
+    .editorial-card,
+    .day-card,
+    .airport-card,
+    .gift-card,
+    .tip-panel,
+    .table-wrap,
+    .source-list {
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(23, 55, 47, 0.08);
+      overflow: hidden;
+    }
+
+    .map-card img {
+      width: 100%;
+      height: auto;
+      border-bottom: 1px solid rgba(23, 55, 47, 0.08);
+    }
+
+    .map-card.has-live-map {
+      display: grid;
+    }
+
+    .map-view-toggle {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(23, 55, 47, 0.08);
+      background: rgba(246, 240, 227, 0.7);
+    }
+
+    .map-view-toggle button {
+      appearance: none;
+      border: 1px solid rgba(23, 55, 47, 0.12);
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.74);
+      color: var(--ink-soft);
+      font: inherit;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .map-view-toggle button[aria-selected="true"] {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #fff8f0;
+    }
+
+    .map-view {
+      min-width: 0;
+    }
+
+    .map-card[data-current-view="static"] .map-view-live,
+    .map-card[data-current-view="interactive"] .map-view-static {
+      display: none;
+    }
+
+    .live-map {
+      width: 100%;
+      height: 430px;
+      min-height: 340px;
+      border-bottom: 1px solid rgba(23, 55, 47, 0.08);
+      background: #f7f2e8;
+    }
+
+    .live-map .leaflet-control-attribution {
+      font-size: 0.68rem;
+    }
+
+    .map-status {
+      margin: 0;
+      padding: 12px 16px;
+      color: var(--ink-soft);
+      font-size: 0.84rem;
+      line-height: 1.5;
+      background: rgba(246, 240, 227, 0.6);
+      border-bottom: 1px solid rgba(23, 55, 47, 0.08);
+    }
+
+    .leaflet-div-icon.map-number-icon {
+      border: 0;
+      background: transparent;
+    }
+
+    .map-pin {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border: 3px solid #fffaf3;
+      border-radius: 999px;
+      color: #fffaf3;
+      box-shadow: 0 8px 18px rgba(23, 55, 47, 0.24);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .map-pin[data-option="true"] {
+      width: 24px;
+      height: 24px;
+      border-width: 2px;
+      color: #fffaf3;
+      box-shadow: 0 6px 14px rgba(23, 55, 47, 0.2);
+      font-size: 0.62rem;
+    }
+
+    .google-marker-pin {
+      --marker-color: #f0b84f;
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border: 5px solid #fffaf3;
+      border-radius: 999px;
+      color: #17372f;
+      background: var(--marker-color);
+      box-shadow: 0 10px 22px rgba(23, 55, 47, 0.28);
+      font-size: 0.92rem;
+      font-weight: 900;
+      line-height: 1;
+      transform: translateY(-4px);
+    }
+
+    .google-marker-pin[data-backup="true"] {
+      color: #fffaf3;
+    }
+
+    .google-marker-pin[data-option="true"] {
+      width: 30px;
+      height: 30px;
+      border-width: 3px;
+      color: #fffaf3;
+      box-shadow: 0 8px 18px rgba(23, 55, 47, 0.22);
+      font-size: 0.68rem;
+      transform: translateY(-2px);
+    }
+
+    .map-popup strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+    }
+
+    .map-popup span {
+      color: var(--ink-soft);
+    }
+
+    .map-popup {
+      min-width: min(260px, 72vw);
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .map-popup-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .map-popup-number {
+      display: grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      flex: 0 0 auto;
+      border-radius: 999px;
+      color: #17372f;
+      background: #f0b84f;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .map-popup-number[data-backup="true"] {
+      color: #fffaf3;
+      background: #d46f5d;
+    }
+
+    .map-popup-number[data-option="true"] {
+      width: 28px;
+      background: #78917e;
+      color: #fffaf3;
+      font-size: 0.68rem;
+    }
+
+    .map-popup-role {
+      display: block;
+      margin: 0 0 8px;
+      color: var(--ink-soft);
+    }
+
+    .map-popup-meta {
+      display: grid;
+      gap: 4px;
+      margin: 8px 0 0;
+      padding: 8px 0 0;
+      border-top: 1px solid rgba(23, 55, 47, 0.1);
+    }
+
+    .map-popup-meta div {
+      color: var(--ink-soft);
+    }
+
+    .map-popup-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .map-popup-actions a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 6px 9px;
+      border: 1px solid rgba(23, 55, 47, 0.13);
+      border-radius: 999px;
+      color: var(--ink);
+      background: rgba(246, 240, 227, 0.75);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .map-card .caption,
+    .editorial-card .caption {
+      padding: 14px 16px 16px;
+      font-size: 0.76rem;
+    }
+
+    .route-map-card {
+      margin: 0 0 20px;
+      border-radius: 22px;
+      background: rgba(246, 240, 227, 0.72);
+      border: 1px solid rgba(23, 55, 47, 0.08);
+      overflow: hidden;
+    }
+
+    .route-map-toolbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      padding: 15px 16px;
+    }
+
+    .route-map-copy strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+      font-size: 0.98rem;
+      font-weight: 800;
+    }
+
+    .route-map-copy span {
+      display: block;
+      color: var(--ink-soft);
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+
+    .route-map-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .route-legend {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--ink-soft);
+      font-size: 0.78rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .route-legend::before {
+      content: "";
+      width: 28px;
+      height: 0;
+      border-top: 4px solid var(--ink);
+      border-radius: 999px;
+    }
+
+    .route-legend.backup::before {
+      border-top-color: #d46f5d;
+      border-top-style: dashed;
+    }
+
+    .route-legend.option::before {
+      width: 14px;
+      height: 14px;
+      border: 2px solid #fffaf3;
+      border-radius: 999px;
+      background: #78917e;
+      box-shadow: 0 3px 8px rgba(23, 55, 47, 0.18);
+    }
+
+    .route-map-button {
+      appearance: none;
+      border: 1px solid rgba(23, 55, 47, 0.14);
+      border-radius: 999px;
+      padding: 9px 13px;
+      background: var(--ink);
+      color: #fff8f0;
+      font: inherit;
+      font-size: 0.84rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .route-map-button:hover {
+      background: #244d43;
+    }
+
+    .route-map-shell {
+      border-top: 1px solid rgba(23, 55, 47, 0.08);
+      background: rgba(255, 255, 255, 0.62);
+    }
+
+    .route-map-shell[hidden] {
+      display: none;
+    }
+
+    .google-route-map {
+      width: 100%;
+      height: 390px;
+      min-height: 320px;
+      background: #f7f2e8;
+    }
+
+    .google-route-map iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .route-map-error {
+      display: grid;
+      align-content: center;
+      gap: 10px;
+      min-height: 100%;
+      padding: 28px;
+      color: var(--ink);
+      background: #fff8f0;
+    }
+
+    .route-map-error strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    .route-map-error span {
+      display: block;
+      max-width: 720px;
+      color: var(--ink-soft);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .route-map-viewer {
+      display: grid;
+      gap: 12px;
+      padding: 14px;
+    }
+
+    .route-map-tabs {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 8px;
+      border: 1px solid rgba(23, 55, 47, 0.08);
+      border-radius: 18px;
+      background: rgba(246, 240, 227, 0.72);
+    }
+
+    .route-map-tab {
+      appearance: none;
+      border: 1px solid rgba(23, 55, 47, 0.1);
+      border-radius: 999px;
+      padding: 9px 12px;
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--ink-soft);
+      font: inherit;
+      font-size: 0.82rem;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .route-map-tab[aria-selected="true"] {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #fff8f0;
+    }
+
+    .route-map-panel {
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid rgba(23, 55, 47, 0.09);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .route-map-panel[hidden] {
+      display: none;
+    }
+
+    .route-map-status {
+      margin: 0;
+      padding: 12px 16px;
+      color: var(--ink-soft);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      border-top: 1px solid rgba(23, 55, 47, 0.08);
+      background: rgba(246, 240, 227, 0.72);
+    }
+
+    .editorial-card {
+      display: grid;
+      gap: 0;
+    }
+
+    .editorial-card img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+    }
+
+    .detail-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .detail-item {
+      padding: 12px 14px;
+      border-radius: 18px;
+      background: rgba(246, 240, 227, 0.74);
+      border: 1px solid rgba(23, 55, 47, 0.08);
+    }
+
+    .detail-item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.94rem;
+    }
+
+    .detail-item .line-break {
+      display: block;
+      margin-top: 3px;
+    }
+
+    .day-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .day-card {
+      padding: 22px;
+    }
+
+    .day-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .day-date {
+      min-width: 160px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: linear-gradient(145deg, var(--ink), #305b50);
+      color: #fff8f1;
+    }
+
+    .day-date strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.04em;
+    }
+
+    .day-date span {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.95rem;
+      opacity: 0.88;
+    }
+
+    .day-intro {
+      flex: 1;
+    }
+
+    .day-content {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(290px, 0.9fr);
+      gap: 16px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 11px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 94px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+      padding: 11px 0;
+      border-top: 1px solid rgba(23, 55, 47, 0.08);
+    }
+
+    .timeline-item:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .time-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(205, 161, 106, 0.18);
+      color: var(--ink);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.06rem;
+      font-weight: 700;
+    }
+
+    .timeline-item strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 1rem;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      font-size: 0.9rem;
+    }
+
+    .architecture-looklist {
+      margin-top: 12px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .architecture-looklist figure {
+      margin: 0;
+      display: grid;
+      grid-template-columns: 76px minmax(0, 1fr);
+      align-items: center;
+      gap: 10px;
+      min-height: 76px;
+      padding: 8px;
+      border: 1px solid rgba(23, 55, 47, 0.1);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.68);
+    }
+
+    .architecture-looklist img {
+      width: 76px;
+      height: 60px;
+      display: block;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .architecture-looklist figcaption {
+      min-width: 0;
+      color: var(--ink-soft);
+      line-height: 1.35;
+      font-size: 0.78rem;
+    }
+
+    .architecture-looklist figcaption strong {
+      display: block;
+      margin: 0 0 2px;
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.2;
+    }
+
+    .detail-popup-trigger {
+      appearance: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 12px 0 0;
+      padding: 9px 14px;
+      border: 1px solid rgba(23, 55, 47, 0.14);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--ink);
+      box-shadow: 0 10px 24px rgba(24, 54, 47, 0.08);
+      font: inherit;
+      font-size: 0.84rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .detail-popup-trigger::after {
+      content: "↗";
+      color: var(--gold);
+      font-size: 0.9rem;
+    }
+
+    .detail-popup-trigger:hover,
+    .detail-popup-trigger:focus-visible {
+      border-color: rgba(23, 55, 47, 0.24);
+      background: rgba(255, 250, 241, 0.95);
+      outline: none;
+    }
+
+    .detail-popup {
+      width: min(920px, calc(100vw - 32px));
+      max-height: min(82vh, 780px);
+      padding: 0;
+      border: 1px solid rgba(23, 55, 47, 0.16);
+      border-radius: 20px;
+      background: #fffaf1;
+      color: var(--ink);
+      box-shadow: 0 24px 70px rgba(24, 54, 47, 0.28);
+      overflow: hidden;
+    }
+
+    .detail-popup::backdrop {
+      background: rgba(14, 26, 23, 0.42);
+      backdrop-filter: blur(2px);
+    }
+
+    .detail-popup-shell {
+      display: grid;
+      max-height: min(82vh, 780px);
+      grid-template-rows: auto minmax(0, 1fr);
+    }
+
+    .detail-popup-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 22px 24px 18px;
+      border-bottom: 1px solid rgba(23, 55, 47, 0.1);
+      background: rgba(246, 240, 227, 0.72);
+    }
+
+    .detail-popup-head h3 {
+      margin: 0 0 6px;
+      font-size: clamp(1.28rem, 2vw, 1.72rem);
+      line-height: 1.2;
+    }
+
+    .detail-popup-head p {
+      margin: 0;
+      color: var(--ink-soft);
+      line-height: 1.58;
+      font-size: 0.9rem;
+    }
+
+    .detail-popup-close {
+      appearance: none;
+      flex: 0 0 auto;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(23, 55, 47, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--ink);
+      font: inherit;
+      font-size: 1.2rem;
+      font-weight: 800;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .detail-popup-close:hover,
+    .detail-popup-close:focus-visible {
+      border-color: rgba(23, 55, 47, 0.24);
+      background: #fff;
+      outline: none;
+    }
+
+    .detail-popup-body {
+      padding: 22px 24px 26px;
+      overflow: auto;
+    }
+
+    .detail-popup-section {
+      margin: 0;
+      padding: 0 0 22px;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      overflow: visible;
+    }
+
+    .detail-popup-section + .detail-popup-section {
+      padding-top: 22px;
+      border-top: 1px solid rgba(23, 55, 47, 0.1);
+    }
+
+    .detail-popup-section h4 {
+      margin: 0 0 10px;
+      font-size: 1.02rem;
+      line-height: 1.35;
+    }
+
+    .detail-popup-section p {
+      margin: 0 0 12px;
+      color: var(--ink-soft);
+      line-height: 1.68;
+      font-size: 0.9rem;
+    }
+
+    .detail-popup-section ul {
+      margin: 0 0 12px 18px;
+      padding: 0;
+      color: var(--ink-soft);
+      line-height: 1.66;
+      font-size: 0.9rem;
+    }
+
+    .detail-popup-table-wrap {
+      margin: 12px 0;
+      overflow-x: auto;
+      border: 1px solid rgba(23, 55, 47, 0.1);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.58);
+    }
+
+    .detail-popup-table {
+      width: 100%;
+      min-width: 520px;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+    }
+
+    .detail-popup-table th,
+    .detail-popup-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid rgba(23, 55, 47, 0.08);
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .detail-popup-table th {
+      width: 30%;
+      color: var(--ink);
+      background: rgba(246, 240, 227, 0.7);
+      font-weight: 800;
+    }
+
+    .detail-popup-table tr:last-child th,
+    .detail-popup-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .detail-popup-note {
+      padding: 12px 14px;
+      border-left: 3px solid var(--gold);
+      border-radius: 10px;
+      background: rgba(205, 161, 106, 0.12);
+      color: var(--ink);
+      font-weight: 700;
+      line-height: 1.55;
+    }
+
+    .detail-popup-photo {
+      margin: 0 0 18px;
+      border: 1px solid rgba(23, 55, 47, 0.1);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.62);
+      overflow: hidden;
+    }
+
+    .detail-popup-photo img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .detail-popup-photo figcaption {
+      padding: 10px 12px;
+      color: var(--ink-soft);
+      font-size: 0.78rem;
+      line-height: 1.45;
+    }
+
+    .duration-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 0 10px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(23, 55, 47, 0.07);
+      border: 1px solid rgba(23, 55, 47, 0.1);
+      color: var(--ink-soft);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .place-number-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-right: 7px;
+      vertical-align: 0.08em;
+    }
+
+    .place-number-badge {
+      display: inline-grid;
+      place-items: center;
+      min-width: 22px;
+      height: 22px;
+      padding: 0 5px;
+      border: 2px solid #fffaf3;
+      border-radius: 999px;
+      background: #f0b84f;
+      color: #17372f;
+      box-shadow: 0 6px 14px rgba(23, 55, 47, 0.16);
+      font-size: 0.72rem;
+      font-weight: 900;
+      line-height: 1;
+      flex: 0 0 auto;
+    }
+
+    .place-number-badge[data-backup="true"] {
+      background: #d46f5d;
+      color: #fffaf3;
+    }
+
+    .day-aside {
+      display: grid;
+      gap: 16px;
+    }
+
+    .aside-card {
+      padding: 15px;
+      border-radius: 20px;
+      background: rgba(246, 240, 227, 0.7);
+      border: 1px solid rgba(23, 55, 47, 0.08);
+    }
+
+    .aside-card h4 {
+      margin: 0 0 10px;
+      font-size: 0.98rem;
+      font-weight: 800;
+    }
+
+    .aside-card p,
+    .aside-card li {
+      margin: 0;
+      color: var(--ink-soft);
+      line-height: 1.6;
+      font-size: 0.88rem;
+    }
+
+    .aside-card ul {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .food-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .timeline-item .food-list {
+      margin-top: 12px;
+    }
+
+    .food-pick {
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(23, 55, 47, 0.08);
+    }
+
+    .food-pick.option-pick {
+      padding: 9px 10px;
+      border-color: rgba(120, 145, 126, 0.2);
+      background: rgba(120, 145, 126, 0.08);
+    }
+
+    .food-pick.option-pick p {
+      margin: 4px 0 0;
+      font-size: 0.82rem;
+    }
+
+    .food-pick strong {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+      font-size: 0.93rem;
+      color: var(--ink);
+    }
+
+    .food-type {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(23, 55, 47, 0.08);
+      color: var(--ink-soft);
+      font-size: 0.68rem;
+      font-weight: 800;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+
+    .food-address {
+      display: block;
+      margin: 0 0 6px;
+      color: rgba(77, 101, 94, 0.82);
+      font-size: 0.72rem;
+      line-height: 1.35;
+    }
+
+    .food-pick p {
+      margin: 0;
+      color: var(--ink-soft);
+      line-height: 1.58;
+      font-size: 0.8rem;
+    }
+
+    .birthday-banner {
+      margin-bottom: 22px;
+      padding: 18px;
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(214, 160, 144, 0.18), rgba(205, 161, 106, 0.16)),
+        rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(23, 55, 47, 0.08);
+    }
+
+    .birthday-banner h3 {
+      margin: 0 0 10px;
+      font-family: "Song Myung", serif;
+      font-weight: 400;
+      font-size: 1.9rem;
+    }
+
+    .birthday-banner p {
+      margin: 0;
+      color: var(--ink-soft);
+      line-height: 1.8;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 13px 15px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(23, 55, 47, 0.08);
+    }
+
+    th {
+      font-size: 0.84rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      background: rgba(246, 240, 227, 0.72);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .airport-grid,
+    .gift-grid,
+    .check-grid,
+    .spot-grid,
+    .source-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .airport-card,
+    .gift-card,
+    .check-item {
+      padding: 18px;
+    }
+
+    .airport-card.best {
+      background:
+        linear-gradient(155deg, rgba(23, 55, 47, 0.94), rgba(48, 91, 80, 0.92));
+      color: #fffaf3;
+    }
+
+    .airport-card.best p,
+    .airport-card.best li,
+    .airport-card.best .micro-chip {
+      color: rgba(255, 249, 241, 0.9);
+    }
+
+    .airport-card.best .micro-chip {
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .airport-card ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .tip-panel {
+      padding: 20px;
+    }
+
+    .tip-panel ul {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+      color: var(--ink-soft);
+      line-height: 1.6;
+    }
+
+    .source-list {
+      padding: 0;
+    }
+
+    .country-note {
+      margin: 0 0 18px;
+      padding: 16px 18px;
+      border-radius: 22px;
+      background: rgba(120, 145, 126, 0.1);
+      border: 1px solid rgba(120, 145, 126, 0.18);
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+
+    .source-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .source-grid {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .source-grid li {
+      padding: 22px;
+      border-right: 1px solid rgba(23, 55, 47, 0.08);
+      border-bottom: 1px solid rgba(23, 55, 47, 0.08);
+    }
+
+    .source-grid li:nth-child(2n) {
+      border-right: 0;
+    }
+
+    .source-grid li strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      color: var(--ink);
+    }
+
+    .spot-card {
+      padding: 24px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(23, 55, 47, 0.08);
+    }
+
+    .spot-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.16rem;
+      font-weight: 800;
+    }
+
+    .spot-card p,
+    .spot-card li {
+      margin: 0;
+      color: var(--ink-soft);
+      line-height: 1.72;
+      font-size: 0.94rem;
+    }
+
+    .spot-card ul {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .spot-block {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(23, 55, 47, 0.08);
+    }
+
+    .spot-block strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 0.94rem;
+    }
+
+    .swiss-photo-grid {
+      margin-top: 18px;
+    }
+
+    .swiss-photo-card {
+      display: grid;
+      align-content: start;
+      gap: 12px;
+      overflow: hidden;
+    }
+
+    .swiss-photo-card img {
+      width: calc(100% + 48px);
+      max-width: none;
+      margin: -24px -24px 2px;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-bottom: 1px solid rgba(23, 55, 47, 0.08);
+      background: rgba(246, 240, 227, 0.9);
+    }
+
+    .swiss-photo-card .micro-chip {
+      justify-self: start;
+      background: rgba(246, 240, 227, 0.78);
+    }
+
+    .master-sheet {
+      padding: 0;
+    }
+
+    .master-table {
+      min-width: 0;
+      table-layout: fixed;
+    }
+
+    .master-table th,
+    .master-table td {
+      font-size: 0.93rem;
+      line-height: 1.72;
+    }
+
+    .master-table td strong {
+      color: var(--ink);
+    }
+
+    .master-summary {
+      margin-bottom: 18px;
+    }
+
+    footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px 48px;
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .two-col,
+      .day-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 520px;
+      }
+
+      .hero-stats,
+      .quick-grid,
+      .schedule-ribbon,
+      .airport-grid,
+      .gift-grid,
+      .check-grid,
+      .spot-grid,
+      .source-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      :root {
+        --anchor-offset: 190px;
+      }
+
+      .topbar-inner {
+        padding: 10px 14px;
+      }
+
+      .eyebrow {
+        font-size: 0.68rem;
+      }
+
+      .brand-copy h1 {
+        font-size: 0.92rem;
+      }
+
+      .nav-links a {
+        padding: 6px 11px;
+        font-size: 0.8rem;
+      }
+
+      .hero,
+      .overview-strip,
+      main,
+      footer {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .hero-copy,
+      .section-inner,
+      .day-card {
+        padding: 16px;
+      }
+
+      #practical-info .section-inner {
+        padding: 16px;
+      }
+
+      .hero-copy h2 {
+        font-size: 1.75rem;
+      }
+
+      .section-head h2 {
+        font-size: 1.45rem;
+      }
+
+      .hero-stats,
+      .quick-grid,
+      .schedule-ribbon,
+        .airport-grid,
+        .gift-grid,
+        .check-grid,
+        .spot-grid,
+        .source-grid,
+        .photo-grid,
+        .image-stack {
+        grid-template-columns: 1fr;
+      }
+
+      .mini-collage,
+      .photo-grid {
+        grid-template-rows: auto;
+      }
+
+      .photo-grid figure {
+        min-height: 240px;
+      }
+
+      .day-header {
+        flex-direction: column;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .architecture-looklist {
+        grid-template-columns: 1fr;
+      }
+
+      .detail-popup {
+        width: calc(100vw - 18px);
+        max-height: 88vh;
+        border-radius: 16px;
+      }
+
+      .detail-popup-shell {
+        max-height: 88vh;
+      }
+
+      .detail-popup-head {
+        padding: 18px 16px 14px;
+      }
+
+      .detail-popup-body {
+        padding: 18px 16px 22px;
+      }
+
+      .detail-popup-trigger {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .time-tag {
+        justify-self: start;
+      }
+
+      .source-grid li {
+        border-right: 0;
+      }
+
+      .map-view-toggle {
+        justify-content: stretch;
+      }
+
+      .map-view-toggle button {
+        flex: 1;
+        padding-inline: 10px;
+      }
+
+      .live-map {
+        height: 340px;
+      }
+
+      .route-map-toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .route-map-actions {
+        justify-content: flex-start;
+      }
+
+      .google-route-map {
+        height: 330px;
+      }
+
+    }
+
+    @media print {
+      .map-view-toggle,
+      .map-view-live,
+      .map-status,
+      .route-map-card {
+        display: none !important;
+      }
+
+      .map-view-static {
+        display: block !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell desktop-guide" data-guide-version="desktop">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <div class="brand-mark">CH</div>
+          <div class="brand-copy">
+            <p class="eyebrow">Swiss Honeymoon Notes</p>
+            <h1>2026.07.16 목 - 2026.07.18 토 | 루체른·리기산·인터라켄</h1>
+          </div>
+        </div>
+        <nav class="country-tabs" aria-label="국가별 최상위 탭">
+          <a href="./switzerland_honeymoon_guide.html">스위스</a>
+          <a href="./italy_honeymoon_guide.html">이탈리아</a>
+        </nav>
+        <nav class="nav-links" aria-label="페이지 이동">
+          <a href="#switzerland">Swiss Overview</a>
+          <a href="#swiss-photo-notes">사진 메모</a>
+          <a href="#swiss-day-1">07.16 루체른</a>
+          <a href="#swiss-day-2">07.17 리기산</a>
+          <a href="#swiss-day-3">07.18 인터라켄</a>
+        </nav>
+      </div>
+    </header>
+    <div class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="hero-kicker">Swiss Route</div>
+          <h2>스위스 여행</h2>
+          <p>
+            루체른 도착 후 첫 산책, <strong>리기산 라운드트립</strong>, 그리고 결제한 열차 기준
+            <strong>Interlaken West</strong>까지 이어지는 3일 구간입니다. 호수, 산악열차, 케이블카, 파노라마 열차를
+            무리 없이 연결하는 허니문형 스위스 일정으로 정리했습니다.
+          </p>
+          <div class="hero-stats">
+            <div class="stat-card">
+              <span class="stat-label">Dates</span>
+              <span class="stat-value">3일</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Base</span>
+              <span class="stat-value">Lucerne</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Main Day</span>
+              <span class="stat-value">Rigi</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Arrival</span>
+              <span class="stat-value">West</span>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#switzerland">스위스 일정 보기</a>
+            <a class="button button-secondary" href="./italy_honeymoon_guide.html">이탈리아 일정 열기</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="image-stack">
+            <div class="primary-photo">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Luzern_Kapellbruecke.jpg/1280px-Luzern_Kapellbruecke.jpg" alt="루체른 카펠교와 수탑" loading="eager">
+              <div class="photo-tag">
+                루체른 첫 산책은 카펠교, 구시가지, 강변 저녁을 중심으로 가볍게 가져갑니다.
+              </div>
+            </div>
+            <div class="mini-collage">
+              <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Vierwaldst%C3%A4ttersee_Rigi.jpg/960px-Vierwaldst%C3%A4ttersee_Rigi.jpg" alt="리기산에서 보이는 루체른 호수" loading="lazy">
+                <figcaption>리기산은 배, 산악열차, 케이블카, 호수 복귀가 이어지는 메인 데이</figcaption>
+              </figure>
+              <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Luzern_Kapellbruecke.jpg/1280px-Luzern_Kapellbruecke.jpg" alt="루체른 수변과 구시가지" loading="lazy">
+                <figcaption>도착일은 명소 체크보다 시차 적응과 산책 템포가 우선</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="photo-grid">
+            <figure>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Vierwaldst%C3%A4ttersee_Rigi.jpg/960px-Vierwaldst%C3%A4ttersee_Rigi.jpg" alt="리기산 정상 전망" loading="lazy">
+              <figcaption>Rigi Kulm은 날씨가 좋을 때 정상 체류 60분 정도가 적당합니다</figcaption>
+            </figure>
+            <figure>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Luzern_Kapellbruecke.jpg/1280px-Luzern_Kapellbruecke.jpg" alt="루체른 카펠교" loading="lazy">
+              <figcaption>카펠교와 로이스강변은 첫날과 둘째 날 밤 모두 잘 어울립니다</figcaption>
+            </figure>
+            <figure>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Lake_lucerne.JPG/960px-Lake_lucerne.JPG" alt="루체른 호수와 산 능선" loading="lazy">
+              <figcaption>스위스 구간은 이동 자체가 풍경이 되도록 짧고 안정적으로 연결합니다</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="overview-strip">
+      <div class="schedule-ribbon journey-ribbon">
+        <article class="ribbon-card">
+          <strong>07.16 목</strong>
+          <h3>루체른 도착</h3>
+          <p>취리히 공항에서 루체른으로 이동 후 카펠교와 구시가지 첫 산책.</p>
+        </article>
+        <article class="ribbon-card">
+          <strong>07.17 금</strong>
+          <h3>리기산 라운드트립</h3>
+          <p>루체른 호수, Vitznau 산악열차, Rigi Kulm, Weggis 복귀.</p>
+        </article>
+        <article class="ribbon-card">
+          <strong>07.18 토</strong>
+          <h3>인터라켄 이동</h3>
+          <p>결제 티켓 기준 Luzern 09:24 출발, Interlaken Ost 환승, 11:32 Interlaken West 도착.</p>
+        </article>
+      </div>
+    </div>
+    <main>
+      <section id="switzerland">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <span class="section-index">Switzerland</span>
+              <h2>2026.07.16 목 - 2026.07.18 토 | 루체른, 리기산, 인터라켄 이동</h2>
+              <p>
+                취리히 공항 도착 후 루체른으로 들어가고, 다음 날 리기산 라운드트립을 한 뒤
+                결제한 열차로 Interlaken Ost를 거쳐 Interlaken West까지 이동하는 3일 구간입니다.
+              </p>
+            </div>
+            <a class="source-chip" href="https://www.sbb.ch/en/offers/swiss-half-fare-card" target="_blank" rel="noreferrer">Swiss Half Fare Card</a>
+          </div>
+
+          <p class="country-note">
+            지도는 Google이 임의로 계산한 일반 대중교통 경로가 아니라, 공식 시간표로 확인한 배·산악열차·케이블카·파노라마 열차의 실제 연결축을 선형으로 표시합니다.
+            현장 탑승 전에는 SBB, Lake Lucerne, Rigi, Zentralbahn 앱이나 공식 페이지에서 운행 변경을 다시 확인하세요.
+          </p>
+
+          <div class="quick-grid">
+            <article class="info-card">
+              <h3>운영 기준</h3>
+              <p>Swiss Half Fare Card 사용을 전제로 하고, 구간별 티켓은 SBB 앱 또는 운영사 공식 채널에서 별도 구매합니다. 여권 원본과 티켓 QR을 함께 준비합니다.</p>
+            </article>
+            <article class="info-card">
+              <h3>루체른 숙소</h3>
+              <p>Hotel Luzernerhof(Alpenstrasse 3, 6004 Luzern)를 루체른 베이스로 두고, Day 1과 Day 2의 산책·선착장 이동은 도보권 중심으로 잡습니다.</p>
+            </article>
+            <article class="info-card">
+              <h3>핵심 연결</h3>
+              <p>Day 2는 Luzern Pier 1 09:12 배, Vitznau 10:15 산악열차, Rigi Kaltbad 16:10 케이블카, Weggis 17:05 복귀 배를 기준으로 둡니다.</p>
+            </article>
+            <article class="info-card">
+              <h3>일정 종료</h3>
+              <p>Day 3는 Interlaken West 11:32 도착과 Airbnb 숙소 이동 준비까지 관리합니다. 정확 주소가 확정되면 마지막 도보·버스·택시 구간을 추가합니다.</p>
+            </article>
+          </div>
+
+          <div id="swiss-photo-notes" class="spot-grid swiss-photo-grid" aria-label="스위스 일정 관련 사진 메모">
+            <article class="spot-card swiss-photo-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Luzern_Kapellbruecke.jpg/1280px-Luzern_Kapellbruecke.jpg" alt="루체른 카펠교와 수탑" loading="lazy">
+              <span class="micro-chip">Day 1 · Lucerne</span>
+              <h3>카펠교와 로이스강변</h3>
+              <p>장거리 비행 후 첫날은 명소를 많이 넣기보다 카펠교, 구시가지, 강변 저녁으로 루체른의 첫인상을 선명하게 가져가는 구성이 맞습니다.</p>
+              <div class="spot-block">
+                <strong>허니문 포인트</strong>
+                <p>해가 낮아지는 17:00 이후가 사진과 산책 모두 안정적입니다. 컨디션이 남으면 같은 축에서 야경만 짧게 추가합니다.</p>
+              </div>
+            </article>
+            <article class="spot-card swiss-photo-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Vierwaldst%C3%A4ttersee_Rigi.jpg/960px-Vierwaldst%C3%A4ttersee_Rigi.jpg" alt="리기산에서 내려다보는 루체른 호수" loading="lazy">
+              <span class="micro-chip">Day 2 · Rigi</span>
+              <h3>리기산 정상 전망</h3>
+              <p>융프라우를 이후에 가더라도 리기산은 난이도가 낮고, 배·산악열차·케이블카가 한 번에 이어져 산악열차 첫 경험으로 부담이 적습니다.</p>
+              <div class="spot-block">
+                <strong>운영 포인트</strong>
+                <p>정상 체류는 60-80분이면 충분합니다. 구름이 많으면 정상 시간을 줄이고 Rigi Kaltbad 또는 호수 복귀 시간을 여유 있게 둡니다.</p>
+              </div>
+            </article>
+            <article class="spot-card swiss-photo-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Lake_lucerne.JPG/960px-Lake_lucerne.JPG" alt="루체른 호수 위를 지나는 여객선" loading="lazy">
+              <span class="micro-chip">Day 2 · Lake Lucerne</span>
+              <h3>루체른 호수 선박 이동</h3>
+              <p>Luzern Pier 1에서 Vitznau로 가는 배와 Weggis에서 돌아오는 배는 단순 이동이 아니라 리기산 일정의 분위기를 만드는 핵심 구간입니다.</p>
+              <div class="spot-block">
+                <strong>동선 적합성</strong>
+                <p>선박, 산악열차, 케이블카가 원형으로 이어져 같은 길을 반복하지 않습니다. 신혼여행 일정으로 지루함이 적은 이유입니다.</p>
+              </div>
+            </article>
+            <article class="spot-card swiss-photo-card">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Luzern-Interlaken_Express_am_Lungerersee.jpeg/960px-Luzern-Interlaken_Express_am_Lungerersee.jpeg" alt="호숫가를 지나는 Luzern-Interlaken Express" loading="lazy">
+              <span class="micro-chip">Day 3 · Panorama Train</span>
+              <h3>Luzern-Interlaken Express</h3>
+              <p>07.18은 관광을 더 붙이기보다 결제한 09:24 열차를 안정적으로 타고, 차창 풍경 자체를 일정의 메인으로 보는 편이 좋습니다.</p>
+              <div class="spot-block">
+                <strong>좌석 메모</strong>
+                <p>루체른 출발 기준 오른쪽 좌석을 우선합니다. Sarnen, Brünig, Brienz로 이어지는 구간에서 호수와 산 능선이 잘 보입니다.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="day-grid" style="margin-top: 18px;">
+            <article class="day-card" id="swiss-day-1">
+              <div class="day-header">
+                <div class="day-date">
+                  <strong>07.16 Thu</strong>
+                  <span>Zurich Airport → Luzern → Old Town</span>
+                </div>
+                <div class="day-intro">
+                  <h3>추천 톤: “장거리 비행 뒤에는 작게, 루체른 첫인상은 선명하게”</h3>
+                  <p>
+                    첫날은 체크인과 회복이 우선입니다. 카펠교, 로이스강변, 구시가지, 빈사의 사자상만 연결하고
+                    저녁은 호텔에서 멀지 않은 구시가지·강변 후보로 둡니다.
+                  </p>
+                </div>
+              </div>
+              <div class="route-map-card" data-route-map-card="swiss-day1">
+                <div class="route-map-toolbar">
+                  <div class="route-map-copy">
+                    <strong>Swiss Day 1 실제 동선 지도</strong>
+                    <span>취리히 공항에서 루체른역까지 이동한 뒤, 호텔과 루체른 구시가지 첫 산책 축을 표시합니다.</span>
+                  </div>
+                  <div class="route-map-actions">
+                    <span class="route-legend primary">기본</span>
+                    <span class="route-legend backup">대안</span>
+                    <button class="route-map-button" type="button" data-route-map-open>지도 열기</button>
+                  </div>
+                </div>
+                <div class="route-map-shell" data-route-map-shell hidden>
+                  <div class="google-route-map" data-route-map-target aria-label="Swiss Day 1 루체른 도착 실제 동선 지도"></div>
+                  <p class="route-map-status" data-route-map-status>Google Maps 지도를 준비 중입니다.</p>
+                </div>
+              </div>
+              <div class="day-content">
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div class="time-tag">10:55</div>
+                    <div>
+                      <strong data-place-key="swiss_day1_zurich_airport">취리히 공항 도착</strong>
+                      <span class="duration-tag">입국·수하물 버퍼 60-80분</span>
+                      <p>입국 후 `Bahn / Train` 표지판을 따라 Zürich Flughafen 역으로 이동합니다. 항공편 지연이 있으면 루체른 산책 범위를 바로 줄입니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">12:15 전후</div>
+                    <div>
+                      <strong data-place-keys="swiss_day1_zurich_airport swiss_day1_luzern_station">Zürich Flughafen → Luzern</strong>
+                      <span class="duration-tag">약 1시간 10-20분</span>
+                      <p>직통 우선, 없으면 Zürich HB 환승으로 잡습니다. 정확한 플랫폼과 열차는 SBB 앱에서 당일 재확인합니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">13:40</div>
+                    <div>
+                      <strong data-place-key="swiss_day1_hotel">Hotel Luzernerhof 이동</strong>
+                      <span class="duration-tag">도보 10-15분</span>
+                      <p>숙소 주소는 Alpenstrasse 3, 6004 Luzern입니다. 객실 준비 전이면 짐만 맡기고, 물과 간단한 간식을 보충한 뒤 호숫가 방향으로 짧게 나갑니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">15:00</div>
+                    <div>
+                      <strong data-place-keys="swiss_day1_hofkirche swiss_day1_lion_monument">호프교회와 빈사의 사자상</strong>
+                      <span class="duration-tag">소요 90분</span>
+                      <p>Hotel Luzernerhof에서 접근이 좋습니다. 내부 관람보다 외관, 호숫가, 대표 기념물만 짧게 보는 방식이 첫날에 맞습니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">17:00</div>
+                    <div>
+                      <strong data-place-keys="swiss_day1_chapel_bridge swiss_day1_old_town">카펠교·구시가지 산책</strong>
+                      <span class="duration-tag">소요 90분</span>
+                      <p>Kapellbrücke, Kornmarkt, Weinmarkt, Reuss 강변을 천천히 연결합니다. 해가 낮아지는 시간대 사진이 가장 안정적입니다.</p>
+                    </div>
+                  </div>
+                </div>
+                <aside class="day-aside">
+                  <div class="aside-card">
+                    <h4>저녁 후보 | Food Picks</h4>
+                    <ul class="food-list">
+                      <li class="food-pick">
+                        <strong data-place-key="swiss_day1_rathaus">Rathaus Brauerei<span class="food-type">양조장 레스토랑</span></strong>
+                        <span class="food-address">Unter der Egg 2, Luzern</span>
+                        <p>첫날 피로가 있을 때 가장 부담이 적은 캐주얼 후보입니다. 로컬 맥주, 소시지, 슈니첼, 감자요리 중심으로 짧게 잡습니다.</p>
+                      </li>
+                      <li class="food-pick">
+                        <strong data-place-key="swiss_day1_des_alpes">Restaurant Des Alpes<span class="food-type">강변 식당</span></strong>
+                        <span class="food-address">카펠교 인근 Reuss 강변</span>
+                        <p>카펠교 야경과 이어지는 분위기 좋은 저녁 후보입니다. 생선, 뢰스티, 스위스식 메인 요리를 우선합니다.</p>
+                      </li>
+                      <li class="food-pick">
+                        <strong data-place-key="swiss_day1_max_chocolatier">Max Chocolatier<span class="food-type">초콜릿</span></strong>
+                        <span class="food-address">루체른 구시가지권</span>
+                        <p>고급 초콜릿 선물 후보입니다. 여름철에는 구매 후 보관 시간을 짧게 잡는 편이 좋습니다.</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="aside-card">
+                    <h4>첫날 조정 기준</h4>
+                    <ul>
+                      <li>입국·수하물 지연 시 빈사의 사자상은 Day 2 저녁 산책으로 넘깁니다.</li>
+                      <li>20:30 카펠교 야경은 컨디션이 남을 때만 진행합니다.</li>
+                      <li>첫날 퐁듀는 무겁게 느껴질 수 있어 Day 2 저녁 후보로 미룹니다.</li>
+                    </ul>
+                  </div>
+                </aside>
+              </div>
+            </article>
+
+            <article class="day-card" id="swiss-day-2">
+              <div class="day-header">
+                <div class="day-date">
+                  <strong>07.17 Fri</strong>
+                  <span>Luzern Pier 1 → Vitznau → Rigi Kulm → Weggis → Luzern</span>
+                </div>
+                <div class="day-intro">
+                  <h3>추천 톤: “리기산은 산보다 연결 경험 전체가 메인”</h3>
+                  <p>
+                    공식 2026 여름 시간표 기준으로 09:12 Luzern 출발 배, 10:15 Vitznau 출발 산악열차가 자연스럽게 연결됩니다.
+                    복귀는 Rigi Kaltbad 16:10 케이블카 후 Weggis 17:05 배를 기본으로 둡니다.
+                  </p>
+                </div>
+              </div>
+              <div class="route-map-card" data-route-map-card="swiss-day2">
+                <div class="route-map-toolbar">
+                  <div class="route-map-copy">
+                    <strong>Swiss Day 2 공식 교통축 지도</strong>
+                    <span>배, 산악열차, 케이블카 구간은 Google 계산 경로가 아니라 공식 연결축 선형으로 표시합니다.</span>
+                  </div>
+                  <div class="route-map-actions">
+                    <span class="route-legend primary">공식 연결축</span>
+                    <span class="route-legend backup">날씨 대안</span>
+                    <button class="route-map-button" type="button" data-route-map-open>지도 열기</button>
+                  </div>
+                </div>
+                <div class="route-map-shell" data-route-map-shell hidden>
+                  <div class="google-route-map" data-route-map-target aria-label="Swiss Day 2 리기산 라운드트립 공식 교통축 지도"></div>
+                  <p class="route-map-status" data-route-map-status>Google Maps 지도를 준비 중입니다.</p>
+                </div>
+              </div>
+              <div class="day-content">
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div class="time-tag">08:30</div>
+                    <div>
+                      <strong data-place-keys="swiss_day2_hotel swiss_day2_luzern_pier">호텔 출발 → Luzern Pier 1</strong>
+                      <span class="duration-tag">도보 12-18분</span>
+                      <p>Lake Lucerne 공식 안내 기준 Vitznau·Weggis 방향 배는 Pier 1 출발입니다. 선착장 도착 후 날씨와 배편을 다시 확인합니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">09:12</div>
+                    <div>
+                      <strong data-place-keys="swiss_day2_luzern_pier swiss_day2_vitznau">Luzern → Vitznau 배</strong>
+                      <span class="duration-tag">09:12-10:09</span>
+                      <p>2026 여름 시간표 기준 연결입니다. 모든 08:12-17:12 Luzern 출발 배는 Vitznau에서 Rigi-Bahn 연결이 있다고 안내되어 있습니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">10:15</div>
+                    <div>
+                      <strong data-place-keys="swiss_day2_vitznau swiss_day2_rigi_kulm">Vitznau → Rigi Kulm 산악열차</strong>
+                      <span class="duration-tag">10:15-10:47</span>
+                      <p>Rigi 공식 2026 여름 시간표 기준 연결입니다. 정상에서는 11:00-12:20 정도 사진, 전망, 가벼운 산책으로 충분합니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">12:20</div>
+                    <div>
+                      <strong data-place-keys="swiss_day2_rigi_kulm swiss_day2_rigi_kaltbad">점심 후 Rigi Kaltbad</strong>
+                      <span class="duration-tag">점심 60분 + 하산 15분권</span>
+                      <p>정상 식사가 가장 단순하고, 여유를 원하면 Kaltbad로 내려와서 카페 중심으로 쉬는 구성이 더 부드럽습니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">16:10</div>
+                    <div>
+                      <strong data-place-keys="swiss_day2_rigi_kaltbad swiss_day2_weggis_cable swiss_day2_weggis_pier">Rigi Kaltbad → Weggis 케이블카</strong>
+                      <span class="duration-tag">10분 + 선착장 도보 15분</span>
+                      <p>케이블카는 30분 간격, 10분 소요입니다. 16:10 하산이면 Weggis 선착장까지 도보 15분을 반영해도 17:05 복귀 배에 여유가 있습니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">17:05</div>
+                    <div>
+                      <strong data-place-keys="swiss_day2_weggis_pier swiss_day2_luzern_pier">Weggis → Luzern 배</strong>
+                      <span class="duration-tag">17:05-17:47</span>
+                      <p>공식 여름 시간표 기준 복귀편입니다. 더 일찍 내려오면 16:05-16:47, 더 쉬면 18:05-18:47도 후보입니다.</p>
+                    </div>
+                  </div>
+                </div>
+                <aside class="day-aside">
+                  <div class="aside-card">
+                    <h4>식사 전략 | Food Picks</h4>
+                    <ul class="food-list">
+                      <li class="food-pick">
+                        <strong data-place-key="swiss_day2_rigi_kulm">Rigi Kulm Hotel Restaurant<span class="food-type">정상 점심</span></strong>
+                        <span class="food-address">Rigi Kulm</span>
+                        <p>뢰스티, 수프, 소시지, 커피와 케이크처럼 단순한 메뉴가 좋습니다. 정상에서 해결하면 일정이 가장 흔들리지 않습니다.</p>
+                      </li>
+                      <li class="food-pick">
+                        <strong data-place-key="swiss_day2_rigi_kaltbad">Rigi Kaltbad Cafe<span class="food-type">산 위 휴식</span></strong>
+                        <span class="food-address">Rigi Kaltbad</span>
+                        <p>정상 이후 템포를 낮추는 카드입니다. 하산 전 커피, 케이크, 아이스티로 쉬는 시간을 확보합니다.</p>
+                      </li>
+                      <li class="food-pick">
+                        <strong data-place-key="swiss_day2_fondue">FONDUE HOUSE DU PONT<span class="food-type">저녁</span></strong>
+                        <span class="food-address">루체른 구시가지권</span>
+                        <p>퐁듀는 첫날보다 리기산 일정 후 만족도가 높습니다. 예약이 가능하면 미리 잡고, 부담스러우면 Restaurant Des Alpes로 전환합니다.</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="aside-card">
+                    <h4>날씨 대안</h4>
+                    <ul>
+                      <li>Rigi Kulm 웹캠에서 정상부가 구름에 덮이면 장거리 산악 이동을 줄입니다.</li>
+                      <li>대안 A: 카펠교, 구시가지, 빈사의 사자상 재방문과 Swiss Museum of Transport.</li>
+                      <li>대안 B: 짧은 루체른 호수 유람선과 카페 중심으로 전환합니다.</li>
+                    </ul>
+                  </div>
+                  <div class="aside-card">
+                    <h4>공식 확인 근거</h4>
+                    <p>Lake Lucerne 2026 여름 시간표, Rigi 2026 여름 산악열차 시간표, Weggis-Rigi Kaltbad 케이블카 2025/2026 시간표를 반영했습니다.</p>
+                  </div>
+                </aside>
+              </div>
+            </article>
+
+            <article class="day-card" id="swiss-day-3">
+              <div class="day-header">
+                <div class="day-date">
+                  <strong>07.18 Sat</strong>
+                  <span>Luzern → Interlaken West</span>
+                </div>
+                <div class="day-intro">
+                  <h3>추천 톤: “이동 자체가 관광인 날, 욕심내지 않고 도착까지만 관리”</h3>
+                  <p>
+                    Zentralbahn 공식 안내 기준 Luzern-Interlaken Express는 Luzern에서 06:06-21:06 매시간 출발하고,
+                    소요 시간은 약 1시간 50분입니다. 이번 일정은 결제한 티켓 기준 Luzern PL15 09:24 → Interlaken Ost 11:17,
+                    Interlaken Ost PL8 11:29 → Interlaken West PL1 11:32로 관리합니다.
+                  </p>
+                </div>
+              </div>
+              <div class="route-map-card" data-route-map-card="swiss-day3">
+                <div class="route-map-toolbar">
+                  <div class="route-map-copy">
+                    <strong>Swiss Day 3 파노라마 열차 지도</strong>
+                    <span>Luzern-Interlaken Express의 주요 조망 구간을 선형으로 표시합니다.</span>
+                  </div>
+                  <div class="route-map-actions">
+                    <span class="route-legend primary">파노라마 열차</span>
+                    <button class="route-map-button" type="button" data-route-map-open>지도 열기</button>
+                  </div>
+                </div>
+                <div class="route-map-shell" data-route-map-shell hidden>
+                  <div class="google-route-map" data-route-map-target aria-label="Swiss Day 3 Luzern Interlaken Express 지도"></div>
+                  <p class="route-map-status" data-route-map-status>Google Maps 지도를 준비 중입니다.</p>
+                </div>
+              </div>
+              <div class="day-content">
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div class="time-tag">07:30</div>
+                    <div>
+                      <strong data-place-key="swiss_day3_hotel">기상과 체크아웃 준비</strong>
+                      <span class="duration-tag">60분</span>
+                      <p>캐리어, 여권, Half Fare Card, 티켓 QR을 먼저 확인합니다. 조식은 길게 잡지 않습니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">09:00</div>
+                    <div>
+                      <strong data-place-keys="swiss_day3_hotel swiss_day3_luzern_station">호텔 → Luzern Station</strong>
+                      <span class="duration-tag">도보 이동</span>
+                      <p>09:10 전후 역 도착을 목표로 하고 PL15, 물, 간식을 확인합니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">09:24</div>
+                    <div>
+                      <strong data-place-keys="swiss_day3_luzern_station swiss_day3_interlaken_ost">Luzern → Interlaken Ost 출발</strong>
+                      <span class="duration-tag">09:24-11:17 · PL15</span>
+                      <p>루체른에서 인터라켄 방향은 진행방향 오른쪽 좌석이 공식 추천 전망 방향입니다. 2026년 7월 토요일 성수기라 좌석 예약을 권장합니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">09:50</div>
+                    <div>
+                      <strong data-place-keys="swiss_day3_sarnen swiss_day3_brunig swiss_day3_brienz">Sarnen, Brünig, Brienz 조망</strong>
+                      <span class="duration-tag">차창 감상</span>
+                      <p>호수와 전원 풍경, Brünig-Hasliberg 고도감, Brienz 접근 구간의 청록빛 호수를 순서대로 봅니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">11:17</div>
+                    <div>
+                      <strong data-place-key="swiss_day3_interlaken_ost">Interlaken Ost 도착 / 환승</strong>
+                      <span class="duration-tag">11:29 출발 · PL8</span>
+                      <p>12분 환승으로 Interlaken West행 열차를 이어 탑니다. 큰 이동은 끝났지만 플랫폼 이동과 짐 정리를 먼저 봅니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">11:32</div>
+                    <div>
+                      <strong data-place-key="swiss_day3_interlaken_west">Interlaken West 도착</strong>
+                      <span class="duration-tag">PL1 · Airbnb 주소 추후 반영</span>
+                      <p>예약 숙소의 정확 주소가 확정되면 Interlaken West에서 숙소까지 도보, 버스, 택시 중 가장 안정적인 마지막 구간을 추가합니다.</p>
+                    </div>
+                  </div>
+                </div>
+                <aside class="day-aside">
+                  <div class="aside-card">
+                    <h4>아침과 간식</h4>
+                    <ul class="food-list">
+                      <li class="food-pick">
+                        <strong>호텔 조식<span class="food-type">안정형</span></strong>
+                        <p>09:24 열차를 놓치지 않는 범위에서 가장 안정적입니다. 오래 앉는 조식보다 빠른 정리가 우선입니다.</p>
+                      </li>
+                      <li class="food-pick">
+                        <strong data-place-key="swiss_day3_luzern_station">루체른역 베이커리<span class="food-type">대안</span></strong>
+                        <p>조식 시간이 애매하면 역에서 커피, 빵, 물, 작은 초콜릿을 사서 탑승합니다.</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="aside-card">
+                    <h4>예약·좌석</h4>
+                    <ul>
+                      <li>Zentralbahn 공식 안내 기준 2026.05.02-2026.11.01 좌석 예약 수수료는 CHF 16입니다.</li>
+                      <li>특별 티켓이 아니라 일반 열차 티켓으로 탑승 가능하며, Swiss Half Fare Card 할인 티켓을 구매합니다.</li>
+                      <li>루체른 출발 방향 오른쪽 좌석을 우선합니다.</li>
+                    </ul>
+                  </div>
+                </aside>
+              </div>
+            </article>
+          </div>
+
+          <div class="source-row" aria-label="스위스 일정 공식 출처">
+            <a class="source-chip" href="https://www.lakelucerne.ch/en/information/timetable/" target="_blank" rel="noreferrer">Lake Lucerne timetable</a>
+            <a class="source-chip" href="https://www.rigi.ch/en/inform/timetables" target="_blank" rel="noreferrer">Rigi timetables</a>
+            <a class="source-chip" href="https://www.zentralbahn.ch/en/experience/leisure/luzern-interlaken-express" target="_blank" rel="noreferrer">Zentralbahn Express</a>
+            <a class="source-chip" href="https://www.sbb.ch/en/offers/swiss-half-fare-card" target="_blank" rel="noreferrer">SBB Half Fare</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      이 가이드는 현 시점 기준의 공식 또는 준공식 정보를 바탕으로 정리한 정적 문서입니다.
+      요금, 운영시간, 파업, 항공편, 공연 일정은 변경될 수 있으므로 실제 여행 전 7일, 2일, 전날 밤에 공식 링크를 기준으로 재확인하세요.
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      const openButtons = document.querySelectorAll("[data-detail-popup-open]");
+      const closeButtons = document.querySelectorAll("[data-detail-popup-close]");
+
+      openButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const popup = document.getElementById(button.dataset.detailPopupOpen);
+          if (!popup) return;
+          if (typeof popup.showModal === "function") {
+            popup.showModal();
+          } else {
+            popup.setAttribute("open", "");
+          }
+        });
+      });
+
+      closeButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const popup = button.closest("dialog");
+          if (popup) popup.close();
+        });
+      });
+
+      document.querySelectorAll(".detail-popup").forEach((popup) => {
+        popup.addEventListener("click", (event) => {
+          if (event.target === popup) popup.close();
+        });
+      });
+    }());
+  </script>
+  <script>
+    (function () {
+      if (!("serviceWorker" in navigator)) return;
+      if (window.location.protocol === "file:") return;
+
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js").catch(() => {
+          // Offline mode is optional; the guide remains usable as a normal static page.
+        });
+      });
+    }());
+  </script>
+  <script src="./assets/google-maps-config.js"></script>
+  <script>
+    window.loadLocalGoogleMapsConfig = async function () {
+      try {
+        const host = window.location.hostname;
+        const isLocalHost = host === "localhost" || host === "127.0.0.1" || host === "::1" || window.location.protocol === "file:";
+        if (!isLocalHost) return false;
+        const localConfigUrl = `./assets/google-maps-config.local.json?local=${Date.now()}`;
+        const response = await fetch(localConfigUrl, { cache: "no-store" });
+        if (!response.ok) return false;
+        const localConfig = await response.json();
+        window.GOOGLE_MAPS_CONFIG = Object.assign({}, window.GOOGLE_MAPS_CONFIG || {}, localConfig);
+        return Boolean(window.GOOGLE_MAPS_CONFIG.apiKey);
+      } catch {
+        // Missing local config is expected on GitHub Pages and on clean checkouts.
+        return false;
+      }
+    };
+
+    window.GOOGLE_MAPS_CONFIG_READY = window.loadLocalGoogleMapsConfig();
+  </script>
+  <script>
+    window.PLACE_NUMBER_BADGES_READY = (async function hydratePlaceNumberBadges() {
+      const targets = Array.from(document.querySelectorAll("[data-place-key], [data-place-keys]"));
+      if (!targets.length) return;
+
+      function keysFor(target) {
+        const value = target.dataset.placeKeys || target.dataset.placeKey || "";
+        return value.split(/[\s,]+/).map((key) => key.trim()).filter(Boolean);
+      }
+
+      try {
+        const response = await fetch("./assets/map-data.json", { cache: "no-cache" });
+        if (!response.ok) throw new Error("map-data.json load failed");
+        const data = await response.json();
+        const pointByKey = new Map();
+        (data.dailyMaps || []).forEach((mapConfig) => {
+          (mapConfig.points || []).forEach((point) => {
+            pointByKey.set(point.place_key, point);
+          });
+        });
+
+        targets.forEach((target) => {
+          const points = keysFor(target).map((key) => pointByKey.get(key)).filter(Boolean);
+          if (!points.length || target.dataset.placeNumberHydrated === "true") return;
+
+          const group = document.createElement("span");
+          group.className = "place-number-group";
+          group.setAttribute("aria-label", points
+            .map((point) => `${point.label} 지도 번호 ${point.visitOrder}`)
+            .join(", "));
+
+          points.forEach((point) => {
+            const badge = document.createElement("span");
+            badge.className = "place-number-badge";
+            badge.dataset.backup = String(Boolean(point.backup));
+            badge.textContent = String(point.visitOrder || "");
+            badge.title = `${point.label} 지도 번호 ${point.visitOrder}`;
+            group.append(badge);
+          });
+
+          target.classList.add("has-place-number");
+          target.dataset.placeNumberHydrated = "true";
+          target.prepend(group);
+        });
+      } catch {
+        // The guide still works without badges when opened without fetch access.
+      }
+    }());
+  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    (function () {
+      const cards = Array.from(document.querySelectorAll("[data-map-card]"));
+      if (!cards.length) return;
+
+      let mapDataPromise;
+      const mapInstances = new Map();
+
+      function escapeHtml(value) {
+        return String(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll("\"", "&quot;");
+      }
+
+      function setStatus(card, message) {
+        const status = card.querySelector("[data-map-status]");
+        if (status) status.textContent = message;
+      }
+
+      function setView(card, view) {
+        card.dataset.currentView = view;
+        card.querySelectorAll("[data-map-view-button]").forEach((button) => {
+          button.setAttribute("aria-selected", button.dataset.mapViewButton === view ? "true" : "false");
+        });
+        const liveView = card.querySelector(".map-view-live");
+        if (liveView) liveView.setAttribute("aria-hidden", view === "interactive" ? "false" : "true");
+      }
+
+      async function loadMapData() {
+        if (!mapDataPromise) {
+          mapDataPromise = fetch("./assets/map-data.json", { cache: "no-cache" })
+            .then((response) => {
+              if (!response.ok) throw new Error("map-data.json load failed");
+              return response.json();
+            });
+        }
+        return mapDataPromise;
+      }
+
+      function makePin(point, index) {
+        return L.divIcon({
+          className: "map-number-icon",
+          html: `<span class="map-pin" style="background:${point.color}">${index + 1}</span>`,
+          iconSize: [30, 30],
+          iconAnchor: [15, 15],
+          popupAnchor: [0, -18]
+        });
+      }
+
+      function initMap(card, mapConfig) {
+        const target = card.querySelector("[data-map-target]");
+        if (!target || mapInstances.has(target)) return;
+
+        const map = L.map(target, {
+          scrollWheelZoom: false,
+          zoomControl: true
+        });
+
+        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "&copy; OpenStreetMap contributors"
+        }).addTo(map);
+
+        const byKey = new Map(mapConfig.points.map((point) => [point.place_key, point]));
+        const bounds = [];
+
+        mapConfig.routes.forEach((route) => {
+          const latLngs = route.keys
+            .map((key) => byKey.get(key))
+            .filter(Boolean)
+            .map((point) => [point.lat, point.lon]);
+
+          if (latLngs.length > 1) {
+            L.polyline(latLngs, {
+              color: route.color,
+              weight: 4,
+              opacity: 0.84,
+              dashArray: route.dashArray || null,
+              lineCap: "round",
+              lineJoin: "round"
+            }).addTo(map);
+          }
+        });
+
+        mapConfig.points.forEach((point, index) => {
+          const latLng = [point.lat, point.lon];
+          bounds.push(latLng);
+          L.marker(latLng, { icon: makePin(point, index) })
+            .bindPopup(
+              `<div class="map-popup"><strong>${escapeHtml(point.label)}</strong><span>${escapeHtml(point.role)}</span></div>`
+            )
+            .addTo(map);
+        });
+
+        map.fitBounds(bounds, {
+          padding: [32, 32],
+          maxZoom: mapConfig.id === "shopping" ? 15 : 9
+        });
+
+        mapInstances.set(target, map);
+        window.setTimeout(() => map.invalidateSize(), 120);
+        setStatus(card, "마커를 누르면 장소 역할을 확인할 수 있습니다.");
+      }
+
+      async function showInteractive(card) {
+        setView(card, "interactive");
+        if (!window.L) {
+          setStatus(card, "Leaflet 라이브러리를 불러오지 못해 정적 지도만 표시합니다.");
+          return;
+        }
+
+        try {
+          const data = await loadMapData();
+          const mapConfig = data.maps.find((item) => item.id === card.dataset.mapCard);
+          if (!mapConfig) throw new Error("missing map config");
+          initMap(card, mapConfig);
+          const target = card.querySelector("[data-map-target]");
+          const map = mapInstances.get(target);
+          if (map) window.setTimeout(() => map.invalidateSize(), 80);
+        } catch {
+          setStatus(card, "지도 데이터를 불러오지 못해 정적 지도만 표시합니다.");
+        }
+      }
+
+      cards.forEach((card) => {
+        card.querySelectorAll("[data-map-view-button]").forEach((button) => {
+          button.addEventListener("click", () => {
+            if (button.dataset.mapViewButton === "interactive") {
+              showInteractive(card);
+            } else {
+              setView(card, "static");
+            }
+          });
+        });
+      });
+    }());
+
+    (function () {
+      const routeCards = Array.from(document.querySelectorAll("[data-route-map-card]"));
+      if (!routeCards.length) return;
+
+      const PRIMARY_ROUTE_COLOR = "#17372f";
+      const BACKUP_ROUTE_COLOR = "#d46f5d";
+      const OPTION_MARKER_COLOR = "#78917e";
+      const mapStates = new Map();
+      const leafletRouteStates = new Map();
+      let dailyMapDataPromise;
+      let googleMapsLoaderPromise;
+      let baseMapLibrariesPromise;
+      let routeLibrariesPromise;
+      let placesLibraryPromise;
+      const placeDetailsCache = new Map();
+
+      function escapeHtml(value) {
+        return String(value || "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll("\"", "&quot;");
+      }
+
+      function setRouteStatus(card, message, provider = "google") {
+        const selector = provider === "interactive"
+          ? "[data-interactive-route-map-status]"
+          : "[data-google-route-map-status], [data-route-map-status]";
+        const status = card.querySelector(selector);
+        if (status) status.textContent = message;
+      }
+
+      function getConfig() {
+        return window.GOOGLE_MAPS_CONFIG || {};
+      }
+
+      function shouldUseGoogleRoutesApi() {
+        const config = getConfig();
+        return config.googleRouteEngine === "routes" && Boolean(config.apiKey);
+      }
+
+      async function ensureGoogleMapsConfigLoaded() {
+        if (window.GOOGLE_MAPS_CONFIG_READY) {
+          await window.GOOGLE_MAPS_CONFIG_READY;
+        }
+
+        if (!getConfig().apiKey && typeof window.loadLocalGoogleMapsConfig === "function") {
+          await window.loadLocalGoogleMapsConfig();
+        }
+      }
+
+      function isGooglePlacesEnrichmentEnabled() {
+        return getConfig().googlePlacesEnrichment !== false;
+      }
+
+      function integerConfig(name, fallback) {
+        const value = Number(getConfig()[name]);
+        return Number.isFinite(value) && value > 0 ? Math.floor(value) : fallback;
+      }
+
+      function localUsageMonthKey() {
+        const now = new Date();
+        const month = String(now.getMonth() + 1).padStart(2, "0");
+        return `${now.getFullYear()}-${month}`;
+      }
+
+      function tryConsumeMonthlyUsage(metric, limit, amount = 1) {
+        if (!Number.isFinite(limit) || limit < amount) return false;
+
+        try {
+          const key = `wedding-google-maps-usage:${metric}:${localUsageMonthKey()}`;
+          const current = Number(window.localStorage.getItem(key) || "0");
+          if (!Number.isFinite(current) || current + amount > limit) return false;
+          window.localStorage.setItem(key, String(current + amount));
+          return true;
+        } catch {
+          return true;
+        }
+      }
+
+      async function loadDailyMapData() {
+        if (!dailyMapDataPromise) {
+          dailyMapDataPromise = fetch("./assets/map-data.json", { cache: "no-cache" })
+            .then((response) => {
+              if (!response.ok) throw new Error("map-data.json load failed");
+              return response.json();
+            });
+        }
+        return dailyMapDataPromise;
+      }
+
+      async function ensureGoogleMapsApi() {
+        await ensureGoogleMapsConfigLoaded();
+
+        const config = getConfig();
+        if (!config.apiKey) {
+          throw new Error("missing-google-maps-key");
+        }
+
+        if (window.google && window.google.maps) return;
+        if (googleMapsLoaderPromise) return googleMapsLoaderPromise;
+
+        googleMapsLoaderPromise = new Promise((resolve, reject) => {
+          const callbackName = "__weddingGoogleMapsLoaded";
+          const params = new URLSearchParams({
+            key: config.apiKey,
+            v: config.version || "weekly",
+            language: config.language || "ko",
+            region: config.region || "IT",
+            loading: "async",
+            libraries: "marker",
+            callback: callbackName
+          });
+
+          if (config.authReferrerPolicy) {
+            params.set("auth_referrer_policy", config.authReferrerPolicy);
+          }
+
+          const script = document.createElement("script");
+          window.gm_authFailure = () => {
+            loadDailyMapData()
+              .then((data) => {
+                routeCards.forEach((card) => {
+                  const shell = card.querySelector("[data-route-map-shell]");
+                  if (!shell || shell.hidden) return;
+                  const mapConfig = data.dailyMaps.find((item) => item.id === card.dataset.routeMapCard);
+                  if (mapConfig) renderRouteMapError(card, mapConfig, "auth-failure");
+                });
+              })
+              .catch(() => {
+                routeCards.forEach((card) => {
+                  setRouteStatus(card, "Google Maps API 키의 referrer 또는 API 제한 설정을 확인하세요.");
+                });
+              });
+            delete window[callbackName];
+            reject(new Error("auth-failure"));
+          };
+          window[callbackName] = () => {
+            delete window[callbackName];
+            resolve();
+          };
+          script.src = `https://maps.googleapis.com/maps/api/js?${params.toString()}`;
+          script.async = true;
+          script.onerror = () => {
+            delete window[callbackName];
+            reject(new Error("google-maps-load-failed"));
+          };
+          document.head.append(script);
+        });
+
+        return googleMapsLoaderPromise;
+      }
+
+      async function getBaseMapLibraries() {
+        if (!baseMapLibrariesPromise) {
+          baseMapLibrariesPromise = ensureGoogleMapsApi().then(async () => {
+            let mapsLibrary = {};
+            let markerLibrary = {};
+
+            if (google.maps.importLibrary) {
+              mapsLibrary = await google.maps.importLibrary("maps");
+              try {
+                markerLibrary = await google.maps.importLibrary("marker");
+              } catch {
+                markerLibrary = {};
+              }
+            }
+
+            return {
+              Map: mapsLibrary.Map || google.maps.Map,
+              AdvancedMarkerElement: markerLibrary.AdvancedMarkerElement || google.maps.marker?.AdvancedMarkerElement || null
+            };
+          });
+        }
+
+        return baseMapLibrariesPromise;
+      }
+
+      async function getRouteLibraries() {
+        if (!routeLibrariesPromise) {
+          routeLibrariesPromise = ensureGoogleMapsApi()
+            .then(async () => {
+              let routesLibrary = {};
+              if (google.maps.importLibrary) {
+                routesLibrary = await google.maps.importLibrary("routes");
+              } else if (google.maps.routes) {
+                routesLibrary = google.maps.routes;
+              }
+
+              const Route = routesLibrary.Route || google.maps.routes?.Route;
+              if (!Route || typeof Route.computeRoutes !== "function") {
+                throw new Error("missing-routes-library");
+              }
+
+              return {
+                available: true,
+                Route,
+                ReferenceRoute: routesLibrary.ReferenceRoute || google.maps.routes?.ReferenceRoute,
+                RoutingPreference: routesLibrary.RoutingPreference || google.maps.routes?.RoutingPreference,
+                TravelMode: routesLibrary.TravelMode || google.maps.routes?.TravelMode || {},
+                PolylineQuality: routesLibrary.PolylineQuality || google.maps.routes?.PolylineQuality || {}
+              };
+            })
+            .catch((error) => ({
+              available: false,
+              reason: error && error.message ? error.message : "routes-library-unavailable"
+            }));
+        }
+
+        return routeLibrariesPromise;
+      }
+
+      async function getPlacesLibrary() {
+        if (!placesLibraryPromise) {
+          placesLibraryPromise = ensureGoogleMapsApi()
+            .then(async () => {
+              if (!google.maps.importLibrary) throw new Error("missing-import-library");
+              const placesLibrary = await google.maps.importLibrary("places");
+              if (!placesLibrary.Place || typeof placesLibrary.Place.searchByText !== "function") {
+                throw new Error("missing-places-library");
+              }
+              return {
+                available: true,
+                Place: placesLibrary.Place
+              };
+            })
+            .catch((error) => ({
+              available: false,
+              reason: error && error.message ? error.message : "places-library-unavailable"
+            }));
+        }
+
+        return placesLibraryPromise;
+      }
+
+      function markerLabel(point) {
+        return String(point.mapLabel || point.visitOrder || "");
+      }
+
+      function isOptionMarker(point) {
+        return point.markerVariant === "option";
+      }
+
+      function markerColor(point) {
+        if (isOptionMarker(point)) return OPTION_MARKER_COLOR;
+        return point.backup ? BACKUP_ROUTE_COLOR : "#f0b84f";
+      }
+
+      function markerZIndex(point) {
+        if (isOptionMarker(point)) return 35;
+        return point.backup ? 20 : 30;
+      }
+
+      function makeLegacyMarkerIcon(color, point) {
+        const isOption = isOptionMarker(point);
+        return {
+          path: google.maps.SymbolPath.CIRCLE,
+          fillColor: color,
+          fillOpacity: 1,
+          strokeColor: "#fffaf3",
+          strokeWeight: isOption ? 3 : 5,
+          scale: isOption ? 14 : 20,
+          labelOrigin: new google.maps.Point(0, 0)
+        };
+      }
+
+      function pointPosition(point) {
+        return { lat: point.lat, lng: point.lng };
+      }
+
+      function latLngLiteral(latLng) {
+        if (!latLng) return null;
+        if (typeof latLng.lat === "function" && typeof latLng.lng === "function") {
+          return { lat: latLng.lat(), lng: latLng.lng() };
+        }
+        if (typeof latLng.lat === "number" && typeof latLng.lng === "number") {
+          return { lat: latLng.lat, lng: latLng.lng };
+        }
+        return null;
+      }
+
+      function routeLocation(point) {
+        return pointPosition(point);
+      }
+
+      function routeStyle(routeType) {
+        const isBackup = routeType === "backup";
+        return {
+          color: isBackup ? BACKUP_ROUTE_COLOR : PRIMARY_ROUTE_COLOR,
+          opacity: isBackup ? 0.88 : 0.92,
+          weight: isBackup ? 4 : 5,
+          dashed: isBackup
+        };
+      }
+
+      function leafletPointPosition(point) {
+        return [point.lat, point.lng];
+      }
+
+      function makeLeafletMarkerIcon(point) {
+        const color = markerColor(point);
+        const isOption = isOptionMarker(point);
+        return L.divIcon({
+          className: "map-number-icon",
+          html: `<span class="map-pin" data-option="${String(isOption)}" style="background:${color}">${escapeHtml(markerLabel(point))}</span>`,
+          iconSize: isOption ? [32, 32] : [40, 40],
+          iconAnchor: isOption ? [16, 16] : [20, 20],
+          popupAnchor: isOption ? [0, -16] : [0, -20]
+        });
+      }
+
+      function makeRouteMapTab(label, view, selected) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "route-map-tab";
+        button.dataset.routeMapView = view;
+        button.setAttribute("role", "tab");
+        button.setAttribute("aria-selected", String(selected));
+        button.textContent = label;
+        return button;
+      }
+
+      function setActiveRouteMapView(card, view) {
+        const isInteractive = view === "interactive";
+        card.querySelectorAll("[data-route-map-view]").forEach((button) => {
+          button.setAttribute("aria-selected", String(button.dataset.routeMapView === view));
+        });
+
+        const googlePanel = card.querySelector("[data-google-route-map-panel]");
+        const interactivePanel = card.querySelector("[data-interactive-route-map-panel]");
+        if (googlePanel) googlePanel.hidden = isInteractive;
+        if (interactivePanel) interactivePanel.hidden = !isInteractive;
+      }
+
+      function refreshExistingGoogleRouteMap(card, mapConfig) {
+        const layout = ensureRouteMapLayout(card, mapConfig);
+        const target = layout?.googleTarget;
+        const existingState = target ? mapStates.get(target) : null;
+        if (!existingState) return false;
+
+        window.setTimeout(() => {
+          if (window.google?.maps?.event) {
+            google.maps.event.trigger(existingState.map, "resize");
+          }
+          if (existingState.bounds && !existingState.bounds.isEmpty()) {
+            existingState.map.fitBounds(existingState.bounds, 84);
+          }
+        }, 0);
+        return true;
+      }
+
+      function hasGoogleRouteFallback(card, mapConfig) {
+        const layout = ensureRouteMapLayout(card, mapConfig);
+        return Boolean(layout?.googleTarget?.querySelector("iframe"));
+      }
+
+      async function showGoogleRouteMap(card, mapConfig) {
+        setActiveRouteMapView(card, "google");
+        if (refreshExistingGoogleRouteMap(card, mapConfig) || hasGoogleRouteFallback(card, mapConfig)) {
+          return;
+        }
+
+        await ensureGoogleMapsConfigLoaded();
+
+        if (!shouldUseGoogleRoutesApi()) {
+          renderGoogleMapsEmbed(card, mapConfig, "default-google-embed");
+          return;
+        }
+
+        try {
+          await initRouteMap(card, mapConfig);
+        } catch (error) {
+          renderRouteMapError(card, mapConfig, error && error.message);
+        }
+      }
+
+      function ensureRouteMapLayout(card, mapConfig) {
+        const shell = card.querySelector("[data-route-map-shell]");
+        if (!shell) return null;
+
+        let googleTarget = shell.querySelector("[data-google-route-map-target]");
+        let interactiveTarget = shell.querySelector("[data-interactive-route-map-target]");
+        if (googleTarget && interactiveTarget) {
+          return { googleTarget, interactiveTarget };
+        }
+
+        const legacyTarget = shell.querySelector("[data-route-map-target]");
+        const legacyStatus = shell.querySelector("[data-route-map-status]");
+        const mapLabel = legacyTarget?.getAttribute("aria-label") || `${mapConfig.id} 실제 동선 지도`;
+
+        const viewer = document.createElement("div");
+        viewer.className = "route-map-viewer";
+        viewer.dataset.routeMapViewer = "";
+
+        const tabs = document.createElement("div");
+        tabs.className = "route-map-tabs";
+        tabs.setAttribute("role", "tablist");
+        tabs.setAttribute("aria-label", "지도 종류 선택");
+
+        const googleTab = makeRouteMapTab("Google 지도", "google", true);
+        const interactiveTab = makeRouteMapTab("인터랙티브 지도", "interactive", false);
+        tabs.append(googleTab, interactiveTab);
+
+        const googlePanel = document.createElement("section");
+        googlePanel.className = "route-map-panel route-map-panel-google";
+        googlePanel.dataset.googleRouteMapPanel = "";
+
+        googleTarget = legacyTarget || document.createElement("div");
+        googleTarget.classList.add("google-route-map");
+        googleTarget.setAttribute("data-google-route-map-target", "");
+        googleTarget.removeAttribute("data-route-map-target");
+        googleTarget.setAttribute("aria-label", `${mapLabel} - Google 지도`);
+
+        const googleStatus = legacyStatus || document.createElement("p");
+        googleStatus.className = "route-map-status";
+        googleStatus.setAttribute("data-google-route-map-status", "");
+        googleStatus.removeAttribute("data-route-map-status");
+        googleStatus.textContent = "Google Maps에서 도로 기준 최단 경로를 불러오는 중입니다.";
+        googlePanel.append(googleTarget, googleStatus);
+
+        const interactivePanel = document.createElement("section");
+        interactivePanel.className = "route-map-panel route-map-panel-interactive";
+        interactivePanel.dataset.interactiveRouteMapPanel = "";
+        interactivePanel.hidden = true;
+
+        interactiveTarget = document.createElement("div");
+        interactiveTarget.className = "google-route-map";
+        interactiveTarget.setAttribute("data-interactive-route-map-target", "");
+        interactiveTarget.setAttribute("aria-label", `${mapLabel} - 인터랙티브 지도`);
+
+        const interactiveStatus = document.createElement("p");
+        interactiveStatus.className = "route-map-status";
+        interactiveStatus.setAttribute("data-interactive-route-map-status", "");
+        interactiveStatus.textContent = "인터랙티브 지도를 준비 중입니다.";
+        interactivePanel.append(interactiveTarget, interactiveStatus);
+
+        googleTab.addEventListener("click", () => {
+          showGoogleRouteMap(card, mapConfig);
+        });
+
+        interactiveTab.addEventListener("click", () => {
+          setActiveRouteMapView(card, "interactive");
+          try {
+            initLeafletRouteMap(card, mapConfig);
+          } catch {
+            setRouteStatus(card, "Leaflet 라이브러리를 불러오지 못해 인터랙티브 지도를 표시하지 못했습니다.", "interactive");
+          }
+        });
+
+        viewer.append(tabs, googlePanel, interactivePanel);
+        shell.replaceChildren(viewer);
+        return { googleTarget, interactiveTarget };
+      }
+
+      function mainRoutePoints(mapConfig) {
+        const routePointKeys = new Set();
+        mapConfig.routes
+          .filter((segment) => segment.routeType !== "backup")
+          .forEach((segment) => {
+            routePointKeys.add(segment.from);
+            routePointKeys.add(segment.to);
+          });
+
+        const points = mapConfig.points
+          .filter((point) => routePointKeys.has(point.place_key) && !point.backup)
+          .slice()
+          .sort((a, b) => (a.visitOrder || 0) - (b.visitOrder || 0));
+
+        return points.length >= 2
+          ? points
+          : mapConfig.points.slice().sort((a, b) => (a.visitOrder || 0) - (b.visitOrder || 0));
+      }
+
+      function mapsUrlPoint(point) {
+        return `${point.lat},${point.lng}`;
+      }
+
+      function mapsUrlTravelMode(mapConfig) {
+        const primarySegment = mapConfig.routes.find((segment) => segment.routeType !== "backup");
+        const mode = String(primarySegment?.mapTravelMode || primarySegment?.travelMode || "walking").toLowerCase();
+        if (mode.includes("driv")) return "driving";
+        if (mode.includes("transit")) return "transit";
+        if (mode.includes("bicycl")) return "bicycling";
+        return "walking";
+      }
+
+      function googleMapsEmbedUrl(mapConfig) {
+        const points = mainRoutePoints(mapConfig);
+        const params = new URLSearchParams({
+          hl: getConfig().language || "ko",
+          output: "embed"
+        });
+        if (points.length >= 2) {
+          params.set("f", "d");
+          params.set("source", "s_d");
+          params.set("saddr", mapsUrlPoint(points[0]));
+          params.set("daddr", points.slice(1).map(mapsUrlPoint).join(" to:"));
+
+          const mode = mapsUrlTravelMode(mapConfig);
+          params.set("dirflg", mode === "driving" ? "d" : mode === "transit" ? "r" : mode === "bicycling" ? "b" : "w");
+          return `https://maps.google.com/maps?${params.toString()}`;
+        }
+
+        params.set("q", `${mapConfig.center.lat},${mapConfig.center.lng}`);
+        params.set("z", "13");
+        return `https://maps.google.com/maps?${params.toString()}`;
+      }
+
+      function renderGoogleMapsEmbed(card, mapConfig, reason) {
+        const layout = ensureRouteMapLayout(card, mapConfig);
+        const target = layout?.googleTarget;
+        if (!target) return;
+
+        mapStates.delete(target);
+        target.replaceChildren();
+        const iframe = document.createElement("iframe");
+        iframe.src = googleMapsEmbedUrl(mapConfig);
+        iframe.title = "Google Maps route preview";
+        iframe.loading = "lazy";
+        iframe.referrerPolicy = "no-referrer-when-downgrade";
+        iframe.allowFullscreen = true;
+        target.append(iframe);
+
+        const note = mapConfig.note ? ` ${mapConfig.note}` : "";
+        const reasonText = reason && reason !== "default-google-embed"
+          ? "Google Maps API 설정 문제를 감지해 Google Maps 기본 경로 보기로 전환했습니다."
+          : "Google Maps 기본 경로 보기로 표시했습니다.";
+        setRouteStatus(card, `${reasonText}${note}`);
+      }
+
+      function hasGoogleMapsAccountOverlay(target) {
+        if (!target) return false;
+        const text = target.textContent || "";
+        return text.includes("Google 지도를 제대로 로드할 수 없습니다.")
+          || text.includes("This page can't load Google Maps correctly")
+          || text.includes("This page didn't load Google Maps correctly")
+          || Boolean(target.querySelector('a[href*="g.co/dev/maps-no-account"]'));
+      }
+
+      function fallbackIfGoogleMapsAccountError(card, mapConfig, target) {
+        window.setTimeout(() => {
+          if (hasGoogleMapsAccountOverlay(target)) {
+            renderRouteMapError(card, mapConfig, "google-maps-account-error");
+          }
+        }, 1200);
+      }
+
+      function routeMapErrorCopy(reason) {
+        if (reason === "missing-google-maps-key") {
+          return {
+            title: "Google Maps API 키가 로컬에 없습니다.",
+            body: "로컬에서는 .env의 GOOGLE_MAPS_API_KEY를 assets/google-maps-config.local.json으로 만들어야 합니다. scripts/start-local-server.ps1로 실행하면 키 파일 생성과 로컬 서버 시작을 한 번에 처리합니다."
+          };
+        }
+
+        if (reason === "auth-failure") {
+          const currentReferrer = `${window.location.origin}/*`;
+          return {
+            title: "Google Maps API 키 인증에 실패했습니다.",
+            body: `Google Cloud Console에서 billing, Maps JavaScript API, Routes API 사용 설정과 HTTP referrer 제한을 확인하세요. 현재 로컬 referrer 후보는 ${currentReferrer} 입니다. 로컬 테스트에는 http://localhost:8000/* 또는 http://localhost:4000/*, GitHub Pages에는 https://gudc0831.github.io/wedding/* 를 허용하세요.`
+          };
+        }
+
+        if (reason === "google-maps-account-error") {
+          return {
+            title: "Google Maps API 프로젝트 설정이 완료되지 않았습니다.",
+            body: "브라우저가 Google Maps 계정/billing/API 설정 오류를 감지했습니다. API 기반 지도와 루트를 표시하려면 Google Cloud 프로젝트 billing, Maps JavaScript API, Routes API, referrer 제한을 정상화해야 합니다."
+          };
+        }
+
+        if (reason === "google-maps-load-failed") {
+          return {
+            title: "Google Maps JavaScript API를 불러오지 못했습니다.",
+            body: "네트워크 연결, API 키 제한, 브라우저 콘솔 오류를 확인하세요. 번호 마커가 없는 Google 기본 보기로 조용히 대체하지 않도록 차단했습니다."
+          };
+        }
+
+        if (reason === "map-soft-limit") {
+          return {
+            title: "이번 달 Google 지도 조회 제한에 도달했습니다.",
+            body: "과금 방지를 위해 이 브라우저에서는 이번 달 추가 Google 지도 로드를 막았습니다. 실제 과금 방지는 Google Cloud Console의 API별 quota 제한도 함께 설정해야 합니다."
+          };
+        }
+
+        return {
+          title: "Google Maps 경로 지도를 표시하지 못했습니다.",
+          body: "API 키와 API 제한 설정을 확인하세요. 이 화면은 번호 마커와 경로가 빠진 기본 보기로 잘못 보이는 것을 막기 위해 표시됩니다."
+        };
+      }
+
+      function renderRouteMapError(card, mapConfig, reason) {
+        const layout = ensureRouteMapLayout(card, mapConfig);
+        const target = layout?.googleTarget;
+        if (!target) return;
+
+        mapStates.delete(target);
+        target.replaceChildren();
+
+        const copy = routeMapErrorCopy(reason);
+        const error = document.createElement("div");
+        error.className = "route-map-error";
+        error.setAttribute("role", "alert");
+        error.innerHTML = `<strong>${escapeHtml(copy.title)}</strong><span>${escapeHtml(copy.body)}</span>`;
+        target.append(error);
+        setRouteStatus(card, `${copy.title} ${copy.body}`);
+      }
+
+      function applyPolylineStyle(polyline, style) {
+        polyline.setOptions({
+          strokeColor: style.color,
+          strokeOpacity: style.dashed ? 0 : style.opacity,
+          strokeWeight: style.weight,
+          zIndex: style.dashed ? 3 : 4,
+          icons: style.dashed
+            ? [{
+                icon: {
+                  path: "M 0,-1 0,1",
+                  strokeColor: style.color,
+                  strokeOpacity: style.opacity,
+                  strokeWeight: style.weight,
+                  scale: 3
+                },
+                offset: "0",
+                repeat: "16px"
+              }]
+            : null
+        });
+      }
+
+      function drawFallbackLine(map, fromPoint, toPoint, segment) {
+        const style = routeStyle(segment.routeType);
+        const line = new google.maps.Polyline({
+          map,
+          path: [pointPosition(fromPoint), pointPosition(toPoint)],
+          strokeColor: style.color,
+          strokeOpacity: style.dashed ? 0 : 0.55,
+          strokeWeight: style.weight,
+          geodesic: true,
+          zIndex: 2,
+          icons: style.dashed
+            ? [{
+                icon: {
+                  path: "M 0,-1 0,1",
+                  strokeColor: style.color,
+                  strokeOpacity: 0.72,
+                  strokeWeight: style.weight,
+                  scale: 3
+                },
+                offset: "0",
+                repeat: "16px"
+              }]
+            : null
+        });
+        return line;
+      }
+
+      function drawRouteConnector(map, fromPosition, toPosition, style) {
+        if (!fromPosition || !toPosition) return;
+        const line = new google.maps.Polyline({
+          map,
+          path: [fromPosition, toPosition],
+          strokeColor: style.color,
+          strokeOpacity: style.dashed ? 0 : style.opacity,
+          strokeWeight: style.weight,
+          geodesic: true,
+          zIndex: style.dashed ? 3 : 4,
+          icons: style.dashed
+            ? [{
+                icon: {
+                  path: "M 0,-1 0,1",
+                  strokeColor: style.color,
+                  strokeOpacity: style.opacity,
+                  strokeWeight: style.weight,
+                  scale: 3
+                },
+                offset: "0",
+                repeat: "16px"
+              }]
+            : null
+        });
+        return line;
+      }
+
+      function directionsTravelMode(segment) {
+        const requestedMode = String(segment.mapTravelMode || segment.travelMode || "DRIVING").toUpperCase();
+        return google.maps.TravelMode?.[requestedMode] || requestedMode;
+      }
+
+      function selectShortestDirectionsRoute(routes) {
+        const sorted = routes
+          .slice()
+          .map((route) => ({
+            route,
+            distance: (route.legs || []).reduce((total, leg) => total + (leg.distance?.value || 0), 0)
+          }))
+          .filter((item) => item.distance > 0)
+          .sort((a, b) => a.distance - b.distance);
+
+        return sorted[0]?.route || routes[0];
+      }
+
+      function drawDirectionsServiceRoute(map, segment, fromPoint, toPoint, style, bounds) {
+        if (!google.maps.DirectionsService || !google.maps.DirectionsStatus) {
+          return Promise.resolve(false);
+        }
+
+        const service = new google.maps.DirectionsService();
+        return new Promise((resolve) => {
+          service.route({
+            origin: pointPosition(fromPoint),
+            destination: pointPosition(toPoint),
+            travelMode: directionsTravelMode(segment),
+            provideRouteAlternatives: true
+          }, (response, status) => {
+            if (status !== google.maps.DirectionsStatus.OK || !response?.routes?.length) {
+              resolve(false);
+              return;
+            }
+
+            const route = selectShortestDirectionsRoute(response.routes);
+            const path = route.overview_path || route.legs?.flatMap((leg) =>
+              (leg.steps || []).flatMap((step) => step.path || [])
+            ) || [];
+            if (!path.length) {
+              resolve(false);
+              return;
+            }
+
+            path.forEach((position) => bounds.extend(position));
+            const line = new google.maps.Polyline({
+              map,
+              path,
+              strokeColor: style.color,
+              strokeOpacity: style.dashed ? 0 : style.opacity,
+              strokeWeight: style.weight,
+              zIndex: style.dashed ? 3 : 4,
+              icons: style.dashed
+                ? [{
+                    icon: {
+                      path: "M 0,-1 0,1",
+                      strokeColor: style.color,
+                      strokeOpacity: style.opacity,
+                      strokeWeight: style.weight,
+                      scale: 3
+                    },
+                    offset: "0",
+                    repeat: "16px"
+                  }]
+                : null
+            });
+            resolve(Boolean(line));
+          });
+        });
+      }
+
+      function travelModeValue(travelModeMap, mode) {
+        const normalized = String(mode || "WALKING").toUpperCase();
+        return travelModeMap[normalized] || normalized;
+      }
+
+      function routeDisplayTravelMode(libraries, segment) {
+        const requestedMode = String(segment.mapTravelMode || segment.travelMode || "DRIVING").toUpperCase();
+        return libraries.TravelMode?.[requestedMode] || requestedMode;
+      }
+
+      function shortestDistanceReference(libraries) {
+        return libraries.ReferenceRoute && libraries.ReferenceRoute.SHORTER_DISTANCE
+          ? libraries.ReferenceRoute.SHORTER_DISTANCE
+          : "SHORTER_DISTANCE";
+      }
+
+      function trafficUnawarePreference(libraries) {
+        return libraries.RoutingPreference && libraries.RoutingPreference.TRAFFIC_UNAWARE
+          ? libraries.RoutingPreference.TRAFFIC_UNAWARE
+          : "TRAFFIC_UNAWARE";
+      }
+
+      function isDrivingRouteMode(travelMode) {
+        return String(travelMode).toUpperCase().includes("DRIVING");
+      }
+
+      function shouldUseCoordinateRouteSegment(segment, useCoordinateRouting) {
+        const requestedMode = String(segment.mapTravelMode || segment.travelMode || "DRIVING").toUpperCase();
+        return Boolean(useCoordinateRouting || segment.useCoordinateRouting || requestedMode !== "DRIVING");
+      }
+
+      function selectShortestRoute(routes) {
+        const shorterRoute = routes.find((route) =>
+          Array.isArray(route.routeLabels) &&
+          route.routeLabels.some((label) => String(label).includes("SHORTER_DISTANCE"))
+        );
+        if (shorterRoute) return shorterRoute;
+
+        const distanceSortedRoutes = routes
+          .slice()
+          .filter((route) => Number.isFinite(route.distanceMeters))
+          .sort((a, b) => a.distanceMeters - b.distanceMeters);
+
+        return distanceSortedRoutes[0] || routes[0];
+      }
+
+      function makeAdvancedMarkerContent(point) {
+        const color = markerColor(point);
+        const pin = document.createElement("span");
+        pin.className = "google-marker-pin";
+        pin.dataset.backup = String(Boolean(point.backup));
+        pin.dataset.option = String(isOptionMarker(point));
+        pin.style.setProperty("--marker-color", color);
+        pin.textContent = markerLabel(point);
+        return pin;
+      }
+
+      function googleMapsPlaceUrl(point) {
+        const query = point.query || point.label || `${point.lat},${point.lng}`;
+        return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+      }
+
+      function googleMapsDirectionsUrl(point) {
+        const destination = point.query || point.label || `${point.lat},${point.lng}`;
+        return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`;
+      }
+
+      function placeBusinessStatusLabel(status) {
+        const normalized = String(status || "").toUpperCase();
+        if (normalized.includes("OPERATIONAL")) return "운영 중인 장소";
+        if (normalized.includes("CLOSED_TEMPORARILY")) return "임시 휴업 가능";
+        if (normalized.includes("CLOSED_PERMANENTLY")) return "폐업 가능";
+        return "";
+      }
+
+      function placeRatingLabel(place) {
+        if (!Number.isFinite(place?.rating)) return "";
+        const count = Number.isFinite(place.userRatingCount) ? ` · ${place.userRatingCount.toLocaleString("ko-KR")}개` : "";
+        return `평점 ${place.rating.toFixed(1)}${count}`;
+      }
+
+      function placeHoursLabel(place) {
+        const descriptions = place?.regularOpeningHours?.weekdayDescriptions;
+        if (!Array.isArray(descriptions) || !descriptions.length) return "";
+        const today = new Date().getDay();
+        const mondayBasedIndex = today === 0 ? 6 : today - 1;
+        return descriptions[mondayBasedIndex] || descriptions[0] || "";
+      }
+
+      function renderPlacePopupContent(point, details, state) {
+        const wrapper = document.createElement("div");
+        wrapper.className = "map-popup";
+
+        const title = document.createElement("div");
+        title.className = "map-popup-title";
+
+        const number = document.createElement("span");
+        number.className = "map-popup-number";
+        number.dataset.backup = String(Boolean(point.backup));
+        number.dataset.option = String(isOptionMarker(point));
+        number.textContent = markerLabel(point);
+
+        const name = document.createElement("strong");
+        name.textContent = details?.displayName || point.label;
+        title.append(number, name);
+
+        const role = document.createElement("span");
+        role.className = "map-popup-role";
+        role.textContent = point.role || "";
+
+        const meta = document.createElement("div");
+        meta.className = "map-popup-meta";
+
+        [
+          details?.formattedAddress,
+          placeBusinessStatusLabel(details?.businessStatus),
+          placeRatingLabel(details),
+          placeHoursLabel(details),
+          state === "loading" ? "Google Places에서 최신 장소 정보를 확인하는 중입니다." : "",
+          state === "unavailable" ? "Places 상세정보를 사용할 수 없어 저장된 일정 정보만 표시합니다." : ""
+        ].filter(Boolean).forEach((text) => {
+          const row = document.createElement("div");
+          row.textContent = text;
+          meta.append(row);
+        });
+
+        const actions = document.createElement("div");
+        actions.className = "map-popup-actions";
+
+        const mapLink = document.createElement("a");
+        mapLink.href = details?.googleMapsURI || details?.googleMapsLinks?.placeURI || googleMapsPlaceUrl(point);
+        mapLink.target = "_blank";
+        mapLink.rel = "noreferrer";
+        mapLink.textContent = "Google Maps";
+
+        const directionsLink = document.createElement("a");
+        directionsLink.href = details?.googleMapsLinks?.directionsURI || googleMapsDirectionsUrl(point);
+        directionsLink.target = "_blank";
+        directionsLink.rel = "noreferrer";
+        directionsLink.textContent = "길찾기";
+
+        actions.append(mapLink, directionsLink);
+
+        if (details?.websiteURI) {
+          const websiteLink = document.createElement("a");
+          websiteLink.href = details.websiteURI;
+          websiteLink.target = "_blank";
+          websiteLink.rel = "noreferrer";
+          websiteLink.textContent = "공식 사이트";
+          actions.append(websiteLink);
+        }
+
+        wrapper.append(title, role);
+        if (meta.childElementCount) wrapper.append(meta);
+        wrapper.append(actions);
+        return wrapper;
+      }
+
+      async function fetchPlaceDetails(point, map) {
+        const cacheKey = point.place_key || point.query || point.label;
+        if (placeDetailsCache.has(cacheKey)) return placeDetailsCache.get(cacheKey);
+
+        const detailsPromise = (async () => {
+          if (!isGooglePlacesEnrichmentEnabled()) return null;
+          const placesMonthlyLimit = integerConfig("googlePlacesMonthlyLimit", 990);
+          if (!tryConsumeMonthlyUsage("places-text-search", placesMonthlyLimit)) return null;
+
+          const placesLibrary = await getPlacesLibrary();
+          if (!placesLibrary.available) return null;
+
+          const { places } = await placesLibrary.Place.searchByText({
+            textQuery: point.query || point.label,
+            fields: [
+              "displayName",
+              "formattedAddress",
+              "location",
+              "googleMapsURI",
+              "googleMapsLinks",
+              "businessStatus"
+            ],
+            locationBias: map.getCenter(),
+            language: getConfig().language || "ko",
+            region: getConfig().region || "IT",
+            maxResultCount: 1
+          });
+
+          return places && places.length ? places[0] : null;
+        })().catch(() => null);
+
+        placeDetailsCache.set(cacheKey, detailsPromise);
+        return detailsPromise;
+      }
+
+      function addMarkers(map, mapConfig, bounds, libraries) {
+        const infoWindow = new google.maps.InfoWindow();
+        mapConfig.points
+          .slice()
+          .sort((a, b) => (a.visitOrder || 0) - (b.visitOrder || 0))
+          .forEach((point) => {
+            const position = pointPosition(point);
+            bounds.extend(position);
+
+            const openInfoWindow = async (anchor) => {
+              infoWindow.setContent(renderPlacePopupContent(point, null, "loading"));
+              infoWindow.open({ map, anchor });
+
+              const details = await fetchPlaceDetails(point, map);
+              infoWindow.setContent(renderPlacePopupContent(point, details, details ? "ready" : "unavailable"));
+            };
+
+            if (libraries.AdvancedMarkerElement) {
+              const marker = new libraries.AdvancedMarkerElement({
+                map,
+                position,
+                title: point.label,
+                zIndex: markerZIndex(point),
+                content: makeAdvancedMarkerContent(point)
+              });
+              marker.addListener("click", () => openInfoWindow(marker));
+              return;
+            }
+
+            const color = markerColor(point);
+            const isOption = isOptionMarker(point);
+            const marker = new google.maps.Marker({
+              map,
+              position,
+              title: point.label,
+              zIndex: markerZIndex(point),
+              icon: makeLegacyMarkerIcon(color, point),
+              label: {
+                text: markerLabel(point),
+                color: point.backup || isOption ? "#fffaf3" : "#17372f",
+                fontSize: isOption ? "11px" : "14px",
+                fontWeight: "900"
+              }
+            });
+            marker.addListener("click", () => openInfoWindow(marker));
+          });
+      }
+
+      async function drawRouteSegment(map, segment, pointsByKey, libraries, bounds, useCoordinateRouting) {
+        const fromPoint = pointsByKey.get(segment.from);
+        const toPoint = pointsByKey.get(segment.to);
+        if (!fromPoint || !toPoint) return { fallback: true, skipped: true };
+
+        const style = routeStyle(segment.routeType);
+        if (shouldUseCoordinateRouteSegment(segment, useCoordinateRouting)) {
+          drawFallbackLine(map, fromPoint, toPoint, segment);
+          bounds.extend(pointPosition(fromPoint));
+          bounds.extend(pointPosition(toPoint));
+          return { fallback: false, coordinate: true };
+        }
+
+        if (!libraries || !libraries.available) {
+          if (await drawDirectionsServiceRoute(map, segment, fromPoint, toPoint, style, bounds)) {
+            return { fallback: false, directions: true };
+          }
+          drawFallbackLine(map, fromPoint, toPoint, segment);
+          return { fallback: true, reason: libraries?.reason || "routes-library-unavailable" };
+        }
+
+        const routeComputeMonthlyLimit = integerConfig("googleRouteComputeMonthlyLimit", 990);
+        if (!tryConsumeMonthlyUsage("route-compute", routeComputeMonthlyLimit)) {
+          drawFallbackLine(map, fromPoint, toPoint, segment);
+          return { fallback: true, reason: "route-soft-limit" };
+        }
+
+        try {
+          const travelMode = routeDisplayTravelMode(libraries, segment);
+          const request = {
+            origin: routeLocation(fromPoint),
+            destination: routeLocation(toPoint),
+            travelMode,
+            fields: ["path", "legs", "routeLabels", "distanceMeters"],
+          };
+
+          if (libraries.PolylineQuality?.HIGH_QUALITY) {
+            request.polylineQuality = libraries.PolylineQuality.HIGH_QUALITY;
+          }
+
+          if (isDrivingRouteMode(travelMode)) {
+            request.routingPreference = trafficUnawarePreference(libraries);
+            request.requestedReferenceRoutes = [shortestDistanceReference(libraries)];
+          }
+
+          const response = await libraries.Route.computeRoutes(request);
+          const routes = response.routes || [];
+          const route = selectShortestRoute(routes);
+          if (!route) throw new Error("missing-route");
+
+          const routePath = Array.isArray(route.path)
+            ? route.path.map(latLngLiteral).filter(Boolean)
+            : [];
+          if (routePath.length) {
+            routePath.forEach((position) => bounds.extend(position));
+            drawRouteConnector(map, pointPosition(fromPoint), routePath[0], style);
+            drawRouteConnector(map, routePath[routePath.length - 1], pointPosition(toPoint), style);
+          }
+
+          const polylines = route.createPolylines({
+            strokeColor: style.color,
+            strokeOpacity: style.opacity,
+            strokeWeight: style.weight
+          });
+
+          polylines.forEach((polyline) => {
+            applyPolylineStyle(polyline, style);
+            polyline.setMap(map);
+          });
+
+          return { fallback: false };
+        } catch {
+          if (await drawDirectionsServiceRoute(map, segment, fromPoint, toPoint, style, bounds)) {
+            return { fallback: false, directions: true };
+          }
+          drawFallbackLine(map, fromPoint, toPoint, segment);
+          return { fallback: true };
+        }
+      }
+
+      async function initRouteMap(card, mapConfig) {
+        const layout = ensureRouteMapLayout(card, mapConfig);
+        const target = layout?.googleTarget;
+        if (!target) return;
+        const existingState = mapStates.get(target);
+        if (existingState) {
+          google.maps.event.trigger(existingState.map, "resize");
+          existingState.map.fitBounds(existingState.bounds, 84);
+          return;
+        }
+
+        const mapMonthlyLimit = integerConfig("googleMapMonthlyLimit", 990);
+        if (!tryConsumeMonthlyUsage("map-load", mapMonthlyLimit)) {
+          renderRouteMapError(card, mapConfig, "map-soft-limit");
+          return;
+        }
+
+        const baseLibraries = await getBaseMapLibraries();
+        const map = new baseLibraries.Map(target, {
+          center: mapConfig.center,
+          zoom: 13,
+          mapId: getConfig().mapId || "DEMO_MAP_ID",
+          mapTypeControl: false,
+          fullscreenControl: true,
+          streetViewControl: false
+        });
+        const bounds = new google.maps.LatLngBounds();
+        const pointsByKey = new Map(mapConfig.points.map((point) => [point.place_key, point]));
+
+        addMarkers(map, mapConfig, bounds, baseLibraries);
+
+        const routeLibraries = await getRouteLibraries();
+        const routeResults = await Promise.all(
+          mapConfig.routes.map((segment) => drawRouteSegment(map, segment, pointsByKey, routeLibraries, bounds, mapConfig.useCoordinateRouting))
+        );
+        const fallbackCount = routeResults.filter((result) => result.fallback && !result.skipped).length;
+        const coordinateCount = routeResults.filter((result) => result.coordinate).length;
+        const usesOfficialCoordinateAxis = Boolean(mapConfig.officialCoordinateAxis || mapConfig.useCoordinateRouting);
+        const routeLibraryUnavailable = !routeLibraries.available;
+        const routeSoftLimited = routeResults.some((result) => result.reason === "route-soft-limit");
+
+        if (!bounds.isEmpty()) {
+          map.fitBounds(bounds, 84);
+        }
+
+        mapStates.set(target, { map, bounds });
+        fallbackIfGoogleMapsAccountError(card, mapConfig, target);
+        if (target.querySelector(".route-map-error")) {
+          return;
+        }
+
+        const note = mapConfig.note ? ` ${mapConfig.note}` : "";
+        if (usesOfficialCoordinateAxis && coordinateCount) {
+          setRouteStatus(card, `공식 시간표로 확인한 교통축을 좌표 기반 연결선으로 표시했습니다. 번호 마커와 방문 순서는 유지됩니다.${note}`);
+        } else if (routeLibraryUnavailable) {
+          setRouteStatus(card, `Google Routes 라이브러리를 사용할 수 없어 좌표 기반 경로선으로 표시했습니다. 번호 마커와 방문 순서는 Google 지도 위에 유지됩니다.${note}`);
+        } else if (routeSoftLimited) {
+          setRouteStatus(card, `이번 달 Google Routes 호출 제한에 도달해 일부 구간은 좌표 기반 보조선으로 표시했습니다. 번호 마커와 방문 순서는 유지됩니다.${note}`);
+        } else if (fallbackCount) {
+          setRouteStatus(card, `일부 구간은 Google Routes 결과를 받지 못해 좌표 기반 보조선으로 표시했습니다.${note}`);
+        } else if (coordinateCount) {
+          setRouteStatus(card, `일부 구간은 일정상 좌표 기반 보조선으로 표시했습니다.${note}`);
+        } else {
+          setRouteStatus(card, `최단/최적 경로로 이어서 표시했습니다. 마커를 누르면 장소 역할을 확인할 수 있습니다.${note}`);
+        }
+      }
+
+      function initLeafletRouteMap(card, mapConfig) {
+        const layout = ensureRouteMapLayout(card, mapConfig);
+        const target = layout?.interactiveTarget;
+        if (!target || !window.L) {
+          throw new Error("missing-leaflet-route-map");
+        }
+
+        const existingState = leafletRouteStates.get(target);
+        if (existingState) {
+          setTimeout(() => {
+            existingState.map.invalidateSize();
+            if (existingState.bounds.isValid()) {
+              existingState.map.fitBounds(existingState.bounds, { padding: [48, 48] });
+            }
+          }, 0);
+          return;
+        }
+
+        target.replaceChildren();
+        const map = L.map(target, {
+          scrollWheelZoom: false,
+          zoomControl: true
+        });
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          attribution: "&copy; OpenStreetMap contributors"
+        }).addTo(map);
+
+        const bounds = L.latLngBounds([]);
+        const pointsByKey = new Map(mapConfig.points.map((point) => [point.place_key, point]));
+
+        mapConfig.routes.forEach((segment) => {
+          const fromPoint = pointsByKey.get(segment.from);
+          const toPoint = pointsByKey.get(segment.to);
+          if (!fromPoint || !toPoint) return;
+
+          const style = routeStyle(segment.routeType);
+          const path = [leafletPointPosition(fromPoint), leafletPointPosition(toPoint)];
+          L.polyline(path, {
+            color: style.color,
+            opacity: style.opacity,
+            weight: style.weight,
+            dashArray: style.dashed ? "7 10" : null
+          }).addTo(map);
+          bounds.extend(path[0]);
+          bounds.extend(path[1]);
+        });
+
+        mapConfig.points
+          .slice()
+          .sort((a, b) => (a.visitOrder || 0) - (b.visitOrder || 0))
+          .forEach((point) => {
+            const position = leafletPointPosition(point);
+            bounds.extend(position);
+            L.marker(position, {
+              title: point.label,
+              icon: makeLeafletMarkerIcon(point)
+            })
+              .addTo(map)
+              .bindPopup(`<div class="map-popup"><div class="map-popup-title"><span class="map-popup-number" data-backup="${String(Boolean(point.backup))}" data-option="${String(isOptionMarker(point))}">${escapeHtml(markerLabel(point))}</span><strong>${escapeHtml(point.label)}</strong></div><span>${escapeHtml(point.role)}</span></div>`);
+          });
+
+        if (bounds.isValid()) {
+          map.fitBounds(bounds, { padding: [48, 48] });
+        } else {
+          map.setView([mapConfig.center.lat, mapConfig.center.lng], 13);
+        }
+
+        leafletRouteStates.set(target, { map, bounds });
+        setTimeout(() => map.invalidateSize(), 0);
+
+        const note = mapConfig.note ? ` ${mapConfig.note}` : "";
+        setRouteStatus(card, `OpenStreetMap 기반 인터랙티브 지도를 함께 표시했습니다.${note}`, "interactive");
+      }
+
+      async function openRouteMap(card) {
+        const shell = card.querySelector("[data-route-map-shell]");
+        const button = card.querySelector("[data-route-map-open]");
+        if (!shell) return;
+
+        if (!shell.hidden) {
+          shell.hidden = true;
+          if (button) button.textContent = "지도 열기";
+          return;
+        }
+
+        shell.hidden = false;
+        if (button) button.textContent = "지도 닫기";
+        setRouteStatus(card, "Google Maps에서 도로 기준 최단 경로를 불러오는 중입니다.");
+
+        let mapConfig;
+        try {
+          const data = await loadDailyMapData();
+          mapConfig = data.dailyMaps.find((item) => item.id === card.dataset.routeMapCard);
+          if (!mapConfig) throw new Error("missing-daily-map");
+        } catch {
+          setRouteStatus(card, "지도 데이터를 불러오지 못했습니다.");
+          return;
+        }
+
+        ensureRouteMapLayout(card, mapConfig);
+        setRouteStatus(card, "Google Maps에서 도로 기준 최단 경로를 불러오는 중입니다.");
+        setRouteStatus(card, "인터랙티브 지도를 준비 중입니다.", "interactive");
+        await showGoogleRouteMap(card, mapConfig);
+      }
+
+      routeCards.forEach((card) => {
+        const button = card.querySelector("[data-route-map-open]");
+        if (button) {
+          button.addEventListener("click", () => openRouteMap(card));
+        }
+      });
+    }());
+  </script>
+</body>
+</html>

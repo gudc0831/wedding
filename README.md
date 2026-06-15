@@ -4,8 +4,10 @@
 
 ## 주요 파일
 
-- `index.html`: GitHub Pages 루트 주소에서 메인 가이드로 이동하는 진입점
-- `milano_honeymoon_guide.html`: 실제 메인 HTML 가이드. 스위스 / 이탈리아 최상위 탭과 각 날짜별 일정, 지도, 체크리스트를 포함합니다.
+- `index.html`: GitHub Pages 루트 주소에서 스위스 / 이탈리아 가이드를 선택하는 진입점
+- `switzerland_honeymoon_guide.html`: 2026년 7월 16일-18일 스위스 일정 전용 페이지
+- `italy_honeymoon_guide.html`: 2026년 7월 21일-26일 이탈리아 일정 전용 페이지
+- `milano_honeymoon_guide.html`: 기존 링크 호환용 redirect 페이지
 - `assets/`: SVG 이미지, favicon, 인터랙티브 지도 데이터
 - `output/`: PDF, CSV, 브라우저 확인 이미지 등 산출물
 - `.github/workflows/pages.yml`: GitHub Pages 자동 배포 workflow
@@ -26,7 +28,7 @@ https://<GitHub아이디>.github.io/wedding/
 현재 배포 확인 사이트는 아래 URL을 기준으로 합니다.
 
 ```text
-https://gudc0831.github.io/wedding/milano_honeymoon_guide.html
+https://gudc0831.github.io/wedding/
 ```
 
 ## 로컬 확인
@@ -63,9 +65,9 @@ If neither `.env` nor the local JSON contains `GOOGLE_MAPS_API_KEY`, the wrapper
 
 ## Offline travel mode
 
-The guide registers `service-worker.js` and exposes `manifest.webmanifest` so the main guide can be installed or reopened as an offline-capable PWA after the first successful online visit.
+The guide registers `service-worker.js` and exposes `manifest.webmanifest` so the country selector and both country guide pages can be installed or reopened as an offline-capable PWA after the first successful online visit.
 
-The service worker pre-caches the main HTML, `index.html`, `manifest.webmanifest`, `assets/map-data.json`, and the static map/image assets used by the guide. This keeps the core itinerary, checklist text, source links, place number badges, and static route context available when the network is weak.
+The service worker pre-caches `index.html`, `switzerland_honeymoon_guide.html`, `italy_honeymoon_guide.html`, `manifest.webmanifest`, `assets/map-data.json`, and the static map/image assets used by the guide. This keeps the core itinerary, checklist text, source links, place number badges, and static route context available when the network is weak.
 
 The service worker intentionally does not cache `assets/google-maps-config.js` or `assets/google-maps-config.local.json`, because those files may contain deployment or local Google Maps API key material. Google Maps JavaScript API, Routes API, Places enrichment, external images, Google Fonts, and Leaflet CDN assets still require network access. Offline use should therefore rely on the cached document content and static map images, not live Google route maps.
 
@@ -93,7 +95,7 @@ Only set `GOOGLE_MAPS_AUTH_REFERRER_POLICY=origin` if the Cloud Console referrer
 
 If the Maps JavaScript API account, billing, referrer, or quota settings fail at runtime, the guide shows a configuration error instead of silently replacing the API route map with a non-API iframe. This keeps production verification aligned with the requirement that the deployed guide uses Google APIs for the route maps.
 
-GitHub Pages deployment also runs a browser smoke test after publishing. It opens Day 1, clicks `지도 열기`, and fails the workflow if the page renders an iframe fallback, a Google account/billing overlay, a configuration error, or route fallback text instead of the Maps JavaScript API route map.
+GitHub Pages deployment also runs a browser smoke test after publishing. It opens both country pages, clicks each `지도 열기`, and fails the workflow if the page renders an iframe fallback, a Google account/billing overlay, a configuration error, or unexpected route fallback text instead of the Maps JavaScript API route map.
 
 Places API (New) is optional but recommended. When it is enabled, clicking a numbered marker can show fresher place details such as address, business status, and Google Maps links. Details are loaded on marker click only so the page does not call Places for every location on initial load.
 

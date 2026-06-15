@@ -2,10 +2,11 @@
 
 ## Scope
 
-- Add top-level `스위스` / `이탈리아` navigation to the existing static honeymoon guide.
+- Split the guide into independent `스위스` and `이탈리아` pages with top-level navigation between them.
 - Add the Switzerland itinerary for 2026-07-16 through 2026-07-18 from `C:/Users/hcchoi/Downloads/swiss_lucerne_interlaken.md`.
 - Keep the Switzerland section visually consistent with the existing Italy day-card, timeline, aside-card, food-list, and route-map patterns.
 - Represent Switzerland route maps as official transport axes for boats, cogwheel rail, cable car, and panorama train instead of generic Google-calculated transit paths.
+- Keep `index.html` as a country selector and `milano_honeymoon_guide.html` as a compatibility redirect.
 
 ## Harness Mode
 
@@ -43,6 +44,10 @@
 - Day numbering remains scoped by country:
   - Swiss Day 1-3 for 2026-07-16 to 2026-07-18.
   - Existing Italy Day 1-6 remains unchanged for 2026-07-21 to 2026-07-26.
+- Page ownership:
+  - `switzerland_honeymoon_guide.html` renders only the Switzerland itinerary and Swiss route maps.
+  - `italy_honeymoon_guide.html` renders only the Italy itinerary and Italy route maps.
+  - `assets/map-data.json` remains shared to avoid unnecessary data duplication.
 - Day 3 Switzerland now follows the paid transport already booked by the user:
   - Luzern PL15 09:24 to Interlaken Ost 11:17.
   - Interlaken Ost PL8 11:29 to Interlaken West PL1 11:32.

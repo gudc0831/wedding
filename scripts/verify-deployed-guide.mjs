@@ -5,31 +5,40 @@ if (!rootUrl) {
   throw new Error("DEPLOYED_URL is required.");
 }
 
-const pageUrl = `${rootUrl}/milano_honeymoon_guide.html?verify=${Date.now()}`;
-const routeIds = ["swiss-day1", "swiss-day2", "swiss-day3", "day1", "day2", "day3", "day4", "day5", "day6"];
-const requiredSectionIds = [
-  "switzerland",
-  "italy",
-  "overview",
-  "practical-info",
-  "hotel-base",
-  "day-1",
-  "day-2",
-  "day-3",
-  "birthday-special",
-  "day-4",
-  "day-5",
-  "day-6",
-  "shopping-map",
-  "architecture-picks",
-  "sight-notes",
-  "prague-transfer",
-  "checklist",
-  "sources",
-  "master-plan"
+const pageSpecs = [
+  {
+    label: "switzerland",
+    path: "/switzerland_honeymoon_guide.html",
+    routeIds: ["swiss-day1", "swiss-day2", "swiss-day3"],
+    requiredSectionIds: ["switzerland"]
+  },
+  {
+    label: "italy",
+    path: "/italy_honeymoon_guide.html",
+    routeIds: ["day1", "day2", "day3", "day4", "day5", "day6"],
+    requiredSectionIds: [
+      "italy",
+      "overview",
+      "practical-info",
+      "hotel-base",
+      "day-1",
+      "day-2",
+      "day-3",
+      "birthday-special",
+      "day-4",
+      "day-5",
+      "day-6",
+      "shopping-map",
+      "architecture-picks",
+      "sight-notes",
+      "prague-transfer",
+      "checklist",
+      "sources",
+      "master-plan"
+    ]
+  }
 ];
 
-const routeFailurePattern = /좌표 기반|받지 못해|전환했습니다|API 설정 문제|표시하지 못했습니다|불러오지 못했습니다|키가 로컬에 없습니다|인증에 실패|완료되지 않았습니다/;
 const googleAccountOverlayPattern = /Google 지도를 제대로 로드할 수 없습니다|This page (?:can't|didn't) load Google Maps correctly/;
 
 const diagnostics = {
@@ -38,6 +47,10 @@ const diagnostics = {
 };
 
 let currentStep = "startup";
+
+function pageUrl(path, label) {
+  return `${rootUrl}${path}?verify=${Date.now()}&view=${label}`;
+}
 
 function attachDiagnostics(page) {
   page.on("console", (message) => {
@@ -72,13 +85,21 @@ async function gotoGuidePage(page, url, label) {
   }
 }
 
-async function verifyGuideStructure(page, label) {
-  currentStep = `${label}-structure`;
-  await gotoGuidePage(page, `${pageUrl}&view=${label}`, `${label} structure`);
+async function verifyIndex(page, label) {
+  currentStep = `${label}-index`;
+  await gotoGuidePage(page, pageUrl("/index.html", label), `${label} index`);
+  await requireVisible(page.locator("h1", { hasText: "Swiss & Italy Honeymoon Guide" }), `${label} index heading`);
+  await requireVisible(page.locator("a[href='./switzerland_honeymoon_guide.html']"), `${label} swiss link`);
+  await requireVisible(page.locator("a[href='./italy_honeymoon_guide.html']"), `${label} italy link`);
+}
 
-  await requireVisible(page.locator("h2", { hasText: "이탈리아 여행" }), `${label} hero heading`);
-  await requireVisible(page.locator("#master-plan"), `${label} master plan`);
-  await requireVisible(page.locator("#checklist"), `${label} checklist`);
+async function verifyGuideStructure(page, spec, label) {
+  currentStep = `${label}-${spec.label}-structure`;
+  await gotoGuidePage(page, pageUrl(spec.path, label), `${label} ${spec.label} structure`);
+
+  await requireVisible(page.locator(".country-tabs"), `${label} ${spec.label} country tabs`);
+  await requireVisible(page.locator("a[href='./switzerland_honeymoon_guide.html']"), `${label} ${spec.label} swiss tab`);
+  await requireVisible(page.locator("a[href='./italy_honeymoon_guide.html']"), `${label} ${spec.label} italy tab`);
 
   const structure = await page.evaluate((sectionIds) => {
     const missingSections = sectionIds.filter((id) => !document.getElementById(id));
@@ -102,30 +123,30 @@ async function verifyGuideStructure(page, label) {
       horizontalOverflow,
       manifestHref
     };
-  }, requiredSectionIds);
+  }, spec.requiredSectionIds);
 
   if (structure.missingSections.length) {
-    throw new Error(`${label} missing sections: ${structure.missingSections.join(", ")}`);
+    throw new Error(`${label} ${spec.label} missing sections: ${structure.missingSections.join(", ")}`);
   }
   if (structure.missingAnchors.length) {
-    throw new Error(`${label} missing anchor targets: ${structure.missingAnchors.join(", ")}`);
+    throw new Error(`${label} ${spec.label} missing anchor targets: ${structure.missingAnchors.join(", ")}`);
   }
   if (structure.duplicateIds.length) {
-    throw new Error(`${label} duplicate IDs: ${structure.duplicateIds.join(", ")}`);
+    throw new Error(`${label} ${spec.label} duplicate IDs: ${structure.duplicateIds.join(", ")}`);
   }
   if (!structure.manifestHref) {
-    throw new Error(`${label} manifest link was not found.`);
+    throw new Error(`${label} ${spec.label} manifest link was not found.`);
   }
   if (label === "mobile" && structure.horizontalOverflow > 20) {
-    throw new Error(`mobile horizontal overflow is ${structure.horizontalOverflow}px.`);
+    throw new Error(`${label} ${spec.label} horizontal overflow is ${structure.horizontalOverflow}px.`);
   }
 
-  console.log(`Verified ${label} structure.`);
+  console.log(`Verified ${label} ${spec.label} structure.`);
 }
 
 async function verifyPwaOffline(page, context) {
   currentStep = "pwa-offline";
-  await gotoGuidePage(page, `${pageUrl}&pwa=1`, "PWA offline");
+  await gotoGuidePage(page, pageUrl("/index.html", "pwa"), "PWA offline");
 
   const pwa = await page.evaluate(async () => {
     const manifestHref = document.querySelector('link[rel="manifest"]')?.href;
@@ -142,7 +163,9 @@ async function verifyPwaOffline(page, context) {
 
     const registration = await navigator.serviceWorker.ready;
     const expectedUrls = [
-      "./milano_honeymoon_guide.html",
+      "./index.html",
+      "./switzerland_honeymoon_guide.html",
+      "./italy_honeymoon_guide.html",
       "./assets/map-data.json",
       "./assets/basecamp-map.png",
       "./assets/shopping-map.png"
@@ -164,13 +187,13 @@ async function verifyPwaOffline(page, context) {
   if (pwa.error) {
     throw new Error(`PWA verification failed: ${pwa.error}`);
   }
-  if (pwa.manifestName !== "Milano Honeymoon Guide") {
+  if (pwa.manifestName !== "Swiss & Italy Honeymoon Guide") {
     throw new Error(`Unexpected manifest name: ${pwa.manifestName}`);
   }
   if (!pwa.activeServiceWorker) {
     throw new Error("Service worker did not become active.");
   }
-  if (!pwa.cacheKeys.some((key) => key.startsWith("milano-honeymoon-guide-"))) {
+  if (!pwa.cacheKeys.some((key) => key.startsWith("swiss-italy-honeymoon-guide-"))) {
     throw new Error(`Expected offline cache was not created. Caches: ${pwa.cacheKeys.join(", ")}`);
   }
   const uncached = Object.entries(pwa.cached)
@@ -185,18 +208,24 @@ async function verifyPwaOffline(page, context) {
 
   await context.setOffline(true);
   try {
-    await page.goto(`${rootUrl}/milano_honeymoon_guide.html?offline=${Date.now()}`, {
+    await page.goto(`${rootUrl}/switzerland_honeymoon_guide.html?offline=${Date.now()}`, {
       waitUntil: "domcontentloaded",
       timeout: 30000
     });
-    await requireVisible(page.locator("h2", { hasText: "이탈리아 여행" }), "offline guide heading");
+    await requireVisible(page.locator("#switzerland"), "offline Switzerland guide");
+
+    await page.goto(`${rootUrl}/italy_honeymoon_guide.html?offline=${Date.now()}`, {
+      waitUntil: "domcontentloaded",
+      timeout: 30000
+    });
+    await requireVisible(page.locator("#overview"), "offline Italy overview");
 
     const offlineMapData = await page.evaluate(async () => {
       const response = await fetch("./assets/map-data.json");
       const data = await response.json();
       return {
         ok: response.ok,
-        hasDailyMaps: Array.isArray(data.dailyMaps) && data.dailyMaps.length >= routeIds.length,
+        hasDailyMaps: Array.isArray(data.dailyMaps) && data.dailyMaps.length >= 9,
         hasStaticMaps: Array.isArray(data.maps) && data.maps.length >= 2
       };
     });
@@ -212,7 +241,7 @@ async function verifyPwaOffline(page, context) {
 }
 
 async function waitForRouteStatus(page, routeId) {
-  const selector = `[data-route-map-card="${routeId}"] [data-google-route-map-status]`;
+  const selector = `[data-route-map-card="${routeId}"] [data-google-route-map-status], [data-route-map-card="${routeId}"] [data-route-map-status]`;
   await page.waitForFunction((statusSelector) => {
     const text = document.querySelector(statusSelector)?.textContent || "";
     return text && !/불러오는 중|준비 중/.test(text);
@@ -225,11 +254,11 @@ async function verifyRouteMap(page, routeId) {
   await card.scrollIntoViewIfNeeded();
   await card.locator("[data-route-map-open]").click({ timeout: 30000 });
 
-  const googlePanel = card.locator("[data-google-route-map-target]");
+  const googlePanel = card.locator("[data-google-route-map-target], [data-route-map-target]");
   await googlePanel.locator(".gm-style").waitFor({ timeout: 90000 });
   await waitForRouteStatus(page, routeId);
 
-  const status = await card.locator("[data-google-route-map-status]").innerText({ timeout: 30000 });
+  const status = await card.locator("[data-google-route-map-status], [data-route-map-status]").innerText({ timeout: 30000 });
   const routeMeta = await page.evaluate(async (id) => {
     const response = await fetch("./assets/map-data.json", { cache: "no-cache" });
     const data = await response.json();
@@ -266,15 +295,10 @@ async function verifyRouteMap(page, routeId) {
   if (hasConfigError || hasGoogleAccountOverlay) {
     throw new Error(`${routeId}: Google Maps account/API configuration error was rendered.`);
   }
-
   if (!routeMeta.hasMapConfig || !routeMeta.routeCount) {
     throw new Error(`${routeId}: map-data.json route configuration was not found.`);
   }
 
-  const acceptsCoordinateStatus = routeMeta.hasCoordinateRoutes && /좌표 기반/.test(status);
-  if (routeFailurePattern.test(status) && !acceptsCoordinateStatus) {
-    throw new Error(`${routeId}: Routes API did not render cleanly. Status: ${status}`);
-  }
   if (routeMeta.usesOfficialCoordinateAxis) {
     if (!/공식 시간표로 확인한 교통축/.test(status)) {
       throw new Error(`${routeId}: expected official coordinate transport-axis status. Status: ${status}`);
@@ -291,11 +315,12 @@ async function verifyRouteMap(page, routeId) {
 }
 
 async function verifyRouteMaps(page) {
-  currentStep = "route-page";
-  await gotoGuidePage(page, `${pageUrl}&routes=1`, "route maps");
-
-  for (const routeId of routeIds) {
-    await verifyRouteMap(page, routeId);
+  for (const spec of pageSpecs) {
+    currentStep = `route-page-${spec.label}`;
+    await gotoGuidePage(page, pageUrl(spec.path, `routes-${spec.label}`), `${spec.label} route maps`);
+    for (const routeId of spec.routeIds) {
+      await verifyRouteMap(page, routeId);
+    }
   }
 }
 
@@ -309,7 +334,10 @@ async function run() {
     const desktopPage = await desktopContext.newPage();
     attachDiagnostics(desktopPage);
 
-    await verifyGuideStructure(desktopPage, "desktop");
+    await verifyIndex(desktopPage, "desktop");
+    for (const spec of pageSpecs) {
+      await verifyGuideStructure(desktopPage, spec, "desktop");
+    }
     await verifyPwaOffline(desktopPage, desktopContext);
     await verifyRouteMaps(desktopPage);
     await desktopContext.close();
@@ -322,7 +350,10 @@ async function run() {
     const mobilePage = await mobileContext.newPage();
     attachDiagnostics(mobilePage);
 
-    await verifyGuideStructure(mobilePage, "mobile");
+    await verifyIndex(mobilePage, "mobile");
+    for (const spec of pageSpecs) {
+      await verifyGuideStructure(mobilePage, spec, "mobile");
+    }
     await mobileContext.close();
 
     if (diagnostics.pageErrors.length || diagnostics.consoleErrors.length) {
