@@ -1,4 +1,4 @@
-const CACHE_VERSION = "milano-honeymoon-guide-v20260528";
+const CACHE_VERSION = "swiss-italy-honeymoon-guide-v20260615-mapconfig";
 const PRECACHE_URLS = [
   "./",
   "./index.html",

@@ -171,11 +171,93 @@
   ],
   "dailyMaps": [
     {
+      "id": "swiss-day1",
+      "label": "Swiss Day 1 | 07.16 루체른 도착",
+      "summary": "취리히 공항에서 루체른으로 이동한 뒤 호텔, 호프교회, 빈사의 사자상, 카펠교, 구시가지를 가볍게 연결합니다.",
+      "note": "공항-루체른 이동은 SBB 앱에서 당일 직통 또는 Zürich HB 환승편으로 재확인하세요. 지도는 큰 이동축과 루체른 도보 산책 순서를 함께 표시합니다.",
+      "center": { "lat": 47.059, "lng": 8.32 },
+      "points": [
+        { "place_key": "swiss_day1_zurich_airport", "label": "Zurich Airport", "role": "10:55 도착", "lat": 47.4582, "lng": 8.5555, "visitOrder": 1, "priority": "must", "backup": false, "query": "Zurich Airport, Switzerland" },
+        { "place_key": "swiss_day1_luzern_station", "label": "Luzern Station", "role": "루체른 도착", "lat": 47.0502, "lng": 8.3102, "visitOrder": 2, "priority": "must", "backup": false, "query": "Luzern Bahnhof, Switzerland" },
+        { "place_key": "swiss_day1_hotel", "label": "Hotel Luzernerhof", "role": "Alpenstrasse 3, 6004 Luzern · 체크인 또는 짐 보관", "lat": 47.0552, "lng": 8.3129, "visitOrder": 3, "priority": "must", "backup": false, "query": "Hotel Luzernerhof, Alpenstrasse 3, 6004 Luzern, Switzerland" },
+        { "place_key": "swiss_day1_hofkirche", "label": "Hofkirche St. Leodegar", "role": "호텔 인근 첫 산책", "lat": 47.055, "lng": 8.3136, "visitOrder": 4, "priority": "nice", "backup": false, "query": "Hofkirche St. Leodegar, Luzern, Switzerland" },
+        { "place_key": "swiss_day1_lion_monument", "label": "Lion Monument", "role": "대표 기념물", "lat": 47.0583, "lng": 8.3106, "visitOrder": 5, "priority": "must", "backup": false, "query": "Lion Monument, Luzern, Switzerland" },
+        { "place_key": "swiss_day1_chapel_bridge", "label": "Chapel Bridge", "role": "카펠교와 수탑", "lat": 47.0517, "lng": 8.3075, "visitOrder": 6, "priority": "must", "backup": false, "query": "Chapel Bridge, Luzern, Switzerland" },
+        { "place_key": "swiss_day1_old_town", "label": "Old Town Lucerne", "role": "Kornmarkt, Weinmarkt 산책", "lat": 47.0523, "lng": 8.3053, "visitOrder": 7, "priority": "must", "backup": false, "query": "Old Town Lucerne, Switzerland" },
+        { "place_key": "swiss_day1_rathaus", "label": "Rathaus Brauerei", "role": "첫날 캐주얼 저녁", "lat": 47.0517, "lng": 8.3058, "visitOrder": 8, "priority": "nice", "backup": false, "query": "Rathaus Brauerei, Luzern, Switzerland" },
+        { "place_key": "swiss_day1_des_alpes", "label": "Restaurant Des Alpes", "role": "강변 저녁 대안", "lat": 47.052, "lng": 8.3065, "visitOrder": 9, "priority": "backup", "backup": true, "query": "Restaurant Des Alpes, Luzern, Switzerland" },
+        { "place_key": "swiss_day1_max_chocolatier", "label": "Max Chocolatier", "role": "초콜릿 선물", "lat": 47.0523, "lng": 8.3071, "visitOrder": 10, "priority": "nice", "backup": false, "query": "Max Chocolatier, Luzern, Switzerland" }
+      ],
+      "routes": [
+        { "label": "Zurich Airport에서 Luzern", "from": "swiss_day1_zurich_airport", "to": "swiss_day1_luzern_station", "travelMode": "TRANSIT", "routeType": "primary" },
+        { "label": "Luzern Station에서 호텔", "from": "swiss_day1_luzern_station", "to": "swiss_day1_hotel", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "호프교회 산책", "from": "swiss_day1_hotel", "to": "swiss_day1_hofkirche", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "빈사의 사자상", "from": "swiss_day1_hofkirche", "to": "swiss_day1_lion_monument", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "카펠교 이동", "from": "swiss_day1_lion_monument", "to": "swiss_day1_chapel_bridge", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "구시가지 산책", "from": "swiss_day1_chapel_bridge", "to": "swiss_day1_old_town", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "Rathaus Brauerei 저녁", "from": "swiss_day1_old_town", "to": "swiss_day1_rathaus", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "강변 식당 대안", "from": "swiss_day1_chapel_bridge", "to": "swiss_day1_des_alpes", "travelMode": "WALKING", "routeType": "backup" }
+      ]
+    },
+    {
+      "id": "swiss-day2",
+      "label": "Swiss Day 2 | 07.17 리기산 라운드트립",
+      "summary": "Luzern Pier 1에서 Vitznau로 배를 타고, Rigi Kulm과 Rigi Kaltbad를 거쳐 Weggis에서 루체른으로 복귀합니다.",
+      "note": "배, 산악열차, 케이블카는 공식 시간표에 맞춘 관광 교통축입니다. Google Routes 계산 경로 대신 선형 연결로 표시합니다.",
+      "officialCoordinateAxis": true,
+      "center": { "lat": 47.045, "lng": 8.415 },
+      "points": [
+        { "place_key": "swiss_day2_hotel", "label": "Hotel Luzernerhof", "role": "Alpenstrasse 3 · 08:30 호텔 출발", "lat": 47.0552, "lng": 8.3129, "visitOrder": 1, "priority": "must", "backup": false, "query": "Hotel Luzernerhof, Alpenstrasse 3, 6004 Luzern, Switzerland" },
+        { "place_key": "swiss_day2_luzern_pier", "label": "Luzern Pier 1", "role": "09:12 Vitznau 방향 배", "lat": 47.0505, "lng": 8.3112, "visitOrder": 2, "priority": "must", "backup": false, "query": "Luzern Bahnhofquai Pier 1, Lucerne, Switzerland" },
+        { "place_key": "swiss_day2_vitznau", "label": "Vitznau", "role": "10:09 도착, 산악열차 환승", "lat": 47.0103, "lng": 8.4844, "visitOrder": 3, "priority": "must", "backup": false, "query": "Vitznau station, Switzerland" },
+        { "place_key": "swiss_day2_rigi_kulm", "label": "Rigi Kulm", "role": "10:47 정상 도착", "lat": 47.0569, "lng": 8.4848, "visitOrder": 4, "priority": "must", "backup": false, "query": "Rigi Kulm, Switzerland" },
+        { "place_key": "swiss_day2_rigi_kaltbad", "label": "Rigi Kaltbad", "role": "산 위 마을과 카페 휴식", "lat": 47.0442, "lng": 8.4661, "visitOrder": 5, "priority": "must", "backup": false, "query": "Rigi Kaltbad, Switzerland" },
+        { "place_key": "swiss_day2_weggis_cable", "label": "Weggis cable car valley station", "role": "케이블카 하산", "lat": 47.0347, "lng": 8.4336, "visitOrder": 6, "priority": "must", "backup": false, "query": "Luftseilbahn Weggis Rigi Kaltbad, Weggis, Switzerland" },
+        { "place_key": "swiss_day2_weggis_pier", "label": "Weggis Pier", "role": "17:05 Luzern행 배", "lat": 47.0323, "lng": 8.4321, "visitOrder": 7, "priority": "must", "backup": false, "query": "Weggis Schiffstation, Switzerland" },
+        { "place_key": "swiss_day2_fondue", "label": "FONDUE HOUSE DU PONT", "role": "리기산 뒤 퐁듀 저녁", "lat": 47.0518, "lng": 8.3064, "visitOrder": 8, "priority": "nice", "backup": false, "query": "FONDUE HOUSE DU PONT, Luzern, Switzerland" },
+        { "place_key": "swiss_day2_transport_museum", "label": "Swiss Museum of Transport", "role": "날씨 대안", "lat": 47.0525, "lng": 8.3371, "visitOrder": 9, "priority": "backup", "backup": true, "query": "Swiss Museum of Transport, Luzern, Switzerland" }
+      ],
+      "routes": [
+        { "label": "호텔에서 Luzern Pier 1", "from": "swiss_day2_hotel", "to": "swiss_day2_luzern_pier", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "Lake Lucerne boat 09:12-10:09", "from": "swiss_day2_luzern_pier", "to": "swiss_day2_vitznau", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
+        { "label": "Rigi Bahn 10:15-10:47", "from": "swiss_day2_vitznau", "to": "swiss_day2_rigi_kulm", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
+        { "label": "Rigi Kulm에서 Kaltbad", "from": "swiss_day2_rigi_kulm", "to": "swiss_day2_rigi_kaltbad", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
+        { "label": "Weggis 케이블카", "from": "swiss_day2_rigi_kaltbad", "to": "swiss_day2_weggis_cable", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
+        { "label": "Weggis 선착장 도보", "from": "swiss_day2_weggis_cable", "to": "swiss_day2_weggis_pier", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "Lake Lucerne boat 17:05-17:47", "from": "swiss_day2_weggis_pier", "to": "swiss_day2_luzern_pier", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
+        { "label": "날씨 대안 교통박물관", "from": "swiss_day2_hotel", "to": "swiss_day2_transport_museum", "travelMode": "TRANSIT", "routeType": "backup" }
+      ]
+    },
+    {
+      "id": "swiss-day3",
+      "label": "Swiss Day 3 | 07.18 인터라켄 이동",
+      "summary": "Hotel Luzernerhof에서 Luzern 역으로 이동해 결제한 09:24 열차로 11:17 Interlaken Ost에 도착한 뒤 11:29-11:32 Interlaken West로 이동합니다.",
+      "note": "사용자가 결제한 Luzern 09:24-Interlaken Ost 11:17, Interlaken Ost 11:29-Interlaken West 11:32 이동수단을 기준으로 표시합니다. Airbnb 숙소의 정확 주소는 추후 반영합니다.",
+      "officialCoordinateAxis": true,
+      "center": { "lat": 46.865, "lng": 8.08 },
+      "points": [
+        { "place_key": "swiss_day3_hotel", "label": "Hotel Luzernerhof", "role": "Alpenstrasse 3 · 08:55 체크아웃", "lat": 47.0552, "lng": 8.3129, "visitOrder": 1, "priority": "must", "backup": false, "query": "Hotel Luzernerhof, Alpenstrasse 3, 6004 Luzern, Switzerland" },
+        { "place_key": "swiss_day3_luzern_station", "label": "Luzern Station", "role": "09:24 열차 출발 · PL15", "lat": 47.0502, "lng": 8.3102, "visitOrder": 2, "priority": "must", "backup": false, "query": "Luzern Bahnhof, Switzerland" },
+        { "place_key": "swiss_day3_sarnen", "label": "Sarnen", "role": "호수와 전원 풍경", "lat": 46.896, "lng": 8.246, "visitOrder": 3, "priority": "nice", "backup": false, "query": "Sarnen, Switzerland" },
+        { "place_key": "swiss_day3_brunig", "label": "Brünig-Hasliberg", "role": "고도감이 생기는 구간", "lat": 46.757, "lng": 8.137, "visitOrder": 4, "priority": "nice", "backup": false, "query": "Brunig-Hasliberg, Switzerland" },
+        { "place_key": "swiss_day3_brienz", "label": "Brienz", "role": "청록빛 호수 접근", "lat": 46.7546, "lng": 8.0385, "visitOrder": 5, "priority": "nice", "backup": false, "query": "Brienz, Switzerland" },
+        { "place_key": "swiss_day3_interlaken_ost", "label": "Interlaken Ost", "role": "11:17 도착, 11:29 환승 · PL8", "lat": 46.6905, "lng": 7.869, "visitOrder": 6, "priority": "must", "backup": false, "query": "Interlaken Ost, Switzerland" },
+        { "place_key": "swiss_day3_interlaken_west", "label": "Interlaken West", "role": "11:32 도착 · PL1, Airbnb 주소 추후 반영", "lat": 46.6828, "lng": 7.8514, "visitOrder": 7, "priority": "must", "backup": false, "query": "Interlaken West, Bahnhofstrasse 28, Interlaken, Switzerland" }
+      ],
+      "routes": [
+        { "label": "호텔에서 Luzern Station", "from": "swiss_day3_hotel", "to": "swiss_day3_luzern_station", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "Luzern-Interlaken Express", "from": "swiss_day3_luzern_station", "to": "swiss_day3_sarnen", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
+        { "label": "Sarnen에서 Brünig", "from": "swiss_day3_sarnen", "to": "swiss_day3_brunig", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
+        { "label": "Brünig에서 Brienz", "from": "swiss_day3_brunig", "to": "swiss_day3_brienz", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
+        { "label": "Brienz에서 Interlaken Ost", "from": "swiss_day3_brienz", "to": "swiss_day3_interlaken_ost", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
+        { "label": "Interlaken Ost 11:29-Interlaken West 11:32", "from": "swiss_day3_interlaken_ost", "to": "swiss_day3_interlaken_west", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true }
+      ]
+    },
+    {
       "id": "day1",
       "label": "Day 1 | 07.21 밀라노 첫날",
       "summary": "호텔 체크인 후 Porta Nuova와 Gae Aulenti를 가볍게 걷는 도착일 동선입니다.",
       "note": "Day 1은 도심 산책 일정이라 실제 도보 최단 경로로 표시합니다. 코랄 점선은 비·피로 상황의 백업 경로이고, 작은 옵션 식당 마커는 위치만 표시하며 동선에는 연결하지 않습니다.",
-      "useCoordinateRouting": true,
       "center": { "lat": 45.4822, "lng": 9.1955 },
       "points": [
         { "place_key": "day1_hotel", "label": "UNA HOTELS Century Milano", "role": "숙소 체크인", "lat": 45.4857, "lng": 9.2032, "visitOrder": 1, "priority": "must", "backup": false, "query": "UNA HOTELS Century Milano, Milan, Italy" },
@@ -351,9 +433,9 @@
       ],
       "routes": [
         { "label": "호텔에서 셔틀 정류장", "from": "day6_hotel", "to": "day6_savoia", "travelMode": "WALKING", "routeType": "primary" },
-        { "label": "BGY 공항 셔틀 도로 경로", "from": "day6_savoia", "to": "day6_bgy", "travelMode": "DRIVING", "routeType": "primary" },
+        { "label": "BGY 공항 셔틀 도로 경로", "from": "day6_savoia", "to": "day6_bgy", "travelMode": "DRIVING", "routeType": "primary", "useCoordinateRouting": true },
         { "label": "Mercato Centrale 백업", "from": "day6_hotel", "to": "day6_mercato", "travelMode": "WALKING", "routeType": "backup" },
-        { "label": "MXP 출발 대안", "from": "day6_centrale", "to": "day6_mxp", "travelMode": "TRANSIT", "routeType": "backup" },
+        { "label": "MXP 출발 대안", "from": "day6_centrale", "to": "day6_mxp", "travelMode": "TRANSIT", "routeType": "backup", "useCoordinateRouting": true },
         { "label": "Gae Aulenti 지연 산책", "from": "day6_hotel", "to": "day6_gae", "travelMode": "WALKING", "routeType": "backup" }
       ]
     }

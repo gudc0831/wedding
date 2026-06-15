@@ -47,18 +47,35 @@ function Convert-ToBoolean {
   return $text -in @("1", "true", "yes", "y", "on")
 }
 
+function Read-JsonConfig {
+  param([string]$Path)
+
+  if (-not (Test-Path -LiteralPath $Path)) {
+    return $null
+  }
+
+  try {
+    return Get-Content -Raw -LiteralPath $Path | ConvertFrom-Json -ErrorAction Stop
+  } catch {
+    return $null
+  }
+}
+
 $root = Resolve-Path -LiteralPath (Join-Path $PSScriptRoot "..")
 Set-Location -LiteralPath $root
 
+$outputFullPath = Join-Path $root $OutputPath
+$existingConfig = Read-JsonConfig -Path $outputFullPath
+
 $dotenv = Read-DotEnv -Path $EnvPath
-$apiKey = if ($env:GOOGLE_MAPS_API_KEY) { $env:GOOGLE_MAPS_API_KEY } else { $dotenv["GOOGLE_MAPS_API_KEY"] }
-$mapId = if ($env:GOOGLE_MAPS_MAP_ID) { $env:GOOGLE_MAPS_MAP_ID } else { $dotenv["GOOGLE_MAPS_MAP_ID"] }
-$routeEngine = if ($env:GOOGLE_MAPS_ROUTE_ENGINE) { $env:GOOGLE_MAPS_ROUTE_ENGINE } else { $dotenv["GOOGLE_MAPS_ROUTE_ENGINE"] }
-$authReferrerPolicy = if ($env:GOOGLE_MAPS_AUTH_REFERRER_POLICY) { $env:GOOGLE_MAPS_AUTH_REFERRER_POLICY } else { $dotenv["GOOGLE_MAPS_AUTH_REFERRER_POLICY"] }
-$placesEnrichment = if ($env:GOOGLE_MAPS_PLACES_ENRICHMENT) { $env:GOOGLE_MAPS_PLACES_ENRICHMENT } else { $dotenv["GOOGLE_MAPS_PLACES_ENRICHMENT"] }
-$mapMonthlyLimit = if ($env:GOOGLE_MAPS_MAP_MONTHLY_LIMIT) { $env:GOOGLE_MAPS_MAP_MONTHLY_LIMIT } else { $dotenv["GOOGLE_MAPS_MAP_MONTHLY_LIMIT"] }
-$routeComputeMonthlyLimit = if ($env:GOOGLE_MAPS_ROUTE_COMPUTE_MONTHLY_LIMIT) { $env:GOOGLE_MAPS_ROUTE_COMPUTE_MONTHLY_LIMIT } else { $dotenv["GOOGLE_MAPS_ROUTE_COMPUTE_MONTHLY_LIMIT"] }
-$placesMonthlyLimit = if ($env:GOOGLE_MAPS_PLACES_MONTHLY_LIMIT) { $env:GOOGLE_MAPS_PLACES_MONTHLY_LIMIT } else { $dotenv["GOOGLE_MAPS_PLACES_MONTHLY_LIMIT"] }
+$apiKey = if ($env:GOOGLE_MAPS_API_KEY) { $env:GOOGLE_MAPS_API_KEY } elseif ($dotenv["GOOGLE_MAPS_API_KEY"]) { $dotenv["GOOGLE_MAPS_API_KEY"] } else { $existingConfig.apiKey }
+$mapId = if ($env:GOOGLE_MAPS_MAP_ID) { $env:GOOGLE_MAPS_MAP_ID } elseif ($dotenv["GOOGLE_MAPS_MAP_ID"]) { $dotenv["GOOGLE_MAPS_MAP_ID"] } else { $existingConfig.mapId }
+$routeEngine = if ($env:GOOGLE_MAPS_ROUTE_ENGINE) { $env:GOOGLE_MAPS_ROUTE_ENGINE } elseif ($dotenv["GOOGLE_MAPS_ROUTE_ENGINE"]) { $dotenv["GOOGLE_MAPS_ROUTE_ENGINE"] } else { $existingConfig.googleRouteEngine }
+$authReferrerPolicy = if ($env:GOOGLE_MAPS_AUTH_REFERRER_POLICY) { $env:GOOGLE_MAPS_AUTH_REFERRER_POLICY } elseif ($dotenv["GOOGLE_MAPS_AUTH_REFERRER_POLICY"]) { $dotenv["GOOGLE_MAPS_AUTH_REFERRER_POLICY"] } else { $existingConfig.authReferrerPolicy }
+$placesEnrichment = if ($env:GOOGLE_MAPS_PLACES_ENRICHMENT) { $env:GOOGLE_MAPS_PLACES_ENRICHMENT } elseif ($dotenv["GOOGLE_MAPS_PLACES_ENRICHMENT"]) { $dotenv["GOOGLE_MAPS_PLACES_ENRICHMENT"] } else { $existingConfig.googlePlacesEnrichment }
+$mapMonthlyLimit = if ($env:GOOGLE_MAPS_MAP_MONTHLY_LIMIT) { $env:GOOGLE_MAPS_MAP_MONTHLY_LIMIT } elseif ($dotenv["GOOGLE_MAPS_MAP_MONTHLY_LIMIT"]) { $dotenv["GOOGLE_MAPS_MAP_MONTHLY_LIMIT"] } else { $existingConfig.googleMapMonthlyLimit }
+$routeComputeMonthlyLimit = if ($env:GOOGLE_MAPS_ROUTE_COMPUTE_MONTHLY_LIMIT) { $env:GOOGLE_MAPS_ROUTE_COMPUTE_MONTHLY_LIMIT } elseif ($dotenv["GOOGLE_MAPS_ROUTE_COMPUTE_MONTHLY_LIMIT"]) { $dotenv["GOOGLE_MAPS_ROUTE_COMPUTE_MONTHLY_LIMIT"] } else { $existingConfig.googleRouteComputeMonthlyLimit }
+$placesMonthlyLimit = if ($env:GOOGLE_MAPS_PLACES_MONTHLY_LIMIT) { $env:GOOGLE_MAPS_PLACES_MONTHLY_LIMIT } elseif ($dotenv["GOOGLE_MAPS_PLACES_MONTHLY_LIMIT"]) { $dotenv["GOOGLE_MAPS_PLACES_MONTHLY_LIMIT"] } else { $existingConfig.googlePlacesMonthlyLimit }
 
 $normalizedRouteEngine = "$routeEngine".Trim().ToLowerInvariant()
 if ($normalizedRouteEngine -eq "") {
@@ -73,13 +90,17 @@ if ($normalizedRouteEngine -eq "routes" -and (-not $apiKey -or $apiKey -eq "your
   throw "GOOGLE_MAPS_ROUTE_ENGINE=routes requires GOOGLE_MAPS_API_KEY. Create .env from .env.example or set the environment variable before starting the local site."
 }
 
+if ($normalizedRouteEngine -eq "embed" -and (-not $apiKey -or $apiKey -eq "your-google-maps-api-key")) {
+  throw "GOOGLE_MAPS_ROUTE_ENGINE=embed without GOOGLE_MAPS_API_KEY would create a keyless local config. Restore .env or a keyed assets/google-maps-config.local.json before starting the local site."
+}
+
 $config = [ordered]@{
   apiKey = if ($apiKey -and $apiKey -ne "your-google-maps-api-key") { $apiKey } else { "" }
   language = "ko"
   region = "IT"
   routeMapProvider = "google"
   googleRouteEngine = $normalizedRouteEngine
-  googlePlacesEnrichment = if ($placesEnrichment) { Convert-ToBoolean -Value $placesEnrichment } else { $true }
+  googlePlacesEnrichment = if ($null -ne $placesEnrichment -and "$placesEnrichment" -ne "") { Convert-ToBoolean -Value $placesEnrichment } else { $true }
   googleMapMonthlyLimit = if ($mapMonthlyLimit) { [int]$mapMonthlyLimit } else { 990 }
   googleRouteComputeMonthlyLimit = if ($routeComputeMonthlyLimit) { [int]$routeComputeMonthlyLimit } else { 990 }
   googlePlacesMonthlyLimit = if ($placesMonthlyLimit) { [int]$placesMonthlyLimit } else { 990 }
@@ -95,7 +116,6 @@ if ($mapId -and $mapId -ne "your-google-maps-map-id") {
   $config.mapId = "DEMO_MAP_ID"
 }
 
-$outputFullPath = Join-Path $root $OutputPath
 $outputDirectory = Split-Path -Parent $outputFullPath
 if ($outputDirectory -and -not (Test-Path -LiteralPath $outputDirectory)) {
   New-Item -ItemType Directory -Path $outputDirectory | Out-Null

@@ -1,11 +1,11 @@
 # Wedding Guide
 
-밀라노 허니문 가이드를 정적 HTML로 배포하기 위한 저장소입니다.
+스위스·이탈리아 허니문 가이드를 정적 HTML로 배포하기 위한 저장소입니다.
 
 ## 주요 파일
 
 - `index.html`: GitHub Pages 루트 주소에서 메인 가이드로 이동하는 진입점
-- `milano_honeymoon_guide.html`: 실제 메인 HTML 가이드
+- `milano_honeymoon_guide.html`: 실제 메인 HTML 가이드. 스위스 / 이탈리아 최상위 탭과 각 날짜별 일정, 지도, 체크리스트를 포함합니다.
 - `assets/`: SVG 이미지, favicon, 인터랙티브 지도 데이터
 - `output/`: PDF, CSV, 브라우저 확인 이미지 등 산출물
 - `.github/workflows/pages.yml`: GitHub Pages 자동 배포 workflow
@@ -57,7 +57,9 @@ Do not start the local site with `python -m http.server` directly when testing t
 .\scripts\start-local-server.ps1
 ```
 
-The wrapper writes `assets/google-maps-config.local.json` from `.env` and then serves `http://localhost:8000/`. That generated JSON file is ignored by git so the API key is not committed.
+The wrapper writes `assets/google-maps-config.local.json` from `.env` and then serves `http://localhost:8000/`. If `.env` is missing but an existing `assets/google-maps-config.local.json` already contains an API key, the writer reuses that local JSON as the fallback source instead of replacing it with an empty config. The generated JSON file is ignored by git so the API key is not committed.
+
+If neither `.env` nor the local JSON contains `GOOGLE_MAPS_API_KEY`, the wrapper stops instead of creating a keyless `embed` config. Restore one of those local files before verifying Google route maps in the browser.
 
 ## Offline travel mode
 
@@ -73,8 +75,19 @@ For a restricted Google Maps key, allow these HTTP referrers in Google Cloud Con
 
 ```text
 http://localhost:8000/*
+http://localhost:4000/*
 https://gudc0831.github.io/wedding/*
 ```
+
+If you test with another local port, add that exact `http://localhost:<port>/*` referrer to the same API key before opening route maps.
+
+To verify all route-map cards locally without installing Playwright, run the Chrome DevTools Protocol verifier after the wrapper server is running:
+
+```powershell
+$env:LOCAL_URL='http://localhost:8000'; node .\scripts\verify-local-route-maps-cdp.mjs
+```
+
+Use `http://localhost:4000` only after that exact referrer is allowed on the Google Maps API key.
 
 Only set `GOOGLE_MAPS_AUTH_REFERRER_POLICY=origin` if the Cloud Console referrer restriction is origin-only, for example `https://gudc0831.github.io/*`. If the restriction includes `/wedding/*`, leave `GOOGLE_MAPS_AUTH_REFERRER_POLICY` blank.
 

@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>밀라노·꼬모·베르가모 허니문 가이드 | 2026.07.21 - 2026.07.26</title>
-  <meta name="description" content="밀라노를 베이스캠프로 한 허니문 비주얼 가이드. 2026년 7월 21일부터 26일까지, 꼬모와 베르가모 당일치기와 7월 23일 생일 쇼핑 코스를 포함합니다.">
+  <title>스위스·이탈리아 허니문 가이드 | 2026.07.16 - 2026.07.26</title>
+  <meta name="description" content="스위스 루체른·리기산·인터라켄 이동과 밀라노·꼬모·베르가모 허니문 일정을 함께 보는 비주얼 가이드입니다.">
   <link rel="icon" href="./assets/cover-pattern.svg" type="image/svg+xml">
   <link rel="manifest" href="./manifest.webmanifest">
   <meta name="theme-color" content="#17372f">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="Milano Guide">
+  <meta name="apple-mobile-web-app-title" content="Honeymoon Guide">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Song+Myung&family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700;800&display=swap');
@@ -203,6 +203,36 @@
       border-color: rgba(23, 55, 47, 0.24);
     }
 
+    .country-tabs {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px;
+      border: 1px solid rgba(23, 55, 47, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.54);
+      width: fit-content;
+    }
+
+    .country-tabs a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      color: var(--ink-soft);
+      text-decoration: none;
+      font-size: 0.84rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .country-tabs a:hover {
+      background: var(--ink);
+      color: #fff9f1;
+    }
+
     .hero {
       max-width: var(--max);
       margin: 0 auto;
@@ -259,7 +289,7 @@
     }
 
     .hero-kicker::before {
-      content: "07.23";
+      content: "07.16";
       display: inline-grid;
       place-items: center;
       padding: 3px 8px;
@@ -455,6 +485,10 @@
       display: grid;
       grid-template-columns: repeat(6, minmax(0, 1fr));
       gap: 14px;
+    }
+
+    .schedule-ribbon.journey-ribbon {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 
     .ribbon-card {
@@ -1689,6 +1723,23 @@
       padding: 0;
     }
 
+    .country-note {
+      margin: 0 0 18px;
+      padding: 16px 18px;
+      border-radius: 22px;
+      background: rgba(120, 145, 126, 0.1);
+      border: 1px solid rgba(120, 145, 126, 0.18);
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+
+    .source-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
     .source-grid {
       list-style: none;
       margin: 0;
@@ -1967,13 +2018,19 @@
     <header class="topbar">
       <div class="topbar-inner">
         <div class="brand">
-          <div class="brand-mark">M</div>
+          <div class="brand-mark">SI</div>
           <div class="brand-copy">
-            <p class="eyebrow">Milano Honeymoon Notes</p>
-            <h1>2026.07.21 화 - 2026.07.26 일 | 밀라노·꼬모·베르가모</h1>
+            <p class="eyebrow">Swiss & Italy Honeymoon Notes</p>
+            <h1>2026.07.16 목 - 2026.07.26 일 | 루체른·리기산·인터라켄·밀라노</h1>
           </div>
         </div>
+        <nav class="country-tabs" aria-label="국가별 최상위 탭">
+          <a href="#switzerland">스위스</a>
+          <a href="#italy">이탈리아</a>
+        </nav>
         <nav class="nav-links" aria-label="페이지 이동">
+          <a href="#switzerland">Swiss 07.16-18</a>
+          <a href="#italy">Italy 07.21-26</a>
           <a href="#overview">Overview</a>
           <a href="#practical-info">Practical Info</a>
           <a href="#hotel-base">Hotel Base</a>
@@ -2000,52 +2057,50 @@
           <div class="hero-kicker">Birthday Mood</div>
           <h2>이탈리아 여행</h2>
           <p>
-            이 가이드는 <strong>UNA HOTELS Century Milano</strong>를 중심으로 움직이는 여유형 허니문 동선입니다.
-            <strong>2026년 7월 23일 목요일</strong>에는 쇼핑과 선물 찾기에 집중하고,
-            저녁은 <strong>두오모 테라스의 목요 음악 연장 오픈</strong>과 루프탑 디너를 엮어
-            평범한 일정이 아니라 “기억에 남는 하루”가 되도록 설계했습니다.
+            이 가이드는 <strong>루체른 첫 적응일, 리기산 라운드트립, Luzern-Interlaken Express</strong>를 거쳐
+            <strong>밀라노·꼬모·베르가모</strong>로 이어지는 허니문 동선입니다.
+            스위스 구간은 공식 운항·산악철도 시간표를 기준으로 보정하고, 이탈리아 구간은 기존 밀라노 베이스캠프 구조를 유지했습니다.
           </p>
           <div class="hero-stats">
             <div class="stat-card">
-              <span class="stat-label">Base Hotel</span>
-              <span class="stat-value">1곳</span>
+              <span class="stat-label">Countries</span>
+              <span class="stat-value">2곳</span>
             </div>
             <div class="stat-card">
-              <span class="stat-label">Milan Nights</span>
-              <span class="stat-value">5박</span>
+              <span class="stat-label">Swiss Base</span>
+              <span class="stat-value">Lucerne</span>
             </div>
             <div class="stat-card">
-              <span class="stat-label">Day Trips</span>
-              <span class="stat-value">2일</span>
+              <span class="stat-label">Italy Base</span>
+              <span class="stat-value">Milano</span>
             </div>
             <div class="stat-card">
-              <span class="stat-label">Birthday Focus</span>
-              <span class="stat-value">Shopping</span>
+              <span class="stat-label">Route Focus</span>
+              <span class="stat-value">Rigi</span>
             </div>
           </div>
           <div class="hero-actions">
-            <a class="button button-primary" href="#day-3">07/23 생일 코스 보기</a>
-            <a class="button button-secondary" href="#prague-transfer">프라하 이동안 보기</a>
+            <a class="button button-primary" href="#switzerland">스위스 일정 보기</a>
+            <a class="button button-secondary" href="#italy">이탈리아 일정 보기</a>
           </div>
         </div>
 
         <div class="hero-visual">
           <div class="image-stack">
             <div class="primary-photo">
-              <img src="https://www.duomomilano.it/wp-content/uploads/2023/08/duomo-fotocherchi32-scaled.jpg" alt="밀라노 두오모 전경" loading="eager">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Lucerne%20Chapel%20Bridge%20and%20Water%20Tower.jpg?width=1100" alt="루체른 카펠교와 수탑" loading="eager">
               <div class="photo-tag">
-                두오모는 이번 일정의 중심 무대입니다.
-                생일 저녁엔 목요일 특별 오픈 시간을 활용해 해질녘까지 머무는 구성이 가장 좋습니다.
+                스위스 구간은 루체른 첫 산책, 리기산 라운드트립, 파노라마 열차 이동까지 안정적으로 이어가는 것이 핵심입니다.
               </div>
             </div>
             <div class="mini-collage">
               <figure>
-                <img src="https://www.unaitalianhospitality.com/_next/image?url=https%3A%2F%2Funacms.ha.servizi.gr-u.it%2Fassets%2Feea86880-1f0c-49e0-a83a-f5825abeb09b.jpg&amp;w=3840&amp;q=50" alt="UNA Hotels Century Milano 외관" loading="lazy">
-                <figcaption>베이스캠프는 Milano Centrale 도보권의 UNA HOTELS Century Milano</figcaption>
+                <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rigi%20Kulm%20view%20towards%20Lake%20Lucerne.jpg?width=800" alt="리기산에서 보이는 루체른 호수" loading="lazy">
+                <figcaption>리기산은 호수, 산악열차, 케이블카를 한 번에 묶는 스위스 메인 데이</figcaption>
               </figure>
               <figure>
-                <img src="https://www.ceresio7.com/wp-content/uploads/2022/04/ceresio-ristorante-slideshow-04.jpg" alt="Ceresio 7 레스토랑 풍경" loading="lazy">
-                <figcaption>기념일 디너 후보는 도시 야경이 살아있는 루프탑 위주로</figcaption>
+                <img src="https://www.duomomilano.it/wp-content/uploads/2023/08/duomo-fotocherchi32-scaled.jpg" alt="밀라노 두오모 전경" loading="lazy">
+                <figcaption>이탈리아 구간은 밀라노 베이스캠프와 생일 쇼핑 데이가 중심</figcaption>
               </figure>
             </div>
           </div>
@@ -2068,7 +2123,22 @@
     </div>
 
     <div class="overview-strip">
-      <div class="schedule-ribbon">
+      <div class="schedule-ribbon journey-ribbon">
+        <article class="ribbon-card">
+          <strong>07.16 목</strong>
+          <h3>루체른 도착</h3>
+          <p>취리히 공항에서 루체른으로 이동 후 카펠교와 구시가지 첫 산책.</p>
+        </article>
+        <article class="ribbon-card">
+          <strong>07.17 금</strong>
+          <h3>리기산 라운드트립</h3>
+          <p>루체른 호수, Vitznau 산악열차, Rigi Kulm, Weggis 복귀.</p>
+        </article>
+        <article class="ribbon-card">
+          <strong>07.18 토</strong>
+          <h3>인터라켄 이동</h3>
+          <p>결제 티켓 기준 Luzern 09:24 출발, Interlaken Ost 환승, 11:32 Interlaken West 도착.</p>
+        </article>
         <article class="ribbon-card">
           <strong>07.21 화</strong>
           <h3>밀라노 도착</h3>
@@ -2103,6 +2173,405 @@
     </div>
 
     <main>
+      <section id="switzerland">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <span class="section-index">Switzerland</span>
+              <h2>2026.07.16 목 - 2026.07.18 토 | 루체른, 리기산, 인터라켄 이동</h2>
+              <p>
+                취리히 공항 도착 후 루체른으로 들어가고, 다음 날 리기산 라운드트립을 한 뒤
+                결제한 열차로 Interlaken Ost를 거쳐 Interlaken West까지 이동하는 3일 구간입니다.
+              </p>
+            </div>
+            <a class="source-chip" href="https://www.sbb.ch/en/offers/swiss-half-fare-card" target="_blank" rel="noreferrer">Swiss Half Fare Card</a>
+          </div>
+
+          <p class="country-note">
+            지도는 Google이 임의로 계산한 일반 대중교통 경로가 아니라, 공식 시간표로 확인한 배·산악열차·케이블카·파노라마 열차의 실제 연결축을 선형으로 표시합니다.
+            현장 탑승 전에는 SBB, Lake Lucerne, Rigi, Zentralbahn 앱이나 공식 페이지에서 운행 변경을 다시 확인하세요.
+          </p>
+
+          <div class="quick-grid">
+            <article class="info-card">
+              <h3>운영 기준</h3>
+              <p>Swiss Half Fare Card 사용을 전제로 하고, 구간별 티켓은 SBB 앱 또는 운영사 공식 채널에서 별도 구매합니다. 여권 원본과 티켓 QR을 함께 준비합니다.</p>
+            </article>
+            <article class="info-card">
+              <h3>루체른 숙소</h3>
+              <p>Hotel Luzernerhof(Alpenstrasse 3, 6004 Luzern)를 루체른 베이스로 두고, Day 1과 Day 2의 산책·선착장 이동은 도보권 중심으로 잡습니다.</p>
+            </article>
+            <article class="info-card">
+              <h3>핵심 연결</h3>
+              <p>Day 2는 Luzern Pier 1 09:12 배, Vitznau 10:15 산악열차, Rigi Kaltbad 16:10 케이블카, Weggis 17:05 복귀 배를 기준으로 둡니다.</p>
+            </article>
+            <article class="info-card">
+              <h3>일정 종료</h3>
+              <p>Day 3는 Interlaken West 11:32 도착과 Airbnb 숙소 이동 준비까지 관리합니다. 정확 주소가 확정되면 마지막 도보·버스·택시 구간을 추가합니다.</p>
+            </article>
+          </div>
+
+          <div class="day-grid" style="margin-top: 18px;">
+            <article class="day-card">
+              <div class="day-header">
+                <div class="day-date">
+                  <strong>07.16 Thu</strong>
+                  <span>Zurich Airport → Luzern → Old Town</span>
+                </div>
+                <div class="day-intro">
+                  <h3>추천 톤: “장거리 비행 뒤에는 작게, 루체른 첫인상은 선명하게”</h3>
+                  <p>
+                    첫날은 체크인과 회복이 우선입니다. 카펠교, 로이스강변, 구시가지, 빈사의 사자상만 연결하고
+                    저녁은 호텔에서 멀지 않은 구시가지·강변 후보로 둡니다.
+                  </p>
+                </div>
+              </div>
+              <div class="route-map-card" data-route-map-card="swiss-day1">
+                <div class="route-map-toolbar">
+                  <div class="route-map-copy">
+                    <strong>Swiss Day 1 실제 동선 지도</strong>
+                    <span>취리히 공항에서 루체른역까지 이동한 뒤, 호텔과 루체른 구시가지 첫 산책 축을 표시합니다.</span>
+                  </div>
+                  <div class="route-map-actions">
+                    <span class="route-legend primary">기본</span>
+                    <span class="route-legend backup">대안</span>
+                    <button class="route-map-button" type="button" data-route-map-open>지도 열기</button>
+                  </div>
+                </div>
+                <div class="route-map-shell" data-route-map-shell hidden>
+                  <div class="google-route-map" data-route-map-target aria-label="Swiss Day 1 루체른 도착 실제 동선 지도"></div>
+                  <p class="route-map-status" data-route-map-status>Google Maps 지도를 준비 중입니다.</p>
+                </div>
+              </div>
+              <div class="day-content">
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div class="time-tag">10:55</div>
+                    <div>
+                      <strong data-place-key="swiss_day1_zurich_airport">취리히 공항 도착</strong>
+                      <span class="duration-tag">입국·수하물 버퍼 60-80분</span>
+                      <p>입국 후 `Bahn / Train` 표지판을 따라 Zürich Flughafen 역으로 이동합니다. 항공편 지연이 있으면 루체른 산책 범위를 바로 줄입니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">12:15 전후</div>
+                    <div>
+                      <strong data-place-keys="swiss_day1_zurich_airport swiss_day1_luzern_station">Zürich Flughafen → Luzern</strong>
+                      <span class="duration-tag">약 1시간 10-20분</span>
+                      <p>직통 우선, 없으면 Zürich HB 환승으로 잡습니다. 정확한 플랫폼과 열차는 SBB 앱에서 당일 재확인합니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">13:40</div>
+                    <div>
+                      <strong data-place-key="swiss_day1_hotel">Hotel Luzernerhof 이동</strong>
+                      <span class="duration-tag">도보 10-15분</span>
+                      <p>숙소 주소는 Alpenstrasse 3, 6004 Luzern입니다. 객실 준비 전이면 짐만 맡기고, 물과 간단한 간식을 보충한 뒤 호숫가 방향으로 짧게 나갑니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">15:00</div>
+                    <div>
+                      <strong data-place-keys="swiss_day1_hofkirche swiss_day1_lion_monument">호프교회와 빈사의 사자상</strong>
+                      <span class="duration-tag">소요 90분</span>
+                      <p>Hotel Luzernerhof에서 접근이 좋습니다. 내부 관람보다 외관, 호숫가, 대표 기념물만 짧게 보는 방식이 첫날에 맞습니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">17:00</div>
+                    <div>
+                      <strong data-place-keys="swiss_day1_chapel_bridge swiss_day1_old_town">카펠교·구시가지 산책</strong>
+                      <span class="duration-tag">소요 90분</span>
+                      <p>Kapellbrücke, Kornmarkt, Weinmarkt, Reuss 강변을 천천히 연결합니다. 해가 낮아지는 시간대 사진이 가장 안정적입니다.</p>
+                    </div>
+                  </div>
+                </div>
+                <aside class="day-aside">
+                  <div class="aside-card">
+                    <h4>저녁 후보 | Food Picks</h4>
+                    <ul class="food-list">
+                      <li class="food-pick">
+                        <strong data-place-key="swiss_day1_rathaus">Rathaus Brauerei<span class="food-type">양조장 레스토랑</span></strong>
+                        <span class="food-address">Unter der Egg 2, Luzern</span>
+                        <p>첫날 피로가 있을 때 가장 부담이 적은 캐주얼 후보입니다. 로컬 맥주, 소시지, 슈니첼, 감자요리 중심으로 짧게 잡습니다.</p>
+                      </li>
+                      <li class="food-pick">
+                        <strong data-place-key="swiss_day1_des_alpes">Restaurant Des Alpes<span class="food-type">강변 식당</span></strong>
+                        <span class="food-address">카펠교 인근 Reuss 강변</span>
+                        <p>카펠교 야경과 이어지는 분위기 좋은 저녁 후보입니다. 생선, 뢰스티, 스위스식 메인 요리를 우선합니다.</p>
+                      </li>
+                      <li class="food-pick">
+                        <strong data-place-key="swiss_day1_max_chocolatier">Max Chocolatier<span class="food-type">초콜릿</span></strong>
+                        <span class="food-address">루체른 구시가지권</span>
+                        <p>고급 초콜릿 선물 후보입니다. 여름철에는 구매 후 보관 시간을 짧게 잡는 편이 좋습니다.</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="aside-card">
+                    <h4>첫날 조정 기준</h4>
+                    <ul>
+                      <li>입국·수하물 지연 시 빈사의 사자상은 Day 2 저녁 산책으로 넘깁니다.</li>
+                      <li>20:30 카펠교 야경은 컨디션이 남을 때만 진행합니다.</li>
+                      <li>첫날 퐁듀는 무겁게 느껴질 수 있어 Day 2 저녁 후보로 미룹니다.</li>
+                    </ul>
+                  </div>
+                </aside>
+              </div>
+            </article>
+
+            <article class="day-card">
+              <div class="day-header">
+                <div class="day-date">
+                  <strong>07.17 Fri</strong>
+                  <span>Luzern Pier 1 → Vitznau → Rigi Kulm → Weggis → Luzern</span>
+                </div>
+                <div class="day-intro">
+                  <h3>추천 톤: “리기산은 산보다 연결 경험 전체가 메인”</h3>
+                  <p>
+                    공식 2026 여름 시간표 기준으로 09:12 Luzern 출발 배, 10:15 Vitznau 출발 산악열차가 자연스럽게 연결됩니다.
+                    복귀는 Rigi Kaltbad 16:10 케이블카 후 Weggis 17:05 배를 기본으로 둡니다.
+                  </p>
+                </div>
+              </div>
+              <div class="route-map-card" data-route-map-card="swiss-day2">
+                <div class="route-map-toolbar">
+                  <div class="route-map-copy">
+                    <strong>Swiss Day 2 공식 교통축 지도</strong>
+                    <span>배, 산악열차, 케이블카 구간은 Google 계산 경로가 아니라 공식 연결축 선형으로 표시합니다.</span>
+                  </div>
+                  <div class="route-map-actions">
+                    <span class="route-legend primary">공식 연결축</span>
+                    <span class="route-legend backup">날씨 대안</span>
+                    <button class="route-map-button" type="button" data-route-map-open>지도 열기</button>
+                  </div>
+                </div>
+                <div class="route-map-shell" data-route-map-shell hidden>
+                  <div class="google-route-map" data-route-map-target aria-label="Swiss Day 2 리기산 라운드트립 공식 교통축 지도"></div>
+                  <p class="route-map-status" data-route-map-status>Google Maps 지도를 준비 중입니다.</p>
+                </div>
+              </div>
+              <div class="day-content">
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div class="time-tag">08:30</div>
+                    <div>
+                      <strong data-place-keys="swiss_day2_hotel swiss_day2_luzern_pier">호텔 출발 → Luzern Pier 1</strong>
+                      <span class="duration-tag">도보 12-18분</span>
+                      <p>Lake Lucerne 공식 안내 기준 Vitznau·Weggis 방향 배는 Pier 1 출발입니다. 선착장 도착 후 날씨와 배편을 다시 확인합니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">09:12</div>
+                    <div>
+                      <strong data-place-keys="swiss_day2_luzern_pier swiss_day2_vitznau">Luzern → Vitznau 배</strong>
+                      <span class="duration-tag">09:12-10:09</span>
+                      <p>2026 여름 시간표 기준 연결입니다. 모든 08:12-17:12 Luzern 출발 배는 Vitznau에서 Rigi-Bahn 연결이 있다고 안내되어 있습니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">10:15</div>
+                    <div>
+                      <strong data-place-keys="swiss_day2_vitznau swiss_day2_rigi_kulm">Vitznau → Rigi Kulm 산악열차</strong>
+                      <span class="duration-tag">10:15-10:47</span>
+                      <p>Rigi 공식 2026 여름 시간표 기준 연결입니다. 정상에서는 11:00-12:20 정도 사진, 전망, 가벼운 산책으로 충분합니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">12:20</div>
+                    <div>
+                      <strong data-place-keys="swiss_day2_rigi_kulm swiss_day2_rigi_kaltbad">점심 후 Rigi Kaltbad</strong>
+                      <span class="duration-tag">점심 60분 + 하산 15분권</span>
+                      <p>정상 식사가 가장 단순하고, 여유를 원하면 Kaltbad로 내려와서 카페 중심으로 쉬는 구성이 더 부드럽습니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">16:10</div>
+                    <div>
+                      <strong data-place-keys="swiss_day2_rigi_kaltbad swiss_day2_weggis_cable swiss_day2_weggis_pier">Rigi Kaltbad → Weggis 케이블카</strong>
+                      <span class="duration-tag">10분 + 선착장 도보 15분</span>
+                      <p>케이블카는 30분 간격, 10분 소요입니다. 16:10 하산이면 Weggis 선착장까지 도보 15분을 반영해도 17:05 복귀 배에 여유가 있습니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">17:05</div>
+                    <div>
+                      <strong data-place-keys="swiss_day2_weggis_pier swiss_day2_luzern_pier">Weggis → Luzern 배</strong>
+                      <span class="duration-tag">17:05-17:47</span>
+                      <p>공식 여름 시간표 기준 복귀편입니다. 더 일찍 내려오면 16:05-16:47, 더 쉬면 18:05-18:47도 후보입니다.</p>
+                    </div>
+                  </div>
+                </div>
+                <aside class="day-aside">
+                  <div class="aside-card">
+                    <h4>식사 전략 | Food Picks</h4>
+                    <ul class="food-list">
+                      <li class="food-pick">
+                        <strong data-place-key="swiss_day2_rigi_kulm">Rigi Kulm Hotel Restaurant<span class="food-type">정상 점심</span></strong>
+                        <span class="food-address">Rigi Kulm</span>
+                        <p>뢰스티, 수프, 소시지, 커피와 케이크처럼 단순한 메뉴가 좋습니다. 정상에서 해결하면 일정이 가장 흔들리지 않습니다.</p>
+                      </li>
+                      <li class="food-pick">
+                        <strong data-place-key="swiss_day2_rigi_kaltbad">Rigi Kaltbad Cafe<span class="food-type">산 위 휴식</span></strong>
+                        <span class="food-address">Rigi Kaltbad</span>
+                        <p>정상 이후 템포를 낮추는 카드입니다. 하산 전 커피, 케이크, 아이스티로 쉬는 시간을 확보합니다.</p>
+                      </li>
+                      <li class="food-pick">
+                        <strong data-place-key="swiss_day2_fondue">FONDUE HOUSE DU PONT<span class="food-type">저녁</span></strong>
+                        <span class="food-address">루체른 구시가지권</span>
+                        <p>퐁듀는 첫날보다 리기산 일정 후 만족도가 높습니다. 예약이 가능하면 미리 잡고, 부담스러우면 Restaurant Des Alpes로 전환합니다.</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="aside-card">
+                    <h4>날씨 대안</h4>
+                    <ul>
+                      <li>Rigi Kulm 웹캠에서 정상부가 구름에 덮이면 장거리 산악 이동을 줄입니다.</li>
+                      <li>대안 A: 카펠교, 구시가지, 빈사의 사자상 재방문과 Swiss Museum of Transport.</li>
+                      <li>대안 B: 짧은 루체른 호수 유람선과 카페 중심으로 전환합니다.</li>
+                    </ul>
+                  </div>
+                  <div class="aside-card">
+                    <h4>공식 확인 근거</h4>
+                    <p>Lake Lucerne 2026 여름 시간표, Rigi 2026 여름 산악열차 시간표, Weggis-Rigi Kaltbad 케이블카 2025/2026 시간표를 반영했습니다.</p>
+                  </div>
+                </aside>
+              </div>
+            </article>
+
+            <article class="day-card">
+              <div class="day-header">
+                <div class="day-date">
+                  <strong>07.18 Sat</strong>
+                  <span>Luzern → Interlaken West</span>
+                </div>
+                <div class="day-intro">
+                  <h3>추천 톤: “이동 자체가 관광인 날, 욕심내지 않고 도착까지만 관리”</h3>
+                  <p>
+                    Zentralbahn 공식 안내 기준 Luzern-Interlaken Express는 Luzern에서 06:06-21:06 매시간 출발하고,
+                    소요 시간은 약 1시간 50분입니다. 이번 일정은 결제한 티켓 기준 Luzern PL15 09:24 → Interlaken Ost 11:17,
+                    Interlaken Ost PL8 11:29 → Interlaken West PL1 11:32로 관리합니다.
+                  </p>
+                </div>
+              </div>
+              <div class="route-map-card" data-route-map-card="swiss-day3">
+                <div class="route-map-toolbar">
+                  <div class="route-map-copy">
+                    <strong>Swiss Day 3 파노라마 열차 지도</strong>
+                    <span>Luzern-Interlaken Express의 주요 조망 구간을 선형으로 표시합니다.</span>
+                  </div>
+                  <div class="route-map-actions">
+                    <span class="route-legend primary">파노라마 열차</span>
+                    <button class="route-map-button" type="button" data-route-map-open>지도 열기</button>
+                  </div>
+                </div>
+                <div class="route-map-shell" data-route-map-shell hidden>
+                  <div class="google-route-map" data-route-map-target aria-label="Swiss Day 3 Luzern Interlaken Express 지도"></div>
+                  <p class="route-map-status" data-route-map-status>Google Maps 지도를 준비 중입니다.</p>
+                </div>
+              </div>
+              <div class="day-content">
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div class="time-tag">07:30</div>
+                    <div>
+                      <strong data-place-key="swiss_day3_hotel">기상과 체크아웃 준비</strong>
+                      <span class="duration-tag">60분</span>
+                      <p>캐리어, 여권, Half Fare Card, 티켓 QR을 먼저 확인합니다. 조식은 길게 잡지 않습니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">09:00</div>
+                    <div>
+                      <strong data-place-keys="swiss_day3_hotel swiss_day3_luzern_station">호텔 → Luzern Station</strong>
+                      <span class="duration-tag">도보 이동</span>
+                      <p>09:10 전후 역 도착을 목표로 하고 PL15, 물, 간식을 확인합니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">09:24</div>
+                    <div>
+                      <strong data-place-keys="swiss_day3_luzern_station swiss_day3_interlaken_ost">Luzern → Interlaken Ost 출발</strong>
+                      <span class="duration-tag">09:24-11:17 · PL15</span>
+                      <p>루체른에서 인터라켄 방향은 진행방향 오른쪽 좌석이 공식 추천 전망 방향입니다. 2026년 7월 토요일 성수기라 좌석 예약을 권장합니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">09:50</div>
+                    <div>
+                      <strong data-place-keys="swiss_day3_sarnen swiss_day3_brunig swiss_day3_brienz">Sarnen, Brünig, Brienz 조망</strong>
+                      <span class="duration-tag">차창 감상</span>
+                      <p>호수와 전원 풍경, Brünig-Hasliberg 고도감, Brienz 접근 구간의 청록빛 호수를 순서대로 봅니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">11:17</div>
+                    <div>
+                      <strong data-place-key="swiss_day3_interlaken_ost">Interlaken Ost 도착 / 환승</strong>
+                      <span class="duration-tag">11:29 출발 · PL8</span>
+                      <p>12분 환승으로 Interlaken West행 열차를 이어 탑니다. 큰 이동은 끝났지만 플랫폼 이동과 짐 정리를 먼저 봅니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">11:32</div>
+                    <div>
+                      <strong data-place-key="swiss_day3_interlaken_west">Interlaken West 도착</strong>
+                      <span class="duration-tag">PL1 · Airbnb 주소 추후 반영</span>
+                      <p>예약 숙소의 정확 주소가 확정되면 Interlaken West에서 숙소까지 도보, 버스, 택시 중 가장 안정적인 마지막 구간을 추가합니다.</p>
+                    </div>
+                  </div>
+                </div>
+                <aside class="day-aside">
+                  <div class="aside-card">
+                    <h4>아침과 간식</h4>
+                    <ul class="food-list">
+                      <li class="food-pick">
+                        <strong>호텔 조식<span class="food-type">안정형</span></strong>
+                        <p>09:24 열차를 놓치지 않는 범위에서 가장 안정적입니다. 오래 앉는 조식보다 빠른 정리가 우선입니다.</p>
+                      </li>
+                      <li class="food-pick">
+                        <strong data-place-key="swiss_day3_luzern_station">루체른역 베이커리<span class="food-type">대안</span></strong>
+                        <p>조식 시간이 애매하면 역에서 커피, 빵, 물, 작은 초콜릿을 사서 탑승합니다.</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="aside-card">
+                    <h4>예약·좌석</h4>
+                    <ul>
+                      <li>Zentralbahn 공식 안내 기준 2026.05.02-2026.11.01 좌석 예약 수수료는 CHF 16입니다.</li>
+                      <li>특별 티켓이 아니라 일반 열차 티켓으로 탑승 가능하며, Swiss Half Fare Card 할인 티켓을 구매합니다.</li>
+                      <li>루체른 출발 방향 오른쪽 좌석을 우선합니다.</li>
+                    </ul>
+                  </div>
+                </aside>
+              </div>
+            </article>
+          </div>
+
+          <div class="source-row" aria-label="스위스 일정 공식 출처">
+            <a class="source-chip" href="https://www.lakelucerne.ch/en/information/timetable/" target="_blank" rel="noreferrer">Lake Lucerne timetable</a>
+            <a class="source-chip" href="https://www.rigi.ch/en/inform/timetables" target="_blank" rel="noreferrer">Rigi timetables</a>
+            <a class="source-chip" href="https://www.zentralbahn.ch/en/experience/leisure/luzern-interlaken-express" target="_blank" rel="noreferrer">Zentralbahn Express</a>
+            <a class="source-chip" href="https://www.sbb.ch/en/offers/swiss-half-fare-card" target="_blank" rel="noreferrer">SBB Half Fare</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="italy">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <span class="section-index">Italy</span>
+              <h2>2026.07.21 화 - 2026.07.26 일 | 밀라노·꼬모·베르가모</h2>
+              <p>
+                기존 이탈리아 일정은 UNA HOTELS Century Milano를 베이스캠프로 둔 구조를 유지합니다.
+                아래 Overview부터 Day 1-6까지 기존 카드, 지도, 음식 후보, 체크리스트 흐름이 이어집니다.
+              </p>
+            </div>
+            <a class="source-chip" href="#overview">이탈리아 Overview</a>
+          </div>
+        </div>
+      </section>
+
       <section id="overview">
         <div class="section-inner">
           <div class="section-head">
@@ -4446,19 +4915,24 @@
   </script>
   <script src="./assets/google-maps-config.js"></script>
   <script>
-    window.GOOGLE_MAPS_CONFIG_READY = (async function () {
+    window.loadLocalGoogleMapsConfig = async function () {
       try {
         const host = window.location.hostname;
         const isLocalHost = host === "localhost" || host === "127.0.0.1" || host === "::1" || window.location.protocol === "file:";
-        if (!isLocalHost) return;
-        const response = await fetch("./assets/google-maps-config.local.json", { cache: "no-cache" });
-        if (!response.ok) return;
+        if (!isLocalHost) return false;
+        const localConfigUrl = `./assets/google-maps-config.local.json?local=${Date.now()}`;
+        const response = await fetch(localConfigUrl, { cache: "no-store" });
+        if (!response.ok) return false;
         const localConfig = await response.json();
         window.GOOGLE_MAPS_CONFIG = Object.assign({}, window.GOOGLE_MAPS_CONFIG || {}, localConfig);
+        return Boolean(window.GOOGLE_MAPS_CONFIG.apiKey);
       } catch {
         // Missing local config is expected on GitHub Pages and on clean checkouts.
+        return false;
       }
-    }());
+    };
+
+    window.GOOGLE_MAPS_CONFIG_READY = window.loadLocalGoogleMapsConfig();
   </script>
   <script>
     window.PLACE_NUMBER_BADGES_READY = (async function hydratePlaceNumberBadges() {
@@ -4690,6 +5164,16 @@
         return config.googleRouteEngine === "routes" && Boolean(config.apiKey);
       }
 
+      async function ensureGoogleMapsConfigLoaded() {
+        if (window.GOOGLE_MAPS_CONFIG_READY) {
+          await window.GOOGLE_MAPS_CONFIG_READY;
+        }
+
+        if (!getConfig().apiKey && typeof window.loadLocalGoogleMapsConfig === "function") {
+          await window.loadLocalGoogleMapsConfig();
+        }
+      }
+
       function isGooglePlacesEnrichmentEnabled() {
         return getConfig().googlePlacesEnrichment !== false;
       }
@@ -4731,9 +5215,7 @@
       }
 
       async function ensureGoogleMapsApi() {
-        if (window.GOOGLE_MAPS_CONFIG_READY) {
-          await window.GOOGLE_MAPS_CONFIG_READY;
-        }
+        await ensureGoogleMapsConfigLoaded();
 
         const config = getConfig();
         if (!config.apiKey) {
@@ -5003,9 +5485,7 @@
           return;
         }
 
-        if (window.GOOGLE_MAPS_CONFIG_READY) {
-          await window.GOOGLE_MAPS_CONFIG_READY;
-        }
+        await ensureGoogleMapsConfigLoaded();
 
         if (!shouldUseGoogleRoutesApi()) {
           renderGoogleMapsEmbed(card, mapConfig, "default-google-embed");
@@ -5199,9 +5679,10 @@
         }
 
         if (reason === "auth-failure") {
+          const currentReferrer = `${window.location.origin}/*`;
           return {
             title: "Google Maps API 키 인증에 실패했습니다.",
-            body: "Google Cloud Console에서 billing, Maps JavaScript API, Routes API 사용 설정과 HTTP referrer 제한을 확인하세요. GitHub Pages referrer는 https://gudc0831.github.io/wedding/* 입니다."
+            body: `Google Cloud Console에서 billing, Maps JavaScript API, Routes API 사용 설정과 HTTP referrer 제한을 확인하세요. 현재 로컬 referrer 후보는 ${currentReferrer} 입니다. 로컬 테스트에는 http://localhost:8000/* 또는 http://localhost:4000/*, GitHub Pages에는 https://gudc0831.github.io/wedding/* 를 허용하세요.`
           };
         }
 
@@ -5325,6 +5806,78 @@
         return line;
       }
 
+      function directionsTravelMode(segment) {
+        const requestedMode = String(segment.mapTravelMode || segment.travelMode || "DRIVING").toUpperCase();
+        return google.maps.TravelMode?.[requestedMode] || requestedMode;
+      }
+
+      function selectShortestDirectionsRoute(routes) {
+        const sorted = routes
+          .slice()
+          .map((route) => ({
+            route,
+            distance: (route.legs || []).reduce((total, leg) => total + (leg.distance?.value || 0), 0)
+          }))
+          .filter((item) => item.distance > 0)
+          .sort((a, b) => a.distance - b.distance);
+
+        return sorted[0]?.route || routes[0];
+      }
+
+      function drawDirectionsServiceRoute(map, segment, fromPoint, toPoint, style, bounds) {
+        if (!google.maps.DirectionsService || !google.maps.DirectionsStatus) {
+          return Promise.resolve(false);
+        }
+
+        const service = new google.maps.DirectionsService();
+        return new Promise((resolve) => {
+          service.route({
+            origin: pointPosition(fromPoint),
+            destination: pointPosition(toPoint),
+            travelMode: directionsTravelMode(segment),
+            provideRouteAlternatives: true
+          }, (response, status) => {
+            if (status !== google.maps.DirectionsStatus.OK || !response?.routes?.length) {
+              resolve(false);
+              return;
+            }
+
+            const route = selectShortestDirectionsRoute(response.routes);
+            const path = route.overview_path || route.legs?.flatMap((leg) =>
+              (leg.steps || []).flatMap((step) => step.path || [])
+            ) || [];
+            if (!path.length) {
+              resolve(false);
+              return;
+            }
+
+            path.forEach((position) => bounds.extend(position));
+            const line = new google.maps.Polyline({
+              map,
+              path,
+              strokeColor: style.color,
+              strokeOpacity: style.dashed ? 0 : style.opacity,
+              strokeWeight: style.weight,
+              zIndex: style.dashed ? 3 : 4,
+              icons: style.dashed
+                ? [{
+                    icon: {
+                      path: "M 0,-1 0,1",
+                      strokeColor: style.color,
+                      strokeOpacity: style.opacity,
+                      strokeWeight: style.weight,
+                      scale: 3
+                    },
+                    offset: "0",
+                    repeat: "16px"
+                  }]
+                : null
+            });
+            resolve(Boolean(line));
+          });
+        });
+      }
+
       function travelModeValue(travelModeMap, mode) {
         const normalized = String(mode || "WALKING").toUpperCase();
         return travelModeMap[normalized] || normalized;
@@ -5349,6 +5902,11 @@
 
       function isDrivingRouteMode(travelMode) {
         return String(travelMode).toUpperCase().includes("DRIVING");
+      }
+
+      function shouldUseCoordinateRouteSegment(segment, useCoordinateRouting) {
+        const requestedMode = String(segment.mapTravelMode || segment.travelMode || "DRIVING").toUpperCase();
+        return Boolean(useCoordinateRouting || segment.useCoordinateRouting || requestedMode !== "DRIVING");
       }
 
       function selectShortestRoute(routes) {
@@ -5567,7 +6125,17 @@
         if (!fromPoint || !toPoint) return { fallback: true, skipped: true };
 
         const style = routeStyle(segment.routeType);
+        if (shouldUseCoordinateRouteSegment(segment, useCoordinateRouting)) {
+          drawFallbackLine(map, fromPoint, toPoint, segment);
+          bounds.extend(pointPosition(fromPoint));
+          bounds.extend(pointPosition(toPoint));
+          return { fallback: false, coordinate: true };
+        }
+
         if (!libraries || !libraries.available) {
+          if (await drawDirectionsServiceRoute(map, segment, fromPoint, toPoint, style, bounds)) {
+            return { fallback: false, directions: true };
+          }
           drawFallbackLine(map, fromPoint, toPoint, segment);
           return { fallback: true, reason: libraries?.reason || "routes-library-unavailable" };
         }
@@ -5623,6 +6191,9 @@
 
           return { fallback: false };
         } catch {
+          if (await drawDirectionsServiceRoute(map, segment, fromPoint, toPoint, style, bounds)) {
+            return { fallback: false, directions: true };
+          }
           drawFallbackLine(map, fromPoint, toPoint, segment);
           return { fallback: true };
         }
@@ -5664,6 +6235,8 @@
           mapConfig.routes.map((segment) => drawRouteSegment(map, segment, pointsByKey, routeLibraries, bounds, mapConfig.useCoordinateRouting))
         );
         const fallbackCount = routeResults.filter((result) => result.fallback && !result.skipped).length;
+        const coordinateCount = routeResults.filter((result) => result.coordinate).length;
+        const usesOfficialCoordinateAxis = Boolean(mapConfig.officialCoordinateAxis || mapConfig.useCoordinateRouting);
         const routeLibraryUnavailable = !routeLibraries.available;
         const routeSoftLimited = routeResults.some((result) => result.reason === "route-soft-limit");
 
@@ -5673,14 +6246,21 @@
 
         mapStates.set(target, { map, bounds });
         fallbackIfGoogleMapsAccountError(card, mapConfig, target);
+        if (target.querySelector(".route-map-error")) {
+          return;
+        }
 
         const note = mapConfig.note ? ` ${mapConfig.note}` : "";
-        if (routeLibraryUnavailable) {
+        if (usesOfficialCoordinateAxis && coordinateCount) {
+          setRouteStatus(card, `공식 시간표로 확인한 교통축을 좌표 기반 연결선으로 표시했습니다. 번호 마커와 방문 순서는 유지됩니다.${note}`);
+        } else if (routeLibraryUnavailable) {
           setRouteStatus(card, `Google Routes 라이브러리를 사용할 수 없어 좌표 기반 경로선으로 표시했습니다. 번호 마커와 방문 순서는 Google 지도 위에 유지됩니다.${note}`);
         } else if (routeSoftLimited) {
           setRouteStatus(card, `이번 달 Google Routes 호출 제한에 도달해 일부 구간은 좌표 기반 보조선으로 표시했습니다. 번호 마커와 방문 순서는 유지됩니다.${note}`);
         } else if (fallbackCount) {
           setRouteStatus(card, `일부 구간은 Google Routes 결과를 받지 못해 좌표 기반 보조선으로 표시했습니다.${note}`);
+        } else if (coordinateCount) {
+          setRouteStatus(card, `일부 구간은 일정상 좌표 기반 보조선으로 표시했습니다.${note}`);
         } else {
           setRouteStatus(card, `최단/최적 경로로 이어서 표시했습니다. 마커를 누르면 장소 역할을 확인할 수 있습니다.${note}`);
         }

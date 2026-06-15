@@ -6,8 +6,10 @@ if (!rootUrl) {
 }
 
 const pageUrl = `${rootUrl}/milano_honeymoon_guide.html?verify=${Date.now()}`;
-const routeIds = ["day1", "day2", "day3", "day4", "day5", "day6"];
+const routeIds = ["swiss-day1", "swiss-day2", "swiss-day3", "day1", "day2", "day3", "day4", "day5", "day6"];
 const requiredSectionIds = [
+  "switzerland",
+  "italy",
   "overview",
   "practical-info",
   "hotel-base",
@@ -194,7 +196,7 @@ async function verifyPwaOffline(page, context) {
       const data = await response.json();
       return {
         ok: response.ok,
-        hasDailyMaps: Array.isArray(data.dailyMaps) && data.dailyMaps.length >= 6,
+        hasDailyMaps: Array.isArray(data.dailyMaps) && data.dailyMaps.length >= routeIds.length,
         hasStaticMaps: Array.isArray(data.maps) && data.maps.length >= 2
       };
     });
@@ -228,6 +230,20 @@ async function verifyRouteMap(page, routeId) {
   await waitForRouteStatus(page, routeId);
 
   const status = await card.locator("[data-google-route-map-status]").innerText({ timeout: 30000 });
+  const routeMeta = await page.evaluate(async (id) => {
+    const response = await fetch("./assets/map-data.json", { cache: "no-cache" });
+    const data = await response.json();
+    const mapConfig = (data.dailyMaps || []).find((item) => item.id === id);
+    return {
+      hasMapConfig: Boolean(mapConfig),
+      routeCount: mapConfig?.routes?.length || 0,
+      hasCoordinateRoutes: Boolean(mapConfig?.routes?.some((segment) =>
+        segment.useCoordinateRouting ||
+        String(segment.mapTravelMode || segment.travelMode || "DRIVING").toUpperCase() !== "DRIVING"
+      )),
+      usesOfficialCoordinateAxis: Boolean(mapConfig?.officialCoordinateAxis || mapConfig?.useCoordinateRouting)
+    };
+  }, routeId);
   const hasEmbedIframe = await googlePanel.evaluate((node) =>
     Array.from(node.children).some((child) => child.tagName === "IFRAME")
   );
@@ -250,8 +266,25 @@ async function verifyRouteMap(page, routeId) {
   if (hasConfigError || hasGoogleAccountOverlay) {
     throw new Error(`${routeId}: Google Maps account/API configuration error was rendered.`);
   }
-  if (routeFailurePattern.test(status) || !/최단\/최적 경로/.test(status)) {
+
+  if (!routeMeta.hasMapConfig || !routeMeta.routeCount) {
+    throw new Error(`${routeId}: map-data.json route configuration was not found.`);
+  }
+
+  const acceptsCoordinateStatus = routeMeta.hasCoordinateRoutes && /좌표 기반/.test(status);
+  if (routeFailurePattern.test(status) && !acceptsCoordinateStatus) {
     throw new Error(`${routeId}: Routes API did not render cleanly. Status: ${status}`);
+  }
+  if (routeMeta.usesOfficialCoordinateAxis) {
+    if (!/공식 시간표로 확인한 교통축/.test(status)) {
+      throw new Error(`${routeId}: expected official coordinate transport-axis status. Status: ${status}`);
+    }
+  } else if (routeMeta.hasCoordinateRoutes) {
+    if (!/^최단\/최적 경로|좌표 기반 보조선/.test(status)) {
+      throw new Error(`${routeId}: expected clean route or intentional coordinate helper status. Status: ${status}`);
+    }
+  } else if (!/^최단\/최적 경로/.test(status)) {
+    throw new Error(`${routeId}: expected Google Routes API clean route status. Status: ${status}`);
   }
 
   console.log(`Verified ${routeId} route map.`);
