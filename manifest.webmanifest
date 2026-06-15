@@ -1,8 +1,8 @@
 {
   "id": "./index.html",
-  "name": "Swiss & Italy Honeymoon Guide",
+  "name": "Czechia, Swiss & Italy Honeymoon Guide",
   "short_name": "Honeymoon Guide",
-  "description": "Offline-ready Switzerland and Italy honeymoon guide for July 2026.",
+  "description": "Offline-ready Czechia, Switzerland and Italy honeymoon guide for July 2026.",
   "lang": "ko",
   "start_url": "./index.html",
   "scope": "./",
@@ -18,6 +18,11 @@
     }
   ],
   "shortcuts": [
+    {
+      "name": "체코 일정",
+      "short_name": "Czechia",
+      "url": "./czech_honeymoon_guide.html"
+    },
     {
       "name": "스위스 일정",
       "short_name": "Swiss",

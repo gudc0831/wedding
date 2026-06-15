@@ -1,7 +1,8 @@
-const CACHE_VERSION = "swiss-italy-honeymoon-guide-v20260615-swiss-photo-fix";
+const CACHE_VERSION = "czech-swiss-italy-honeymoon-guide-v20260615";
 const PRECACHE_URLS = [
   "./",
   "./index.html",
+  "./czech_honeymoon_guide.html",
   "./switzerland_honeymoon_guide.html",
   "./italy_honeymoon_guide.html",
   "./milano_honeymoon_guide.html",
@@ -50,6 +51,9 @@ async function networkFirstNavigation(request) {
     }
     return response;
   } catch {
+    const cachedRequest = await caches.match(request, { ignoreSearch: true });
+    if (cachedRequest) return cachedRequest;
+
     const cachedGuide = await caches.match(GUIDE_URL);
     if (cachedGuide) return cachedGuide;
     const cachedIndex = await caches.match("./index.html");

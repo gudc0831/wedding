@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>체코 허니문 가이드 | 2026.07.11 - 2026.07.15 · 2026.07.26 - 2026.07.27</title>
+  <meta name="description" content="프라하 도착 후 체스키크롬로프 당일치기까지의 출국 전 체코 일정과, 이탈리아 이후 귀국 전 프라하 일정을 분리한 체코 허니문 가이드입니다.">
+  <link rel="icon" href="./assets/cover-pattern.svg" type="image/svg+xml">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <meta name="theme-color" content="#17372f">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Czech Guide">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Song+Myung&family=Cormorant+Garamond:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700;800&display=swap');
+
+    :root {
+      --bg: #f6f0e3;
+      --paper: rgba(255, 250, 241, 0.84);
+      --panel: rgba(255, 255, 255, 0.72);
+      --ink: #17372f;
+      --ink-soft: #4b635a;
+      --line: rgba(23, 55, 47, 0.14);
+      --gold: #cda16a;
+      --rose: #d6a090;
+      --sage: #78917e;
+      --shadow: 0 18px 46px rgba(24, 54, 47, 0.12);
+      --max: 1220px;
+      --anchor-offset: 170px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    section[id]::before {
+      content: "";
+      display: block;
+      height: var(--anchor-offset);
+      margin-top: calc(var(--anchor-offset) * -1);
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: 15px;
+      background:
+        radial-gradient(circle at 14% 14%, rgba(205, 161, 106, 0.16), transparent 28%),
+        radial-gradient(circle at 82% 18%, rgba(214, 160, 144, 0.18), transparent 24%),
+        radial-gradient(circle at 70% 80%, rgba(120, 145, 126, 0.12), transparent 26%),
+        linear-gradient(180deg, #faf6ee 0%, #f3ecde 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("./assets/cover-pattern.svg") center/cover no-repeat;
+      opacity: 0.16;
+      pointer-events: none;
+      mix-blend-mode: multiply;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .page-shell {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 8;
+      backdrop-filter: blur(18px);
+      background: rgba(246, 240, 227, 0.84);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 12px 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, var(--ink), #2e5c50);
+      color: #fff8f0;
+      display: grid;
+      place-items: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      box-shadow: var(--shadow);
+      flex: 0 0 auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 4px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--ink-soft);
+    }
+
+    .brand-copy h1 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .country-tabs {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px;
+      border: 1px solid rgba(23, 55, 47, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.54);
+      width: fit-content;
+    }
+
+    .country-tabs a,
+    .nav-links a,
+    .button,
+    .source-chip {
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .country-tabs a {
+      min-height: 34px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      color: var(--ink-soft);
+      font-size: 0.84rem;
+      white-space: nowrap;
+    }
+
+    .country-tabs a:hover,
+    .country-tabs a[aria-current="page"] {
+      background: var(--ink);
+      color: #fff9f1;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      max-height: 96px;
+      overflow-y: auto;
+      padding: 0 4px 4px 0;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(23, 55, 47, 0.28) transparent;
+    }
+
+    .nav-links a {
+      flex: 0 0 auto;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.56);
+      color: var(--ink-soft);
+      font-size: 0.84rem;
+      line-height: 1.2;
+    }
+
+    .hero,
+    main,
+    footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding-inline: 18px;
+    }
+
+    .hero {
+      padding-top: 20px;
+      padding-bottom: 10px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-visual,
+    .section-inner,
+    .journey-divider,
+    .day-card,
+    .info-card,
+    .spot-card,
+    .aside-card {
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      background: var(--paper);
+    }
+
+    .hero-copy,
+    .hero-visual {
+      border-radius: 34px;
+      overflow: hidden;
+    }
+
+    .hero-copy {
+      padding: 24px;
+    }
+
+    .hero-kicker,
+    .section-index,
+    .micro-chip,
+    .time-tag,
+    .stat-label {
+      color: var(--ink-soft);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+
+    .hero-copy h2 {
+      margin: 8px 0 12px;
+      font-family: "Song Myung", serif;
+      font-size: clamp(2.4rem, 7vw, 5.7rem);
+      line-height: 0.98;
+      font-weight: 400;
+    }
+
+    p {
+      color: var(--ink-soft);
+      line-height: 1.75;
+    }
+
+    .hero-copy p {
+      margin: 0;
+      max-width: 68ch;
+    }
+
+    .hero-stats,
+    .quick-grid,
+    .spot-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .stat-card {
+      padding: 14px;
+      border: 1px solid rgba(23, 55, 47, 0.12);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.58);
+    }
+
+    .stat-value {
+      display: block;
+      margin-top: 6px;
+      font-size: 1.05rem;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .button,
+    .source-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      line-height: 1.2;
+    }
+
+    .button {
+      min-height: 42px;
+      padding: 11px 16px;
+      border: 1px solid var(--ink);
+    }
+
+    .button-primary {
+      background: var(--ink);
+      color: #fff9f1;
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.6);
+      color: var(--ink);
+    }
+
+    .hero-visual {
+      min-height: 430px;
+      position: relative;
+      isolation: isolate;
+      background:
+        linear-gradient(180deg, rgba(23, 55, 47, 0.02), rgba(23, 55, 47, 0.18)),
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Charles%20bridge%20Prague%20-%20tunliweb.no.jpg?width=1200") center/cover no-repeat;
+    }
+
+    .hero-visual::after {
+      content: "Prague · Cesky Krumlov · Return Night";
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      padding: 14px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: 18px;
+      background: rgba(23, 55, 47, 0.72);
+      color: #fff8f0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.04em;
+    }
+
+    main {
+      display: grid;
+      gap: 18px;
+      padding-top: 10px;
+      padding-bottom: 26px;
+    }
+
+    .section-inner {
+      border-radius: 28px;
+      padding: 22px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .section-head h2,
+    .journey-divider h2,
+    .day-intro h3,
+    .info-card h3,
+    .spot-card h3,
+    .aside-card h4 {
+      margin: 0;
+      line-height: 1.28;
+    }
+
+    .section-head h2,
+    .journey-divider h2 {
+      font-size: clamp(1.4rem, 3vw, 2.35rem);
+    }
+
+    .section-head p,
+    .info-card p,
+    .spot-card p,
+    .aside-card p {
+      margin: 8px 0 0;
+    }
+
+    .source-chip {
+      flex: 0 0 auto;
+      min-height: 34px;
+      padding: 8px 12px;
+      border: 1px solid rgba(23, 55, 47, 0.16);
+      background: rgba(255, 255, 255, 0.58);
+      color: var(--ink-soft);
+      font-size: 0.82rem;
+    }
+
+    .country-note,
+    .journey-divider {
+      border-radius: 22px;
+      padding: 16px 18px;
+      background: rgba(23, 55, 47, 0.08);
+      border: 1px solid rgba(23, 55, 47, 0.1);
+    }
+
+    .country-note {
+      margin: 0 0 16px;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .info-card,
+    .spot-card,
+    .aside-card {
+      border-radius: 20px;
+      padding: 16px;
+    }
+
+    .spot-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-bottom: 18px;
+    }
+
+    .spot-card {
+      overflow: hidden;
+    }
+
+    .spot-card img {
+      width: calc(100% + 32px);
+      height: 188px;
+      object-fit: cover;
+      margin: -16px -16px 14px;
+      max-width: none;
+    }
+
+    .journey-divider {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(260px, 1.1fr);
+      gap: 16px;
+      align-items: center;
+      background:
+        linear-gradient(135deg, rgba(23, 55, 47, 0.92), rgba(46, 92, 80, 0.88)),
+        url("./assets/cover-pattern.svg") center/cover no-repeat;
+      color: #fff9f1;
+    }
+
+    .journey-divider p,
+    .journey-divider li {
+      color: rgba(255, 249, 241, 0.82);
+    }
+
+    .journey-divider strong {
+      color: #fff9f1;
+    }
+
+    .journey-divider ul {
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.75;
+    }
+
+    .day-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .day-card {
+      border-radius: 28px;
+      overflow: hidden;
+    }
+
+    .day-header {
+      display: grid;
+      grid-template-columns: minmax(180px, 0.34fr) minmax(0, 1fr);
+      gap: 18px;
+      padding: 20px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .day-date strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.8rem;
+      line-height: 1.05;
+    }
+
+    .day-date span {
+      display: block;
+      margin-top: 8px;
+      color: var(--ink-soft);
+      line-height: 1.45;
+      font-weight: 700;
+    }
+
+    .day-intro p {
+      margin: 8px 0 0;
+    }
+
+    .day-content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 0.36fr);
+      gap: 18px;
+      padding: 20px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 96px minmax(0, 1fr);
+      gap: 14px;
+      padding: 14px;
+      border: 1px solid rgba(23, 55, 47, 0.1);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .timeline-item strong {
+      display: block;
+      font-size: 1rem;
+    }
+
+    .timeline-item p {
+      margin: 5px 0 0;
+    }
+
+    .duration-tag {
+      display: inline-flex;
+      margin-top: 6px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(205, 161, 106, 0.16);
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .day-aside {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .food-list {
+      list-style: none;
+      margin: 10px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .food-pick {
+      padding-top: 10px;
+      border-top: 1px solid rgba(23, 55, 47, 0.12);
+    }
+
+    .food-type {
+      display: block;
+      margin-top: 3px;
+      color: var(--ink-soft);
+      font-size: 0.8rem;
+    }
+
+    .source-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    footer {
+      padding-top: 0;
+      padding-bottom: 28px;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .day-content,
+      .journey-divider {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats,
+      .quick-grid,
+      .spot-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .day-header {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 320px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      body {
+        font-size: 14px;
+      }
+
+      .topbar-inner,
+      .hero,
+      main,
+      footer {
+        padding-inline: 14px;
+      }
+
+      .hero-stats,
+      .quick-grid,
+      .spot-grid,
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .country-tabs {
+        width: 100%;
+        overflow-x: auto;
+      }
+
+      .country-tabs a {
+        flex: 1 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand">
+          <div class="brand-mark">CZ</div>
+          <div class="brand-copy">
+            <p class="eyebrow">Czech Honeymoon Notes</p>
+            <h1>2026.07.11 토 - 2026.07.15 수 · 2026.07.26 일 - 2026.07.27 월 | 프라하·체스키크롬로프</h1>
+          </div>
+        </div>
+        <nav class="country-tabs" aria-label="국가별 최상위 탭">
+          <a href="./czech_honeymoon_guide.html" aria-current="page">체코</a>
+          <a href="./switzerland_honeymoon_guide.html">스위스</a>
+          <a href="./italy_honeymoon_guide.html">이탈리아</a>
+        </nav>
+        <nav class="nav-links" aria-label="페이지 이동">
+          <a href="#czech-overview">Czech Overview</a>
+          <a href="#czech-first-leg">07.11-07.15</a>
+          <a href="#czech-return-divider">이동 구간 분리</a>
+          <a href="#czech-return-leg">07.26-07.27</a>
+          <a href="#czech-sources">Sources</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="hero-kicker">Czechia Route</div>
+          <h2>체코 여행</h2>
+          <p>
+            체코는 두 번 등장하지만 하나의 연속 이동이 아닙니다. 첫 구간은 <strong>프라하 도착 후 5박</strong>,
+            두 번째 구간은 이탈리아 일정을 마친 뒤 <strong>귀국 전 프라하 1박</strong>입니다. 그래서 일정도 두 블록으로 분리했습니다.
+          </p>
+          <div class="hero-stats">
+            <div class="stat-card">
+              <span class="stat-label">First Leg</span>
+              <span class="stat-value">07.11-07.15</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Break</span>
+              <span class="stat-value">Swiss · Italy</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Return Leg</span>
+              <span class="stat-value">07.26-07.27</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Base</span>
+              <span class="stat-value">Prague</span>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#czech-first-leg">첫 체코 구간 보기</a>
+            <a class="button button-secondary" href="#czech-return-leg">귀국 전 체코 구간 보기</a>
+            <a class="button button-secondary" href="./switzerland_honeymoon_guide.html">스위스 일정 열기</a>
+          </div>
+        </div>
+        <div class="hero-visual" aria-label="프라하 찰스브리지와 구시가지 분위기 이미지"></div>
+      </div>
+    </div>
+
+    <main>
+      <section id="czech-overview">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <span class="section-index">Czechia</span>
+              <h2>프라하 5박과 귀국 전 1박을 분리해서 보는 체코 일정</h2>
+              <p>
+                엑셀 일정과 `체코-둥` 메모 시트를 기준으로 프라하성, 까를교, 구시가지, 체스키크롬로프, 스냅 촬영,
+                마지막 프라하 1박을 나눴습니다.
+              </p>
+            </div>
+            <a class="source-chip" href="https://www.prague.eu/en/object/places/3129/astronomical-clock" target="_blank" rel="noreferrer">Prague City Tourism</a>
+          </div>
+
+          <p class="country-note">
+            핵심 구분: 07.11-07.15는 허니문 시작 구간이고, 07.26-07.27은 이탈리아 후 귀국 전 구간입니다.
+            두 블록 사이에는 스위스와 이탈리아 일정이 들어가므로, 체코 페이지 안에서도 별도 장으로 처리합니다.
+          </p>
+
+          <div class="quick-grid">
+            <article class="info-card">
+              <h3>첫 숙소</h3>
+              <p>Hotel Paris Prague, 07.11-07.16. 프라하 구시가지와 화약탑 쪽 접근성이 좋아 도착일과 구시가지 산책에 유리합니다.</p>
+            </article>
+            <article class="info-card">
+              <h3>스냅 촬영</h3>
+              <p>07.14 19:30-21:30, 막심프라하 스냅 촬영. 말로스트란스카 스타벅스 앞 집합을 일정의 고정점으로 둡니다.</p>
+            </article>
+            <article class="info-card">
+              <h3>귀국 전 숙소</h3>
+              <p>Charles Bridge Palace Hotel, 07.26-07.27. 귀국 전 밤은 까를교와 강변 야경 중심으로 짧고 선명하게 잡습니다.</p>
+            </article>
+            <article class="info-card">
+              <h3>운영 원칙</h3>
+              <p>프라하성·구시가지 핵심은 오전에, 식당 예약이 필요한 곳은 저녁 고정으로 둡니다. 마지막 날은 공항 이동 여유를 우선합니다.</p>
+            </article>
+          </div>
+
+          <div class="spot-grid" aria-label="체코 일정 핵심 장면">
+            <article class="spot-card">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Charles%20bridge%20Prague%20-%20tunliweb.no.jpg?width=900" alt="까를교와 프라하 성 야경" loading="lazy">
+              <span class="micro-chip">Prague · Early Walk</span>
+              <h3>까를교는 오전 10시 전</h3>
+              <p>엑셀 메모처럼 아침 10시 전에는 사람이 적어 사진과 산책이 편합니다. 도착 후 첫 온전한 날의 출발점으로 좋습니다.</p>
+            </article>
+            <article class="spot-card">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Prague%20Astronomical%20Clock.jpg?width=900" alt="프라하 천문시계" loading="lazy">
+              <span class="micro-chip">Old Town · Day 4</span>
+              <h3>천문시계와 화약탑</h3>
+              <p>Prague City Tourism 기준 천문시계 사도 행렬은 08:00-23:00 매시 진행됩니다. 화약탑 전망은 스냅 촬영 전 낮 시간에 넣습니다.</p>
+            </article>
+            <article class="spot-card">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cesky%20Krumlov%20Oldtown.jpeg?width=900" alt="체스키크롬로프 성과 구시가지" loading="lazy">
+              <span class="micro-chip">Cesky Krumlov · Day Trip</span>
+              <h3>체스키크롬로프 당일치기</h3>
+              <p>공식 성 설명 기준 성 구역은 다섯 개 안뜰과 성 정원으로 이루어진 큰 복합지입니다. 하루를 통째로 분리하는 편이 안정적입니다.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="czech-first-leg">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <span class="section-index">First Czech Leg</span>
+              <h2>2026.07.11 토 - 2026.07.15 수 | 프라하 도착 후 첫 체코 구간</h2>
+              <p>첫 구간은 Hotel Paris Prague를 베이스로 프라하성과 구시가지, 체스키크롬로프, 스냅 촬영을 나눠 봅니다.</p>
+            </div>
+          </div>
+
+          <div class="day-grid">
+            <article class="day-card" id="czech-day-1">
+              <div class="day-header">
+                <div class="day-date">
+                  <strong>07.11 Sat</strong>
+                  <span>Incheon → Prague arrival</span>
+                </div>
+                <div class="day-intro">
+                  <h3>추천 톤: “도착일은 짧게, 프라하 첫 장면만 확보”</h3>
+                  <p>KE969 인천공항 11:05 → 프라하 17:05 도착. 체크인 후 구시가지와 굴뚝빵 정도만 넣습니다.</p>
+                </div>
+              </div>
+              <div class="day-content">
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div class="time-tag">17:05</div>
+                    <div>
+                      <strong>프라하 공항 도착</strong>
+                      <span class="duration-tag">입국·수하물 버퍼</span>
+                      <p>입국 후 호텔 이동을 우선합니다. 도착일은 예약 식당보다 컨디션에 맞춘 가벼운 저녁이 낫습니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">저녁</div>
+                    <div>
+                      <strong>Hotel Paris Prague 체크인</strong>
+                      <span class="duration-tag">짐 정리</span>
+                      <p>첫 숙소는 07.11-07.16 베이스입니다. 체크인 후 무리하지 않고 화약탑·구시가지 방향으로만 짧게 산책합니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">선택</div>
+                    <div>
+                      <strong>Tradlo 굴뚝빵</strong>
+                      <span class="duration-tag">엑셀 메모 Day 1</span>
+                      <p>초코, 아이스크림, 딸기 조합을 후보로 둡니다. 늦은 저녁이라 식사 대체보다 디저트 산책으로 짧게 잡습니다.</p>
+                    </div>
+                  </div>
+                </div>
+                <aside class="day-aside">
+                  <div class="aside-card">
+                    <h4>첫날 조정 기준</h4>
+                    <ul>
+                      <li>비행 지연 또는 피로가 크면 호텔 체크인만 하고 종료합니다.</li>
+                      <li>야경 욕심은 07.12 이후로 넘깁니다.</li>
+                    </ul>
+                  </div>
+                </aside>
+              </div>
+            </article>
+
+            <article class="day-card" id="czech-day-2">
+              <div class="day-header">
+                <div class="day-date">
+                  <strong>07.12 Sun</strong>
+                  <span>Charles Bridge · Prague Castle · Strahov</span>
+                </div>
+                <div class="day-intro">
+                  <h3>추천 톤: “까를교는 아침, 프라하성은 운영시간 안에”</h3>
+                  <p>까를교를 이른 시간에 먼저 보고, 프라하성·성비투스 대성당·Lobkowicz Palace Cafe·Strahov 쪽으로 넘어갑니다.</p>
+                </div>
+              </div>
+              <div class="day-content">
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div class="time-tag">08:30</div>
+                    <div>
+                      <strong>까를교 아침 산책</strong>
+                      <span class="duration-tag">60-75분</span>
+                      <p>엑셀 메모대로 10시 전이 핵심입니다. Old Town Bridge Tower 쪽에서 시작해 말라스트라나 방향으로 걷습니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">10:00</div>
+                    <div>
+                      <strong>프라하성 · 성비투스 대성당</strong>
+                      <span class="duration-tag">2-3시간</span>
+                      <p>프라하성 공식 여름 운영 기준 성 건물은 09:00-17:00, 성비투스 대성당은 일요일 12:00-17:00입니다. 일요일이라 대성당은 정오 이후로 맞춥니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">13:30</div>
+                    <div>
+                      <strong>Lobkowicz Palace Cafe 또는 Kuchyn</strong>
+                      <span class="duration-tag">점심·카페</span>
+                      <p>엑셀 메모 기준 Lobkowicz Palace Cafe는 뷰 좋은 카페, Kuchyn은 슈니첼과 뷰 식당 후보입니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">15:30</div>
+                    <div>
+                      <strong>Strahov 수도원 도서관 · 양조장</strong>
+                      <span class="duration-tag">오후 블록</span>
+                      <p>도서관은 티켓 필요, 내부 입장 제한 메모가 있습니다. 이후 Klastorny pivovar Strahov에서 맥주와 쉬는 시간을 잡습니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">저녁</div>
+                    <div>
+                      <strong>Pork's 또는 프라하성 야경</strong>
+                      <span class="duration-tag">컨디션 선택</span>
+                      <p>Pork's는 꼴레뇨 후보입니다. 프라하성 야경은 계단 부담이 있으므로 트램 이동을 우선합니다.</p>
+                    </div>
+                  </div>
+                </div>
+                <aside class="day-aside">
+                  <div class="aside-card">
+                    <h4>운영시간 메모</h4>
+                    <ul>
+                      <li>프라하성 단지: 06:00-22:00.</li>
+                      <li>역사 건물: 09:00-17:00.</li>
+                      <li>성비투스 대성당 일요일: 12:00-17:00.</li>
+                    </ul>
+                  </div>
+                </aside>
+              </div>
+            </article>
+
+            <article class="day-card" id="czech-day-3">
+              <div class="day-header">
+                <div class="day-date">
+                  <strong>07.13 Mon</strong>
+                  <span>Cesky Krumlov day trip</span>
+                </div>
+                <div class="day-intro">
+                  <h3>추천 톤: “프라하와 섞지 말고 하루 통째로 분리”</h3>
+                  <p>엑셀상 체스키크롬로프 도시일입니다. 왕복 이동과 성·구시가지 산책을 고려해 다른 프라하 핵심 일정과 섞지 않습니다.</p>
+                </div>
+              </div>
+              <div class="day-content">
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div class="time-tag">아침</div>
+                    <div>
+                      <strong>프라하 → 체스키크롬로프 이동</strong>
+                      <span class="duration-tag">왕복 당일치기</span>
+                      <p>버스 또는 투어 예약을 확정한 뒤 출발지를 카드에 보강합니다. 여름 성수기라 귀환편까지 같이 확보하는 편이 안전합니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">오전</div>
+                    <div>
+                      <strong>체스키크롬로프 성 안뜰과 전망</strong>
+                      <span class="duration-tag">2시간</span>
+                      <p>공식 성 설명 기준 다섯 개 안뜰과 성 정원이 있는 큰 복합지입니다. 타워 전망은 대기와 날씨를 보고 선택합니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">오후</div>
+                    <div>
+                      <strong>구시가지 루프 산책</strong>
+                      <span class="duration-tag">느린 산책</span>
+                      <p>광장, 강변 전망, 성을 올려다보는 포인트를 중심으로 걷습니다. 관광객이 많으면 카페 휴식 시간을 먼저 확보합니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">저녁</div>
+                    <div>
+                      <strong>프라하 복귀</strong>
+                      <span class="duration-tag">귀환 우선</span>
+                      <p>다음 날 스냅 촬영이 있으므로 복귀 후 야간 일정을 강하게 넣지 않습니다.</p>
+                    </div>
+                  </div>
+                </div>
+                <aside class="day-aside">
+                  <div class="aside-card">
+                    <h4>예약 확인</h4>
+                    <p>체스키크롬로프는 교통 예약 방식에 따라 하루 품질이 달라집니다. 버스 왕복, 투어, 전용차 중 하나를 확정한 뒤 출발·복귀 시간을 보강합니다.</p>
+                  </div>
+                </aside>
+              </div>
+            </article>
+
+            <article class="day-card" id="czech-day-4">
+              <div class="day-header">
+                <div class="day-date">
+                  <strong>07.14 Tue</strong>
+                  <span>Old Town · Powder Gate · Snap shoot</span>
+                </div>
+                <div class="day-intro">
+                  <h3>추천 톤: “낮에는 구시가지, 저녁은 스냅 촬영 고정”</h3>
+                  <p>하벨시장, 천문시계, 화약탑, Pilsnerka Narodni를 낮에 배치하고 19:30 스냅 촬영에 맞춥니다.</p>
+                </div>
+              </div>
+              <div class="day-content">
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div class="time-tag">10:00</div>
+                    <div>
+                      <strong>하벨시장</strong>
+                      <span class="duration-tag">60분</span>
+                      <p>목공예, 시계, 과일 간식 후보가 있는 작은 시장입니다. 관광지 가격은 감안하고 작은 기념품 중심으로 봅니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">11:00</div>
+                    <div>
+                      <strong>천문시계 · 구시가지 광장</strong>
+                      <span class="duration-tag">정각 쇼</span>
+                      <p>Prague City Tourism 기준 사도 행렬은 08:00-23:00 매시 진행됩니다. 정각 10분 전 도착을 기준으로 합니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">13:30</div>
+                    <div>
+                      <strong>화약탑 전망</strong>
+                      <span class="duration-tag">전망 45-60분</span>
+                      <p>Prague City Tourism 기준 6-9월 운영시간은 09:00-20:30입니다. 달팽이 계단 부담은 있지만 프라하성 방향과 다른 뷰를 볼 수 있습니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">17:00</div>
+                    <div>
+                      <strong>Pilsnerka Narodni 이른 저녁</strong>
+                      <span class="duration-tag">스냅 전 식사</span>
+                      <p>엑셀 메모의 타르타르, 굴라쉬, 슈니첼 후보. 스냅 촬영 전이라 너무 늦게 먹지 않는 편이 좋습니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">19:30</div>
+                    <div>
+                      <strong>막심프라하 스냅 촬영</strong>
+                      <span class="duration-tag">19:30-21:30</span>
+                      <p>말로스트란스카 스타벅스 앞 집합. 이 시간은 고정 일정이므로 낮 일정은 늦어도 18:20 전후 마무리합니다.</p>
+                    </div>
+                  </div>
+                </div>
+                <aside class="day-aside">
+                  <div class="aside-card">
+                    <h4>스냅 전 관리</h4>
+                    <ul>
+                      <li>신발은 촬영 동선을 감안해 편한 것으로 준비합니다.</li>
+                      <li>저녁 식사는 냄새와 양을 가볍게 조절합니다.</li>
+                      <li>비 예보가 있으면 우산보다 사진에 덜 방해되는 얇은 방수 외투를 준비합니다.</li>
+                    </ul>
+                  </div>
+                </aside>
+              </div>
+            </article>
+
+            <article class="day-card" id="czech-day-5">
+              <div class="day-header">
+                <div class="day-date">
+                  <strong>07.15 Wed</strong>
+                  <span>Cafe Savoy · Wallenstein Garden · Cafe Imperial</span>
+                </div>
+                <div class="day-intro">
+                  <h3>추천 톤: “비행 전날은 카페와 정원, 짐 정리까지”</h3>
+                  <p>다음 날 프라하에서 취리히로 이동하므로 일정 강도를 낮추고, Cafe Savoy와 발트슈타인 궁전 정원을 중심으로 둡니다.</p>
+                </div>
+              </div>
+              <div class="day-content">
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div class="time-tag">09:30</div>
+                    <div>
+                      <strong>Cafe Savoy 브런치</strong>
+                      <span class="duration-tag">예약 권장</span>
+                      <p>공식 운영시간은 평일 08:00-22:00입니다. 엑셀 메모의 Savoy breakfast와 트러플 오믈렛 후보를 중심으로 봅니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">11:30</div>
+                    <div>
+                      <strong>발트슈타인 궁전 정원</strong>
+                      <span class="duration-tag">편한 산책</span>
+                      <p>엑셀 메모상 무료, 쉬기 좋은 정원형 코스입니다. 전날 스냅 촬영 후 피로를 풀기에 맞습니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">15:00</div>
+                    <div>
+                      <strong>Cafe Imperial 또는 호텔 휴식</strong>
+                      <span class="duration-tag">선택</span>
+                      <p>Cafe Imperial 공식 운영시간은 매일 07:00-23:00입니다. 디저트나 식사를 넣되, 다음 날 항공 이동 준비를 우선합니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">저녁</div>
+                    <div>
+                      <strong>스위스 이동 준비</strong>
+                      <span class="duration-tag">07.16 LX1485</span>
+                      <p>프라하 → 취리히 항공편, 취리히 → 루체른 열차, 여권, Swiss Half Fare Card, 충전기, 우비를 확인합니다.</p>
+                    </div>
+                  </div>
+                </div>
+                <aside class="day-aside">
+                  <div class="aside-card">
+                    <h4>다음날 고정 교통</h4>
+                    <p>07.16 09:30-10:55 스위스국제항공 LX1485 프라하 → 취리히. 취리히에서 루체른 열차는 엑셀에 예약 필요로 남아 있습니다.</p>
+                  </div>
+                </aside>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="czech-return-divider">
+        <div class="journey-divider">
+          <div>
+            <span class="section-index">Not Continuous</span>
+            <h2>여기서 체코 일정은 한 번 끊깁니다</h2>
+            <p>
+              07.16부터 07.25까지는 스위스와 이탈리아 일정입니다.
+              아래 07.26-07.27 체코 일정은 “프라하 재입국 후 귀국 전 1박”으로 따로 봐야 합니다.
+            </p>
+          </div>
+          <ul>
+            <li><strong>07.16-07.21</strong> 스위스: 루체른, 인터라켄, 그린델발트, 밀라노 이동</li>
+            <li><strong>07.21-07.26</strong> 이탈리아: 밀라노, 꼬모, 베르가모</li>
+            <li><strong>07.26-07.27</strong> 체코 복귀: 프라하 1박 후 KE970 귀국</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="czech-return-leg">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <span class="section-index">Return Czech Leg</span>
+              <h2>2026.07.26 일 - 2026.07.27 월 | 귀국 전 프라하 1박</h2>
+              <p>이탈리아 일정을 끝낸 뒤 다시 프라하로 들어오는 별도 구간입니다. 마지막 밤과 공항 이동을 중심으로 가볍게 관리합니다.</p>
+            </div>
+          </div>
+
+          <div class="day-grid">
+            <article class="day-card" id="czech-day-6">
+              <div class="day-header">
+                <div class="day-date">
+                  <strong>07.26 Sun</strong>
+                  <span>Milan Bergamo → Prague return</span>
+                </div>
+                <div class="day-intro">
+                  <h3>추천 톤: “여행 마지막 밤, 새 일정이 아니라 정리의 밤”</h3>
+                  <p>Milan(Bergamo) 15:10 → Prague 16:35 도착 후 Charles Bridge Palace Hotel 체크인. 프라하 야경만 짧게 봅니다.</p>
+                </div>
+              </div>
+              <div class="day-content">
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div class="time-tag">16:35</div>
+                    <div>
+                      <strong>프라하 도착</strong>
+                      <span class="duration-tag">Milan Bergamo 출발</span>
+                      <p>이 구간은 체코 첫 구간의 연장이 아니라 귀국 전 재입국입니다. 입국 후 호텔 이동과 짐 정리를 먼저 합니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">저녁</div>
+                    <div>
+                      <strong>Charles Bridge Palace Hotel 체크인</strong>
+                      <span class="duration-tag">슈페리어 리버뷰</span>
+                      <p>숙소 메모상 조식 포함, 금연, 도시세 현장 결제입니다. 강변 숙소 장점을 살려 멀리 이동하지 않습니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">선택</div>
+                    <div>
+                      <strong>까를교 마지막 야경 산책</strong>
+                      <span class="duration-tag">45-60분</span>
+                      <p>숙소와 가까운 범위에서만 움직입니다. 장거리 이동 후라 식당 예약보다 야경, 간단한 저녁, 짐 정리가 우선입니다.</p>
+                    </div>
+                  </div>
+                </div>
+                <aside class="day-aside">
+                  <div class="aside-card">
+                    <h4>마지막 밤 원칙</h4>
+                    <ul>
+                      <li>새 관광지를 추가하지 않습니다.</li>
+                      <li>공항 이동 전 짐 무게와 액체류를 정리합니다.</li>
+                      <li>기념품은 파손·기내 반입 가능 여부를 먼저 봅니다.</li>
+                    </ul>
+                  </div>
+                </aside>
+              </div>
+            </article>
+
+            <article class="day-card" id="czech-day-7">
+              <div class="day-header">
+                <div class="day-date">
+                  <strong>07.27 Mon</strong>
+                  <span>Prague → Incheon</span>
+                </div>
+                <div class="day-intro">
+                  <h3>추천 톤: “마지막 날은 공항 이동 여유가 일정의 핵심”</h3>
+                  <p>KE970 프라하 19:05 → 인천 13:20. 오전은 호텔 조식과 짧은 산책, 오후는 공항 이동을 우선합니다.</p>
+                </div>
+              </div>
+              <div class="day-content">
+                <div class="timeline">
+                  <div class="timeline-item">
+                    <div class="time-tag">오전</div>
+                    <div>
+                      <strong>호텔 조식 · 마지막 강변 산책</strong>
+                      <span class="duration-tag">짧게</span>
+                      <p>숙소 조식을 먹고 까를교 또는 강변만 짧게 걷습니다. 쇼핑을 넣더라도 호텔 근처와 공항 이동 동선을 넘지 않습니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">오후</div>
+                    <div>
+                      <strong>공항 이동</strong>
+                      <span class="duration-tag">여유 도착</span>
+                      <p>국제선 장거리 귀국편이므로 공항 도착 여유를 넉넉히 둡니다. 세금 환급이나 수하물 재정리 시간이 필요할 수 있습니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">19:05</div>
+                    <div>
+                      <strong>KE970 프라하 → 인천</strong>
+                      <span class="duration-tag">19:05-13:20</span>
+                      <p>엑셀 일정상 인천 도착은 07.28입니다. 장거리 비행 전 물, 목베개, 충전기, 상비약을 다시 확인합니다.</p>
+                    </div>
+                  </div>
+                </div>
+                <aside class="day-aside">
+                  <div class="aside-card">
+                    <h4>귀국 체크</h4>
+                    <ul>
+                      <li>여권, 항공권, 보조배터리 기내 반입.</li>
+                      <li>액체류와 기념품 파손 방지 포장.</li>
+                      <li>프라하 공항 도착 전 택스리펀 서류 위치 확인.</li>
+                    </ul>
+                  </div>
+                </aside>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="czech-sources">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <span class="section-index">Sources</span>
+              <h2>확인한 공식·준공식 자료</h2>
+              <p>운영시간과 핵심 배치는 여행 직전 다시 확인해야 합니다. 특히 성, 타워, 식당 예약은 변경 가능성이 있습니다.</p>
+            </div>
+          </div>
+          <div class="source-row">
+            <a class="source-chip" href="https://www.hrad.cz/en/prague-castle-for-visitors/opening-hours" target="_blank" rel="noreferrer">Prague Castle hours</a>
+            <a class="source-chip" href="https://www.prague.eu/en/object/places/3129/astronomical-clock" target="_blank" rel="noreferrer">Astronomical Clock</a>
+            <a class="source-chip" href="https://prague.eu/en/objevujte/charles-bridge-karluv-most/" target="_blank" rel="noreferrer">Charles Bridge</a>
+            <a class="source-chip" href="https://prague.eu/en/objevujte/powder-gate-tower-prasna-brana/" target="_blank" rel="noreferrer">Powder Gate Tower</a>
+            <a class="source-chip" href="https://castle.ckrumlov.cz/en/zamek_oinf_sthrza/" target="_blank" rel="noreferrer">Cesky Krumlov Castle</a>
+            <a class="source-chip" href="https://www.cafesavoy.ambi.cz/en/" target="_blank" rel="noreferrer">Cafe Savoy</a>
+            <a class="source-chip" href="https://www.cafeimperial.cz/en/homepage/" target="_blank" rel="noreferrer">Cafe Imperial</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      이 가이드는 현 시점 기준의 공식 또는 준공식 정보를 바탕으로 정리한 정적 문서입니다.
+      요금, 운영시간, 파업, 항공편, 공연 일정은 변경될 수 있으므로 실제 여행 전 7일, 2일, 전날 밤에 공식 링크를 기준으로 재확인하세요.
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      if (!("serviceWorker" in navigator)) return;
+      if (window.location.protocol === "file:") return;
+
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js").catch(() => {
+          // Offline mode is optional; the guide remains usable as a normal static page.
+        });
+      });
+    }());
+  </script>
+</body>
+</html>

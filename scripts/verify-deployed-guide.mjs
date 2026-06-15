@@ -7,10 +7,22 @@ if (!rootUrl) {
 
 const pageSpecs = [
   {
+    label: "czech",
+    path: "/czech_honeymoon_guide.html",
+    routeIds: [],
+    requiredSectionIds: [
+      "czech-overview",
+      "czech-first-leg",
+      "czech-return-divider",
+      "czech-return-leg",
+      "czech-sources"
+    ]
+  },
+  {
     label: "switzerland",
     path: "/switzerland_honeymoon_guide.html",
     routeIds: ["swiss-day1", "swiss-day2", "swiss-day3"],
-    requiredSectionIds: ["switzerland"]
+    requiredSectionIds: ["switzerland", "swiss-day-4", "swiss-day-5", "swiss-day-6"]
   },
   {
     label: "italy",
@@ -88,7 +100,8 @@ async function gotoGuidePage(page, url, label) {
 async function verifyIndex(page, label) {
   currentStep = `${label}-index`;
   await gotoGuidePage(page, pageUrl("/index.html", label), `${label} index`);
-  await requireVisible(page.locator("h1", { hasText: "Swiss & Italy Honeymoon Guide" }), `${label} index heading`);
+  await requireVisible(page.locator("h1", { hasText: "Czechia, Swiss & Italy Honeymoon Guide" }), `${label} index heading`);
+  await requireVisible(page.locator("a[href='./czech_honeymoon_guide.html']"), `${label} czech link`);
   await requireVisible(page.locator("a[href='./switzerland_honeymoon_guide.html']"), `${label} swiss link`);
   await requireVisible(page.locator("a[href='./italy_honeymoon_guide.html']"), `${label} italy link`);
 }
@@ -98,6 +111,7 @@ async function verifyGuideStructure(page, spec, label) {
   await gotoGuidePage(page, pageUrl(spec.path, label), `${label} ${spec.label} structure`);
 
   await requireVisible(page.locator(".country-tabs"), `${label} ${spec.label} country tabs`);
+  await requireVisible(page.locator("a[href='./czech_honeymoon_guide.html']"), `${label} ${spec.label} czech tab`);
   await requireVisible(page.locator("a[href='./switzerland_honeymoon_guide.html']"), `${label} ${spec.label} swiss tab`);
   await requireVisible(page.locator("a[href='./italy_honeymoon_guide.html']"), `${label} ${spec.label} italy tab`);
 
@@ -164,6 +178,7 @@ async function verifyPwaOffline(page, context) {
     const registration = await navigator.serviceWorker.ready;
     const expectedUrls = [
       "./index.html",
+      "./czech_honeymoon_guide.html",
       "./switzerland_honeymoon_guide.html",
       "./italy_honeymoon_guide.html",
       "./assets/map-data.json",
@@ -187,13 +202,13 @@ async function verifyPwaOffline(page, context) {
   if (pwa.error) {
     throw new Error(`PWA verification failed: ${pwa.error}`);
   }
-  if (pwa.manifestName !== "Swiss & Italy Honeymoon Guide") {
+  if (pwa.manifestName !== "Czechia, Swiss & Italy Honeymoon Guide") {
     throw new Error(`Unexpected manifest name: ${pwa.manifestName}`);
   }
   if (!pwa.activeServiceWorker) {
     throw new Error("Service worker did not become active.");
   }
-  if (!pwa.cacheKeys.some((key) => key.startsWith("swiss-italy-honeymoon-guide-"))) {
+  if (!pwa.cacheKeys.some((key) => key.startsWith("czech-swiss-italy-honeymoon-guide-"))) {
     throw new Error(`Expected offline cache was not created. Caches: ${pwa.cacheKeys.join(", ")}`);
   }
   const uncached = Object.entries(pwa.cached)
@@ -208,6 +223,18 @@ async function verifyPwaOffline(page, context) {
 
   await context.setOffline(true);
   try {
+    await page.goto(`${rootUrl}/czech_honeymoon_guide.html?offline=${Date.now()}`, {
+      waitUntil: "domcontentloaded",
+      timeout: 30000
+    });
+    await requireVisible(page.locator("#czech-overview"), "offline Czech overview");
+
+    await page.goto(`${rootUrl}/czech_honeymoon_guide.html?offline=${Date.now()}`, {
+      waitUntil: "domcontentloaded",
+      timeout: 30000
+    });
+    await requireVisible(page.locator("#czech-return-divider"), "offline Czech return divider");
+
     await page.goto(`${rootUrl}/switzerland_honeymoon_guide.html?offline=${Date.now()}`, {
       waitUntil: "domcontentloaded",
       timeout: 30000

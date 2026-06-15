@@ -233,6 +233,11 @@
       color: #fff9f1;
     }
 
+    .country-tabs a[aria-current="page"] {
+      background: var(--ink);
+      color: #fff9f1;
+    }
+
     .hero {
       max-width: var(--max);
       margin: 0 auto;
@@ -2025,8 +2030,9 @@
           </div>
         </div>
         <nav class="country-tabs" aria-label="국가별 최상위 탭">
+          <a href="./czech_honeymoon_guide.html">체코</a>
           <a href="./switzerland_honeymoon_guide.html">스위스</a>
-          <a href="./italy_honeymoon_guide.html">이탈리아</a>
+          <a href="./italy_honeymoon_guide.html" aria-current="page">이탈리아</a>
         </nav>
         <nav class="nav-links" aria-label="페이지 이동">
           <a href="#italy">Italy Overview</a>
