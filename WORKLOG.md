@@ -1,5 +1,12 @@
 # Worklog
 
+## 2026-06-17
+
+- 스위스 가이드의 07.18 Luzern-Interlaken Express 문구를 보강했다. 공식 일반 패턴과 별개로 사용자가 결제한 09:24 -> 11:17 티켓을 우선한다는 점을 명확히 했다.
+- 스위스 교통·산악권 비용/예약 표를 추가했다. Swiss Half Fare Card, Lake Lucerne boat, Rigi, Luzern-Interlaken Express 좌석 예약, Harder Railway, Grindelwald-First, Jungfraujoch 옵션을 공식 공개 정보 기준으로 정리했다.
+- 식당 운영 확인 카드를 추가했다. 루체른 저녁, 리기산 식사, 인터라켄·하더쿨름, 그린델발트·피르스트별로 예약/영업 확인 링크와 당일 판단 기준을 보강했다.
+- `switzerland_honeymoon_guide.html`이 service worker precache 대상이므로 `service-worker.js` 캐시 버전을 갱신했다.
+
 ## 2026-04-30
 
 - `https://github.com/gudc0831/wedding` 저장소를 `D:\wedding`에 clone하고 `main` 브랜치를 최신 상태로 pull했다.
