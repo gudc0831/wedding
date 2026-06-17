@@ -6,6 +6,7 @@
 - 스위스 교통·산악권 비용/예약 표를 추가했다. Swiss Half Fare Card, Lake Lucerne boat, Rigi, Luzern-Interlaken Express 좌석 예약, Harder Railway, Grindelwald-First, Jungfraujoch 옵션을 공식 공개 정보 기준으로 정리했다.
 - 식당 운영 확인 카드를 추가했다. 루체른 저녁, 리기산 식사, 인터라켄·하더쿨름, 그린델발트·피르스트별로 예약/영업 확인 링크와 당일 판단 기준을 보강했다.
 - `switzerland_honeymoon_guide.html`이 service worker precache 대상이므로 `service-worker.js` 캐시 버전을 갱신했다.
+- 스위스 레스토랑·카페 추천을 옵션 전용 섹션으로 추가했다. Mill'Feuille, Confiserie Bachmann, Wirtshaus Taube, Velo Cafe, Grand Cafe Schuh, Husi Bierhaus, First Mountain Restaurant, Barry's Grindelwald, Cafe 3692를 일정 동선과 지도 데이터에는 넣지 않고 후보 카드로만 노출했다.
 
 ## 2026-04-30
 
