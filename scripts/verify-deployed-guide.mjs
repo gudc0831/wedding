@@ -46,7 +46,7 @@ const pageSpecs = [
       "prague-transfer",
       "checklist",
       "sources",
-      "master-plan"
+      "italy-excel-schedule"
     ]
   }
 ];
