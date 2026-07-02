@@ -271,6 +271,26 @@ html.app-view .map-view-toggle button {
   font-size: 0.78rem !important;
 }
 
+main,
+section,
+main > section,
+.section-inner,
+.day-card,
+.table-wrap,
+.calendar-sheet,
+.map-card,
+.map-view-static {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.table-wrap,
+.calendar-sheet,
+.map-view-static {
+  overflow-x: auto !important;
+}
+
 @media (max-width: 900px) {
   .source-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
