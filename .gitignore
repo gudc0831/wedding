@@ -1,5 +1,10 @@
 server-4000.*.log
 .codex-static-server.*.log
+local-server-*.log
+.playwright-cli/console-*.log
+.playwright-cli/page-*.png
+.playwright-cli/page-*.yml
 .env
 .env.local
 assets/google-maps-config.local.json
+.superpowers/

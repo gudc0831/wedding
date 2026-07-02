@@ -157,6 +157,27 @@
       overflow: visible;
     }
 
+    .view-toggle {
+      flex: 0 0 auto;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(23, 55, 47, 0.18);
+      border-radius: 999px;
+      background: rgba(23, 55, 47, 0.92);
+      color: #fff9f1;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 800;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 10px 22px rgba(23, 55, 47, 0.14);
+    }
+
+    .view-toggle[aria-pressed="true"] {
+      background: var(--gold);
+      color: var(--ink);
+    }
+
     .nav-links {
       display: flex;
       flex-wrap: wrap;
@@ -1832,6 +1853,216 @@
       margin-bottom: 18px;
     }
 
+    .schedule-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 16px;
+    }
+
+    .legend-chip {
+      --accent: #6f7782;
+      --fill: rgba(111, 119, 130, 0.14);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 30px;
+      padding: 6px 10px;
+      border: 1px solid rgba(23, 55, 47, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .legend-chip::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      background: var(--fill);
+      border: 2px solid var(--accent);
+    }
+
+    .legend-chip.transit,
+    .calendar-event.transit {
+      --accent: #6f7782;
+      --fill: #eef1f3;
+    }
+
+    .legend-chip.tour,
+    .calendar-event.tour {
+      --accent: #b75f58;
+      --fill: #f7e5e2;
+    }
+
+    .legend-chip.food,
+    .calendar-event.food {
+      --accent: #4f8060;
+      --fill: #e5f1e8;
+    }
+
+    .legend-chip.stay,
+    .calendar-event.stay {
+      --accent: #b48743;
+      --fill: #f7edcf;
+    }
+
+    .legend-chip.prep,
+    .calendar-event.prep {
+      --accent: #bf782e;
+      --fill: #f7e8d5;
+    }
+
+    .calendar-sheet {
+      overflow-x: auto;
+      border: 1px solid rgba(23, 55, 47, 0.14);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 18px 38px rgba(23, 55, 47, 0.08);
+    }
+
+    .calendar-board {
+      --time-col: 88px;
+      --hour-height: 58px;
+      --date-min: 154px;
+      position: relative;
+      display: grid;
+      grid-template-columns: var(--time-col) repeat(var(--date-cols), minmax(var(--date-min), 1fr));
+      grid-template-rows: 34px 42px 42px 58px repeat(17, var(--hour-height));
+      min-width: 1040px;
+      background:
+        linear-gradient(to bottom, rgba(23, 55, 47, 0.1) 1px, transparent 1px) 0 176px / 100% var(--hour-height) repeat-y,
+        rgba(255, 255, 255, 0.82);
+    }
+
+    .calendar-day-bg {
+      grid-row: 5 / span 17;
+      border-left: 1px solid rgba(23, 55, 47, 0.1);
+      background: rgba(255, 255, 255, 0.36);
+      z-index: 0;
+    }
+
+    .calendar-label,
+    .calendar-time,
+    .calendar-date,
+    .calendar-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid rgba(23, 55, 47, 0.1);
+      border-bottom: 1px solid rgba(23, 55, 47, 0.1);
+      text-align: center;
+      line-height: 1.25;
+      z-index: 2;
+    }
+
+    .calendar-label,
+    .calendar-time {
+      position: sticky;
+      left: 0;
+      z-index: 4;
+      padding: 6px;
+      background: rgba(232, 228, 217, 0.98);
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .calendar-date {
+      padding: 8px 10px;
+      background: rgba(226, 230, 224, 0.94);
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .calendar-meta {
+      padding: 7px 9px;
+      background: rgba(246, 240, 227, 0.86);
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .calendar-meta.city {
+      background: rgba(232, 236, 239, 0.9);
+    }
+
+    .calendar-meta.stay-row {
+      background: rgba(250, 238, 196, 0.9);
+    }
+
+    .calendar-meta.prep-row {
+      background: rgba(245, 231, 214, 0.9);
+      color: #704a24;
+    }
+
+    .calendar-time {
+      justify-content: flex-end;
+      padding-right: 10px;
+      background: rgba(249, 246, 238, 0.98);
+      color: var(--ink-soft);
+      font-size: 0.75rem;
+    }
+
+    .calendar-event {
+      align-self: stretch;
+      min-height: 44px;
+      margin: 4px;
+      padding: 7px 8px;
+      border: 1px solid rgba(23, 55, 47, 0.1);
+      border-left: 4px solid var(--accent);
+      border-radius: 7px;
+      background: var(--fill);
+      color: #1f2f2a;
+      box-shadow: 0 6px 16px rgba(23, 55, 47, 0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3px;
+      overflow: hidden;
+      z-index: 3;
+    }
+
+    .calendar-event.prep {
+      border-style: dashed;
+    }
+
+    .calendar-event strong {
+      color: inherit;
+      font-size: 0.78rem;
+      line-height: 1.25;
+    }
+
+    .event-time {
+      color: inherit;
+      font-size: 0.7rem;
+      font-weight: 900;
+      opacity: 0.78;
+    }
+
+    .event-note {
+      color: rgba(31, 47, 42, 0.78);
+      font-size: 0.7rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .schedule-badge {
+      display: inline-flex;
+      align-self: flex-start;
+      margin-top: 2px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.66);
+      color: #704a24;
+      font-size: 0.66rem;
+      font-weight: 900;
+    }
+
     footer {
       max-width: var(--max);
       margin: 0 auto;
@@ -2004,7 +2235,69 @@
 
     }
 
+    html.app-view body {
+      padding-bottom: max(28px, env(safe-area-inset-bottom));
+    }
+
+    html.app-view .topbar-inner {
+      gap: 7px;
+      padding: 8px 12px;
+    }
+
+    html.app-view .brand {
+      align-items: center;
+    }
+
+    html.app-view .brand-mark {
+      width: 36px;
+      height: 36px;
+      font-size: 1rem;
+    }
+
+    html.app-view .brand-copy h1 {
+      font-size: 0.94rem;
+      line-height: 1.25;
+    }
+
+    html.app-view .eyebrow {
+      margin-bottom: 2px;
+      font-size: 0.68rem;
+    }
+
+    html.app-view .country-tabs,
+    html.app-view .nav-links {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 100%;
+      max-height: none;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+    }
+
+    html.app-view .country-tabs::-webkit-scrollbar,
+    html.app-view .nav-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    html.app-view .country-tabs a,
+    html.app-view .nav-links a {
+      flex: 0 0 auto;
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    html.app-view .route-map-actions {
+      width: 100%;
+    }
+
+    html.app-view .route-map-button {
+      min-height: 40px;
+    }
+
     @media print {
+      .view-toggle,
       .map-view-toggle,
       .map-view-live,
       .map-status,
@@ -2017,6 +2310,9 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="./assets/schedule-detail.css">
+  <link rel="stylesheet" href="./assets/guide-compact.css">
+  <link rel="stylesheet" href="./assets/collapsible-sections.css">
 </head>
 <body>
   <div class="page-shell desktop-guide" data-guide-version="desktop">
@@ -2028,6 +2324,7 @@
             <p class="eyebrow">Italy Honeymoon Notes</p>
             <h1>2026.07.21 화 - 2026.07.26 일 | 밀라노·꼬모·베르가모</h1>
           </div>
+          <button class="view-toggle" type="button" data-view-toggle aria-pressed="false" aria-label="앱 보기로 전환">앱</button>
         </div>
         <nav class="country-tabs" aria-label="국가별 최상위 탭">
           <a href="./czech_honeymoon_guide.html">체코</a>
@@ -2051,6 +2348,7 @@
           <a href="#sight-notes">Sight Tips</a>
           <a href="#prague-transfer">Prague Transfer</a>
           <a href="#checklist">Checklist</a>
+          <a href="#italy-excel-schedule">Excel 일정표</a>
           <a href="#sources">Sources</a>
         </nav>
       </div>
@@ -2155,7 +2453,7 @@
         <article class="ribbon-card">
           <strong>07.26 일</strong>
           <h3>프라하 이동</h3>
-          <p>오전 직항 우선이면 BGY, 마지막 아침의 편안함이면 MXP 비교.</p>
+          <p>BGY 15:10 출발 기준. 오전은 체크아웃, 점심, 공항 이동 여유로 둡니다.</p>
         </article>
       </div>
     </div>
@@ -2245,8 +2543,8 @@
               <p>꼬모, 베르가모, 공항 이동 전에는 <strong>T-7일, T-2일, 전날 밤</strong>에 MIT 캘린더에서 Ferroviario, Trasporto pubblico locale, Aereo, Lombardia를 확인합니다.</p>
             </article>
             <article class="check-item">
-              <h3>BGY Early Morning (베르가모 공항 새벽 출발)</h3>
-              <p>2026년 7월 26일 일요일 BGY → PRG 공개 장기 스케줄은 <strong>06:35 출발, 08:00 도착</strong>으로 보는 것이 가장 일관됩니다. <strong>03:20 로비 준비, 03:25 호텔 출발, 03:50 Orioshuttle 탑승</strong>을 기본안으로 두되, 항공권 예약 화면에서 최종 출발시각과 위탁수하물 조건은 다시 확인합니다.</p>
+              <h3>BGY Afternoon Transfer (베르가모 공항 오후 출발)</h3>
+              <p>2026년 7월 26일 일요일 BGY → PRG는 체코 페이지의 <strong>15:10 출발, 16:35 도착</strong>을 기준으로 일정화합니다. <strong>12:10 전후 Milano Centrale / Piazza Luigi Savoia에서 Orioshuttle 또는 동급 공항버스 탑승, 13:10 전후 BGY 도착</strong>을 목표로 역산합니다.</p>
             </article>
             <article class="check-item">
               <h3>비상연락처</h3>
@@ -2258,7 +2556,7 @@
             <ul>
               <li><strong>재확인 기준</strong>: 요금, 운영시간, 파업, 항공편, 공연 일정은 바뀔 수 있으므로 실제 여행 전 7일, 2일, 전날 밤에 공식 링크로 다시 확인합니다.</li>
               <li><strong>쇼핑일 기본 세트</strong>: 여권, 결제 카드, 영수증 보관 봉투, 얇은 셔츠 또는 숄, 물을 준비합니다.</li>
-              <li><strong>마지막 날 백업</strong>: 항공편이 늦은 시간으로 바뀌면 Milano Centrale 공식 짐 보관소를 낮 일정 백업으로 사용합니다. 새벽 BGY 이동에는 운영시간이 맞지 않습니다.</li>
+              <li><strong>마지막 날 백업</strong>: BGY 15:10 출발 기준이라 체크아웃 후 시간이 남으면 Milano Centrale 공식 짐 보관소를 낮 일정 백업으로 사용할 수 있습니다.</li>
             </ul>
           </div>
         </div>
@@ -2304,7 +2602,7 @@
                   </div>
                   <div class="detail-item">
                     <strong>첫날 운영</strong>
-                    그린델발트에서 내려와 15:00 전후 밀라노 도착이라면, 첫날은 Porta Nuova 정도만 보아도 충분합니다.
+                    그린델발트에서 내려와 Domodossola 14:48 → Milano Centrale 16:35 후보를 구매하면, 첫날은 Porta Nuova 정도만 보아도 충분합니다.
                   </div>
                   <div class="detail-item">
                     <strong>마지막 날 장점</strong>
@@ -2313,7 +2611,7 @@
                   </div>
                   <div class="detail-item">
                     <strong>호텔 서비스 활용</strong>
-                    공식 안내 기준으로 무료 Wi-Fi, 조식 뷔페, 컨시어지, 택시 서비스, 세탁, 바/레스토랑이 있어 첫날·마지막 날 백업 운영에 유용합니다.
+                    공식 안내 기준으로 무료 Wi-Fi, 조식 뷔페, 컨시어지, 택시 서비스, 세탁, 바/레스토랑이 있고, 이번 숙박은 조식 신청 완료 기준으로 운영합니다.
                   </div>
                 </div>
               </div>
@@ -2323,7 +2621,7 @@
           <div class="tip-panel" style="margin-top: 18px;">
             <ul>
               <li><strong>현장 결제 예산: City Tax</strong>: 밀라노 4성급 호텔 기준 숙박세는 2026년 12월 31일까지 1인 1박 <strong>€10</strong>로 안내되어 있습니다. 이번 일정은 <strong>2명 × 5박 = 약 €100</strong>을 별도 예산으로 둡니다.</li>
-              <li><strong>호텔에서 누릴 수 있는 서비스</strong>: 공식 페이지에서 <strong>조식 뷔페, 무료 Wi-Fi, 컨시어지, 택시 서비스, 세탁, Business Centre, Bar / lounge, Restaurant</strong>를 확인했습니다. 추가로 <strong>제휴 주차장, Rinascente Shopping Experience, Caricami 보조배터리 대여, 친환경 호텔/BikeMi 인근 스테이션</strong>도 안내되어 있습니다.</li>
+              <li><strong>호텔에서 누릴 수 있는 서비스</strong>: 공식 페이지에서 <strong>조식 뷔페, 무료 Wi-Fi, 컨시어지, 택시 서비스, 세탁, Business Centre, Bar / lounge, Restaurant</strong>를 확인했고, 이번 예약은 <strong>조식 신청 완료</strong> 기준으로 둡니다. 추가로 <strong>제휴 주차장, Rinascente Shopping Experience, Caricami 보조배터리 대여, 친환경 호텔/BikeMi 인근 스테이션</strong>도 안내되어 있습니다.</li>
               <li><strong>짐 보관 백업</strong>: 항공편 변경이나 체크아웃 후 낮 일정이 생기면 Milano Centrale 공식 짐 보관소를 후보로 둡니다. 안내 기준 운영시간은 매일 <strong>07:00-21:00</strong>, 요금은 <strong>€6부터</strong>입니다.</li>
               <li><strong>재확인</strong>: 숙박세와 짐 보관 요금은 체크인 또는 실제 예약 시점에 호텔과 공식 페이지에서 다시 확인합니다.</li>
             </ul>
@@ -2375,11 +2673,11 @@
             <div class="day-content">
                 <div class="timeline">
                   <div class="timeline-item">
-                    <div class="time-tag">15:00</div>
+                    <div class="time-tag">16:35 후보</div>
                     <div>
                       <strong data-place-key="day1_hotel">밀라노 도착 후 호텔 체크인</strong>
                       <span class="duration-tag">소요 60-90분</span>
-                      <p>Milano Centrale에서 숙소까지 이동이 짧아 짐을 바로 두고 재정비하기 좋습니다. 객실에서 40~60분 정도 쉬는 시간을 반드시 확보하세요.</p>
+                      <p>Domodossola → Milano Centrale 열차는 아직 예약 필요입니다. 14:48 → 16:35 직통 후보를 구매하면 숙소까지 이동이 짧아 짐을 바로 두고 재정비하기 좋습니다.</p>
                     </div>
                   </div>
                   <div class="timeline-item">
@@ -3412,8 +3710,8 @@
               <div class="day-intro">
                 <h3>추천 톤: “도착 시각이 우선인지, 마지막 밤의 편안함이 우선인지”를 먼저 고르기</h3>
                 <p>
-                  현재 검색 기준으로는 <strong>BGY 06:35 새벽 직항</strong>이 가장 깔끔합니다.
-                  예약 화면에서 실제 시간을 확정한 뒤 역산하고, 마지막 밤의 피로도를 줄이고 싶다면 <strong>MXP 출발편</strong>을 비교해 예약하는 것이 낫습니다.
+                  이 일정은 <strong>BGY 15:10 출발, PRG 16:35 도착</strong>을 기준으로 작성합니다.
+                  새벽 이동이 아니므로 오전은 체크아웃, 가벼운 점심, 공항 이동 버퍼에 쓰고, 항공권과 수하물 조건만 최종 확인합니다.
                 </p>
               </div>
             </div>
@@ -3421,7 +3719,7 @@
               <div class="route-map-toolbar">
                 <div class="route-map-copy">
                   <strong>Day 6 실제 동선 지도</strong>
-                  <span>BGY 새벽 이동을 기본으로, MXP와 Centrale 주변 백업을 코랄 점선으로 표시합니다.</span>
+                  <span>BGY 오후 이동을 기본으로, Centrale 주변 백업과 공항 접근 축을 코랄 점선으로 표시합니다.</span>
                 </div>
                 <div class="route-map-actions">
                   <span class="route-legend primary">기본</span>
@@ -3437,11 +3735,11 @@
             <div class="day-content">
                 <div class="timeline">
                   <div class="timeline-item">
-                    <div class="time-tag">03:50</div>
+                    <div class="time-tag">12:10</div>
                     <div>
                       <strong data-place-keys="day6_hotel day6_savoia day6_bgy">BGY(베르가모 오리오 알 세리오 공항) 직항 기준 호텔 출발</strong>
                       <span class="duration-tag">소요 90-100분 이동</span>
-                      <p>호텔이 공항 셔틀 정류장 200m권이라 접근은 좋지만, 06:35 항공편은 매우 이른 출발이 필요합니다. 수하물이 있으면 더 여유를 두는 편이 안전합니다.</p>
+                      <p>호텔이 공항 셔틀 정류장 200m권이라 접근은 좋습니다. 15:10 항공편 기준으로 13:10 전후 BGY 도착을 목표로 잡고, 수하물이 있으면 한 편 이른 셔틀을 선택합니다.</p>
                     </div>
                   </div>
                   <div class="timeline-item">
@@ -3449,11 +3747,11 @@
                     <div>
                       <strong data-place-key="day6_bgy">보안 검색 및 탑승 대기</strong>
                       <span class="duration-tag">소요 45-50분</span>
-                      <p>저가 항공과 주말 공항 특성상 여유 버퍼를 넉넉히 잡는 편이 낫습니다. 마지막 날은 조식보다 공항 도착 안정성이 우선입니다.</p>
+                      <p>저가 항공과 주말 공항 특성상 여유 버퍼를 넉넉히 잡는 편이 낫습니다. 호텔조식은 가능하지만 마지막 날은 공항 도착 안정성이 우선입니다.</p>
                     </div>
                   </div>
                   <div class="timeline-item">
-                    <div class="time-tag">08:00</div>
+                    <div class="time-tag">16:35</div>
                     <div>
                       <strong>프라하 도착</strong>
                       <span class="duration-tag">비행시간 약 85분</span>
@@ -3476,9 +3774,9 @@
                         <p>종류: food hall(푸드홀). 메뉴 성격: coffee(커피), pizza al taglio(조각 피자), bakery(베이커리), sandwiches(샌드위치), quick pasta(퀵 파스타). 이유: Centrale 내부/인근에서 비행 시간이 늦어졌을 때 가장 유연하게 시간을 보내기 좋습니다.</p>
                       </li>
                       <li class="food-pick">
-                        <strong data-place-key="day6_hotel"><a href="https://www.unaitalianhospitality.com/en/hotels/una-hotels-century-milano" target="_blank" rel="noreferrer">UNA HOTELS Century Milano(우나 호텔스 센추리 밀라노)</a><span class="food-type">호텔 조식</span></strong>
+                        <strong data-place-key="day6_hotel"><a href="https://www.unaitalianhospitality.com/en/hotels/una-hotels-century-milano" target="_blank" rel="noreferrer">UNA HOTELS Century Milano(우나 호텔스 센추리 밀라노)</a><span class="food-type">호텔조식 · 신청완료</span></strong>
                         <span class="food-address">Via Fabio Filzi 25/B, 20124 Milano</span>
-                        <p>종류: hotel breakfast(호텔 조식). 이유: BGY 06:35처럼 아주 이른 항공편은 실제 조식 이용보다 전날 밤 간식 확보가 더 중요합니다. 이 날은 식당보다 공항 도착 안정성이 우선입니다.</p>
+                        <p>종류: hotel breakfast(호텔조식). 이유: BGY 15:10 출발 기준이면 호텔조식과 체크아웃을 정상적으로 진행할 수 있습니다. 단, 점심은 길게 앉기보다 공항 이동 버퍼를 해치지 않는 가벼운 식사로 둡니다.</p>
                       </li>
                     </ul>
                   </div>
@@ -3487,7 +3785,7 @@
                     <ul>
                       <li><strong data-place-keys="day6_hotel day6_savoia day6_bgy">BGY 추천안</strong>: 호텔 → Piazza Luigi Savoia 정류장 도보 3-5분 후 <strong>Orioshuttle Line 1(오리오셔틀 1번)</strong> 직행 50분. 공식 노선 페이지 기준 one-way(편도) <strong>€12(약 ₩20,900)</strong>, 공식 홈 기준 온라인 프로모는 <strong>€10(약 ₩17,400)</strong>부터 보입니다.</li>
                       <li><strong data-place-keys="day6_centrale day6_mxp">MXP 대안</strong>: 호텔 → Milano Centrale 도보 후 <strong>Malpensa Express(말펜사 익스프레스)</strong> 탑승, T1까지 약 51분. 공식 기준 편도 <strong>€15(약 ₩26,200)</strong>. 구매는 앱·매표기·turnstile pay &amp; go(개찰구 컨택트리스 결제) 모두 가능합니다.</li>
-                      <li><strong>추천 판단</strong>: 프라하 도착시각 우선이면 BGY, 마지막 아침의 수면과 안정감 우선이면 MXP가 낫습니다.</li>
+                      <li><strong>추천 판단</strong>: BGY 15:10 출발을 기준으로 고정합니다. MXP는 항공편 변경이 생길 때만 비교하는 백업으로 둡니다.</li>
                     </ul>
                 </div>
                 <div class="aside-card">
@@ -4038,10 +4336,10 @@
           <div class="section-head">
             <div>
               <span class="section-index">Prague Transfer</span>
-              <h2>BGY와 MXP 중 무엇을 예약하는 게 더 좋은가</h2>
+              <h2>BGY 15:10 출발 기준으로 프라하 이동하기</h2>
               <p>
-                이미 숙소가 Milano Centrale 인근이라 둘 다 접근은 좋습니다.
-                차이는 <strong>공항까지의 체감 난이도</strong>보다 <strong>항공편 시간대</strong>에서 생깁니다.
+                이 일정은 체코 페이지의 <strong>BGY 15:10 출발, PRG 16:35 도착</strong>을 기준으로 닫습니다.
+                숙소가 Milano Centrale 인근이라 공항버스 접근은 좋고, 오전은 무리한 관광보다 체크아웃과 이동 버퍼에 씁니다.
               </p>
             </div>
             <a class="source-chip" href="https://www.orioshuttle.com/_eng/le-linee.cfm" target="_blank" rel="noreferrer">Orioshuttle</a>
@@ -4049,17 +4347,17 @@
 
           <div class="airport-grid">
             <article class="airport-card best">
-              <span class="micro-chip">Recommended if arrival time matters</span>
-              <h3>BGY 우선 추천안</h3>
+              <span class="micro-chip">Fixed transfer basis</span>
+              <h3>BGY 기준안</h3>
               <p>
-                현재 검색상 가장 선명한 옵션은 <strong>2026년 7월 26일 일요일 BGY 06:35 출발, PRG 08:00 도착</strong> 새벽 직항입니다.
-                호텔에서 공항 셔틀 정류장이 가까워 공항 접근 논리가 깔끔합니다.
+                기준 항공편은 <strong>2026년 7월 26일 일요일 BGY 15:10 출발, PRG 16:35 도착</strong>입니다.
+                호텔에서 공항 셔틀 정류장이 가까워 점심 전후에 이동하면 공항 도착 버퍼를 안정적으로 만들 수 있습니다.
               </p>
               <ul>
-                <li>장점: 프라하 반나절을 거의 온전히 확보</li>
-                <li>단점: 마지막 날 새벽 이동이 매우 이름</li>
+                <li>장점: 새벽 이동 없이 체크아웃과 공항 이동을 차분하게 처리</li>
+                <li>단점: 프라하 도착 후 저녁 시간만 사용 가능</li>
                 <li>접근 / 결제: Orioshuttle Line 1(오리오셔틀 1번) 약 50분, 공식 노선 기준 <strong>€12(약 ₩20,900)</strong>, 공식 홈 온라인 프로모는 <strong>€10(약 ₩17,400)</strong>부터</li>
-                <li>잘 맞는 경우: 프라하 일정이 빡빡하거나, 낮 시간을 벌고 싶을 때</li>
+                <li>잘 맞는 경우: 마지막 날 수면과 수하물 정리, 안정적인 공항 도착을 우선할 때</li>
               </ul>
             </article>
             <article class="airport-card">
@@ -4067,13 +4365,13 @@
               <h3>MXP 대안</h3>
               <p>
                 Malpensa Express는 Milano Centrale와 공항을 약 <strong>51분</strong>으로 연결합니다.
-                만약 더 늦은 오전 항공편을 잡을 수 있다면, 마지막 밤의 안정감은 MXP가 조금 더 낫습니다.
+                BGY 15:10 기준이 확정이므로, MXP는 항공편 변경이나 가격 차이가 클 때만 비교합니다.
               </p>
               <ul>
                 <li>장점: 철도 접근이 명확하고, 출발 패턴이 익숙함</li>
-                <li>단점: 현재 확인 시점 기준으로 아침 직항 매력은 BGY보다 덜 선명함</li>
+                <li>단점: 기준 항공편이 아니므로 전체 일정과 체코 페이지 시간을 다시 바꿔야 함</li>
                 <li>접근 / 결제: Malpensa Express(말펜사 익스프레스) 약 51분, 공식 편도 <strong>€15(약 ₩26,200)</strong>, 앱·발권기·pay &amp; go 모두 가능</li>
-                <li>잘 맞는 경우: 마지막 날 새벽 4시 전후 이동을 피하고 싶을 때</li>
+                <li>잘 맞는 경우: BGY 항공편이 변경되거나 취소될 때</li>
               </ul>
             </article>
           </div>
@@ -4083,29 +4381,29 @@
               <thead>
                 <tr>
                   <th>시간</th>
-                  <th>BGY Early Morning Shuttle Plan (베르가모 공항 새벽 셔틀 계획)</th>
+                  <th>BGY Afternoon Shuttle Plan (베르가모 공항 오후 셔틀 계획)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><strong>03:20</strong></td>
-                  <td>호텔 로비 출발 준비 완료. 전날 밤 물, 간식, 여권, 탑승권, 수하물 무게를 정리합니다.</td>
+                  <td><strong>11:30</strong></td>
+                  <td>호텔 체크아웃과 수하물 정리 완료. 여권, 탑승권, 수하물 무게를 다시 확인합니다.</td>
                 </tr>
                 <tr>
-                  <td><strong>03:25</strong></td>
+                  <td><strong>11:50</strong></td>
                   <td>UNA HOTELS Century Milano에서 Milano Centrale / Piazza Luigi Savoia 셔틀 정류장으로 이동합니다.</td>
                 </tr>
                 <tr>
-                  <td><strong>03:50</strong></td>
+                  <td><strong>12:10 전후</strong></td>
                   <td>Orioshuttle Milano Centrale → BGY 탑승. 공식 노선 기준 직행 약 50분, 편도 €12입니다.</td>
                 </tr>
                 <tr>
-                  <td><strong>04:40 전후</strong></td>
-                  <td>BGY 도착 예상. 04:20 셔틀은 온라인 체크인과 기내수하물만 있는 경우의 백업으로 보고, 위탁수하물이 있으면 03:50 셔틀을 우선합니다.</td>
+                  <td><strong>13:10 전후</strong></td>
+                  <td>BGY 도착 목표. 위탁수하물이 있으면 12시대 초반 셔틀을 우선하고, 기내수하물만 있어도 13:30 이후 도착은 피합니다.</td>
                 </tr>
                 <tr>
-                  <td><strong>06:35</strong></td>
-                  <td>프라하행 항공편 출발 후보. 실제 예약 시간이 확정되면 출발 2시간 전 공항 도착 기준으로 다시 역산합니다.</td>
+                  <td><strong>15:10</strong></td>
+                  <td>BGY → PRG 출발 기준. 체코 페이지의 16:35 프라하 도착 일정과 연결합니다.</td>
                 </tr>
               </tbody>
             </table>
@@ -4113,7 +4411,7 @@
         </div>
       </section>
 
-      <section id="checklist">
+      <section id="checklist" data-collapsible-section data-default-collapsed="true">
         <div class="section-inner">
           <div class="section-head">
             <div>
@@ -4134,7 +4432,7 @@
             </article>
             <article class="check-item">
               <h3>3. 프라하 항공 예약</h3>
-              <p>BGY 직항과 MXP 대안을 비교한 뒤, 마지막 밤의 피로도와 프라하 도착 시간을 기준으로 결정하세요.</p>
+              <p>BGY 15:10 → PRG 16:35 기준으로 닫습니다. 예약 화면에서는 항공편 시간, 위탁수하물, 체크인 조건만 최종 확인합니다.</p>
             </article>
             <article class="check-item">
               <h3>4. 꼬모 열차와 페리</h3>
@@ -4162,7 +4460,7 @@
             </article>
             <article class="check-item">
               <h3>10. Milano Centrale 짐 보관</h3>
-              <p>새벽 BGY 이동용은 아니지만, 항공편 변경이나 낮 일정이 생기면 역 내부 공식 짐 보관소를 백업으로 둡니다.</p>
+              <p>BGY 15:10 출발 전 낮 시간이 남는 경우 역 내부 공식 짐 보관소를 백업으로 둡니다.</p>
             </article>
             <article class="check-item">
               <h3>11. 여권 / 항공권 백업</h3>
@@ -4192,7 +4490,7 @@
         </div>
       </section>
 
-      <section id="sources">
+      <section id="sources" data-collapsible-section data-default-collapsed="true">
         <div class="section-inner">
           <div class="section-head">
             <div>
@@ -4322,7 +4620,7 @@
               </li>
               <li>
                 <strong>Practical Info | Safety, Transfer &amp; Backup</strong>
-                두오모 규정, 숙박세, 새벽 셔틀, 파업, 공연 혼잡, 비상연락처
+                두오모 규정, 숙박세, 오후 셔틀, 파업, 공연 혼잡, 비상연락처
                 <br><a href="https://www.duomomilano.it/en/regulations/regulation/" target="_blank" rel="noreferrer">Duomo di Milano - Regulation</a>
                 <br><a href="https://www.unaitalianhospitality.com/en/city-tax" target="_blank" rel="noreferrer">UNA Italian Hospitality - City Tax</a>
                 <br><a href="https://www.orioshuttle.com/_eng/Orio-al-Serio_Milano-Centrale.cfm" target="_blank" rel="noreferrer">Orioshuttle - BGY / Milano Centrale</a>
@@ -4351,118 +4649,212 @@
         </div>
       </section>
 
-      <section id="master-plan">
+      <section id="italy-excel-schedule">
         <div class="section-inner">
           <div class="section-head">
             <div>
-              <span class="section-index">Recommended Plan</span>
-              <h2>내가 제일 추천하는 안 | 한 페이지 총 시간표</h2>
-              <p>
-                이 안은 <strong>허니문 템포</strong>, <strong>생일의 완성도</strong>, <strong>현대 건축 1개 축 반영</strong>,
-                그리고 <strong>프라하 도착 시간 확보</strong>를 함께 고려해 고른 최종안입니다.
-              </p>
+              <span class="section-index">Calendar Schedule</span>
+              <h2>이탈리아 캘린더형 일정표</h2>
+              <p>이탈리아 탭에는 07.21 밀라노 도착부터 07.26 베르가모 공항 출발까지의 이탈리아 구간만 보이게 정리했습니다. 밀라노행 기차와 공항버스는 예약필요 배지로 분리했습니다.</p>
             </div>
           </div>
 
-          <div class="tip-panel master-summary">
-            <ul>
-              <li><strong>핵심 선택 1</strong>: 현대 건축은 <strong>Day 2 CityLife(시티라이프)</strong>만 넣고, 나머지 날은 허니문 흐름을 해치지 않도록 뺐습니다.</li>
-              <li><strong>핵심 선택 2</strong>: 생일 저녁은 동선과 분위기를 같이 잡는 <strong>Maio Restaurant &amp; Terrace(마이오 레스토랑 &amp; 테라스)</strong> 기준으로 잡았습니다.</li>
-              <li><strong>핵심 선택 3</strong>: 마지막 날은 피곤하지만 <strong>BGY 06:35 → PRG 08:00</strong> 기준으로 프라하 시간을 최대한 확보하는 안을 최종 추천으로 두었습니다.</li>
-              <li><strong>한 줄 피드백</strong>: 수면을 더 중시하면 Day 6만 <strong>MXP</strong>로 바꾸고, 나머지 5일 구조는 그대로 유지하는 것이 가장 좋습니다.</li>
-            </ul>
+          <div class="schedule-legend" aria-label="이탈리아 일정 색상 범례">
+            <span class="legend-chip transit">이동/교통</span>
+            <span class="legend-chip tour">투어/관광</span>
+            <span class="legend-chip food">식사/카페</span>
+            <span class="legend-chip stay">숙소/체크인</span>
+            <span class="legend-chip prep">준비/예약필요</span>
           </div>
 
-          <div class="table-wrap master-sheet">
-            <table class="master-table">
-              <thead>
-                <tr>
-                  <th>날짜</th>
-                  <th>총 시간표</th>
-                  <th>이 날의 핵심 선택</th>
-                  <th>예약 / 메모</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>07.21 화</strong><br>밀라노 도착</td>
-                  <td>
-                    <strong>15:00</strong> Milano Centrale(밀라노 첸트랄레) 도착 + 호텔 체크인<br>
-                    <strong>17:30</strong> Porta Nuova(포르타 누오바) → Piazza Gae Aulenti(가에 아울렌티 광장) → BAM → Bosco Verticale(보스코 베르티칼레)<br>
-                    <strong>19:30</strong> Bosco Verticale Restaurant 저녁 + Mancuso Gelati<br>
-                    <strong>21:30</strong> 호텔 귀환
-                  </td>
-                  <td>도착일은 현대 밀라노 스카이라인만 짧게 보고 마무리합니다. 첫날에 두오모까지 넣지 않는 편이 전체 만족도가 높습니다.</td>
-                  <td>교통은 도보 + 필요 시 ATM single ticket(단일권) <strong>€2.20(약 ₩3,800)</strong>. 피곤하면 저녁/젤라또를 건너뛰고 호텔로 바로 복귀.</td>
-                </tr>
-                <tr>
-                  <td><strong>07.22 수</strong><br>밀라노 핵심 + 현대 건축</td>
-                  <td>
-                    <strong>09:00</strong> Duomo di Milano(두오모 디 밀라노)<br>
-                    <strong>11:00</strong> Galleria Vittorio Emanuele II(갤러리아 비토리오 에마누엘레 2세) + Marchesi 1824(마르케시 1824)<br>
-                    <strong>13:00</strong> Brera(브레라) 점심 + 산책<br>
-                    <strong>16:30</strong> CityLife(시티라이프) 건축 산책<br>
-                    <strong>19:30</strong> 가벼운 저녁 후 호텔 복귀
-                  </td>
-                  <td><strong>Navigli(나빌리) 대신 CityLife</strong>를 넣는 안입니다. 건축 관심을 반영하면서도 하루가 과밀해지지 않는 가장 좋은 절충안입니다.</td>
-                  <td>ATM 24-hour ticket(24시간권) <strong>€7.60(약 ₩13,300)</strong> 추천. Duomo 티켓과 CityLife 이동만 미리 정리하면 하루가 깔끔합니다.</td>
-                </tr>
-                <tr>
-                  <td><strong>07.23 목</strong><br>생일 쇼핑 데이</td>
-                  <td>
-                    <strong>10:30</strong> Duomo 광장 사진 + 느긋한 시작<br>
-                    <strong>11:00</strong> Rinascente(리나센테) 1차 쇼핑<br>
-                    <strong>13:00</strong> Galleria 점심 + Marchesi 1824 티타임<br>
-                    <strong>14:30</strong> Quadrilatero della Moda(패션 지구) 집중 쇼핑<br>
-                    <strong>16:45</strong> Brera(브레라) 소품 / 향수 마무리<br>
-                    <strong>18:40</strong> Duomo terrace short slot(두오모 테라스 짧은 슬롯) 또는 바로 디너 이동<br>
-                    <strong>20:30</strong> Maio Restaurant &amp; Terrace(마이오) 생일 디너
-                  </td>
-                  <td>이 날은 건축 답사를 넣지 않고 <strong>쇼핑 + 생일 무드</strong>에 몰아주는 것이 제일 좋습니다. 고가 구매는 오후, 감성 소품은 Brera에서 마감합니다.</td>
-                  <td>Maio 예약 우선. 두오모 테라스를 같이 넣을 거면 저녁 슬롯을 먼저 확보하고, 안 되면 바로 Maio로 가는 편이 더 우아합니다.</td>
-                </tr>
-                <tr>
-                  <td><strong>07.24 금</strong><br>꼬모 당일치기</td>
-                  <td>
-                    <strong>08:20</strong> 호텔 출발 → Centrale 도보<br>
-                    <strong>09:20</strong> Trenord(트레노르드)로 Varenna-Esino(바렌나-에지노) 이동<br>
-                    <strong>10:35</strong> Varenna 산책<br>
-                    <strong>12:30</strong> Ferry(페리)로 Bellagio(벨라지오) 이동<br>
-                    <strong>13:00</strong> Bellagio 점심 + 상점 구경<br>
-                    <strong>17:00</strong> 밀라노 복귀 시작
-                  </td>
-                  <td><strong>Varenna + Bellagio 두 곳만</strong> 보는 안이 가장 좋습니다. 세 번째 마을을 욕심내지 않는 것이 허니문 리듬에 맞습니다.</td>
-                  <td>열차 왕복 약 <strong>€14.80(약 ₩25,800)</strong>, 페리 왕복 약 <strong>€15.00(약 ₩26,200)</strong>. 바람이 강하면 Bellagio를 빼고 Varenna 단독으로 전환.</td>
-                </tr>
-                <tr>
-                  <td><strong>07.25 토</strong><br>베르가모 당일치기</td>
-                  <td>
-                    <strong>09:00</strong> Milano Centrale 출발<br>
-                    <strong>10:15</strong> Bergamo 역 도착 → Bus 1 + Funicular(푸니쿨라)로 Città Alta(치타 알타) 이동<br>
-                    <strong>11:00</strong> Piazza Vecchia(피아차 베키아) / Basilica / Cappella Colleoni<br>
-                    <strong>13:30</strong> Il Circolino Città Alta(일 치르콜리노) 또는 Caffè del Tasso(카페 델 타소)<br>
-                    <strong>14:30</strong> San Vigilio(산 비질리오) 선택<br>
-                    <strong>17:30</strong> 밀라노 복귀
-                  </td>
-                  <td>하부도시는 넓게 보지 않고 <strong>상부도시 밀도</strong>에 집중하는 안입니다. 마지막 전날이라 체력 배분이 중요합니다.</td>
-                  <td>열차 왕복 약 <strong>€12.00(약 ₩20,900)</strong>. ATB Passa e Vai day cap(일일 상한) <strong>€4.90(약 ₩8,500)</strong>이 가장 단순합니다.</td>
-                </tr>
-                <tr>
-                  <td><strong>07.26 일</strong><br>밀라노 → 프라하</td>
-                  <td>
-                    <strong>03:20</strong> 호텔 로비 출발 준비 완료<br>
-                    <strong>03:25</strong> Piazza Luigi Savoia 셔틀 정류장 이동<br>
-                    <strong>03:50</strong> Orioshuttle 탑승<br>
-                    <strong>04:40</strong> BGY(베르가모 공항) 도착 예상<br>
-                    <strong>04:45</strong> 체크인 / 보안 검색 / 탑승 대기<br>
-                    <strong>06:35</strong> BGY 출발<br>
-                    <strong>08:00</strong> PRG(프라하) 도착
-                  </td>
-                  <td>이 안의 단점은 매우 이른 출발이지만, <strong>프라하 반나절 이상 확보</strong>라는 장점이 분명해서 총 일정 관점에선 가장 추천합니다.</td>
-                  <td>Orioshuttle(오리오셔틀) 공식 노선 기준 직행 약 50분, 편도 <strong>€12(약 ₩20,900)</strong>. 03:50 셔틀을 기본으로 잡고, 전날 밤 물·간식·여권·탑승권을 미리 준비.</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="calendar-sheet" role="region" aria-label="이탈리아 06시부터 22시까지 캘린더형 일정표" tabindex="0">
+            <div class="calendar-board" style="--date-cols:6; min-width:1040px;">
+              <div class="calendar-label" style="grid-column:1; grid-row:1;">날짜</div>
+              <div class="calendar-label" style="grid-column:1; grid-row:2;">나라(도시)</div>
+              <div class="calendar-label" style="grid-column:1; grid-row:3;">숙소</div>
+              <div class="calendar-label" style="grid-column:1; grid-row:4;">추가준비사항</div>
+            <div class="calendar-date" style="grid-column:2; grid-row:1;">2026-07-21</div>
+            <div class="calendar-date" style="grid-column:3; grid-row:1;">2026-07-22</div>
+            <div class="calendar-date" style="grid-column:4; grid-row:1;">2026-07-23</div>
+            <div class="calendar-date" style="grid-column:5; grid-row:1;">2026-07-24</div>
+            <div class="calendar-date" style="grid-column:6; grid-row:1;">2026-07-25</div>
+            <div class="calendar-date" style="grid-column:7; grid-row:1;">2026-07-26</div>
+            <div class="calendar-meta city" style="grid-column:2; grid-row:2;">이탈리아(밀라노)</div>
+            <div class="calendar-meta city" style="grid-column:3; grid-row:2;">이탈리아(밀라노)</div>
+            <div class="calendar-meta city" style="grid-column:4; grid-row:2;">이탈리아(밀라노)</div>
+            <div class="calendar-meta city" style="grid-column:5; grid-row:2;">이탈리아(꼬모)</div>
+            <div class="calendar-meta city" style="grid-column:6; grid-row:2;">이탈리아(베르가모)</div>
+            <div class="calendar-meta city" style="grid-column:7; grid-row:2;">이탈리아→체코</div>
+            <div class="calendar-meta stay-row" style="grid-column:2; grid-row:3;">UNA HOTELS Century Milano · 조식 포함</div>
+            <div class="calendar-meta stay-row" style="grid-column:3; grid-row:3;">UNA HOTELS Century Milano · 조식 포함</div>
+            <div class="calendar-meta stay-row" style="grid-column:4; grid-row:3;">UNA HOTELS Century Milano · 조식 포함</div>
+            <div class="calendar-meta stay-row" style="grid-column:5; grid-row:3;">UNA HOTELS Century Milano · 조식 포함</div>
+            <div class="calendar-meta stay-row" style="grid-column:6; grid-row:3;">UNA HOTELS Century Milano · 조식 포함</div>
+            <div class="calendar-meta stay-row" style="grid-column:7; grid-row:3;">UNA 체크아웃 · 조식 포함</div>
+            <div class="calendar-meta prep-row" style="grid-column:2; grid-row:4;">Domodossola→Milano 예약필요</div>
+            <div class="calendar-meta prep-row" style="grid-column:3; grid-row:4;">Duomo 티켓 예약필요</div>
+            <div class="calendar-meta prep-row" style="grid-column:4; grid-row:4;">Maio 생일 디너 예약필요</div>
+            <div class="calendar-meta prep-row" style="grid-column:5; grid-row:4;">열차·페리 시간 재확인</div>
+            <div class="calendar-meta prep-row" style="grid-column:6; grid-row:4;">상부도시 중심으로 체력 배분</div>
+            <div class="calendar-meta prep-row" style="grid-column:7; grid-row:4;">호텔조식 후 BGY 공항버스 예약필요</div>
+            <div class="calendar-day-bg" style="grid-column:2;"></div>
+            <div class="calendar-day-bg" style="grid-column:3;"></div>
+            <div class="calendar-day-bg" style="grid-column:4;"></div>
+            <div class="calendar-day-bg" style="grid-column:5;"></div>
+            <div class="calendar-day-bg" style="grid-column:6;"></div>
+            <div class="calendar-day-bg" style="grid-column:7;"></div>
+            <div class="calendar-time" style="grid-column:1; grid-row:5;">06:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:6;">07:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:7;">08:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:8;">09:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:9;">10:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:10;">11:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:11;">12:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:12;">13:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:13;">14:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:14;">15:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:15;">16:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:16;">17:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:17;">18:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:18;">19:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:19;">20:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:20;">21:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:21;">22:00</div>
+            <div class="calendar-event transit" style="grid-column:2; grid-row:13 / span 3;" data-detail="스위스 구간은 Domodossola 도착 14:32까지 예약완료|Domodossola → Milano Centrale은 별도 예약필요|권장안은 14:48 전후 출발, 16:35 전후 도착 기준">
+              <span class="event-time">14:48-16:35</span>
+              <strong>Domodossola→Milano Centrale</strong>
+              <span class="schedule-badge">예약필요</span>
+            </div>
+            <div class="calendar-event stay" style="grid-column:2; grid-row:16 / span 1;">
+              <span class="event-time">17:00</span>
+              <strong>호텔 체크인</strong>
+            </div>
+            <div class="calendar-event tour" style="grid-column:2; grid-row:17 / span 2;">
+              <span class="event-time">17:30-19:30</span>
+              <strong>Porta Nuova·Bosco Verticale</strong>
+            </div>
+            <div class="calendar-event food" style="grid-column:2; grid-row:19 / span 1;">
+              <span class="event-time">저녁</span>
+              <strong>밀라노 첫 저녁</strong>
+            </div>
+            <div class="calendar-event food" style="grid-column:3; grid-row:7 / span 1;">
+              <span class="event-time">08:00</span>
+              <strong>호텔조식</strong>
+            </div>
+            <div class="calendar-event tour" style="grid-column:3; grid-row:8 / span 3;">
+              <span class="event-time">09:00-12:00</span>
+              <strong>Duomo·Galleria</strong>
+              <span class="schedule-badge">예약필요</span>
+            </div>
+            <div class="calendar-event food" style="grid-column:3; grid-row:11 / span 1;">
+              <span class="event-time">점심</span>
+              <strong>Brera 점심</strong>
+            </div>
+            <div class="calendar-event tour" style="grid-column:3; grid-row:12 / span 3;">
+              <span class="event-time">13:00-16:00</span>
+              <strong>Brera 산책</strong>
+            </div>
+            <div class="calendar-event tour" style="grid-column:3; grid-row:15 / span 2;">
+              <span class="event-time">16:30-18:30</span>
+              <strong>CityLife 건축 산책</strong>
+            </div>
+            <div class="calendar-event food" style="grid-column:3; grid-row:18 / span 1;">
+              <span class="event-time">저녁</span>
+              <strong>가벼운 저녁</strong>
+            </div>
+            <div class="calendar-event food" style="grid-column:4; grid-row:8 / span 1;">
+              <span class="event-time">09:00</span>
+              <strong>느긋한 호텔조식</strong>
+            </div>
+            <div class="calendar-event tour" style="grid-column:4; grid-row:9 / span 3;">
+              <span class="event-time">10:30-13:00</span>
+              <strong>Rinascente·Galleria 쇼핑</strong>
+            </div>
+            <div class="calendar-event food" style="grid-column:4; grid-row:12 / span 1;">
+              <span class="event-time">13:00</span>
+              <strong>점심·Marchesi 1824</strong>
+            </div>
+            <div class="calendar-event tour" style="grid-column:4; grid-row:13 / span 3;">
+              <span class="event-time">14:30-17:30</span>
+              <strong>Quadrilatero·Brera</strong>
+            </div>
+            <div class="calendar-event tour" style="grid-column:4; grid-row:17 / span 1;">
+              <span class="event-time">선택</span>
+              <strong>Duomo terrace short slot</strong>
+            </div>
+            <div class="calendar-event food" style="grid-column:4; grid-row:19 / span 2;">
+              <span class="event-time">20:30</span>
+              <strong>Maio 생일 디너</strong>
+              <span class="schedule-badge">예약필요</span>
+            </div>
+            <div class="calendar-event food" style="grid-column:5; grid-row:6 / span 1;">
+              <span class="event-time">07:00</span>
+              <strong>호텔조식</strong>
+            </div>
+            <div class="calendar-event transit" style="grid-column:5; grid-row:7 / span 2;">
+              <span class="event-time">08:20-10:35</span>
+              <strong>Milano→Varenna</strong>
+            </div>
+            <div class="calendar-event tour" style="grid-column:5; grid-row:9 / span 2;">
+              <span class="event-time">10:35-12:30</span>
+              <strong>Varenna 산책</strong>
+            </div>
+            <div class="calendar-event transit" style="grid-column:5; grid-row:11 / span 1;">
+              <span class="event-time">12:30</span>
+              <strong>Ferry→Bellagio</strong>
+              <span class="schedule-badge">예약필요</span>
+            </div>
+            <div class="calendar-event food" style="grid-column:5; grid-row:12 / span 1;">
+              <span class="event-time">13:00</span>
+              <strong>Bellagio 점심</strong>
+            </div>
+            <div class="calendar-event tour" style="grid-column:5; grid-row:13 / span 3;">
+              <span class="event-time">14:00-17:00</span>
+              <strong>Bellagio 상점·호수 산책</strong>
+            </div>
+            <div class="calendar-event transit" style="grid-column:5; grid-row:16 / span 2;">
+              <span class="event-time">17:00 이후</span>
+              <strong>밀라노 복귀</strong>
+            </div>
+            <div class="calendar-event food" style="grid-column:6; grid-row:7 / span 1;">
+              <span class="event-time">08:00</span>
+              <strong>호텔조식</strong>
+            </div>
+            <div class="calendar-event transit" style="grid-column:6; grid-row:8 / span 2;">
+              <span class="event-time">09:00-10:15</span>
+              <strong>Milano→Bergamo</strong>
+            </div>
+            <div class="calendar-event tour" style="grid-column:6; grid-row:10 / span 4;">
+              <span class="event-time">11:00-15:00</span>
+              <strong>Città Alta·Piazza Vecchia</strong>
+            </div>
+            <div class="calendar-event tour" style="grid-column:6; grid-row:14 / span 2;">
+              <span class="event-time">선택</span>
+              <strong>San Vigilio</strong>
+            </div>
+            <div class="calendar-event transit" style="grid-column:6; grid-row:16 / span 2;">
+              <span class="event-time">17:30 전후</span>
+              <strong>밀라노 복귀</strong>
+            </div>
+            <div class="calendar-event food" style="grid-column:7; grid-row:7 / span 1;">
+              <span class="event-time">08:00</span>
+              <strong>호텔조식</strong>
+            </div>
+            <div class="calendar-event prep" style="grid-column:7; grid-row:9 / span 1;">
+              <span class="event-time">10:00</span>
+              <strong>체크아웃·수하물 정리</strong>
+            </div>
+            <div class="calendar-event transit" style="grid-column:7; grid-row:10 / span 3;">
+              <span class="event-time">11:50-13:10</span>
+              <strong>Milano→BGY 공항버스</strong>
+              <span class="schedule-badge">예약필요</span>
+            </div>
+            <div class="calendar-event transit" style="grid-column:7; grid-row:14 / span 2;">
+              <span class="event-time">15:10-16:35</span>
+              <strong>BGY→PRG</strong>
+              <span class="schedule-badge">예약완료</span>
+            </div>
+            </div>
           </div>
         </div>
       </section>
@@ -4505,6 +4897,8 @@
       });
     }());
   </script>
+  <script src="./assets/schedule-detail.js"></script>
+  <script src="./assets/collapsible-sections.js"></script>
   <script>
     (function () {
       if (!("serviceWorker" in navigator)) return;
@@ -4515,6 +4909,57 @@
           // Offline mode is optional; the guide remains usable as a normal static page.
         });
       });
+    }());
+  </script>
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const toggle = document.querySelector("[data-view-toggle]");
+      const params = new URLSearchParams(window.location.search);
+      const requestedView = params.get("view");
+      const storageKey = "honeymoonGuideView";
+
+      function storedView() {
+        try {
+          return window.localStorage.getItem(storageKey);
+        } catch {
+          return null;
+        }
+      }
+
+      function saveView(view) {
+        try {
+          window.localStorage.setItem(storageKey, view);
+        } catch {
+          return;
+        }
+      }
+
+      function applyView(view) {
+        const isAppView = view === "app";
+        root.classList.toggle("app-view", isAppView);
+        if (!toggle) return;
+        toggle.setAttribute("aria-pressed", String(isAppView));
+        toggle.setAttribute("aria-label", isAppView ? "웹 보기로 전환" : "앱 보기로 전환");
+        toggle.textContent = isAppView ? "웹" : "앱";
+      }
+
+      const initialView = requestedView === "app" || requestedView === "web"
+        ? requestedView
+        : storedView() || "web";
+
+      applyView(initialView);
+      if (requestedView === "app" || requestedView === "web") {
+        saveView(requestedView);
+      }
+
+      if (toggle) {
+        toggle.addEventListener("click", () => {
+          const nextView = root.classList.contains("app-view") ? "web" : "app";
+          applyView(nextView);
+          saveView(nextView);
+        });
+      }
     }());
   </script>
   <script src="./assets/google-maps-config.js"></script>

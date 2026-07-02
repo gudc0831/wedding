@@ -157,6 +157,27 @@
       overflow: visible;
     }
 
+    .view-toggle {
+      flex: 0 0 auto;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(23, 55, 47, 0.18);
+      border-radius: 999px;
+      background: rgba(23, 55, 47, 0.92);
+      color: #fff9f1;
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 800;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 10px 22px rgba(23, 55, 47, 0.14);
+    }
+
+    .view-toggle[aria-pressed="true"] {
+      background: var(--gold);
+      color: var(--ink);
+    }
+
     .nav-links {
       display: flex;
       flex-wrap: wrap;
@@ -1858,6 +1879,216 @@
       margin-bottom: 18px;
     }
 
+    .schedule-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 16px;
+    }
+
+    .legend-chip {
+      --accent: #6f7782;
+      --fill: rgba(111, 119, 130, 0.14);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 30px;
+      padding: 6px 10px;
+      border: 1px solid rgba(23, 55, 47, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.76);
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .legend-chip::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      background: var(--fill);
+      border: 2px solid var(--accent);
+    }
+
+    .legend-chip.transit,
+    .calendar-event.transit {
+      --accent: #6f7782;
+      --fill: #eef1f3;
+    }
+
+    .legend-chip.tour,
+    .calendar-event.tour {
+      --accent: #b75f58;
+      --fill: #f7e5e2;
+    }
+
+    .legend-chip.food,
+    .calendar-event.food {
+      --accent: #4f8060;
+      --fill: #e5f1e8;
+    }
+
+    .legend-chip.stay,
+    .calendar-event.stay {
+      --accent: #b48743;
+      --fill: #f7edcf;
+    }
+
+    .legend-chip.prep,
+    .calendar-event.prep {
+      --accent: #bf782e;
+      --fill: #f7e8d5;
+    }
+
+    .calendar-sheet {
+      overflow-x: auto;
+      border: 1px solid rgba(23, 55, 47, 0.14);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 18px 38px rgba(23, 55, 47, 0.08);
+    }
+
+    .calendar-board {
+      --time-col: 88px;
+      --hour-height: 58px;
+      --date-min: 154px;
+      position: relative;
+      display: grid;
+      grid-template-columns: var(--time-col) repeat(var(--date-cols), minmax(var(--date-min), 1fr));
+      grid-template-rows: 34px 42px 42px 58px repeat(17, var(--hour-height));
+      min-width: 1040px;
+      background:
+        linear-gradient(to bottom, rgba(23, 55, 47, 0.1) 1px, transparent 1px) 0 176px / 100% var(--hour-height) repeat-y,
+        rgba(255, 255, 255, 0.82);
+    }
+
+    .calendar-day-bg {
+      grid-row: 5 / span 17;
+      border-left: 1px solid rgba(23, 55, 47, 0.1);
+      background: rgba(255, 255, 255, 0.36);
+      z-index: 0;
+    }
+
+    .calendar-label,
+    .calendar-time,
+    .calendar-date,
+    .calendar-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid rgba(23, 55, 47, 0.1);
+      border-bottom: 1px solid rgba(23, 55, 47, 0.1);
+      text-align: center;
+      line-height: 1.25;
+      z-index: 2;
+    }
+
+    .calendar-label,
+    .calendar-time {
+      position: sticky;
+      left: 0;
+      z-index: 4;
+      padding: 6px;
+      background: rgba(232, 228, 217, 0.98);
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .calendar-date {
+      padding: 8px 10px;
+      background: rgba(226, 230, 224, 0.94);
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .calendar-meta {
+      padding: 7px 9px;
+      background: rgba(246, 240, 227, 0.86);
+      color: var(--ink);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .calendar-meta.city {
+      background: rgba(232, 236, 239, 0.9);
+    }
+
+    .calendar-meta.stay-row {
+      background: rgba(250, 238, 196, 0.9);
+    }
+
+    .calendar-meta.prep-row {
+      background: rgba(245, 231, 214, 0.9);
+      color: #704a24;
+    }
+
+    .calendar-time {
+      justify-content: flex-end;
+      padding-right: 10px;
+      background: rgba(249, 246, 238, 0.98);
+      color: var(--ink-soft);
+      font-size: 0.75rem;
+    }
+
+    .calendar-event {
+      align-self: stretch;
+      min-height: 44px;
+      margin: 4px;
+      padding: 7px 8px;
+      border: 1px solid rgba(23, 55, 47, 0.1);
+      border-left: 4px solid var(--accent);
+      border-radius: 7px;
+      background: var(--fill);
+      color: #1f2f2a;
+      box-shadow: 0 6px 16px rgba(23, 55, 47, 0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3px;
+      overflow: hidden;
+      z-index: 3;
+    }
+
+    .calendar-event.prep {
+      border-style: dashed;
+    }
+
+    .calendar-event strong {
+      color: inherit;
+      font-size: 0.78rem;
+      line-height: 1.25;
+    }
+
+    .event-time {
+      color: inherit;
+      font-size: 0.7rem;
+      font-weight: 900;
+      opacity: 0.78;
+    }
+
+    .event-note {
+      color: rgba(31, 47, 42, 0.78);
+      font-size: 0.7rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .schedule-badge {
+      display: inline-flex;
+      align-self: flex-start;
+      margin-top: 2px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.66);
+      color: #704a24;
+      font-size: 0.66rem;
+      font-weight: 900;
+    }
+
     footer {
       max-width: var(--max);
       margin: 0 auto;
@@ -2030,7 +2261,69 @@
 
     }
 
+    html.app-view body {
+      padding-bottom: max(28px, env(safe-area-inset-bottom));
+    }
+
+    html.app-view .topbar-inner {
+      gap: 7px;
+      padding: 8px 12px;
+    }
+
+    html.app-view .brand {
+      align-items: center;
+    }
+
+    html.app-view .brand-mark {
+      width: 36px;
+      height: 36px;
+      font-size: 1rem;
+    }
+
+    html.app-view .brand-copy h1 {
+      font-size: 0.94rem;
+      line-height: 1.25;
+    }
+
+    html.app-view .eyebrow {
+      margin-bottom: 2px;
+      font-size: 0.68rem;
+    }
+
+    html.app-view .country-tabs,
+    html.app-view .nav-links {
+      display: flex;
+      flex-wrap: nowrap;
+      width: 100%;
+      max-height: none;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+    }
+
+    html.app-view .country-tabs::-webkit-scrollbar,
+    html.app-view .nav-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    html.app-view .country-tabs a,
+    html.app-view .nav-links a {
+      flex: 0 0 auto;
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    html.app-view .route-map-actions {
+      width: 100%;
+    }
+
+    html.app-view .route-map-button {
+      min-height: 40px;
+    }
+
     @media print {
+      .view-toggle,
       .map-view-toggle,
       .map-view-live,
       .map-status,
@@ -2043,6 +2336,8 @@
       }
     }
   </style>
+  <link rel="stylesheet" href="./assets/schedule-detail.css">
+  <link rel="stylesheet" href="./assets/guide-compact.css">
 </head>
 <body>
   <div class="page-shell desktop-guide" data-guide-version="desktop">
@@ -2054,6 +2349,7 @@
             <p class="eyebrow">Swiss Honeymoon Notes</p>
             <h1>2026.07.16 목 - 2026.07.21 화 | 루체른·리기산·인터라켄·그린델발트</h1>
           </div>
+          <button class="view-toggle" type="button" data-view-toggle aria-pressed="false" aria-label="앱 보기로 전환">앱</button>
         </div>
         <nav class="country-tabs" aria-label="국가별 최상위 탭">
           <a href="./czech_honeymoon_guide.html">체코</a>
@@ -2069,6 +2365,7 @@
           <a href="#swiss-day-4">07.19 하더쿨름</a>
           <a href="#swiss-day-5">07.20 피르스트</a>
           <a href="#swiss-day-6">07.21 밀라노 이동</a>
+          <a href="#swiss-excel-schedule">Excel 일정표</a>
         </nav>
       </div>
     </header>
@@ -2121,23 +2418,35 @@
                 <figcaption>리기산은 배, 산악열차, 케이블카, 호수 복귀가 이어지는 메인 데이</figcaption>
               </figure>
               <figure>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Luzern_Kapellbruecke.jpg/1280px-Luzern_Kapellbruecke.jpg" alt="루체른 수변과 구시가지" loading="lazy">
-                <figcaption>도착일은 명소 체크보다 시차 적응과 산책 템포가 우선</figcaption>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Lake_lucerne.JPG/960px-Lake_lucerne.JPG" alt="루체른 호수와 산 능선" loading="lazy">
+                <figcaption>호수 이동은 리기산 라운드트립의 핵심 장면</figcaption>
               </figure>
             </div>
           </div>
           <div class="photo-grid">
             <figure>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Vierwaldst%C3%A4ttersee_Rigi.jpg/960px-Vierwaldst%C3%A4ttersee_Rigi.jpg" alt="리기산 정상 전망" loading="lazy">
-              <figcaption>Rigi Kulm은 날씨가 좋을 때 정상 체류 60분 정도가 적당합니다</figcaption>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Luzern-Interlaken_Express_am_Lungerersee.jpeg/960px-Luzern-Interlaken_Express_am_Lungerersee.jpeg" alt="호숫가를 지나는 Luzern-Interlaken Express" loading="lazy">
+              <figcaption>07.18은 파노라마 열차 풍경 자체가 메인</figcaption>
             </figure>
             <figure>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Luzern_Kapellbruecke.jpg/1280px-Luzern_Kapellbruecke.jpg" alt="루체른 카펠교" loading="lazy">
-              <figcaption>카펠교와 로이스강변은 첫날과 둘째 날 밤 모두 잘 어울립니다</figcaption>
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Harder%20Kulm%20Interlaken.jpg?width=960" alt="하더쿨름에서 내려다보는 인터라켄" loading="lazy">
+              <figcaption>하더쿨름은 회복일의 짧은 전망 코스</figcaption>
             </figure>
             <figure>
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Lake_lucerne.JPG/960px-Lake_lucerne.JPG" alt="루체른 호수와 산 능선" loading="lazy">
-              <figcaption>스위스 구간은 이동 자체가 풍경이 되도록 짧고 안정적으로 연결합니다</figcaption>
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bachalpsee.jpg?width=960" alt="그린델발트 피르스트 인근 바흐알프제" loading="lazy">
+              <figcaption>Bachalpsee는 날씨와 체력이 맞을 때만 확장</figcaption>
+            </figure>
+            <figure>
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Interlaken%20West%20railway%20station.JPG?width=960" alt="인터라켄 웨스트 역" loading="lazy">
+              <figcaption>인터라켄 숙소는 West 하차 기준</figcaption>
+            </figure>
+            <figure>
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/CH.BE.Interlaken.Unterseen%202021-04-23%2016x9%2BR%2016384x9216.jpg?width=960" alt="인터라켄 운터젠 마을 풍경" loading="lazy">
+              <figcaption>Unterseen은 숙소 주변 회복 산책 구간</figcaption>
+            </figure>
+            <figure>
+              <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&amp;fit=crop&amp;w=960&amp;q=80" alt="스위스에서 이탈리아로 이어지는 철도 이동 이미지" loading="lazy">
+              <figcaption>07.21은 Domodossola 이후 밀라노행 예약 필요</figcaption>
             </figure>
           </div>
         </div>
@@ -2186,7 +2495,7 @@
           <div class="quick-grid">
             <article class="info-card">
               <h3>운영 기준</h3>
-              <p>Swiss Half Fare Card 사용을 전제로 하고, 구간별 티켓은 SBB 앱 또는 운영사 공식 채널에서 별도 구매합니다. 여권 원본과 티켓 QR을 함께 준비합니다.</p>
+              <p>Swiss Half Fare Card는 구매 완료 기준으로 닫고, 구간별 티켓은 SBB 앱 또는 운영사 공식 채널에서 별도 구매합니다. 여권 원본과 티켓 QR을 함께 준비합니다.</p>
             </article>
             <article class="info-card">
               <h3>루체른 숙소</h3>
@@ -2194,7 +2503,7 @@
             </article>
             <article class="info-card">
               <h3>인터라켄 베이스</h3>
-              <p>07.18-07.20은 Unterseen Airbnb 체류입니다. 07.19는 장거리 산악 이동보다 Harder Kulm과 Interlaken 산책으로 회복 여백을 둡니다.</p>
+              <p>07.18-07.20은 65 Hauptstrasse, Unterseen, BE 3800 숙소 체류입니다. 기차 이동은 Interlaken West 하차로 확정하고, 07.19는 Harder Kulm과 Interlaken 산책으로 회복 여백을 둡니다.</p>
             </article>
             <article class="info-card">
               <h3>그린델발트 종료</h3>
@@ -2216,7 +2525,7 @@
                 <tr>
                   <td><strong>Swiss Half Fare Card</strong></td>
                   <td>CHF 150, 1개월 유효. 기차·버스·배·파노라마 열차·산악열차·곤돌라 요금이 대체로 50% 또는 할인 요금입니다.</td>
-                  <td>스위스 입국 전 온라인 구매 후 여권 원본과 함께 보관합니다. 검표 때 사진/사본은 인정되지 않을 수 있습니다.</td>
+                  <td>구매 완료. 검표 때 여권 원본과 티켓 QR을 함께 제시할 수 있게 오프라인 저장본과 인쇄본을 준비합니다. 사진/사본만으로는 인정되지 않을 수 있습니다.</td>
                   <td><a href="https://www.sbb.ch/en/offers/swiss-half-fare-card" target="_blank" rel="noreferrer">SBB</a></td>
                 </tr>
                 <tr>
@@ -2259,7 +2568,9 @@
             </table>
           </div>
 
-          <div class="quick-grid" style="margin-top: 14px;" aria-label="스위스 식당 예약과 영업 확인 메모">
+          <details class="secondary-options">
+          <summary>스위스 식당·카페 추가 옵션</summary>
+          <div class="quick-grid" style="margin-top: 0;" aria-label="스위스 식당 예약과 영업 확인 메모">
             <article class="info-card">
               <h3>루체른 저녁 예약</h3>
               <p>Rathaus Brauerei는 공식 사이트에 예약 전화가 공개되어 있어 당일 전화 확인형으로 두고, Des Alpes는 공식 온라인 테이블 예약 링크가 있어 카펠교 저녁 대안으로 가장 관리하기 쉽습니다.</p>
@@ -2400,6 +2711,7 @@
               </ul>
             </article>
           </div>
+          </details>
 
           <div id="swiss-photo-notes" class="spot-grid swiss-photo-grid" aria-label="스위스 일정 관련 사진 메모">
             <article class="spot-card swiss-photo-card">
@@ -2443,7 +2755,7 @@
               </div>
             </article>
             <article class="spot-card swiss-photo-card">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Interlaken_Harder_Kulm.jpg/960px-Interlaken_Harder_Kulm.jpg" alt="하더쿨름에서 내려다보는 인터라켄과 두 호수" loading="lazy">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Harder%20Kulm%20Interlaken.jpg?width=960" alt="하더쿨름에서 내려다보는 인터라켄과 두 호수" loading="lazy">
               <span class="micro-chip">Day 4 · Interlaken</span>
               <h3>Harder Kulm 회복일</h3>
               <p>인터라켄 도착 다음 날은 하더쿨름 전망대와 Hoheweg 산책으로 강도를 낮춥니다. 융프라우 고산권은 날씨가 확실할 때만 옵션으로 둡니다.</p>
@@ -2453,7 +2765,7 @@
               </div>
             </article>
             <article class="spot-card swiss-photo-card">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Bachalpsee_reflection.jpg/960px-Bachalpsee_reflection.jpg" alt="그린델발트 피르스트 인근 바흐알프제" loading="lazy">
+              <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bachalpsee.jpg?width=960" alt="그린델발트 피르스트 인근 바흐알프제" loading="lazy">
               <span class="micro-chip">Day 5 · Grindelwald</span>
               <h3>First Cliff Walk와 Bachalpsee</h3>
               <p>07.20은 오전 이동 후 그린델발트 체크인 전후로 First 곤돌라를 타고 올라갑니다. 체력과 날씨가 좋으면 Bachalpsee 왕복까지 봅니다.</p>
@@ -2463,13 +2775,13 @@
               </div>
             </article>
             <article class="spot-card swiss-photo-card">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Grindelwald-First_-_view_from_the_First_Cliff_Walk.jpg/960px-Grindelwald-First_-_view_from_the_First_Cliff_Walk.jpg" alt="그린델발트 피르스트 클리프워크 전망" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&amp;fit=crop&amp;w=960&amp;q=80" alt="스위스에서 이탈리아로 이어지는 철도 이동 이미지" loading="lazy">
               <span class="micro-chip">Day 6 · To Italy</span>
               <h3>그린델발트에서 밀라노로</h3>
-              <p>07.21은 스위스에서 이탈리아로 넘어가는 긴 이동일입니다. 오전에는 호텔 조식과 체크아웃, 역 이동, 물·간식 확보까지만 확실히 봅니다.</p>
+              <p>07.21은 스위스에서 이탈리아로 넘어가는 긴 이동일입니다. 오전에는 아침식사와 체크아웃, 역 이동, 물·간식 확보까지만 확실히 봅니다.</p>
               <div class="spot-block">
                 <strong>예약 메모</strong>
-                <p>엑셀 일정의 Grindelwald 11:17 출발 남행 루트를 고정축으로 두고, Domodossola 이후 밀라노행 지역열차만 확정되면 보강합니다.</p>
+                <p>Grindelwald 11:17 → Domodossola 14:32까지는 예약 완료 구간으로 고정합니다. Domodossola → Milano Centrale은 예약 필요로 남겨 두고, 14:48 → 16:35 직통 후보를 우선 구매 대상으로 봅니다.</p>
               </div>
             </article>
           </div>
@@ -2484,8 +2796,8 @@
                 <div class="day-intro">
                   <h3>추천 톤: “장거리 비행 뒤에는 작게, 루체른 첫인상은 선명하게”</h3>
                   <p>
-                    첫날은 체크인과 회복이 우선입니다. 카펠교, 로이스강변, 구시가지, 빈사의 사자상만 연결하고
-                    저녁은 호텔에서 멀지 않은 구시가지·강변 후보로 둡니다.
+                    07.16 09:30-10:55 스위스국제항공 LX1485 프라하 → 취리히 항공편은 예약 완료입니다.
+                    취리히 공항에서 루체른까지는 12:15 출발 열차를 추천 구매 후보로 두고, 체크인과 회복을 우선합니다.
                   </p>
                 </div>
               </div>
@@ -2493,7 +2805,7 @@
                 <div class="route-map-toolbar">
                   <div class="route-map-copy">
                     <strong>Swiss Day 1 실제 동선 지도</strong>
-                    <span>취리히 공항에서 루체른역까지 이동한 뒤, 호텔과 루체른 구시가지 첫 산책 축을 표시합니다.</span>
+                    <span>LX1485 도착 후 취리히 공항에서 루체른역까지 추천 열차 시간과 호텔·구시가지 첫 산책 축을 표시합니다.</span>
                   </div>
                   <div class="route-map-actions">
                     <span class="route-legend primary">기본</span>
@@ -2509,19 +2821,19 @@
               <div class="day-content">
                 <div class="timeline">
                   <div class="timeline-item">
-                    <div class="time-tag">10:55</div>
+                    <div class="time-tag">09:30-10:55</div>
                     <div>
-                      <strong data-place-key="swiss_day1_zurich_airport">취리히 공항 도착</strong>
-                      <span class="duration-tag">입국·수하물 버퍼 60-80분</span>
-                      <p>입국 후 `Bahn / Train` 표지판을 따라 Zürich Flughafen 역으로 이동합니다. 항공편 지연이 있으면 루체른 산책 범위를 바로 줄입니다.</p>
+                      <strong data-place-key="swiss_day1_zurich_airport">LX1485 프라하 → 취리히 도착</strong>
+                      <span class="duration-tag">예약 완료 · ZRH 10:55 도착</span>
+                      <p>스위스국제항공 LX1485는 예약 완료 항공편입니다. 입국 후 `Bahn / Train` 표지판을 따라 Zürich Flughafen 역으로 이동합니다.</p>
                     </div>
                   </div>
                   <div class="timeline-item">
-                    <div class="time-tag">12:15 전후</div>
+                    <div class="time-tag">12:15</div>
                     <div>
                       <strong data-place-keys="swiss_day1_zurich_airport swiss_day1_luzern_station">Zürich Flughafen → Luzern</strong>
-                      <span class="duration-tag">약 1시간 10-20분</span>
-                      <p>직통 우선, 없으면 Zürich HB 환승으로 잡습니다. 정확한 플랫폼과 열차는 SBB 앱에서 당일 재확인합니다.</p>
+                      <span class="duration-tag">추천 구매 후보 · 13:25 Luzern 도착</span>
+                      <p>Swiss public transport 조회 기준 12:15 Zürich Flughafen 출발, Zürich HB 12:35 환승, 13:25 Luzern 도착편을 1순위로 둡니다. 12:39 직통 13:51 도착, 13:15 직통 14:25 도착은 항공·수하물 지연 백업입니다.</p>
                     </div>
                   </div>
                   <div class="timeline-item">
@@ -2740,7 +3052,7 @@
                     <div>
                       <strong data-place-key="swiss_day3_hotel">기상과 체크아웃 준비</strong>
                       <span class="duration-tag">60분</span>
-                      <p>캐리어, 여권, Half Fare Card, 티켓 QR을 먼저 확인합니다. 조식은 길게 잡지 않습니다.</p>
+                      <p>캐리어, 여권, Half Fare Card, 티켓 QR을 먼저 확인합니다. 호텔조식은 길게 잡지 않습니다.</p>
                     </div>
                   </div>
                   <div class="timeline-item">
@@ -2779,8 +3091,8 @@
                     <div class="time-tag">11:32</div>
                     <div>
                       <strong data-place-key="swiss_day3_interlaken_west">Interlaken West 도착</strong>
-                      <span class="duration-tag">PL1 · Airbnb 주소 추후 반영</span>
-                      <p>예약 숙소의 정확 주소가 확정되면 Interlaken West에서 숙소까지 도보, 버스, 택시 중 가장 안정적인 마지막 구간을 추가합니다.</p>
+                      <span class="duration-tag">PL1 · 65 Hauptstrasse 숙소</span>
+                      <p>숙소는 65 Hauptstrasse, Unterseen, BE 3800으로 확정합니다. Interlaken에는 역이 두 개 있으므로 이 일정은 Interlaken West 하차가 맞고, 역에서 숙소까지는 짐 상태를 보고 도보 또는 택시로 짧게 이동합니다.</p>
                     </div>
                   </div>
                 </div>
@@ -2789,12 +3101,12 @@
                     <h4>아침과 간식</h4>
                     <ul class="food-list">
                       <li class="food-pick">
-                        <strong>호텔 조식<span class="food-type">안정형</span></strong>
-                        <p>09:24 열차를 놓치지 않는 범위에서 가장 안정적입니다. 오래 앉는 조식보다 빠른 정리가 우선입니다.</p>
+                        <strong>호텔조식<span class="food-type">안정형</span></strong>
+                        <p>09:24 열차를 놓치지 않는 범위에서 가장 안정적입니다. 오래 앉는 호텔조식보다 빠른 정리가 우선입니다.</p>
                       </li>
                       <li class="food-pick">
                         <strong data-place-key="swiss_day3_luzern_station">루체른역 베이커리<span class="food-type">대안</span></strong>
-                        <p>조식 시간이 애매하면 역에서 커피, 빵, 물, 작은 초콜릿을 사서 탑승합니다.</p>
+                        <p>호텔조식 시간이 애매하면 역에서 커피, 빵, 물, 작은 초콜릿을 사서 탑승합니다.</p>
                       </li>
                     </ul>
                   </div>
@@ -2802,7 +3114,7 @@
                     <h4>예약·좌석</h4>
                     <ul>
                       <li>Zentralbahn 공식 안내 기준 2026.05.02-2026.11.01 좌석 예약 수수료는 CHF 16입니다.</li>
-                      <li>특별 티켓이 아니라 일반 열차 티켓으로 탑승 가능하며, Swiss Half Fare Card 할인 티켓을 구매합니다.</li>
+                      <li>특별 티켓이 아니라 일반 열차 티켓으로 탑승 가능하며, 구매 완료된 Swiss Half Fare Card 기준 할인 티켓으로 구매합니다.</li>
                       <li>가이드의 09:24 출발은 결제 티켓 기준입니다. 공식 일반 패턴인 매시 06분 출발 정보와 섞어 다시 예약하지 않습니다.</li>
                       <li>루체른 출발 방향 오른쪽 좌석을 우선합니다.</li>
                     </ul>
@@ -2829,7 +3141,7 @@
                   <div class="timeline-item">
                     <div class="time-tag">09:00</div>
                     <div>
-                      <strong>Unterseen Airbnb 주변 아침 정리</strong>
+                      <strong>65 Hauptstrasse 숙소 주변 아침 정리</strong>
                       <span class="duration-tag">느린 시작</span>
                       <p>전날 이동 피로를 고려해 아침은 늦게 시작합니다. Coop/Migros에서 물과 간식을 먼저 확보하고, 날씨 앱으로 산 위 구름을 확인합니다.</p>
                     </div>
@@ -2902,7 +3214,7 @@
                 <div class="day-intro">
                   <h3>추천 톤: “숙소 이동일이지만 오후는 그린델발트 대표 장면으로”</h3>
                   <p>
-                    엑셀의 예약 열차 기준 Interlaken West 10:22 → Interlaken Ost 10:26,
+                    65 Hauptstrasse 숙소에서 Interlaken West로 이동한 뒤, 엑셀의 예약 열차 기준 Interlaken West 10:22 → Interlaken Ost 10:26,
                     Interlaken Ost 10:34 → Grindelwald 11:10을 고정합니다. 체크인 전후 여유는 First Cliff Walk와 Bachalpsee에 씁니다.
                   </p>
                 </div>
@@ -2922,7 +3234,7 @@
                     <div>
                       <strong>Interlaken West → Interlaken Ost</strong>
                       <span class="duration-tag">10:22-10:26 · PL1 → PL8</span>
-                      <p>엑셀 일정의 예약 구간입니다. 플랫폼 이동 시간이 짧으므로 Interlaken West에는 여유 있게 도착합니다.</p>
+                      <p>엑셀 일정의 예약 구간입니다. 65 Hauptstrasse 숙소에서 Interlaken West로 먼저 이동하고, 플랫폼 이동 시간이 짧으므로 역에는 여유 있게 도착합니다.</p>
                     </div>
                   </div>
                   <div class="timeline-item">
@@ -2984,9 +3296,26 @@
                 <div class="day-intro">
                   <h3>추천 톤: “스위스 마지막 날은 관광보다 남행 환승 성공이 일정”</h3>
                   <p>
-                    호텔 조식 후 11:17 Grindelwald 출발을 고정합니다. 이 날의 스위스 파트는 체크아웃, 간식 확보,
-                    환승 플랫폼 확인, Domodossola 이후 밀라노행 연결만 안정적으로 관리합니다.
+                    아침식사 후 예약 완료된 11:17 Grindelwald 출발 남행 루트를 고정합니다.
+                    예약 완료 구간은 Domodossola 14:32 도착까지이며, Milano Centrale행 열차만 별도 구매 필요로 남깁니다.
                   </p>
+                </div>
+              </div>
+              <div class="route-map-card" data-route-map-card="swiss-day6">
+                <div class="route-map-toolbar">
+                  <div class="route-map-copy">
+                    <strong>Swiss Day 6 예약 교통축 지도</strong>
+                    <span>예약 완료된 Grindelwald 11:17-Domodossola 14:32 구간과, 예약 필요인 Milano Centrale 연결 후보를 함께 표시합니다.</span>
+                  </div>
+                  <div class="route-map-actions">
+                    <span class="route-legend primary">예약 완료</span>
+                    <span class="route-legend backup">예약 필요</span>
+                    <button class="route-map-button" type="button" data-route-map-open>지도 열기</button>
+                  </div>
+                </div>
+                <div class="route-map-shell" data-route-map-shell hidden>
+                  <div class="google-route-map" data-route-map-target aria-label="Swiss Day 6 스위스에서 밀라노 이동 지도"></div>
+                  <p class="route-map-status" data-route-map-status>Google Maps 지도를 준비 중입니다.</p>
                 </div>
               </div>
               <div class="day-content">
@@ -2994,9 +3323,9 @@
                   <div class="timeline-item">
                     <div class="time-tag">08:00</div>
                     <div>
-                      <strong>Hotel Gletscherblick 조식</strong>
-                      <span class="duration-tag">조식 포함</span>
-                      <p>엑셀 숙박 메모상 조식 포함입니다. 전망 사진은 호텔 주변에서 짧게 찍고, 산책 욕심보다 짐 정리를 우선합니다.</p>
+                      <strong>아침식사</strong>
+                      <span class="duration-tag">개별 준비</span>
+                      <p>Hotel Gletscherblick은 아침식사를 신청하지 않은 기준입니다. 전날 간단히 준비하거나 역 주변에서 해결하고, 산책 욕심보다 짐 정리를 우선합니다.</p>
                     </div>
                   </div>
                   <div class="timeline-item">
@@ -3011,32 +3340,48 @@
                     <div class="time-tag">11:17</div>
                     <div>
                       <strong>Grindelwald → Interlaken Ost</strong>
-                      <span class="duration-tag">11:17-11:54</span>
-                      <p>엑셀의 고정 구간입니다. Interlaken Ost에서 5분 환승이므로 도착 전 다음 플랫폼과 캐리어 동선을 확인합니다.</p>
+                      <span class="duration-tag">예약 완료 · 11:17-11:54</span>
+                      <p>사용자 확정 예약 기준입니다. Interlaken Ost에서 5분 환승이므로 도착 전 다음 플랫폼과 캐리어 동선을 확인합니다.</p>
                     </div>
                   </div>
                   <div class="timeline-item">
                     <div class="time-tag">11:59</div>
                     <div>
-                      <strong>Interlaken Ost → Spiez → Brig</strong>
-                      <span class="duration-tag">11:59-13:13</span>
-                      <p>Interlaken Ost 11:59 → Spiez 12:23, Spiez 12:38 → Brig 13:13 흐름입니다. Spiez 환승 때 점심 구매 시간은 거의 없습니다.</p>
+                      <strong>Interlaken Ost → Spiez</strong>
+                      <span class="duration-tag">예약 완료 · 11:59-12:23</span>
+                      <p>사용자 확정 예약 기준입니다. Spiez 환승은 15분이므로 화장실·플랫폼 이동만 보고, 점심 구매는 미리 끝내는 편이 안전합니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">12:38</div>
+                    <div>
+                      <strong>Spiez → Brig</strong>
+                      <span class="duration-tag">예약 완료 · 12:38-13:13</span>
+                      <p>사용자 확정 예약 기준입니다. Brig 도착 후 Iselle di Trasquera행 13:25 연결까지 12분이므로 바로 다음 승강장으로 이동합니다.</p>
                     </div>
                   </div>
                   <div class="timeline-item">
                     <div class="time-tag">13:25</div>
                     <div>
-                      <strong>Brig → Iselle di Trasquera → Domodossola</strong>
-                      <span class="duration-tag">13:25-14:32</span>
-                      <p>Brig 13:25 → Iselle di Trasquera 13:40, Iselle stazione 14:03 버스 → Domodossola stazione 14:32입니다.</p>
+                      <strong>Brig → Iselle di Trasquera</strong>
+                      <span class="duration-tag">예약 완료 · 13:25-13:40</span>
+                      <p>사용자 확정 예약 기준입니다. Iselle di Trasquera 도착 후 버스 정류장 `Iselle stazione` 이동과 탑승 위치를 바로 확인합니다.</p>
                     </div>
                   </div>
                   <div class="timeline-item">
-                    <div class="time-tag">오후</div>
+                    <div class="time-tag">14:03</div>
                     <div>
-                      <strong>Domodossola → Milano 연결</strong>
-                      <span class="duration-tag">예약 후 보강</span>
-                      <p>엑셀에 “밀라노 가는 기차 예약후 작성”으로 남아 있습니다. 예약 완료 후 열차 번호, 플랫폼, Milano Centrale 도착 시각을 이 카드에 추가합니다.</p>
+                      <strong>(버스) Iselle stazione → Domodossola, stazione</strong>
+                      <span class="duration-tag">예약 완료 · 14:03-14:32</span>
+                      <p>사용자 확정 예약 기준입니다. Domodossola 도착 후 Milano Centrale행 후보까지 시간이 짧으므로 플랫폼 전광판과 Trenord/Trenitalia 앱을 바로 확인합니다.</p>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="time-tag">14:48 후보</div>
+                    <div>
+                      <strong>Domodossola → Milano Centrale</strong>
+                      <span class="duration-tag">예약 필요 · 추천 구매 후보 14:48-16:35</span>
+                      <p>Trenord Quadro 40 2026년 6월 시간표 기준 07.21에는 Domodossola 14:48 → Milano Centrale 16:35 직통 후보가 있습니다. 버스 도착 후 환승 16분이라 구매 전 공식 앱에서 플랫폼·운행일·공사 변경을 재확인하고, 놓칠 가능성이 있으면 15:48 → 17:35 후보를 백업으로 둡니다.</p>
                     </div>
                   </div>
                 </div>
@@ -3046,7 +3391,7 @@
                     <ul>
                       <li>짧은 환승이 이어지므로 캐리어는 한 손으로 바로 끌 수 있게 정리합니다.</li>
                       <li>Brig 이후 이탈리아 국경 구간은 티켓 종류와 검표를 따로 확인합니다.</li>
-                      <li>Domodossola 이후 밀라노행이 확정되기 전까지는 이탈리아 Day 1 시작 시간을 유동으로 둡니다.</li>
+                      <li>Domodossola 이후 밀라노행은 예약 필요입니다. 14:48 → 16:35 후보 구매 여부가 이탈리아 Day 1 시작 시간을 확정합니다.</li>
                     </ul>
                   </div>
                   <div class="aside-card">
@@ -3066,6 +3411,205 @@
             <a class="source-chip" href="https://www.jungfrau.ch/en-gb/grindelwaldfirst/" target="_blank" rel="noreferrer">Grindelwald-First</a>
             <a class="source-chip" href="https://www.jungfrau.ch/en-gb/jungfraujoch-top-of-europe/" target="_blank" rel="noreferrer">Jungfraujoch option</a>
             <a class="source-chip" href="https://www.sbb.ch/en/offers/swiss-half-fare-card" target="_blank" rel="noreferrer">SBB Half Fare</a>
+            <a class="source-chip" href="https://transport.opendata.ch/" target="_blank" rel="noreferrer">Swiss public transport API</a>
+            <a class="source-chip" href="https://www.trenord.it/en/routes-and-timetables/journey/train-timetable/" target="_blank" rel="noreferrer">Trenord Quadro 40</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="swiss-excel-schedule">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <span class="section-index">Calendar Schedule</span>
+              <h2>스위스 캘린더형 일정표</h2>
+              <p>스위스 탭에는 07.16 입국부터 07.21 Domodossola 이후 밀라노 연결 준비까지의 스위스 구간만 보이게 정리했습니다. Interlaken 숙소는 65 Hauptstrasse 기준이며 West 하차를 메타 행에 반영했습니다.</p>
+            </div>
+          </div>
+
+          <div class="schedule-legend" aria-label="스위스 일정 색상 범례">
+            <span class="legend-chip transit">이동/교통</span>
+            <span class="legend-chip tour">투어/관광</span>
+            <span class="legend-chip food">식사/카페</span>
+            <span class="legend-chip stay">숙소/체크인</span>
+            <span class="legend-chip prep">준비/예약필요</span>
+          </div>
+
+          <div class="calendar-sheet" role="region" aria-label="스위스 06시부터 22시까지 캘린더형 일정표" tabindex="0">
+            <div class="calendar-board" style="--date-cols:6; min-width:1040px;">
+              <div class="calendar-label" style="grid-column:1; grid-row:1;">날짜</div>
+              <div class="calendar-label" style="grid-column:1; grid-row:2;">나라(도시)</div>
+              <div class="calendar-label" style="grid-column:1; grid-row:3;">숙소</div>
+              <div class="calendar-label" style="grid-column:1; grid-row:4;">추가준비사항</div>
+            <div class="calendar-date" style="grid-column:2; grid-row:1;">2026-07-16</div>
+            <div class="calendar-date" style="grid-column:3; grid-row:1;">2026-07-17</div>
+            <div class="calendar-date" style="grid-column:4; grid-row:1;">2026-07-18</div>
+            <div class="calendar-date" style="grid-column:5; grid-row:1;">2026-07-19</div>
+            <div class="calendar-date" style="grid-column:6; grid-row:1;">2026-07-20</div>
+            <div class="calendar-date" style="grid-column:7; grid-row:1;">2026-07-21</div>
+            <div class="calendar-meta city" style="grid-column:2; grid-row:2;">스위스(루체른)</div>
+            <div class="calendar-meta city" style="grid-column:3; grid-row:2;">스위스(루체른)</div>
+            <div class="calendar-meta city" style="grid-column:4; grid-row:2;">스위스(인터라켄)</div>
+            <div class="calendar-meta city" style="grid-column:5; grid-row:2;">스위스(인터라켄)</div>
+            <div class="calendar-meta city" style="grid-column:6; grid-row:2;">스위스(그린델발트)</div>
+            <div class="calendar-meta city" style="grid-column:7; grid-row:2;">스위스→이탈리아</div>
+            <div class="calendar-meta stay-row" style="grid-column:2; grid-row:3;">호텔 루체르너호프</div>
+            <div class="calendar-meta stay-row" style="grid-column:3; grid-row:3;">호텔 루체르너호프</div>
+            <div class="calendar-meta stay-row" style="grid-column:4; grid-row:3;">65 Hauptstrasse, Unterseen</div>
+            <div class="calendar-meta stay-row" style="grid-column:5; grid-row:3;">65 Hauptstrasse, Unterseen</div>
+            <div class="calendar-meta stay-row" style="grid-column:6; grid-row:3;">호텔 글레처블릭</div>
+            <div class="calendar-meta stay-row" style="grid-column:7; grid-row:3;">밀라노 이동</div>
+            <div class="calendar-meta prep-row" style="grid-column:2; grid-row:4;">취리히→루체른 기차 예약필요</div>
+            <div class="calendar-meta prep-row" style="grid-column:3; grid-row:4;">Swiss Half Fare Card 구매완료</div>
+            <div class="calendar-meta prep-row" style="grid-column:4; grid-row:4;">Interlaken West 하차</div>
+            <div class="calendar-meta prep-row" style="grid-column:5; grid-row:4;">날씨 따라 Harder Kulm 조정</div>
+            <div class="calendar-meta prep-row" style="grid-column:6; grid-row:4;">피르스트 운행·날씨 확인</div>
+            <div class="calendar-meta prep-row" style="grid-column:7; grid-row:4;">밀라노행 기차 예약필요</div>
+            <div class="calendar-day-bg" style="grid-column:2;"></div>
+            <div class="calendar-day-bg" style="grid-column:3;"></div>
+            <div class="calendar-day-bg" style="grid-column:4;"></div>
+            <div class="calendar-day-bg" style="grid-column:5;"></div>
+            <div class="calendar-day-bg" style="grid-column:6;"></div>
+            <div class="calendar-day-bg" style="grid-column:7;"></div>
+            <div class="calendar-time" style="grid-column:1; grid-row:5;">06:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:6;">07:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:7;">08:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:8;">09:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:9;">10:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:10;">11:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:11;">12:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:12;">13:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:13;">14:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:14;">15:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:15;">16:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:16;">17:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:17;">18:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:18;">19:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:19;">20:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:20;">21:00</div>
+            <div class="calendar-time" style="grid-column:1; grid-row:21;">22:00</div>
+            <div class="calendar-event transit" style="grid-column:2; grid-row:8 / span 2;" data-detail="09:30 프라하 PRG 출발|10:55 취리히 ZRH 도착|예약완료된 LX1485 기준">
+              <span class="event-time">09:30-10:55</span>
+              <strong>LX1485 프라하→취리히</strong>
+              <span class="schedule-badge">예약완료</span>
+            </div>
+            <div class="calendar-event transit" style="grid-column:2; grid-row:10 / span 2;" data-detail="취리히 공항 도착 후 입국·수하물 시간 확보|Zürich Flughafen → Luzern 직행/환승 열차 확인|Hotel Luzernerhof 이동 기준으로 예약필요">
+              <span class="event-time">12:15-13:25</span>
+              <strong>Zürich Flughafen→Luzern</strong>
+              <span class="schedule-badge">예약필요</span>
+            </div>
+            <div class="calendar-event stay" style="grid-column:2; grid-row:12 / span 2;">
+              <span class="event-time">13:40 이후</span>
+              <strong>Hotel Luzernerhof 체크인</strong>
+            </div>
+            <div class="calendar-event tour" style="grid-column:2; grid-row:14 / span 3;">
+              <span class="event-time">오후</span>
+              <strong>루체른 구시가지 산책</strong>
+            </div>
+            <div class="calendar-event food" style="grid-column:2; grid-row:18 / span 1;">
+              <span class="event-time">저녁</span>
+              <strong>루체른 저녁</strong>
+            </div>
+            <div class="calendar-event food" style="grid-column:3; grid-row:6 / span 1;">
+              <span class="event-time">07:00</span>
+              <strong>호텔조식</strong>
+            </div>
+            <div class="calendar-event transit" style="grid-column:3; grid-row:8 / span 1;">
+              <span class="event-time">09:12 전후</span>
+              <strong>Luzern→Vitznau</strong>
+            </div>
+            <div class="calendar-event tour" style="grid-column:3; grid-row:9 / span 5;">
+              <span class="event-time">10:00-15:00</span>
+              <strong>Rigi round trip</strong>
+              <span class="event-note">날씨 우선</span>
+            </div>
+            <div class="calendar-event transit" style="grid-column:3; grid-row:14 / span 2;">
+              <span class="event-time">오후</span>
+              <strong>Weggis→Luzern 복귀</strong>
+            </div>
+            <div class="calendar-event food" style="grid-column:3; grid-row:17 / span 1;">
+              <span class="event-time">저녁</span>
+              <strong>루체른 저녁</strong>
+            </div>
+            <div class="calendar-event food" style="grid-column:4; grid-row:6 / span 1;">
+              <span class="event-time">07:30</span>
+              <strong>호텔조식</strong>
+            </div>
+            <div class="calendar-event transit" style="grid-column:4; grid-row:8 / span 3;" data-detail="Luzern 09:24 → Interlaken Ost 11:17|Interlaken Ost 11:29 → Interlaken West 11:32|숙소 안내 기준 Interlaken West 하차">
+              <span class="event-time">09:24-11:32</span>
+              <strong>Luzern→Interlaken West</strong>
+              <span class="schedule-badge">예약완료</span>
+            </div>
+            <div class="calendar-event stay" style="grid-column:4; grid-row:11 / span 2;">
+              <span class="event-time">11:45 이후</span>
+              <strong>65 Hauptstrasse 이동</strong>
+              <span class="event-note">West 하차</span>
+            </div>
+            <div class="calendar-event tour" style="grid-column:4; grid-row:13 / span 3;">
+              <span class="event-time">오후</span>
+              <strong>Interlaken·Unterseen 산책</strong>
+            </div>
+            <div class="calendar-event food" style="grid-column:4; grid-row:17 / span 1;">
+              <span class="event-time">저녁</span>
+              <strong>인터라켄 저녁</strong>
+            </div>
+            <div class="calendar-event food" style="grid-column:5; grid-row:7 / span 1;">
+              <span class="event-time">08:00</span>
+              <strong>아침식사</strong>
+            </div>
+            <div class="calendar-event tour" style="grid-column:5; grid-row:9 / span 4;">
+              <span class="event-time">10:00-14:00</span>
+              <strong>Harder Kulm</strong>
+            </div>
+            <div class="calendar-event food" style="grid-column:5; grid-row:13 / span 1;">
+              <span class="event-time">점심</span>
+              <strong>인터라켄 점심</strong>
+            </div>
+            <div class="calendar-event tour" style="grid-column:5; grid-row:14 / span 3;">
+              <span class="event-time">오후</span>
+              <strong>호수·Unterseen 산책</strong>
+            </div>
+            <div class="calendar-event food" style="grid-column:5; grid-row:17 / span 1;">
+              <span class="event-time">저녁</span>
+              <strong>인터라켄 저녁</strong>
+            </div>
+            <div class="calendar-event transit" style="grid-column:6; grid-row:9 / span 1;">
+              <span class="event-time">10:22-11:10</span>
+              <strong>Interlaken→Grindelwald</strong>
+              <span class="schedule-badge">예약완료</span>
+            </div>
+            <div class="calendar-event stay" style="grid-column:6; grid-row:10 / span 1;">
+              <span class="event-time">11:30 전후</span>
+              <strong>호텔 글레처블릭 이동</strong>
+            </div>
+            <div class="calendar-event tour" style="grid-column:6; grid-row:11 / span 4;">
+              <span class="event-time">오후</span>
+              <strong>First Cliff Walk·Bachalpsee 후보</strong>
+            </div>
+            <div class="calendar-event food" style="grid-column:6; grid-row:17 / span 1;">
+              <span class="event-time">저녁</span>
+              <strong>그린델발트 저녁</strong>
+            </div>
+            <div class="calendar-event food" style="grid-column:7; grid-row:7 / span 1;">
+              <span class="event-time">08:00</span>
+              <strong>아침식사</strong>
+            </div>
+            <div class="calendar-event prep" style="grid-column:7; grid-row:8 / span 1;">
+              <span class="event-time">오전</span>
+              <strong>체크아웃·플랫폼 확인</strong>
+            </div>
+            <div class="calendar-event transit" style="grid-column:7; grid-row:10 / span 4;" data-detail="Grindelwald 11:17 → Interlaken Ost 11:54|Interlaken Ost 11:59 → Spiez 12:23|Spiez 12:38 → Brig 13:13|Brig 13:25 → Iselle di Trasquera 13:40|Iselle stazione 14:03 → Domodossola, stazione 14:32">
+              <span class="event-time">11:17-14:32</span>
+              <strong>Grindelwald→Domodossola</strong>
+              <span class="event-note">Interlaken·Spiez·Brig·Iselle</span>
+              <span class="schedule-badge">예약완료</span>
+            </div>
+            <div class="calendar-event transit" style="grid-column:7; grid-row:14 / span 2;" data-detail="Domodossola 도착 후 Milano Centrale행 별도 예약필요|권장안은 14:48 전후 출발, 16:35 전후 Milano Centrale 도착 기준|앞 구간 지연 대비 환승 여유 확인 필요">
+              <span class="event-time">14:48-16:35</span>
+              <strong>Domodossola→Milano Centrale</strong>
+              <span class="schedule-badge">예약필요</span>
+            </div>
+            </div>
           </div>
         </div>
       </section>
@@ -3109,6 +3653,7 @@
       });
     }());
   </script>
+  <script src="./assets/schedule-detail.js"></script>
   <script>
     (function () {
       if (!("serviceWorker" in navigator)) return;
@@ -3119,6 +3664,57 @@
           // Offline mode is optional; the guide remains usable as a normal static page.
         });
       });
+    }());
+  </script>
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const toggle = document.querySelector("[data-view-toggle]");
+      const params = new URLSearchParams(window.location.search);
+      const requestedView = params.get("view");
+      const storageKey = "honeymoonGuideView";
+
+      function storedView() {
+        try {
+          return window.localStorage.getItem(storageKey);
+        } catch {
+          return null;
+        }
+      }
+
+      function saveView(view) {
+        try {
+          window.localStorage.setItem(storageKey, view);
+        } catch {
+          return;
+        }
+      }
+
+      function applyView(view) {
+        const isAppView = view === "app";
+        root.classList.toggle("app-view", isAppView);
+        if (!toggle) return;
+        toggle.setAttribute("aria-pressed", String(isAppView));
+        toggle.setAttribute("aria-label", isAppView ? "웹 보기로 전환" : "앱 보기로 전환");
+        toggle.textContent = isAppView ? "웹" : "앱";
+      }
+
+      const initialView = requestedView === "app" || requestedView === "web"
+        ? requestedView
+        : storedView() || "web";
+
+      applyView(initialView);
+      if (requestedView === "app" || requestedView === "web") {
+        saveView(requestedView);
+      }
+
+      if (toggle) {
+        toggle.addEventListener("click", () => {
+          const nextView = root.classList.contains("app-view") ? "web" : "app";
+          applyView(nextView);
+          saveView(nextView);
+        });
+      }
     }());
   </script>
   <script src="./assets/google-maps-config.js"></script>

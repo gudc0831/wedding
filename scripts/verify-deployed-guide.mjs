@@ -52,6 +52,12 @@ const pageSpecs = [
 ];
 
 const googleAccountOverlayPattern = /Google 지도를 제대로 로드할 수 없습니다|This page (?:can't|didn't) load Google Maps correctly/;
+const mobileGuideViewports = [
+  { label: "iphone15-pro", width: 393, height: 852 },
+  { label: "iphone17-pro", width: 402, height: 874 }
+];
+const mobileGuideViews = ["web", "app"];
+const horizontalOverflowThreshold = 20;
 
 const diagnostics = {
   consoleErrors: [],
@@ -60,8 +66,8 @@ const diagnostics = {
 
 let currentStep = "startup";
 
-function pageUrl(path, label) {
-  return `${rootUrl}${path}?verify=${Date.now()}&view=${label}`;
+function pageUrl(path, view) {
+  return `${rootUrl}${path}?verify=${Date.now()}&view=${view}`;
 }
 
 function attachDiagnostics(page) {
@@ -97,18 +103,36 @@ async function gotoGuidePage(page, url, label) {
   }
 }
 
-async function verifyIndex(page, label) {
+async function verifyIndex(page, label, view = label) {
   currentStep = `${label}-index`;
-  await gotoGuidePage(page, pageUrl("/index.html", label), `${label} index`);
+  await gotoGuidePage(page, pageUrl("/index.html", view), `${label} index`);
   await requireVisible(page.locator("h1", { hasText: "Czechia, Swiss & Italy Honeymoon Guide" }), `${label} index heading`);
   await requireVisible(page.locator("a[href='./czech_honeymoon_guide.html']"), `${label} czech link`);
   await requireVisible(page.locator("a[href='./switzerland_honeymoon_guide.html']"), `${label} swiss link`);
   await requireVisible(page.locator("a[href='./italy_honeymoon_guide.html']"), `${label} italy link`);
 }
 
-async function verifyGuideStructure(page, spec, label) {
+async function verifyGuideStructure(page, spec, label, options = {}) {
+  const {
+    view = label,
+    expectedAppView = null,
+    enforceHorizontalOverflow = label === "mobile"
+  } = options;
+
   currentStep = `${label}-${spec.label}-structure`;
-  await gotoGuidePage(page, pageUrl(spec.path, label), `${label} ${spec.label} structure`);
+  await gotoGuidePage(page, pageUrl(spec.path, view), `${label} ${spec.label} structure`);
+
+  if (expectedAppView !== null) {
+    try {
+      await page.waitForFunction(
+        (expected) => document.documentElement.classList.contains("app-view") === expected,
+        expectedAppView,
+        { timeout: 5000 }
+      );
+    } catch {
+      // The structure snapshot below reports the actual final state.
+    }
+  }
 
   await requireVisible(page.locator(".country-tabs"), `${label} ${spec.label} country tabs`);
   await requireVisible(page.locator("a[href='./czech_honeymoon_guide.html']"), `${label} ${spec.label} czech tab`);
@@ -129,13 +153,15 @@ async function verifyGuideStructure(page, spec, label) {
       .filter((id, index, ids) => ids.indexOf(id) !== index);
     const horizontalOverflow = document.documentElement.scrollWidth - window.innerWidth;
     const manifestHref = document.querySelector('link[rel="manifest"]')?.getAttribute("href") || "";
+    const appViewApplied = document.documentElement.classList.contains("app-view");
 
     return {
       missingSections,
       missingAnchors,
       duplicateIds: Array.from(new Set(duplicateIds)),
       horizontalOverflow,
-      manifestHref
+      manifestHref,
+      appViewApplied
     };
   }, spec.requiredSectionIds);
 
@@ -151,7 +177,10 @@ async function verifyGuideStructure(page, spec, label) {
   if (!structure.manifestHref) {
     throw new Error(`${label} ${spec.label} manifest link was not found.`);
   }
-  if (label === "mobile" && structure.horizontalOverflow > 20) {
+  if (expectedAppView !== null && structure.appViewApplied !== expectedAppView) {
+    throw new Error(`${label} ${spec.label} expected html.app-view to be ${expectedAppView ? "applied" : "absent"}.`);
+  }
+  if (enforceHorizontalOverflow && structure.horizontalOverflow > horizontalOverflowThreshold) {
     throw new Error(`${label} ${spec.label} horizontal overflow is ${structure.horizontalOverflow}px.`);
   }
 
@@ -351,6 +380,34 @@ async function verifyRouteMaps(page) {
   }
 }
 
+async function verifyMobileGuideMatrix(browser) {
+  for (const viewport of mobileGuideViewports) {
+    for (const view of mobileGuideViews) {
+      const label = `mobile-${viewport.label}-${view}`;
+      const context = await browser.newContext({
+        viewport: { width: viewport.width, height: viewport.height },
+        isMobile: true,
+        serviceWorkers: "allow"
+      });
+      try {
+        const page = await context.newPage();
+        attachDiagnostics(page);
+
+        await verifyIndex(page, label, view);
+        for (const spec of pageSpecs) {
+          await verifyGuideStructure(page, spec, label, {
+            view,
+            expectedAppView: view === "app",
+            enforceHorizontalOverflow: true
+          });
+        }
+      } finally {
+        await context.close();
+      }
+    }
+  }
+}
+
 async function run() {
   const browser = await chromium.launch({ headless: true });
   try {
@@ -369,19 +426,7 @@ async function run() {
     await verifyRouteMaps(desktopPage);
     await desktopContext.close();
 
-    const mobileContext = await browser.newContext({
-      viewport: { width: 390, height: 844 },
-      isMobile: true,
-      serviceWorkers: "allow"
-    });
-    const mobilePage = await mobileContext.newPage();
-    attachDiagnostics(mobilePage);
-
-    await verifyIndex(mobilePage, "mobile");
-    for (const spec of pageSpecs) {
-      await verifyGuideStructure(mobilePage, spec, "mobile");
-    }
-    await mobileContext.close();
+    await verifyMobileGuideMatrix(browser);
 
     if (diagnostics.pageErrors.length || diagnostics.consoleErrors.length) {
       const errors = [...diagnostics.pageErrors, ...diagnostics.consoleErrors].join("\n");

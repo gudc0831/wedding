@@ -1,0 +1,1579 @@
+{
+  "checkedAt": "2026-07-02T06:18:20.022Z",
+  "root": "http://localhost:8000",
+  "browserExecutable": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  "viewports": [
+    {
+      "label": "iphone15-pro",
+      "width": 393,
+      "height": 852
+    },
+    {
+      "label": "iphone17-pro",
+      "width": 402,
+      "height": 874
+    }
+  ],
+  "pages": [
+    {
+      "page": "czech",
+      "viewport": "iphone15-pro",
+      "view": "web",
+      "url": "http://localhost:8000/czech_honeymoon_guide.html?view=web&browsercheck=1782973101634",
+      "htmlAppView": false,
+      "innerWidth": 393,
+      "innerHeight": 852,
+      "documentScrollWidth": 393,
+      "bodyScrollWidth": 393,
+      "horizontalOverflow": 0,
+      "pageShellRect": {
+        "width": 393,
+        "height": 15353,
+        "left": 0,
+        "right": 393,
+        "top": 0,
+        "bottom": 15353
+      },
+      "topbarRect": {
+        "width": 393,
+        "height": 278,
+        "left": 0,
+        "right": 393,
+        "top": 0,
+        "bottom": 278
+      },
+      "heroRect": {
+        "width": 393,
+        "height": 689,
+        "left": 0,
+        "right": 393,
+        "top": 278,
+        "bottom": 966
+      },
+      "mainRect": {
+        "width": 393,
+        "height": 14261,
+        "left": 0,
+        "right": 393,
+        "top": 966,
+        "bottom": 15227
+      },
+      "textLength": 8246,
+      "textHash": "685c0eed914e17d6",
+      "htmlHash": "bf16d36c009a93ef",
+      "sectionCount": 6,
+      "sectionIds": [
+        "czech-overview",
+        "czech-first-leg",
+        "czech-return-divider",
+        "czech-return-leg",
+        "czech-sources",
+        "czech-excel-schedule"
+      ],
+      "headingCount": 22,
+      "headingHash": "7a70faffa1794379",
+      "routeCards": 0,
+      "routeButtons": 0,
+      "viewToggleCount": 1,
+      "overflowElements": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-board",
+          "width": 1430,
+          "right": 1462
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-date",
+          "width": 172,
+          "right": 1462
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta city",
+          "width": 172,
+          "right": 1462
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta stay-row",
+          "width": 172,
+          "right": 1462
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta prep-row",
+          "width": 172,
+          "right": 1462
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-day-bg",
+          "width": 172,
+          "right": 1462
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-event food",
+          "width": 162,
+          "right": 1457
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-event tour",
+          "width": 162,
+          "right": 1457
+        }
+      ],
+      "screenshot": "czech-web-iphone15-pro.png"
+    },
+    {
+      "page": "czech",
+      "viewport": "iphone15-pro",
+      "view": "app",
+      "url": "http://localhost:8000/czech_honeymoon_guide.html?view=app&browsercheck=1782973105133",
+      "htmlAppView": true,
+      "innerWidth": 393,
+      "innerHeight": 852,
+      "documentScrollWidth": 393,
+      "bodyScrollWidth": 393,
+      "horizontalOverflow": 0,
+      "pageShellRect": {
+        "width": 393,
+        "height": 14434,
+        "left": 0,
+        "right": 393,
+        "top": 0,
+        "bottom": 14434
+      },
+      "topbarRect": {
+        "width": 393,
+        "height": 192,
+        "left": 0,
+        "right": 393,
+        "top": 0,
+        "bottom": 192
+      },
+      "heroRect": {
+        "width": 393,
+        "height": 687,
+        "left": 0,
+        "right": 393,
+        "top": 192,
+        "bottom": 879
+      },
+      "mainRect": {
+        "width": 393,
+        "height": 13429,
+        "left": 0,
+        "right": 393,
+        "top": 879,
+        "bottom": 14308
+      },
+      "textLength": 8246,
+      "textHash": "685c0eed914e17d6",
+      "htmlHash": "bf16d36c009a93ef",
+      "sectionCount": 6,
+      "sectionIds": [
+        "czech-overview",
+        "czech-first-leg",
+        "czech-return-divider",
+        "czech-return-leg",
+        "czech-sources",
+        "czech-excel-schedule"
+      ],
+      "headingCount": 22,
+      "headingHash": "7a70faffa1794379",
+      "routeCards": 0,
+      "routeButtons": 0,
+      "viewToggleCount": 1,
+      "overflowElements": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-board",
+          "width": 1430,
+          "right": 1452
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-date",
+          "width": 172,
+          "right": 1452
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta city",
+          "width": 172,
+          "right": 1452
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta stay-row",
+          "width": 172,
+          "right": 1452
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta prep-row",
+          "width": 172,
+          "right": 1452
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-day-bg",
+          "width": 172,
+          "right": 1452
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-event food",
+          "width": 162,
+          "right": 1447
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-event tour",
+          "width": 162,
+          "right": 1447
+        }
+      ],
+      "screenshot": "czech-app-iphone15-pro.png"
+    },
+    {
+      "page": "switzerland",
+      "viewport": "iphone15-pro",
+      "view": "web",
+      "url": "http://localhost:8000/switzerland_honeymoon_guide.html?view=web&browsercheck=1782973106020",
+      "htmlAppView": false,
+      "innerWidth": 393,
+      "innerHeight": 852,
+      "documentScrollWidth": 393,
+      "bodyScrollWidth": 393,
+      "horizontalOverflow": 0,
+      "pageShellRect": {
+        "width": 393,
+        "height": 24255,
+        "left": 0,
+        "right": 393,
+        "top": 0,
+        "bottom": 24255
+      },
+      "topbarRect": {
+        "width": 393,
+        "height": 243,
+        "left": 0,
+        "right": 393,
+        "top": 0,
+        "bottom": 243
+      },
+      "heroRect": {
+        "width": 393,
+        "height": 902,
+        "left": 0,
+        "right": 393,
+        "top": 243,
+        "bottom": 1145
+      },
+      "mainRect": {
+        "width": 393,
+        "height": 22572,
+        "left": 0,
+        "right": 393,
+        "top": 1534,
+        "bottom": 24107
+      },
+      "textLength": 17713,
+      "textHash": "d840b74973d64121",
+      "htmlHash": "4cbd21dd33437cdb",
+      "sectionCount": 2,
+      "sectionIds": [
+        "switzerland",
+        "swiss-excel-schedule"
+      ],
+      "headingCount": 31,
+      "headingHash": "cec2e5bbcaf080cc",
+      "routeCards": 4,
+      "routeButtons": 4,
+      "viewToggleCount": 1,
+      "overflowElements": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-board",
+          "width": 1086,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-date",
+          "width": 172,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta city",
+          "width": 172,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta stay-row",
+          "width": 172,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta prep-row",
+          "width": 172,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-day-bg",
+          "width": 172,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-event food",
+          "width": 162,
+          "right": 1107
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-event prep",
+          "width": 162,
+          "right": 1107
+        }
+      ],
+      "screenshot": "switzerland-web-iphone15-pro.png"
+    },
+    {
+      "page": "switzerland",
+      "viewport": "iphone15-pro",
+      "view": "app",
+      "url": "http://localhost:8000/switzerland_honeymoon_guide.html?view=app&browsercheck=1782973107112",
+      "htmlAppView": true,
+      "innerWidth": 393,
+      "innerHeight": 852,
+      "documentScrollWidth": 393,
+      "bodyScrollWidth": 393,
+      "horizontalOverflow": 0,
+      "pageShellRect": {
+        "width": 393,
+        "height": 24811,
+        "left": 0,
+        "right": 393,
+        "top": 0,
+        "bottom": 24811
+      },
+      "topbarRect": {
+        "width": 393,
+        "height": 171,
+        "left": 0,
+        "right": 393,
+        "top": 0,
+        "bottom": 171
+      },
+      "heroRect": {
+        "width": 393,
+        "height": 900,
+        "left": 0,
+        "right": 393,
+        "top": 171,
+        "bottom": 1071
+      },
+      "mainRect": {
+        "width": 393,
+        "height": 23226,
+        "left": 0,
+        "right": 393,
+        "top": 1436,
+        "bottom": 24662
+      },
+      "textLength": 17713,
+      "textHash": "d840b74973d64121",
+      "htmlHash": "4cbd21dd33437cdb",
+      "sectionCount": 2,
+      "sectionIds": [
+        "switzerland",
+        "swiss-excel-schedule"
+      ],
+      "headingCount": 31,
+      "headingHash": "cec2e5bbcaf080cc",
+      "routeCards": 4,
+      "routeButtons": 4,
+      "viewToggleCount": 1,
+      "overflowElements": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-board",
+          "width": 1086,
+          "right": 1108
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-date",
+          "width": 172,
+          "right": 1108
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta city",
+          "width": 172,
+          "right": 1108
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta stay-row",
+          "width": 172,
+          "right": 1108
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta prep-row",
+          "width": 172,
+          "right": 1108
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-day-bg",
+          "width": 172,
+          "right": 1108
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-event food",
+          "width": 162,
+          "right": 1103
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-event prep",
+          "width": 162,
+          "right": 1103
+        }
+      ],
+      "screenshot": "switzerland-app-iphone15-pro.png"
+    },
+    {
+      "page": "italy",
+      "viewport": "iphone15-pro",
+      "view": "web",
+      "url": "http://localhost:8000/italy_honeymoon_guide.html?view=web&browsercheck=1782973107960",
+      "htmlAppView": false,
+      "innerWidth": 393,
+      "innerHeight": 852,
+      "documentScrollWidth": 393,
+      "bodyScrollWidth": 393,
+      "horizontalOverflow": 0,
+      "pageShellRect": {
+        "width": 393,
+        "height": 51045,
+        "left": 0,
+        "right": 393,
+        "top": 0,
+        "bottom": 51045
+      },
+      "topbarRect": {
+        "width": 393,
+        "height": 243,
+        "left": 0,
+        "right": 393,
+        "top": 0,
+        "bottom": 243
+      },
+      "heroRect": {
+        "width": 393,
+        "height": 725,
+        "left": 0,
+        "right": 393,
+        "top": 243,
+        "bottom": 968
+      },
+      "mainRect": {
+        "width": 393,
+        "height": 49308,
+        "left": 0,
+        "right": 393,
+        "top": 1589,
+        "bottom": 50897
+      },
+      "textLength": 43455,
+      "textHash": "06ebcfb1f04a03a4",
+      "htmlHash": "0e0016427ba3d40a",
+      "sectionCount": 18,
+      "sectionIds": [
+        "italy",
+        "overview",
+        "practical-info",
+        "hotel-base",
+        "day-1",
+        "day-2",
+        "day-3",
+        "birthday-special",
+        "day-4",
+        "day-5",
+        "day-6",
+        "shopping-map",
+        "architecture-picks",
+        "sight-notes",
+        "prague-transfer",
+        "checklist",
+        "sources",
+        "italy-excel-schedule"
+      ],
+      "headingCount": 71,
+      "headingHash": "42519e83edb595c5",
+      "routeCards": 6,
+      "routeButtons": 6,
+      "viewToggleCount": 1,
+      "overflowElements": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-board",
+          "width": 1086,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-date",
+          "width": 172,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta city",
+          "width": 172,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta stay-row",
+          "width": 172,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta prep-row",
+          "width": 172,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-day-bg",
+          "width": 172,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-event food",
+          "width": 162,
+          "right": 1107
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-event prep",
+          "width": 162,
+          "right": 1107
+        }
+      ],
+      "screenshot": "italy-web-iphone15-pro.png"
+    },
+    {
+      "page": "italy",
+      "viewport": "iphone15-pro",
+      "view": "app",
+      "url": "http://localhost:8000/italy_honeymoon_guide.html?view=app&browsercheck=1782973109184",
+      "htmlAppView": true,
+      "innerWidth": 393,
+      "innerHeight": 852,
+      "documentScrollWidth": 393,
+      "bodyScrollWidth": 393,
+      "horizontalOverflow": 0,
+      "pageShellRect": {
+        "width": 393,
+        "height": 51836,
+        "left": 0,
+        "right": 393,
+        "top": 0,
+        "bottom": 51836
+      },
+      "topbarRect": {
+        "width": 393,
+        "height": 171,
+        "left": 0,
+        "right": 393,
+        "top": 0,
+        "bottom": 171
+      },
+      "heroRect": {
+        "width": 393,
+        "height": 701,
+        "left": 0,
+        "right": 393,
+        "top": 171,
+        "bottom": 872
+      },
+      "mainRect": {
+        "width": 393,
+        "height": 50278,
+        "left": 0,
+        "right": 393,
+        "top": 1409,
+        "bottom": 51688
+      },
+      "textLength": 43455,
+      "textHash": "06ebcfb1f04a03a4",
+      "htmlHash": "0e0016427ba3d40a",
+      "sectionCount": 18,
+      "sectionIds": [
+        "italy",
+        "overview",
+        "practical-info",
+        "hotel-base",
+        "day-1",
+        "day-2",
+        "day-3",
+        "birthday-special",
+        "day-4",
+        "day-5",
+        "day-6",
+        "shopping-map",
+        "architecture-picks",
+        "sight-notes",
+        "prague-transfer",
+        "checklist",
+        "sources",
+        "italy-excel-schedule"
+      ],
+      "headingCount": 71,
+      "headingHash": "42519e83edb595c5",
+      "routeCards": 6,
+      "routeButtons": 6,
+      "viewToggleCount": 1,
+      "overflowElements": [
+        {
+          "tag": "a",
+          "id": "",
+          "className": "",
+          "width": 71,
+          "right": 1600
+        },
+        {
+          "tag": "a",
+          "id": "",
+          "className": "",
+          "width": 93,
+          "right": 1521
+        },
+        {
+          "tag": "a",
+          "id": "",
+          "className": "",
+          "width": 78,
+          "right": 1420
+        },
+        {
+          "tag": "a",
+          "id": "",
+          "className": "",
+          "width": 118,
+          "right": 1334
+        },
+        {
+          "tag": "a",
+          "id": "",
+          "className": "",
+          "width": 84,
+          "right": 1207
+        },
+        {
+          "tag": "a",
+          "id": "",
+          "className": "",
+          "width": 97,
+          "right": 1116
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-board",
+          "width": 1086,
+          "right": 1108
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-date",
+          "width": 172,
+          "right": 1108
+        }
+      ],
+      "screenshot": "italy-app-iphone15-pro.png"
+    },
+    {
+      "page": "czech",
+      "viewport": "iphone17-pro",
+      "view": "web",
+      "url": "http://localhost:8000/czech_honeymoon_guide.html?view=web&browsercheck=1782973110102",
+      "htmlAppView": false,
+      "innerWidth": 402,
+      "innerHeight": 874,
+      "documentScrollWidth": 402,
+      "bodyScrollWidth": 402,
+      "horizontalOverflow": 0,
+      "pageShellRect": {
+        "width": 402,
+        "height": 15249,
+        "left": 0,
+        "right": 402,
+        "top": 0,
+        "bottom": 15249
+      },
+      "topbarRect": {
+        "width": 402,
+        "height": 258,
+        "left": 0,
+        "right": 402,
+        "top": 0,
+        "bottom": 258
+      },
+      "heroRect": {
+        "width": 402,
+        "height": 694,
+        "left": 0,
+        "right": 402,
+        "top": 258,
+        "bottom": 952
+      },
+      "mainRect": {
+        "width": 402,
+        "height": 14172,
+        "left": 0,
+        "right": 402,
+        "top": 952,
+        "bottom": 15124
+      },
+      "textLength": 8246,
+      "textHash": "685c0eed914e17d6",
+      "htmlHash": "bf16d36c009a93ef",
+      "sectionCount": 6,
+      "sectionIds": [
+        "czech-overview",
+        "czech-first-leg",
+        "czech-return-divider",
+        "czech-return-leg",
+        "czech-sources",
+        "czech-excel-schedule"
+      ],
+      "headingCount": 22,
+      "headingHash": "7a70faffa1794379",
+      "routeCards": 0,
+      "routeButtons": 0,
+      "viewToggleCount": 1,
+      "overflowElements": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-board",
+          "width": 1430,
+          "right": 1462
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-date",
+          "width": 172,
+          "right": 1462
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta city",
+          "width": 172,
+          "right": 1462
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta stay-row",
+          "width": 172,
+          "right": 1462
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta prep-row",
+          "width": 172,
+          "right": 1462
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-day-bg",
+          "width": 172,
+          "right": 1462
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-event food",
+          "width": 162,
+          "right": 1457
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-event tour",
+          "width": 162,
+          "right": 1457
+        }
+      ],
+      "screenshot": "czech-web-iphone17-pro.png"
+    },
+    {
+      "page": "czech",
+      "viewport": "iphone17-pro",
+      "view": "app",
+      "url": "http://localhost:8000/czech_honeymoon_guide.html?view=app&browsercheck=1782973110866",
+      "htmlAppView": true,
+      "innerWidth": 402,
+      "innerHeight": 874,
+      "documentScrollWidth": 402,
+      "bodyScrollWidth": 402,
+      "horizontalOverflow": 0,
+      "pageShellRect": {
+        "width": 402,
+        "height": 14272,
+        "left": 0,
+        "right": 402,
+        "top": 0,
+        "bottom": 14272
+      },
+      "topbarRect": {
+        "width": 402,
+        "height": 192,
+        "left": 0,
+        "right": 402,
+        "top": 0,
+        "bottom": 192
+      },
+      "heroRect": {
+        "width": 402,
+        "height": 692,
+        "left": 0,
+        "right": 402,
+        "top": 192,
+        "bottom": 884
+      },
+      "mainRect": {
+        "width": 402,
+        "height": 13261,
+        "left": 0,
+        "right": 402,
+        "top": 884,
+        "bottom": 14146
+      },
+      "textLength": 8246,
+      "textHash": "685c0eed914e17d6",
+      "htmlHash": "bf16d36c009a93ef",
+      "sectionCount": 6,
+      "sectionIds": [
+        "czech-overview",
+        "czech-first-leg",
+        "czech-return-divider",
+        "czech-return-leg",
+        "czech-sources",
+        "czech-excel-schedule"
+      ],
+      "headingCount": 22,
+      "headingHash": "7a70faffa1794379",
+      "routeCards": 0,
+      "routeButtons": 0,
+      "viewToggleCount": 1,
+      "overflowElements": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-board",
+          "width": 1430,
+          "right": 1452
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-date",
+          "width": 172,
+          "right": 1452
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta city",
+          "width": 172,
+          "right": 1452
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta stay-row",
+          "width": 172,
+          "right": 1452
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta prep-row",
+          "width": 172,
+          "right": 1452
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-day-bg",
+          "width": 172,
+          "right": 1452
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-event food",
+          "width": 162,
+          "right": 1447
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-event tour",
+          "width": 162,
+          "right": 1447
+        }
+      ],
+      "screenshot": "czech-app-iphone17-pro.png"
+    },
+    {
+      "page": "switzerland",
+      "viewport": "iphone17-pro",
+      "view": "web",
+      "url": "http://localhost:8000/switzerland_honeymoon_guide.html?view=web&browsercheck=1782973111959",
+      "htmlAppView": false,
+      "innerWidth": 402,
+      "innerHeight": 874,
+      "documentScrollWidth": 402,
+      "bodyScrollWidth": 402,
+      "horizontalOverflow": 0,
+      "pageShellRect": {
+        "width": 402,
+        "height": 23914,
+        "left": 0,
+        "right": 402,
+        "top": 0,
+        "bottom": 23914
+      },
+      "topbarRect": {
+        "width": 402,
+        "height": 243,
+        "left": 0,
+        "right": 402,
+        "top": 0,
+        "bottom": 243
+      },
+      "heroRect": {
+        "width": 402,
+        "height": 867,
+        "left": 0,
+        "right": 402,
+        "top": 243,
+        "bottom": 1110
+      },
+      "mainRect": {
+        "width": 402,
+        "height": 22266,
+        "left": 0,
+        "right": 402,
+        "top": 1499,
+        "bottom": 23765
+      },
+      "textLength": 17713,
+      "textHash": "d840b74973d64121",
+      "htmlHash": "4cbd21dd33437cdb",
+      "sectionCount": 2,
+      "sectionIds": [
+        "switzerland",
+        "swiss-excel-schedule"
+      ],
+      "headingCount": 31,
+      "headingHash": "cec2e5bbcaf080cc",
+      "routeCards": 4,
+      "routeButtons": 4,
+      "viewToggleCount": 1,
+      "overflowElements": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-board",
+          "width": 1086,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-date",
+          "width": 172,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta city",
+          "width": 172,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta stay-row",
+          "width": 172,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta prep-row",
+          "width": 172,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-day-bg",
+          "width": 172,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-event food",
+          "width": 162,
+          "right": 1107
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-event prep",
+          "width": 162,
+          "right": 1107
+        }
+      ],
+      "screenshot": "switzerland-web-iphone17-pro.png"
+    },
+    {
+      "page": "switzerland",
+      "viewport": "iphone17-pro",
+      "view": "app",
+      "url": "http://localhost:8000/switzerland_honeymoon_guide.html?view=app&browsercheck=1782973112863",
+      "htmlAppView": true,
+      "innerWidth": 402,
+      "innerHeight": 874,
+      "documentScrollWidth": 402,
+      "bodyScrollWidth": 402,
+      "horizontalOverflow": 0,
+      "pageShellRect": {
+        "width": 402,
+        "height": 24522,
+        "left": 0,
+        "right": 402,
+        "top": 0,
+        "bottom": 24522
+      },
+      "topbarRect": {
+        "width": 402,
+        "height": 171,
+        "left": 0,
+        "right": 402,
+        "top": 0,
+        "bottom": 171
+      },
+      "heroRect": {
+        "width": 402,
+        "height": 865,
+        "left": 0,
+        "right": 402,
+        "top": 171,
+        "bottom": 1036
+      },
+      "mainRect": {
+        "width": 402,
+        "height": 22973,
+        "left": 0,
+        "right": 402,
+        "top": 1401,
+        "bottom": 24374
+      },
+      "textLength": 17713,
+      "textHash": "d840b74973d64121",
+      "htmlHash": "4cbd21dd33437cdb",
+      "sectionCount": 2,
+      "sectionIds": [
+        "switzerland",
+        "swiss-excel-schedule"
+      ],
+      "headingCount": 31,
+      "headingHash": "cec2e5bbcaf080cc",
+      "routeCards": 4,
+      "routeButtons": 4,
+      "viewToggleCount": 1,
+      "overflowElements": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-board",
+          "width": 1086,
+          "right": 1108
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-date",
+          "width": 172,
+          "right": 1108
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta city",
+          "width": 172,
+          "right": 1108
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta stay-row",
+          "width": 172,
+          "right": 1108
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta prep-row",
+          "width": 172,
+          "right": 1108
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-day-bg",
+          "width": 172,
+          "right": 1108
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-event food",
+          "width": 162,
+          "right": 1103
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-event prep",
+          "width": 162,
+          "right": 1103
+        }
+      ],
+      "screenshot": "switzerland-app-iphone17-pro.png"
+    },
+    {
+      "page": "italy",
+      "viewport": "iphone17-pro",
+      "view": "web",
+      "url": "http://localhost:8000/italy_honeymoon_guide.html?view=web&browsercheck=1782973113736",
+      "htmlAppView": false,
+      "innerWidth": 402,
+      "innerHeight": 874,
+      "documentScrollWidth": 402,
+      "bodyScrollWidth": 402,
+      "horizontalOverflow": 0,
+      "pageShellRect": {
+        "width": 402,
+        "height": 50112,
+        "left": 0,
+        "right": 402,
+        "top": 0,
+        "bottom": 50112
+      },
+      "topbarRect": {
+        "width": 402,
+        "height": 243,
+        "left": 0,
+        "right": 402,
+        "top": 0,
+        "bottom": 243
+      },
+      "heroRect": {
+        "width": 402,
+        "height": 731,
+        "left": 0,
+        "right": 402,
+        "top": 243,
+        "bottom": 974
+      },
+      "mainRect": {
+        "width": 402,
+        "height": 48394,
+        "left": 0,
+        "right": 402,
+        "top": 1571,
+        "bottom": 49964
+      },
+      "textLength": 43455,
+      "textHash": "06ebcfb1f04a03a4",
+      "htmlHash": "0e0016427ba3d40a",
+      "sectionCount": 18,
+      "sectionIds": [
+        "italy",
+        "overview",
+        "practical-info",
+        "hotel-base",
+        "day-1",
+        "day-2",
+        "day-3",
+        "birthday-special",
+        "day-4",
+        "day-5",
+        "day-6",
+        "shopping-map",
+        "architecture-picks",
+        "sight-notes",
+        "prague-transfer",
+        "checklist",
+        "sources",
+        "italy-excel-schedule"
+      ],
+      "headingCount": 71,
+      "headingHash": "42519e83edb595c5",
+      "routeCards": 6,
+      "routeButtons": 6,
+      "viewToggleCount": 1,
+      "overflowElements": [
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-board",
+          "width": 1086,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-date",
+          "width": 172,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta city",
+          "width": 172,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta stay-row",
+          "width": 172,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-meta prep-row",
+          "width": 172,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-day-bg",
+          "width": 172,
+          "right": 1112
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-event food",
+          "width": 162,
+          "right": 1107
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-event prep",
+          "width": 162,
+          "right": 1107
+        }
+      ],
+      "screenshot": "italy-web-iphone17-pro.png"
+    },
+    {
+      "page": "italy",
+      "viewport": "iphone17-pro",
+      "view": "app",
+      "url": "http://localhost:8000/italy_honeymoon_guide.html?view=app&browsercheck=1782973114707",
+      "htmlAppView": true,
+      "innerWidth": 402,
+      "innerHeight": 874,
+      "documentScrollWidth": 402,
+      "bodyScrollWidth": 402,
+      "horizontalOverflow": 0,
+      "pageShellRect": {
+        "width": 402,
+        "height": 50890,
+        "left": 0,
+        "right": 402,
+        "top": 0,
+        "bottom": 50890
+      },
+      "topbarRect": {
+        "width": 402,
+        "height": 171,
+        "left": 0,
+        "right": 402,
+        "top": 0,
+        "bottom": 171
+      },
+      "heroRect": {
+        "width": 402,
+        "height": 707,
+        "left": 0,
+        "right": 402,
+        "top": 171,
+        "bottom": 878
+      },
+      "mainRect": {
+        "width": 402,
+        "height": 49327,
+        "left": 0,
+        "right": 402,
+        "top": 1415,
+        "bottom": 50742
+      },
+      "textLength": 43455,
+      "textHash": "06ebcfb1f04a03a4",
+      "htmlHash": "0e0016427ba3d40a",
+      "sectionCount": 18,
+      "sectionIds": [
+        "italy",
+        "overview",
+        "practical-info",
+        "hotel-base",
+        "day-1",
+        "day-2",
+        "day-3",
+        "birthday-special",
+        "day-4",
+        "day-5",
+        "day-6",
+        "shopping-map",
+        "architecture-picks",
+        "sight-notes",
+        "prague-transfer",
+        "checklist",
+        "sources",
+        "italy-excel-schedule"
+      ],
+      "headingCount": 71,
+      "headingHash": "42519e83edb595c5",
+      "routeCards": 6,
+      "routeButtons": 6,
+      "viewToggleCount": 1,
+      "overflowElements": [
+        {
+          "tag": "a",
+          "id": "",
+          "className": "",
+          "width": 71,
+          "right": 1600
+        },
+        {
+          "tag": "a",
+          "id": "",
+          "className": "",
+          "width": 93,
+          "right": 1521
+        },
+        {
+          "tag": "a",
+          "id": "",
+          "className": "",
+          "width": 78,
+          "right": 1420
+        },
+        {
+          "tag": "a",
+          "id": "",
+          "className": "",
+          "width": 118,
+          "right": 1334
+        },
+        {
+          "tag": "a",
+          "id": "",
+          "className": "",
+          "width": 84,
+          "right": 1207
+        },
+        {
+          "tag": "a",
+          "id": "",
+          "className": "",
+          "width": 97,
+          "right": 1116
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-board",
+          "width": 1086,
+          "right": 1108
+        },
+        {
+          "tag": "div",
+          "id": "",
+          "className": "calendar-date",
+          "width": 172,
+          "right": 1108
+        }
+      ],
+      "screenshot": "italy-app-iphone17-pro.png"
+    }
+  ],
+  "comparisons": [
+    {
+      "page": "czech",
+      "viewport": "iphone15-pro",
+      "sameTextHash": true,
+      "sameHtmlHash": true,
+      "sameTextLength": true,
+      "sameSections": true,
+      "sameHeadingHash": true,
+      "sameRouteCards": true,
+      "sameRouteButtons": true,
+      "webHorizontalOverflow": 0,
+      "appHorizontalOverflow": 0,
+      "appShellWidth": 393
+    },
+    {
+      "page": "switzerland",
+      "viewport": "iphone15-pro",
+      "sameTextHash": true,
+      "sameHtmlHash": true,
+      "sameTextLength": true,
+      "sameSections": true,
+      "sameHeadingHash": true,
+      "sameRouteCards": true,
+      "sameRouteButtons": true,
+      "webHorizontalOverflow": 0,
+      "appHorizontalOverflow": 0,
+      "appShellWidth": 393
+    },
+    {
+      "page": "italy",
+      "viewport": "iphone15-pro",
+      "sameTextHash": true,
+      "sameHtmlHash": true,
+      "sameTextLength": true,
+      "sameSections": true,
+      "sameHeadingHash": true,
+      "sameRouteCards": true,
+      "sameRouteButtons": true,
+      "webHorizontalOverflow": 0,
+      "appHorizontalOverflow": 0,
+      "appShellWidth": 393
+    },
+    {
+      "page": "czech",
+      "viewport": "iphone17-pro",
+      "sameTextHash": true,
+      "sameHtmlHash": true,
+      "sameTextLength": true,
+      "sameSections": true,
+      "sameHeadingHash": true,
+      "sameRouteCards": true,
+      "sameRouteButtons": true,
+      "webHorizontalOverflow": 0,
+      "appHorizontalOverflow": 0,
+      "appShellWidth": 402
+    },
+    {
+      "page": "switzerland",
+      "viewport": "iphone17-pro",
+      "sameTextHash": true,
+      "sameHtmlHash": true,
+      "sameTextLength": true,
+      "sameSections": true,
+      "sameHeadingHash": true,
+      "sameRouteCards": true,
+      "sameRouteButtons": true,
+      "webHorizontalOverflow": 0,
+      "appHorizontalOverflow": 0,
+      "appShellWidth": 402
+    },
+    {
+      "page": "italy",
+      "viewport": "iphone17-pro",
+      "sameTextHash": true,
+      "sameHtmlHash": true,
+      "sameTextLength": true,
+      "sameSections": true,
+      "sameHeadingHash": true,
+      "sameRouteCards": true,
+      "sameRouteButtons": true,
+      "webHorizontalOverflow": 0,
+      "appHorizontalOverflow": 0,
+      "appShellWidth": 402
+    }
+  ],
+  "failures": [],
+  "profileCleanupWarning": "EPERM, Permission denied: \\\\?\\C:\\Users\\hcchoi\\AppData\\Local\\Temp\\wedding-app-check-MLqYdE '\\\\?\\C:\\Users\\hcchoi\\AppData\\Local\\Temp\\wedding-app-check-MLqYdE'"
+}

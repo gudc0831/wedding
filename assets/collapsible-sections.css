@@ -1,0 +1,71 @@
+.collapsible-section .section-head {
+  align-items: center;
+}
+
+.collapsible-section-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 7px 12px;
+  border: 1px solid rgba(23, 55, 47, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #17372f;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 900;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.collapsible-section-toggle::before {
+  content: "";
+  width: 0.52em;
+  height: 0.52em;
+  margin-right: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg) translateY(-1px);
+  transition: transform 160ms ease;
+}
+
+.collapsible-section.is-collapsed .collapsible-section-toggle::before {
+  transform: rotate(-45deg);
+}
+
+.collapsible-section-body {
+  overflow: hidden;
+}
+
+.collapsible-section.is-collapsed .collapsible-section-body {
+  display: none;
+}
+
+.collapsible-section.is-collapsed .section-head {
+  margin-bottom: 0;
+}
+
+@media (max-width: 760px) {
+  .collapsible-section .section-head {
+    display: grid !important;
+    grid-template-columns: 1fr auto !important;
+    gap: 10px !important;
+  }
+
+  .collapsible-section .section-head > div {
+    min-width: 0;
+  }
+
+  .collapsible-section .source-chip {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .collapsible-section-toggle {
+    min-width: 70px;
+    min-height: 34px;
+    padding: 6px 10px;
+    font-size: 0.72rem;
+  }
+}

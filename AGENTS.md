@@ -2,6 +2,92 @@
 
 Mandatory repository instructions for future agents and maintainers.
 
+## Web/App Content Rule
+
+The web version and app version must use the same guide content.
+
+Do not create or maintain separate mobile-only itinerary pages such as:
+
+```text
+*_mobile.html
+*_app.html
+```
+
+The app version is a display mode of the existing country guide pages, enabled through the shared `html.app-view` state and the `앱` / `웹` toggle. When itinerary text, links, route-map cards, schedules, hotels, restaurants, reservations, source links, or warnings are changed, the same change must be visible in both:
+
+```text
+?view=web
+?view=app
+```
+
+If a change requires app-specific layout CSS, keep the content in the shared HTML and scope only the layout override under:
+
+```css
+html.app-view
+```
+
+## App View Size And Ratio
+
+The app view is optimized for iPhone portrait use, especially:
+
+```text
+iPhone 15 Pro: 393 x 852 CSS px target viewport
+iPhone 17 Pro: 402 x 874 CSS px target viewport
+```
+
+Use the iPhone 17 Pro width as the upper app canvas target:
+
+```css
+max-width: 402px;
+width: 100%;
+```
+
+The iPhone 15 Pro width, `393px`, is the minimum required proof width. The app layout must not rely on extra width beyond `393px`.
+
+The app view should preserve the practical iPhone portrait ratio, roughly `19.5:9`, but do not hard-code page height. Content must scroll naturally, respect safe-area padding, and avoid horizontal page overflow.
+
+## App View Verification
+
+Before claiming an app-view layout change is complete, verify both web and app modes on the country guide pages.
+
+Required static marker check:
+
+```powershell
+$files = 'czech_honeymoon_guide.html','switzerland_honeymoon_guide.html','italy_honeymoon_guide.html'
+foreach ($file in $files) {
+  $raw = Get-Content -Raw -Path $file
+  [pscustomobject]@{
+    file = $file
+    toggleButtons = ([regex]::Matches($raw, '<button\b[^>]*\bdata-view-toggle\b[^>]*>')).Count
+    appViewCss = $raw.Contains('html.app-view')
+    storageKey = $raw.Contains('honeymoonGuideView')
+  }
+}
+```
+
+Expected result:
+
+```text
+toggleButtons = 1
+appViewCss = True
+storageKey = True
+```
+
+Required browser viewports for layout verification:
+
+```text
+393 x 852  (?view=web and ?view=app)
+402 x 874  (?view=web and ?view=app)
+```
+
+At each viewport, verify:
+
+1. The page has no horizontal document overflow.
+2. The sticky topbar, country tabs, and section navigation do not cover the main content.
+3. Text does not overlap buttons, cards, maps, or adjacent sections.
+4. The `앱` / `웹` toggle persists and switches the same page content, not a duplicated page.
+5. Route-map buttons remain tappable.
+
 ## Local Google Maps Rule
 
 The local Google Maps route maps must never be tested with a raw static server.
