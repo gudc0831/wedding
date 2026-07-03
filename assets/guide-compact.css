@@ -79,9 +79,41 @@ html.app-view .nav-links::-webkit-scrollbar {
 html.app-view .country-tabs a,
 html.app-view .nav-links a {
   flex: 0 0 auto !important;
-  min-height: 34px !important;
+  min-height: 30px !important;
+  padding: 5px 9px !important;
+  font-size: 0.7rem !important;
+  line-height: 1.16 !important;
   display: inline-flex !important;
   align-items: center !important;
+}
+
+html.app-view .nav-links {
+  display: grid !important;
+  grid-template-columns: none !important;
+  grid-template-rows: repeat(2, minmax(24px, auto)) !important;
+  grid-auto-flow: column !important;
+  grid-auto-columns: max-content !important;
+  align-items: stretch !important;
+  justify-content: start !important;
+  gap: 4px 5px !important;
+  max-height: none !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  padding: 0 2px 4px 0 !important;
+  scrollbar-width: none !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+html.app-view .nav-links a {
+  justify-content: center !important;
+  min-width: 0 !important;
+  min-height: 24px !important;
+  padding: 3px 8px !important;
+  font-size: 0.55rem !important;
+  line-height: 1.1 !important;
+  text-align: center !important;
+  white-space: nowrap !important;
+  overflow-wrap: normal !important;
 }
 
 html.app-view .hero {
@@ -291,6 +323,20 @@ main > section,
   overflow-x: auto !important;
 }
 
+.country-tabs a,
+.nav-links a,
+.button,
+.view-toggle,
+.route-map-button,
+.map-view-toggle button,
+.collapsible-section-toggle,
+[data-collapsible-toggle] {
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+
 @media (max-width: 900px) {
   .source-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -325,6 +371,35 @@ main > section,
 }
 
 @media (max-width: 760px) {
+  .nav-links {
+    display: grid !important;
+    grid-template-columns: none !important;
+    grid-template-rows: repeat(2, minmax(24px, auto)) !important;
+    grid-auto-flow: column !important;
+    grid-auto-columns: max-content !important;
+    align-items: stretch !important;
+    justify-content: start !important;
+    gap: 4px 5px !important;
+    max-height: none !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding: 0 2px 4px 0 !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .nav-links a {
+    min-height: 24px !important;
+    min-width: 0 !important;
+    justify-content: center !important;
+    padding: 3px 8px !important;
+    font-size: 0.55rem !important;
+    line-height: 1.1 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow-wrap: normal !important;
+  }
+
   main,
   section,
   main > section,
