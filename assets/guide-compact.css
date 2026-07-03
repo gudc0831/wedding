@@ -121,13 +121,38 @@ html.app-view .hero {
   padding-bottom: 12px !important;
 }
 
+html.app-view .page-shell * {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+html.app-view p,
+html.app-view li,
+html.app-view figcaption,
+html.app-view span,
+html.app-view strong,
+html.app-view h2,
+html.app-view h3,
+html.app-view h4 {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
 html.app-view .hero-grid,
 html.app-view .two-col,
 html.app-view .day-content,
-html.app-view .day-header,
 html.app-view .journey-divider {
+  display: grid !important;
   grid-template-columns: 1fr !important;
   gap: 12px !important;
+}
+
+html.app-view .day-header {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  align-items: start !important;
+  gap: 12px !important;
+  margin-bottom: 14px !important;
 }
 
 html.app-view .section-head {
@@ -156,8 +181,6 @@ html.app-view .editorial-card {
 
 html.app-view .hero-copy,
 html.app-view .section-inner,
-html.app-view .day-header,
-html.app-view .day-content,
 html.app-view .info-card,
 html.app-view .spot-card,
 html.app-view .ribbon-card,
@@ -166,6 +189,31 @@ html.app-view .airport-card,
 html.app-view .gift-card,
 html.app-view .tip-panel {
   padding: 14px !important;
+}
+
+html.app-view .day-card {
+  padding: 14px !important;
+}
+
+html.app-view .day-header,
+html.app-view .day-content {
+  padding: 0 !important;
+}
+
+html.app-view .day-date {
+  width: 100% !important;
+  min-width: 0 !important;
+  padding: 14px 16px !important;
+}
+
+html.app-view .day-date strong {
+  font-size: 1.15rem !important;
+  line-height: 1.2 !important;
+}
+
+html.app-view .day-date span {
+  font-size: 0.86rem !important;
+  line-height: 1.35 !important;
 }
 
 html.app-view .hero-copy h2 {
@@ -194,13 +242,16 @@ html.app-view .quick-grid,
 html.app-view .spot-grid,
 html.app-view .check-grid,
 html.app-view .airport-grid,
-html.app-view .gift-grid {
+html.app-view .gift-grid,
+html.app-view .source-grid,
+html.app-view .photo-grid,
+html.app-view .architecture-looklist {
   grid-template-columns: 1fr !important;
   gap: 10px !important;
 }
 
 html.app-view .schedule-ribbon {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  grid-template-columns: 1fr !important;
   gap: 10px !important;
 }
 
@@ -281,12 +332,88 @@ html.app-view .map-view-static {
   overflow-x: auto !important;
 }
 
-html.app-view .route-map-actions {
+html.app-view .timeline-item {
+  grid-template-columns: 1fr !important;
+  gap: 8px !important;
+  padding: 12px 0 !important;
+}
+
+html.app-view .time-tag {
+  justify-self: start !important;
+  min-height: 34px !important;
+  padding: 6px 12px !important;
+  font-size: 0.92rem !important;
+}
+
+html.app-view .duration-tag {
+  max-width: 100%;
+  white-space: normal !important;
+}
+
+html.app-view .route-map-card {
   width: 100%;
+  margin-bottom: 16px !important;
+}
+
+html.app-view .route-map-toolbar {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  align-items: start !important;
+  gap: 10px !important;
+  padding: 12px !important;
+}
+
+html.app-view .route-map-copy strong {
+  font-size: 0.94rem !important;
+  line-height: 1.35 !important;
+}
+
+html.app-view .route-map-copy span {
+  font-size: 0.8rem !important;
+  line-height: 1.55 !important;
+}
+
+html.app-view .route-map-actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: 100%;
+  gap: 8px !important;
+}
+
+html.app-view .route-legend {
+  flex: 0 0 auto;
+  font-size: 0.74rem !important;
+}
+
+html.app-view .route-legend::before {
+  width: 22px !important;
 }
 
 html.app-view .route-map-button {
-  min-height: 40px;
+  flex: 0 0 auto;
+  min-height: 38px;
+  padding: 8px 12px !important;
+  font-size: 0.78rem !important;
+}
+
+html.app-view .architecture-looklist figure {
+  grid-template-columns: 76px minmax(0, 1fr) !important;
+  width: 100% !important;
+}
+
+html.app-view .architecture-looklist figcaption {
+  line-height: 1.4 !important;
+}
+
+html.app-view .source-grid li {
+  padding: 14px !important;
+  border-right: 0 !important;
+}
+
+html.app-view .source-grid a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 html.app-view .map-view-toggle {
