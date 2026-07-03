@@ -32,7 +32,8 @@
     fold.classList.toggle("is-expanded", expanded);
     if (!button) return;
     button.setAttribute("aria-expanded", String(expanded));
-    button.textContent = expanded ? "세부정보 접기" : "세부정보 펼치기";
+    button.setAttribute("aria-label", expanded ? "세부정보 접기" : "세부정보 펼치기");
+    button.textContent = expanded ? "접기" : "펼치기";
   }
 
   function createFold(container, nodes) {

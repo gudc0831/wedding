@@ -552,8 +552,8 @@ html:not(.app-view) .app-detail-fold-body {
 
 html.app-view .app-detail-fold {
   display: grid;
-  gap: 8px;
-  margin-top: 8px;
+  gap: 6px;
+  margin-top: 6px;
   min-width: 0;
 }
 
@@ -562,28 +562,28 @@ html.app-view .app-detail-fold-toggle {
   align-items: center;
   justify-content: center;
   justify-self: start;
-  min-height: 34px;
+  min-height: 26px;
   max-width: 100%;
-  padding: 7px 11px;
+  padding: 4px 8px;
   border: 1px solid rgba(31, 72, 61, 0.14);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.86);
   color: var(--ink, #143f36);
   font: inherit;
-  font-size: 0.74rem;
+  font-size: 0.66rem;
   font-weight: 900;
   line-height: 1.15;
   cursor: pointer;
-  box-shadow: 0 8px 18px rgba(54, 48, 38, 0.08);
+  box-shadow: 0 5px 12px rgba(54, 48, 38, 0.07);
 }
 
 html.app-view .app-detail-fold-toggle::before {
   content: "";
-  width: 0.5em;
-  height: 0.5em;
-  margin-right: 7px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;
+  width: 0.42em;
+  height: 0.42em;
+  margin-right: 5px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
   transform: rotate(-45deg);
   transition: transform 160ms ease;
 }
