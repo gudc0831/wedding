@@ -231,8 +231,8 @@
     {
       "id": "swiss-day3",
       "label": "Swiss Day 3 | 07.18 인터라켄 이동",
-      "summary": "Hotel Luzernerhof에서 Luzern 역으로 이동해 결제한 09:24 열차로 11:17 Interlaken Ost에 도착한 뒤 11:29-11:32 Interlaken West로 이동하고, 65 Hauptstrasse 숙소까지 이어갑니다.",
-      "note": "사용자가 결제한 Luzern 09:24-Interlaken Ost 11:17, Interlaken Ost 11:29-Interlaken West 11:32 이동수단을 기준으로 표시합니다. 숙소는 65 Hauptstrasse, Unterseen, BE 3800으로 확정했고 Interlaken West 하차가 맞습니다.",
+      "summary": "Hotel Luzernerhof에서 Luzern 역으로 이동해 결제한 09:24 열차로 11:17 Interlaken Ost에 도착한 뒤 11:29-11:32 Interlaken West로 이동하고, 스위스:인터젠의방까지 이어갑니다.",
+      "note": "사용자가 결제한 Luzern 09:24-Interlaken Ost 11:17, Interlaken Ost 11:29-Interlaken West 11:32 이동수단을 기준으로 표시합니다. 숙소명은 스위스:인터젠의방이고 위치는 65 Hauptstrasse, Unterseen, BE 3800입니다. Interlaken West 하차가 맞습니다.",
       "officialCoordinateAxis": true,
       "center": { "lat": 46.865, "lng": 8.08 },
       "points": [
@@ -243,7 +243,7 @@
         { "place_key": "swiss_day3_brienz", "label": "Brienz", "role": "청록빛 호수 접근", "lat": 46.7546, "lng": 8.0385, "visitOrder": 5, "priority": "nice", "backup": false, "query": "Brienz, Switzerland" },
         { "place_key": "swiss_day3_interlaken_ost", "label": "Interlaken Ost", "role": "11:17 도착, 11:29 환승 · PL8", "lat": 46.6905, "lng": 7.869, "visitOrder": 6, "priority": "must", "backup": false, "query": "Interlaken Ost, Switzerland" },
         { "place_key": "swiss_day3_interlaken_west", "label": "Interlaken West", "role": "11:32 도착 · PL1 · 숙소 하차역", "lat": 46.6828, "lng": 7.8514, "visitOrder": 7, "priority": "must", "backup": false, "query": "Interlaken West, Bahnhofstrasse 28, Interlaken, Switzerland" },
-        { "place_key": "swiss_day3_unterseen_lodging", "label": "65 Hauptstrasse 숙소", "role": "Unterseen 숙소 확정 · BE 3800", "lat": 46.6864, "lng": 7.8497, "visitOrder": 8, "priority": "must", "backup": false, "query": "65 Hauptstrasse, 3800 Unterseen, Switzerland" }
+        { "place_key": "swiss_day3_unterseen_lodging", "label": "스위스:인터젠의방", "role": "위치 65 Hauptstrasse, Unterseen · BE 3800", "lat": 46.6864, "lng": 7.8497, "visitOrder": 8, "priority": "must", "backup": false, "query": "65 Hauptstrasse, 3800 Unterseen, Switzerland" }
       ],
       "routes": [
         { "label": "호텔에서 Luzern Station", "from": "swiss_day3_hotel", "to": "swiss_day3_luzern_station", "travelMode": "WALKING", "routeType": "primary" },
@@ -252,7 +252,7 @@
         { "label": "Brünig에서 Brienz", "from": "swiss_day3_brunig", "to": "swiss_day3_brienz", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
         { "label": "Brienz에서 Interlaken Ost", "from": "swiss_day3_brienz", "to": "swiss_day3_interlaken_ost", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
         { "label": "Interlaken Ost 11:29-Interlaken West 11:32", "from": "swiss_day3_interlaken_ost", "to": "swiss_day3_interlaken_west", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
-        { "label": "Interlaken West에서 65 Hauptstrasse 숙소", "from": "swiss_day3_interlaken_west", "to": "swiss_day3_unterseen_lodging", "travelMode": "WALKING", "routeType": "primary" }
+        { "label": "Interlaken West에서 스위스:인터젠의방", "from": "swiss_day3_interlaken_west", "to": "swiss_day3_unterseen_lodging", "travelMode": "WALKING", "routeType": "primary" }
       ]
     },
     {

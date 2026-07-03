@@ -1,4 +1,4 @@
-const CACHE_VERSION = "czech-swiss-italy-honeymoon-guide-v20260703-thin-fixed-nav2";
+const CACHE_VERSION = "czech-swiss-italy-honeymoon-guide-v20260703-bgy-swiss-lodging";
 const PRECACHE_URLS = [
   "./",
   "./index.html",
