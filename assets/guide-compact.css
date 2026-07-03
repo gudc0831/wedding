@@ -1,5 +1,6 @@
 html.app-view {
   --app-width: 402px;
+  scroll-padding-top: 36px;
 }
 
 html.app-view body {
@@ -35,9 +36,16 @@ html.app-view .overview-strip {
 }
 
 html.app-view .topbar-inner {
-  gap: 7px !important;
-  padding-top: 8px !important;
-  padding-bottom: 8px !important;
+  gap: 5px !important;
+  padding-top: 36px !important;
+  padding-bottom: 5px !important;
+}
+
+html.app-view .topbar {
+  position: static !important;
+  backdrop-filter: none !important;
+  background: transparent !important;
+  border-bottom: 0 !important;
 }
 
 html.app-view .brand {
@@ -88,29 +96,41 @@ html.app-view .nav-links a {
 }
 
 html.app-view .nav-links {
-  display: grid !important;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 50% !important;
+  z-index: 60 !important;
+  transform: translateX(-50%);
   grid-template-columns: none !important;
-  grid-template-rows: repeat(2, minmax(24px, auto)) !important;
-  grid-auto-flow: column !important;
-  grid-auto-columns: max-content !important;
-  align-items: stretch !important;
+  grid-template-rows: none !important;
+  grid-auto-flow: initial !important;
+  grid-auto-columns: initial !important;
+  align-items: center !important;
   justify-content: start !important;
-  gap: 4px 5px !important;
-  max-height: none !important;
+  gap: 4px !important;
+  width: min(100vw, var(--app-width)) !important;
+  max-height: 28px !important;
   overflow-x: auto !important;
   overflow-y: hidden !important;
-  padding: 0 2px 4px 0 !important;
+  padding: 3px 12px 3px !important;
+  background: rgba(246, 240, 227, 0.94);
+  border-bottom: 1px solid rgba(23, 55, 47, 0.1);
+  box-shadow: 0 8px 18px rgba(54, 48, 38, 0.06);
+  backdrop-filter: blur(14px);
   scrollbar-width: none !important;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
 }
 
 html.app-view .nav-links a {
   justify-content: center !important;
   min-width: 0 !important;
-  min-height: 24px !important;
-  padding: 3px 8px !important;
-  font-size: 0.55rem !important;
-  line-height: 1.1 !important;
+  min-height: 22px !important;
+  padding: 2px 7px !important;
+  font-size: 0.5rem !important;
+  line-height: 1 !important;
   text-align: center !important;
   white-space: nowrap !important;
   overflow-wrap: normal !important;

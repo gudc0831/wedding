@@ -1,4 +1,4 @@
-const CACHE_VERSION = "czech-swiss-italy-honeymoon-guide-v20260703-small-detail-folds";
+const CACHE_VERSION = "czech-swiss-italy-honeymoon-guide-v20260703-thin-fixed-nav2";
 const PRECACHE_URLS = [
   "./",
   "./index.html",
@@ -7,7 +7,7 @@ const PRECACHE_URLS = [
   "./italy_honeymoon_guide.html",
   "./milano_honeymoon_guide.html",
   "./manifest.webmanifest",
-  "./assets/guide-compact.css?v=20260703-small-detail-folds",
+  "./assets/guide-compact.css?v=20260703-thin-fixed-nav2",
   "./assets/schedule-detail.css",
   "./assets/schedule-detail.js",
   "./assets/app-detail-folds.js?v=20260703-small-detail-folds",
