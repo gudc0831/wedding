@@ -1,4 +1,4 @@
-const CACHE_VERSION = "czech-swiss-italy-honeymoon-guide-v20260702-collapsible-info";
+const CACHE_VERSION = "czech-swiss-italy-honeymoon-guide-v20260703-app-layout";
 const PRECACHE_URLS = [
   "./",
   "./index.html",
