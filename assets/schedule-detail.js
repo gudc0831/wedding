@@ -7,7 +7,7 @@
     tour: "투어/관광",
     food: "식사/카페",
     stay: "숙소/체크인",
-    prep: "준비/예약필요"
+    prep: "준비/확인"
   };
 
   let activeEvent = null;
@@ -60,7 +60,7 @@
 
   function badgeTone(label) {
     if (/예약완료|조식포함|구매완료/.test(label)) return "done";
-    if (/예약필요|확인필요|조식없음/.test(label)) return "urgent";
+    if (/예약필요|확인필요|조식없음|구매필요|구매예정/.test(label)) return "urgent";
     return "";
   }
 
@@ -96,11 +96,11 @@
             <div class="schedule-detail-kicker" data-schedule-detail-kicker></div>
             <h3 id="schedule-detail-title" data-schedule-detail-title></h3>
             <p class="schedule-detail-subtitle" data-schedule-detail-subtitle></p>
+            <div class="schedule-detail-status" data-schedule-detail-status></div>
           </div>
           <button class="schedule-detail-close" type="button" data-schedule-detail-close aria-label="일정 상세 닫기">×</button>
         </header>
         <div class="schedule-detail-body">
-          <div class="schedule-detail-status" data-schedule-detail-status></div>
           <dl class="schedule-detail-context" data-schedule-detail-context></dl>
           <section class="schedule-detail-section" data-schedule-detail-summary-section>
             <h4>요약</h4>
