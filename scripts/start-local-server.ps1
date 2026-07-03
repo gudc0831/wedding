@@ -47,7 +47,8 @@ http.createServer((request, response) => {
   if (pathname === "/") pathname = "/index.html";
 
   const file = path.resolve(root, `.${pathname}`);
-  if (!file.startsWith(root)) {
+  const relative = path.relative(root, file);
+  if (relative.startsWith("..") || path.isAbsolute(relative)) {
     response.writeHead(403);
     response.end("forbidden");
     return;
