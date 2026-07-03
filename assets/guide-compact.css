@@ -285,6 +285,11 @@ html.app-view .hero-visual:has(.image-stack) .photo-grid {
   display: contents !important;
 }
 
+html.app-view .hero-visual,
+html.app-view .hero-visual * {
+  pointer-events: none !important;
+}
+
 html.app-view .hero-visual:has(.image-stack) .primary-photo,
 html.app-view .hero-visual:has(.image-stack) .mini-collage figure,
 html.app-view .hero-visual:has(.image-stack) .photo-grid figure {
@@ -456,6 +461,8 @@ main > section,
 .view-toggle,
 .route-map-button,
 .map-view-toggle button,
+.detail-popup-trigger,
+.detail-popup-close,
 .collapsible-section-toggle,
 [data-collapsible-toggle] {
   position: relative;
