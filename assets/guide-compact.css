@@ -331,10 +331,35 @@ html.app-view .source-chip {
 }
 
 html.app-view .table-wrap,
-html.app-view .calendar-sheet,
-html.app-view .map-view-static {
+html.app-view .calendar-sheet {
   max-width: 100%;
   overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+html.app-view .table-wrap > table:not(.master-table) {
+  width: 100% !important;
+  min-width: 720px !important;
+  table-layout: auto !important;
+}
+
+html.app-view .table-wrap > table:not(.master-table) th,
+html.app-view .table-wrap > table:not(.master-table) td {
+  min-width: 140px;
+  word-break: keep-all !important;
+  overflow-wrap: break-word !important;
+}
+
+html.app-view .detail-popup-table-wrap {
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+html.app-view .detail-popup-table {
+  min-width: 560px !important;
+  table-layout: auto !important;
 }
 
 html.app-view .timeline-item {
@@ -455,10 +480,27 @@ main > section,
   overflow-x: auto !important;
 }
 
+html.app-view .map-view-static {
+  display: grid;
+  max-width: 100%;
+  overflow: hidden !important;
+  background: rgba(246, 240, 227, 0.72);
+}
+
+html.app-view .map-view-static .static-map {
+  display: block;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: contain;
+}
+
 .country-tabs a,
 .nav-links a,
 .button,
 .source-chip,
+.map-zoom-link,
 .view-toggle,
 .route-map-button,
 .route-map-tab,
@@ -474,6 +516,25 @@ main > section,
   z-index: 2;
   pointer-events: auto;
   touch-action: manipulation;
+}
+
+.map-zoom-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: start;
+  min-height: 38px;
+  margin: 8px 10px 10px;
+  padding: 8px 12px;
+  border: 1px solid rgba(31, 72, 61, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--ink, #143f36);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(54, 48, 38, 0.08);
 }
 
 @media (max-width: 900px) {
@@ -824,15 +885,15 @@ main > section,
   }
 
   #shopping-map .map-view-static {
-    overflow-x: auto;
+    overflow: hidden;
     background: rgba(246, 240, 227, 0.72);
   }
 
   #shopping-map .static-map {
     display: block;
     width: 100%;
-    min-width: 560px;
-    max-width: none;
+    min-width: 0;
+    max-width: 100%;
     border-bottom: 0 !important;
   }
 
