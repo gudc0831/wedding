@@ -501,6 +501,7 @@ html.app-view .map-view-static .static-map {
 .button,
 .source-chip,
 .map-zoom-link,
+.app-detail-fold-toggle,
 .view-toggle,
 .route-map-button,
 .route-map-tab,
@@ -535,6 +536,74 @@ html.app-view .map-view-static .static-map {
   line-height: 1.2;
   text-decoration: none;
   box-shadow: 0 8px 18px rgba(54, 48, 38, 0.08);
+}
+
+html:not(.app-view) .app-detail-fold {
+  display: contents;
+}
+
+html:not(.app-view) .app-detail-fold-toggle {
+  display: none !important;
+}
+
+html:not(.app-view) .app-detail-fold-body {
+  display: contents !important;
+}
+
+html.app-view .app-detail-fold {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+  min-width: 0;
+}
+
+html.app-view .app-detail-fold-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: start;
+  min-height: 34px;
+  max-width: 100%;
+  padding: 7px 11px;
+  border: 1px solid rgba(31, 72, 61, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--ink, #143f36);
+  font: inherit;
+  font-size: 0.74rem;
+  font-weight: 900;
+  line-height: 1.15;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(54, 48, 38, 0.08);
+}
+
+html.app-view .app-detail-fold-toggle::before {
+  content: "";
+  width: 0.5em;
+  height: 0.5em;
+  margin-right: 7px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg);
+  transition: transform 160ms ease;
+}
+
+html.app-view .app-detail-fold.is-expanded .app-detail-fold-toggle::before {
+  transform: rotate(45deg) translateY(-1px);
+}
+
+html.app-view .app-detail-fold-body {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+html.app-view .app-detail-fold:not(.is-expanded) .app-detail-fold-body {
+  display: none !important;
+}
+
+html.app-view .route-map-copy .app-detail-fold {
+  margin-top: 4px;
 }
 
 @media (max-width: 900px) {
