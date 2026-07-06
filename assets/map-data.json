@@ -258,8 +258,8 @@
     {
       "id": "swiss-day6",
       "label": "Swiss Day 6 | 07.21 그린델발트에서 밀라노 이동",
-      "summary": "예약 완료된 Grindelwald 11:17-Domodossola 14:32 남행 루트와, 예약 필요인 Domodossola 14:48-Milano Centrale 16:35 추천 구매 후보를 표시합니다.",
-      "note": "Grindelwald-Interlaken Ost-Spiez-Brig-Iselle di Trasquera-Iselle stazione-Domodossola는 사용자 확정 예약 기준입니다. Domodossola-Milano Centrale은 Trenord Quadro 40 기준 14:48-16:35 후보를 추천하되 구매 전 공식 앱에서 재확인합니다.",
+      "summary": "예약 완료된 Grindelwald 11:17-Domodossola 14:32 남행 루트와, Le Frecce에서 한 번에 발권한 Domodossola 15:49-Milano Centrale 18:35 통합 연결표를 표시합니다.",
+      "note": "Grindelwald-Interlaken Ost-Spiez-Brig-Iselle di Trasquera-Iselle stazione-Domodossola는 사용자 확정 예약 기준입니다. Domodossola-Milano Centrale은 두 구간이지만 Le Frecce 통합표 하나로 예약 완료되어 Autobus 7435A와 Regionale 2435를 이용합니다. 비고: Le Frecce 사이트 아이디는 hyungchul.choi이며, 트래블카드로 예약했습니다.",
       "officialCoordinateAxis": true,
       "center": { "lat": 46.15, "lng": 8.05 },
       "points": [
@@ -269,8 +269,9 @@
         { "place_key": "swiss_day6_brig", "label": "Brig", "role": "13:13 도착, 13:25 출발 · 예약 완료", "lat": 46.3194, "lng": 7.9881, "visitOrder": 4, "priority": "must", "backup": false, "query": "Brig railway station, Switzerland" },
         { "place_key": "swiss_day6_iselle_station", "label": "Iselle di Trasquera", "role": "13:40 도착 · 예약 완료", "lat": 46.207, "lng": 8.207, "visitOrder": 5, "priority": "must", "backup": false, "query": "Iselle di Trasquera railway station, Italy" },
         { "place_key": "swiss_day6_iselle_bus", "label": "Iselle stazione", "role": "14:03 버스 출발 · 예약 완료", "lat": 46.2067, "lng": 8.2072, "visitOrder": 6, "priority": "must", "backup": false, "query": "Iselle stazione, Trasquera, Italy" },
-        { "place_key": "swiss_day6_domodossola", "label": "Domodossola, stazione", "role": "14:32 도착 · 예약 완료 구간 종료", "lat": 46.1153, "lng": 8.2962, "visitOrder": 7, "priority": "must", "backup": false, "query": "Domodossola railway station, Italy" },
-        { "place_key": "swiss_day6_milano_centrale", "label": "Milano Centrale", "role": "16:35 도착 후보 · 예약 필요", "lat": 45.4871, "lng": 9.2048, "visitOrder": 8, "priority": "backup", "backup": true, "query": "Milano Centrale, Milan, Italy" }
+        { "place_key": "swiss_day6_domodossola", "label": "Domodossola, stazione", "role": "14:32 도착 · Le Frecce 통합표 15:49 출발", "lat": 46.1153, "lng": 8.2962, "visitOrder": 7, "priority": "must", "backup": false, "query": "Domodossola railway station, Italy" },
+        { "place_key": "swiss_day6_sesto_calende", "label": "Sesto Calende", "role": "17:32 도착, 17:42 같은 예약 내 환승", "lat": 45.7262, "lng": 8.6322, "visitOrder": 8, "priority": "must", "backup": false, "query": "Sesto Calende railway station, Italy" },
+        { "place_key": "swiss_day6_milano_centrale", "label": "Milano Centrale", "role": "18:35 도착 · 통합표 예약 완료", "lat": 45.4871, "lng": 9.2048, "visitOrder": 9, "priority": "must", "backup": false, "query": "Milano Centrale, Milan, Italy" }
       ],
       "routes": [
         { "label": "Grindelwald 11:17-Interlaken Ost 11:54", "from": "swiss_day6_grindelwald", "to": "swiss_day6_interlaken_ost", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
@@ -279,7 +280,8 @@
         { "label": "Brig 13:25-Iselle di Trasquera 13:40", "from": "swiss_day6_brig", "to": "swiss_day6_iselle_station", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
         { "label": "Iselle 역에서 Iselle stazione 버스 환승", "from": "swiss_day6_iselle_station", "to": "swiss_day6_iselle_bus", "travelMode": "WALKING", "routeType": "primary", "useCoordinateRouting": true },
         { "label": "Iselle stazione bus 14:03-Domodossola 14:32", "from": "swiss_day6_iselle_bus", "to": "swiss_day6_domodossola", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
-        { "label": "Domodossola 14:48-Milano Centrale 16:35 예약 필요", "from": "swiss_day6_domodossola", "to": "swiss_day6_milano_centrale", "travelMode": "TRANSIT", "routeType": "backup", "useCoordinateRouting": true }
+        { "label": "Le Frecce 통합표 1/2 · Autobus 7435A Domodossola 15:49-Sesto Calende 17:32", "from": "swiss_day6_domodossola", "to": "swiss_day6_sesto_calende", "travelMode": "TRANSIT", "routeType": "backup", "useCoordinateRouting": true },
+        { "label": "Le Frecce 통합표 2/2 · Regionale 2435 Sesto Calende 17:42-Milano Centrale 18:35", "from": "swiss_day6_sesto_calende", "to": "swiss_day6_milano_centrale", "travelMode": "TRANSIT", "routeType": "backup", "useCoordinateRouting": true }
       ]
     },
     {
