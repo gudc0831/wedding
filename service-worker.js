@@ -1,4 +1,4 @@
-const CACHE_VERSION = "czech-swiss-italy-honeymoon-guide-v20260707-unconfirmed-day2-schedule";
+const CACHE_VERSION = "czech-swiss-italy-honeymoon-guide-v20260707-ceresio-dinner";
 const PRECACHE_URLS = [
   "./",
   "./index.html",
@@ -81,6 +81,13 @@ async function staleWhileRevalidate(request) {
     .catch(() => {
       return null;
     });
+
+  if (request.cache === "no-cache" || request.cache === "reload") {
+    const response = await fetchPromise;
+    if (response) return response;
+    if (cached) return cached;
+    throw new Error("offline-cache-miss");
+  }
 
   if (cached) return cached;
 

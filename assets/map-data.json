@@ -100,7 +100,7 @@
         {
           "place_key": "rinascente",
           "label": "Rinascente Milano Duomo",
-          "role": "백화점과 Maio 후보",
+          "role": "백화점과 두오모 뷰 백업",
           "lat": 45.464,
           "lon": 9.1928,
           "color": "#cda16a"
@@ -132,7 +132,7 @@
         {
           "place_key": "ceresio",
           "label": "Ceresio 7",
-          "role": "루프탑 디너 대안",
+          "role": "19:45 예약완료 루프탑 디너",
           "lat": 45.4847,
           "lon": 9.1847,
           "color": "#17372f"
@@ -145,10 +145,9 @@
           "color": "#cda16a"
         },
         {
-          "label": "Dinner option",
+          "label": "19:45 Ceresio 7 예약완료",
           "keys": ["brera", "ceresio"],
-          "color": "#d6a090",
-          "dashArray": "6 9"
+          "color": "#d6a090"
         }
       ]
     }
@@ -192,6 +191,8 @@
       "center": { "lat": 47.045, "lng": 8.415 },
       "points": [
         { "place_key": "swiss_day2_hotel", "label": "Hotel Luzernerhof", "role": "Alpenstrasse 3 · 08:30 호텔 출발", "lat": 47.0552, "lng": 8.3129, "visitOrder": 1, "priority": "must", "backup": false, "query": "Hotel Luzernerhof, Alpenstrasse 3, 6004 Luzern, Switzerland" },
+        { "place_key": "swiss_day2_heini_bahnhof", "label": "HEINI Bahnhof Luzern", "role": "8시 전 외부 아침 1순위", "lat": 47.0507, "lng": 8.3099, "visitOrder": 1.3, "priority": "nice", "backup": false, "query": "HEINI Bahnhof Luzern, Bahnhofplatz 3, Luzern, Switzerland" },
+        { "place_key": "swiss_day2_bachmann_gleis3", "label": "Confiserie Bachmann Bahnhof UG / Gleis 3", "role": "포장 아침 백업", "lat": 47.0502, "lng": 8.3103, "visitOrder": 1.4, "priority": "backup", "backup": true, "query": "Confiserie Bachmann Gleis 3, Luzern Bahnhof, Switzerland" },
         { "place_key": "swiss_day2_luzern_pier", "label": "Luzern Pier 1", "role": "09:12 Vitznau 방향 배", "lat": 47.0505, "lng": 8.3112, "visitOrder": 2, "priority": "must", "backup": false, "query": "Luzern Bahnhofquai Pier 1, Lucerne, Switzerland" },
         { "place_key": "swiss_day2_vitznau", "label": "Vitznau", "role": "10:09 도착, 산악열차 환승", "lat": 47.0103, "lng": 8.4844, "visitOrder": 3, "priority": "must", "backup": false, "query": "Vitznau station, Switzerland" },
         { "place_key": "swiss_day2_rigi_kulm", "label": "Rigi Kulm", "role": "10:47 정상 도착", "lat": 47.0569, "lng": 8.4848, "visitOrder": 4, "priority": "must", "backup": false, "query": "Rigi Kulm, Switzerland" },
@@ -202,7 +203,9 @@
         { "place_key": "swiss_day2_transport_museum", "label": "Swiss Museum of Transport", "role": "날씨 대안", "lat": 47.0525, "lng": 8.3371, "visitOrder": 9, "priority": "backup", "backup": true, "query": "Swiss Museum of Transport, Luzern, Switzerland" }
       ],
       "routes": [
-        { "label": "호텔에서 Luzern Pier 1", "from": "swiss_day2_hotel", "to": "swiss_day2_luzern_pier", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "호텔에서 HEINI Bahnhof 아침", "from": "swiss_day2_hotel", "to": "swiss_day2_heini_bahnhof", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "HEINI에서 Luzern Pier 1", "from": "swiss_day2_heini_bahnhof", "to": "swiss_day2_luzern_pier", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "Bachmann 포장 아침 백업", "from": "swiss_day2_hotel", "to": "swiss_day2_bachmann_gleis3", "travelMode": "WALKING", "routeType": "backup" },
         { "label": "Lake Lucerne boat 09:12-10:09", "from": "swiss_day2_luzern_pier", "to": "swiss_day2_vitznau", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
         { "label": "Rigi Bahn 10:15-10:47", "from": "swiss_day2_vitznau", "to": "swiss_day2_rigi_kulm", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
         { "label": "Rigi Kulm에서 Kaltbad", "from": "swiss_day2_rigi_kulm", "to": "swiss_day2_rigi_kaltbad", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
@@ -221,6 +224,8 @@
       "center": { "lat": 46.865, "lng": 8.08 },
       "points": [
         { "place_key": "swiss_day3_hotel", "label": "Hotel Luzernerhof", "role": "Alpenstrasse 3 · 08:55 체크아웃", "lat": 47.0552, "lng": 8.3129, "visitOrder": 1, "priority": "must", "backup": false, "query": "Hotel Luzernerhof, Alpenstrasse 3, 6004 Luzern, Switzerland" },
+        { "place_key": "swiss_day3_heini_bahnhof", "label": "HEINI Bahnhof Luzern", "role": "열차 전 역 카페 아침", "lat": 47.0507, "lng": 8.3099, "visitOrder": 1.3, "priority": "nice", "backup": false, "query": "HEINI Bahnhof Luzern, Bahnhofplatz 3, Luzern, Switzerland" },
+        { "place_key": "swiss_day3_bachmann_gleis3", "label": "Confiserie Bachmann Bahnhof UG / Gleis 3", "role": "열차 전 포장 백업", "lat": 47.0502, "lng": 8.3103, "visitOrder": 1.4, "priority": "backup", "backup": true, "query": "Confiserie Bachmann Gleis 3, Luzern Bahnhof, Switzerland" },
         { "place_key": "swiss_day3_luzern_station", "label": "Luzern Station", "role": "09:24 열차 출발 · PL15", "lat": 47.0502, "lng": 8.3102, "visitOrder": 2, "priority": "must", "backup": false, "query": "Luzern Bahnhof, Switzerland" },
         { "place_key": "swiss_day3_sarnen", "label": "Sarnen", "role": "호수와 전원 풍경", "lat": 46.896, "lng": 8.246, "visitOrder": 3, "priority": "nice", "backup": false, "query": "Sarnen, Switzerland" },
         { "place_key": "swiss_day3_brunig", "label": "Brünig-Hasliberg", "role": "고도감이 생기는 구간", "lat": 46.757, "lng": 8.137, "visitOrder": 4, "priority": "nice", "backup": false, "query": "Brunig-Hasliberg, Switzerland" },
@@ -230,7 +235,9 @@
         { "place_key": "swiss_day3_unterseen_lodging", "label": "스위스:인터젠의방", "role": "위치 65 Hauptstrasse, Unterseen · BE 3800", "lat": 46.6864, "lng": 7.8497, "visitOrder": 8, "priority": "must", "backup": false, "query": "65 Hauptstrasse, 3800 Unterseen, Switzerland" }
       ],
       "routes": [
-        { "label": "호텔에서 Luzern Station", "from": "swiss_day3_hotel", "to": "swiss_day3_luzern_station", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "호텔에서 HEINI Bahnhof 아침", "from": "swiss_day3_hotel", "to": "swiss_day3_heini_bahnhof", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "HEINI에서 Luzern Station", "from": "swiss_day3_heini_bahnhof", "to": "swiss_day3_luzern_station", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "Bachmann 포장 아침 백업", "from": "swiss_day3_hotel", "to": "swiss_day3_bachmann_gleis3", "travelMode": "WALKING", "routeType": "backup" },
         { "label": "Luzern-Interlaken Express", "from": "swiss_day3_luzern_station", "to": "swiss_day3_sarnen", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
         { "label": "Sarnen에서 Brünig", "from": "swiss_day3_sarnen", "to": "swiss_day3_brunig", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
         { "label": "Brünig에서 Brienz", "from": "swiss_day3_brunig", "to": "swiss_day3_brienz", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
@@ -264,88 +271,95 @@
         { "label": "Brig 13:25-Iselle di Trasquera 13:40", "from": "swiss_day6_brig", "to": "swiss_day6_iselle_station", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
         { "label": "Iselle 역에서 Iselle stazione 버스 환승", "from": "swiss_day6_iselle_station", "to": "swiss_day6_iselle_bus", "travelMode": "WALKING", "routeType": "primary", "useCoordinateRouting": true },
         { "label": "Iselle stazione bus 14:03-Domodossola 14:32", "from": "swiss_day6_iselle_bus", "to": "swiss_day6_domodossola", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
-        { "label": "Le Frecce 통합표 1/2 · Autobus 7435A Domodossola 15:49-Sesto Calende 17:32", "from": "swiss_day6_domodossola", "to": "swiss_day6_sesto_calende", "travelMode": "TRANSIT", "routeType": "backup", "useCoordinateRouting": true },
-        { "label": "Le Frecce 통합표 2/2 · Regionale 2435 Sesto Calende 17:42-Milano Centrale 18:35", "from": "swiss_day6_sesto_calende", "to": "swiss_day6_milano_centrale", "travelMode": "TRANSIT", "routeType": "backup", "useCoordinateRouting": true }
+        { "label": "Le Frecce 예약 완료 통합표 1/2 · Autobus 7435A Domodossola 15:49-Sesto Calende 17:32", "from": "swiss_day6_domodossola", "to": "swiss_day6_sesto_calende", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true },
+        { "label": "Le Frecce 예약 완료 통합표 2/2 · Regionale 2435 Sesto Calende 17:42-Milano Centrale 18:35", "from": "swiss_day6_sesto_calende", "to": "swiss_day6_milano_centrale", "travelMode": "TRANSIT", "routeType": "primary", "useCoordinateRouting": true }
       ]
     },
     {
       "id": "day1",
       "label": "Day 1 | 07.21 밀라노 첫날",
-      "summary": "호텔 체크인과 짧은 저녁 옵션만 두고, Porta Nuova와 Gae Aulenti 산책은 07.26 아침으로 옮긴 도착일 동선입니다.",
-      "note": "Day 1은 체크인 후 휴식이 기본입니다. 코랄 점선은 07.26 아침으로 옮긴 광장 산책 참고 경로이고, 작은 옵션 식당 마커는 위치만 표시하며 동선에는 연결하지 않습니다.",
-      "center": { "lat": 45.4822, "lng": 9.1955 },
+      "summary": "Le Frecce 통합표로 Milano Centrale 18:35 도착 후 호텔 체크인, Barzac 20:15 저녁 1순위, Osteria Fara 백업까지 표시합니다.",
+      "note": "Day 1은 18:35 Milano Centrale 도착 후 UNA HOTELS Century Milano까지 도보 이동, 체크인, 재정비가 기본입니다. 첫 저녁은 Via Gustavo Fara의 Barzac Tradizione Piacentina를 1순위로 두고, 같은 길의 Osteria Fara를 더 무난한 백업으로 둡니다. Porta Nuova, Bosco Verticale, 주변 산책 후보는 07.22 Day 2 점심 동선으로 옮겼습니다.",
+      "center": { "lat": 45.4854, "lng": 9.2012 },
       "points": [
-        { "place_key": "day1_hotel", "label": "UNA HOTELS Century Milano", "role": "숙소 체크인", "lat": 45.4857, "lng": 9.2032, "visitOrder": 1, "priority": "must", "backup": false, "query": "UNA HOTELS Century Milano, Milan, Italy" },
-        { "place_key": "day1_porta_nuova", "label": "Porta Nuova", "role": "07.26 아침으로 이동한 산책 시작", "lat": 45.4781, "lng": 9.1963, "visitOrder": 2, "priority": "backup", "backup": true, "query": "Porta Nuova, Milan, Italy" },
-        { "place_key": "day1_piazza_gae_aulenti", "label": "Piazza Gae Aulenti", "role": "07.26 아침 포토스팟", "lat": 45.4832, "lng": 9.1897, "visitOrder": 3, "priority": "backup", "backup": true, "query": "Piazza Gae Aulenti, Milan, Italy" },
-        { "place_key": "day1_bam", "label": "BAM Biblioteca degli Alberi Milano", "role": "07.26 아침 공원 조망", "lat": 45.4844, "lng": 9.1906, "visitOrder": 4, "priority": "backup", "backup": true, "query": "BAM Biblioteca degli Alberi Milano, Milan, Italy" },
-        { "place_key": "day1_bosco_verticale", "label": "Bosco Verticale", "role": "07.26 아침 현대 건축 포인트", "lat": 45.485, "lng": 9.1902, "visitOrder": 5, "priority": "backup", "backup": true, "query": "Bosco Verticale, Milan, Italy" },
-        { "place_key": "day1_casa_memoria", "label": "Casa della Memoria", "role": "07.26 아침 짧은 건축 마무리", "lat": 45.4841, "lng": 9.1872, "visitOrder": 6, "priority": "backup", "backup": true, "query": "Casa della Memoria, Milan, Italy" },
-        { "place_key": "day1_bosco_restaurant", "label": "Bosco Verticale Restaurant", "role": "컨디션 좋을 때만 첫 저녁 옵션", "lat": 45.4867115, "lng": 9.1910436, "visitOrder": 7, "priority": "nice", "backup": false, "query": "Bosco Verticale Restaurant, Milan, Italy" },
-        { "place_key": "day1_pitbeef", "label": "PitBeef Milano", "role": "옵션 식당 · 스테이크 · 4.9 · €30-80", "lat": 45.4854512, "lng": 9.18961, "visitOrder": 7.1, "mapLabel": "7-1", "markerVariant": "option", "priority": "option", "backup": false, "query": "PitBeef Milano, Via de Castillia 7, Milan, Italy" },
-        { "place_key": "day1_sapemare", "label": "Sapemare", "role": "옵션 식당 · 타파스 바 · 4.8 · €20-60", "lat": 45.4864655, "lng": 9.1883675, "visitOrder": 7.2, "mapLabel": "7-2", "markerVariant": "option", "priority": "option", "backup": false, "query": "Sapemare, Via Pastrengo 2, Milan, Italy" },
-        { "place_key": "day1_da_pecchia", "label": "Da Pecchia Pizza e Sfizi Napoletani", "role": "옵션 식당 · 피자 · 4.6 · €10-20", "lat": 45.4859247, "lng": 9.1930964, "visitOrder": 7.3, "mapLabel": "7-3", "markerVariant": "option", "priority": "option", "backup": false, "query": "Da Pecchia Pizza e Sfizi Napoletani, Via Gaetano de Castillia 23, Milan, Italy" },
-        { "place_key": "day1_mancuso", "label": "Mancuso Gelati Italiani 1920", "role": "저녁 뒤 젤라또", "lat": 45.4856107, "lng": 9.1914686, "visitOrder": 8, "priority": "nice", "backup": false, "query": "Mancuso Gelati Italiani 1920, Milan, Italy" },
-        { "place_key": "day1_eataly", "label": "Eataly Milano Smeraldo", "role": "비·피로 시 실내 백업", "lat": 45.481, "lng": 9.1877, "visitOrder": 9, "priority": "backup", "backup": true, "query": "Eataly Milano Smeraldo, Milan, Italy" }
+        { "place_key": "day1_milano_centrale", "label": "Milano Centrale", "role": "18:35 도착 · Le Frecce 통합표 예약 완료", "lat": 45.4871, "lng": 9.2048, "visitOrder": 1, "priority": "must", "backup": false, "query": "Milano Centrale, Milan, Italy" },
+        { "place_key": "day1_hotel", "label": "UNA HOTELS Century Milano", "role": "숙소 체크인·재정비", "lat": 45.4857, "lng": 9.2032, "visitOrder": 2, "priority": "must", "backup": false, "query": "UNA HOTELS Century Milano, Milan, Italy" },
+        { "place_key": "day1_barzac", "label": "Barzac Tradizione Piacentina", "role": "20:15 첫 저녁 1순위 · 피아첸차/에밀리아로마냐 계열", "lat": 45.4845426, "lng": 9.1985305, "visitOrder": 3, "priority": "nice", "backup": false, "query": "Barzac Tradizione Piacentina, Via Gustavo Fara 29, Milano, Italy" },
+        { "place_key": "day1_osteria_fara", "label": "Osteria Fara", "role": "20:00-20:15 백업 · 호텔 근처 무난한 이탈리안", "lat": 45.4842122, "lng": 9.1983948, "visitOrder": 4, "priority": "backup", "backup": true, "query": "Osteria Fara, Via Gustavo Fara 25, Milano, Italy" }
       ],
       "routes": [
-        { "label": "호텔에서 첫 저녁 옵션", "from": "day1_hotel", "to": "day1_bosco_restaurant", "travelMode": "TRANSIT", "routeType": "primary" },
-        { "label": "저녁 뒤 젤라또", "from": "day1_bosco_restaurant", "to": "day1_mancuso", "travelMode": "WALKING", "routeType": "primary" },
-        { "label": "07.26으로 옮긴 Porta Nuova 산책", "from": "day1_porta_nuova", "to": "day1_piazza_gae_aulenti", "travelMode": "WALKING", "routeType": "backup" },
-        { "label": "07.26으로 옮긴 BAM 연결", "from": "day1_piazza_gae_aulenti", "to": "day1_bam", "travelMode": "WALKING", "routeType": "backup" },
-        { "label": "07.26으로 옮긴 Bosco Verticale 연결", "from": "day1_bam", "to": "day1_bosco_verticale", "travelMode": "WALKING", "routeType": "backup" },
-        { "label": "실내 백업", "from": "day1_piazza_gae_aulenti", "to": "day1_eataly", "travelMode": "WALKING", "routeType": "backup" }
+        { "label": "Milano Centrale에서 호텔", "from": "day1_milano_centrale", "to": "day1_hotel", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "호텔에서 Barzac 첫 저녁", "from": "day1_hotel", "to": "day1_barzac", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "저녁 후 호텔 복귀", "from": "day1_barzac", "to": "day1_hotel", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "Osteria Fara 백업", "from": "day1_hotel", "to": "day1_osteria_fara", "travelMode": "WALKING", "routeType": "backup" }
       ]
     },
     {
       "id": "day2",
       "label": "Day 2 | 07.22 밀라노 핵심",
-      "summary": "호텔조식 후 M3로 Duomo에 들어가 광장 사진, 내부, 테라스, Galleria, Brera, 선택 CityLife/휴식, Navigli로 이어지는 밀라노 대표 하루입니다.",
-      "note": "지도 표시는 08:40 Centrale FS → Duomo 이동, 오전 Duomo 광장·내부·테라스, Galleria, Brera, Navigli 기본 축과 CityLife/호텔 휴식 선택 경로를 기준으로 계산합니다. 실제 대중교통 시간표와 Duomo 입장 시간은 예약 전 재확인하세요.",
-      "center": { "lat": 45.4647, "lng": 9.1865 },
+      "summary": "Mercato Centrale Milano에서 간단히 아침을 먹고 09:40 Duomo 광장에 도착해 10:30 Fast-Track 테라스, 내부, 지하 구역, Galleria, Porta Nuova/Bosco Verticale 점심, 17:00 Cenacolo Vinciano 최후의 만찬, Navigli 저녁으로 이어지는 밀라노 대표 하루입니다.",
+      "note": "지도 표시는 호텔에서 Mercato Centrale Milano 아침, 09:10 Centrale FS → Duomo 이동, 10:30 Fast-Track 테라스, 성당 내부와 지하 구역, Galleria, Porta Nuova/Bosco Verticale 점심 산책, 16:30까지 Cenacolo Vinciano 도착, 17:00 최후의 만찬 관람, Navigli 저녁 기본 축을 기준으로 계산합니다. CityLife는 최후의 만찬 예약이 잡히지 않거나 취소할 때 쓰는 백업 경로입니다. 실제 대중교통 시간표와 예약 시간은 방문 전 재확인하세요.",
+      "center": { "lat": 45.473, "lng": 9.189 },
       "points": [
-        { "place_key": "day2_hotel", "label": "UNA HOTELS Century Milano", "role": "숙소 출발", "lat": 45.4857, "lng": 9.2032, "visitOrder": 1, "priority": "must", "backup": false, "query": "UNA HOTELS Century Milano, Milan, Italy" },
-        { "place_key": "day2_duomo", "label": "Duomo di Milano", "role": "09:10 광장 사진 · 내부 · 10:30 테라스", "lat": 45.4642, "lng": 9.1916, "visitOrder": 2, "priority": "must", "backup": false, "query": "Duomo di Milano, Milan, Italy" },
-        { "place_key": "day2_galleria", "label": "Galleria Vittorio Emanuele II", "role": "11:40-12:20 아케이드 산책", "lat": 45.4658, "lng": 9.19, "visitOrder": 3, "priority": "must", "backup": false, "query": "Galleria Vittorio Emanuele II, Milan, Italy" },
+        { "place_key": "day2_hotel", "label": "UNA HOTELS Century Milano", "role": "숙소 출발 · 조식 미포함", "lat": 45.4857, "lng": 9.2032, "visitOrder": 1, "priority": "must", "backup": false, "query": "UNA HOTELS Century Milano, Milan, Italy" },
+        { "place_key": "day2_mercato", "label": "Mercato Centrale Milano", "role": "06:30 오픈 아침 후보", "lat": 45.4867, "lng": 9.2034, "visitOrder": 1.5, "priority": "must", "backup": false, "query": "Mercato Centrale Milano, Milan, Italy" },
+        { "place_key": "day2_duomo", "label": "Duomo di Milano", "role": "09:40 광장 · 10:30 Fast-Track 테라스 · 내부 · 지하 구역", "lat": 45.4642, "lng": 9.1916, "visitOrder": 2, "priority": "must", "backup": false, "query": "Duomo di Milano, Milan, Italy" },
+        { "place_key": "day2_galleria", "label": "Galleria Vittorio Emanuele II", "role": "12:45-13:15 아케이드 산책", "lat": 45.4658, "lng": 9.19, "visitOrder": 3, "priority": "must", "backup": false, "query": "Galleria Vittorio Emanuele II, Milan, Italy" },
         { "place_key": "day2_rinascente", "label": "Rinascente Milano Duomo", "role": "시간이 남을 때 쇼핑 워밍업", "lat": 45.464, "lng": 9.1928, "visitOrder": 4, "priority": "nice", "backup": false, "query": "Rinascente Milano Duomo, Milan, Italy" },
         { "place_key": "day2_marchesi", "label": "Marchesi 1824 Galleria", "role": "선택 카페 휴식", "lat": 45.4661, "lng": 9.1901, "visitOrder": 5, "priority": "nice", "backup": false, "query": "Marchesi 1824 Galleria, Milan, Italy" },
-        { "place_key": "day2_brera", "label": "Brera", "role": "점심과 골목 산책", "lat": 45.4719, "lng": 9.1881, "visitOrder": 6, "priority": "must", "backup": false, "query": "Brera, Milan, Italy" },
-        { "place_key": "day2_pinacoteca", "label": "Pinacoteca di Brera", "role": "예술 비중을 높일 때", "lat": 45.4719, "lng": 9.188, "visitOrder": 7, "priority": "nice", "backup": false, "query": "Pinacoteca di Brera, Milan, Italy" },
-        { "place_key": "day2_nombra", "label": "N'Ombra de Vin", "role": "브레라 와인바", "lat": 45.4744, "lng": 9.1859, "visitOrder": 8, "priority": "nice", "backup": false, "query": "N'Ombra de Vin, Milan, Italy" },
-        { "place_key": "day2_navigli", "label": "Navigli", "role": "저녁 물가 분위기", "lat": 45.4527, "lng": 9.1779, "visitOrder": 9, "priority": "must", "backup": false, "query": "Navigli, Milan, Italy" },
-        { "place_key": "day2_osteria", "label": "Osteria del Binari", "role": "차분한 저녁", "lat": 45.4524, "lng": 9.1739, "visitOrder": 10, "priority": "nice", "backup": false, "query": "Osteria del Binari, Milan, Italy" },
-        { "place_key": "day2_citylife", "label": "CityLife Milano", "role": "15:30-17:30 체력 좋을 때만 선택", "lat": 45.478, "lng": 9.155, "visitOrder": 11, "priority": "backup", "backup": true, "query": "CityLife, Milan, Italy" },
-        { "place_key": "day2_fondazione_prada", "label": "Fondazione Prada", "role": "비·건축 우선 대체안", "lat": 45.4441, "lng": 9.2057, "visitOrder": 12, "priority": "backup", "backup": true, "query": "Fondazione Prada, Milan, Italy" }
+        { "place_key": "day2_porta_nuova", "label": "Porta Nuova", "role": "13:30 현대 밀라노 점심 동선 시작", "lat": 45.4781, "lng": 9.1963, "visitOrder": 6, "priority": "must", "backup": false, "query": "Porta Nuova, Milan, Italy" },
+        { "place_key": "day2_bosco_restaurant", "label": "Bosco Verticale Restaurant", "role": "13:30 늦은 점심", "lat": 45.4867115, "lng": 9.1910436, "visitOrder": 7, "priority": "nice", "backup": false, "query": "Bosco Verticale Restaurant, Milan, Italy" },
+        { "place_key": "day2_pitbeef", "label": "PitBeef Milano", "role": "옵션 식당 · 스테이크", "lat": 45.4854512, "lng": 9.18961, "visitOrder": 7.1, "mapLabel": "7-1", "markerVariant": "option", "priority": "option", "backup": false, "query": "PitBeef Milano, Via de Castillia 7, Milan, Italy" },
+        { "place_key": "day2_sapemare", "label": "Sapemare", "role": "옵션 식당 · 타파스 바", "lat": 45.4864655, "lng": 9.1883675, "visitOrder": 7.2, "mapLabel": "7-2", "markerVariant": "option", "priority": "option", "backup": false, "query": "Sapemare, Via Pastrengo 2, Milan, Italy" },
+        { "place_key": "day2_da_pecchia", "label": "Da Pecchia Pizza e Sfizi Napoletani", "role": "옵션 식당 · 피자", "lat": 45.4859247, "lng": 9.1930964, "visitOrder": 7.3, "mapLabel": "7-3", "markerVariant": "option", "priority": "option", "backup": false, "query": "Da Pecchia Pizza e Sfizi Napoletani, Via Gaetano de Castillia 23, Milan, Italy" },
+        { "place_key": "day2_gae", "label": "Piazza Gae Aulenti", "role": "고가 광장과 UniCredit Tower", "lat": 45.4832, "lng": 9.1897, "visitOrder": 8, "priority": "must", "backup": false, "query": "Piazza Gae Aulenti, Milan, Italy" },
+        { "place_key": "day2_bam", "label": "BAM Biblioteca degli Alberi Milano", "role": "Bosco Verticale 조망 전 공원", "lat": 45.4844, "lng": 9.1906, "visitOrder": 9, "priority": "must", "backup": false, "query": "BAM Biblioteca degli Alberi Milano, Milan, Italy" },
+        { "place_key": "day2_bosco_verticale", "label": "Bosco Verticale", "role": "현대 건축 산책 핵심", "lat": 45.485, "lng": 9.1902, "visitOrder": 10, "priority": "must", "backup": false, "query": "Bosco Verticale, Milan, Italy" },
+        { "place_key": "day2_casa_memoria", "label": "Casa della Memoria", "role": "기존 Day 1에서 옮긴 짧은 건축 마무리", "lat": 45.4841, "lng": 9.1872, "visitOrder": 11, "priority": "nice", "backup": false, "query": "Casa della Memoria, Milan, Italy" },
+        { "place_key": "day2_mancuso", "label": "Mancuso Gelati Italiani 1920", "role": "시간이 남을 때 짧은 디저트", "lat": 45.4856107, "lng": 9.1914686, "visitOrder": 12, "priority": "nice", "backup": false, "query": "Mancuso Gelati Italiani 1920, Milan, Italy" },
+        { "place_key": "day2_cenacolo", "label": "Cenacolo Vinciano / The Last Supper", "role": "16:30 도착 · 17:00 예약필요 · 최후의 만찬", "lat": 45.4659, "lng": 9.1711, "visitOrder": 13, "priority": "must", "backup": false, "query": "Museo del Cenacolo Vinciano, Piazza di Santa Maria delle Grazie 2, Milan, Italy" },
+        { "place_key": "day2_navigli", "label": "Navigli", "role": "최후의 만찬 후 저녁 이동", "lat": 45.4527, "lng": 9.1779, "visitOrder": 14, "priority": "must", "backup": false, "query": "Navigli, Milan, Italy" },
+        { "place_key": "day2_osteria", "label": "Osteria del Binari", "role": "Navigli 저녁식사", "lat": 45.4524, "lng": 9.1739, "visitOrder": 15, "priority": "must", "backup": false, "query": "Osteria del Binari, Milan, Italy" },
+        { "place_key": "day2_citylife", "label": "CityLife Milano", "role": "최후의 만찬 예약 실패 시 백업", "lat": 45.478, "lng": 9.155, "visitOrder": 16, "priority": "backup", "backup": true, "query": "CityLife, Milan, Italy" },
+        { "place_key": "day2_eataly", "label": "Eataly Milano Smeraldo", "role": "비·피로 시 실내 백업", "lat": 45.481, "lng": 9.1877, "visitOrder": 17, "priority": "backup", "backup": true, "query": "Eataly Milano Smeraldo, Milan, Italy" },
+        { "place_key": "day2_fondazione_prada", "label": "Fondazione Prada", "role": "비·건축 우선 대체안", "lat": 45.4441, "lng": 9.2057, "visitOrder": 18, "priority": "backup", "backup": true, "query": "Fondazione Prada, Milan, Italy" }
       ],
       "routes": [
-        { "label": "호텔에서 두오모", "from": "day2_hotel", "to": "day2_duomo", "travelMode": "TRANSIT", "routeType": "primary" },
+        { "label": "호텔에서 Mercato Centrale 아침", "from": "day2_hotel", "to": "day2_mercato", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "Mercato Centrale에서 두오모", "from": "day2_mercato", "to": "day2_duomo", "travelMode": "TRANSIT", "routeType": "primary" },
         { "label": "두오모에서 갤러리아", "from": "day2_duomo", "to": "day2_galleria", "travelMode": "WALKING", "routeType": "primary" },
-        { "label": "갤러리아에서 Brera", "from": "day2_galleria", "to": "day2_brera", "travelMode": "WALKING", "routeType": "primary" },
-        { "label": "Brera 미술관", "from": "day2_brera", "to": "day2_pinacoteca", "travelMode": "WALKING", "routeType": "primary" },
-        { "label": "Brera 와인바", "from": "day2_pinacoteca", "to": "day2_nombra", "travelMode": "WALKING", "routeType": "primary" },
-        { "label": "Brera에서 Navigli", "from": "day2_nombra", "to": "day2_navigli", "travelMode": "TRANSIT", "routeType": "primary" },
+        { "label": "갤러리아에서 Porta Nuova", "from": "day2_galleria", "to": "day2_porta_nuova", "travelMode": "TRANSIT", "routeType": "primary" },
+        { "label": "Porta Nuova/Bosco 점심", "from": "day2_porta_nuova", "to": "day2_bosco_restaurant", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "점심 후 Gae Aulenti", "from": "day2_bosco_restaurant", "to": "day2_gae", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "BAM 공원 연결", "from": "day2_gae", "to": "day2_bam", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "Bosco Verticale 조망", "from": "day2_bam", "to": "day2_bosco_verticale", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "Casa della Memoria 짧은 마무리", "from": "day2_bosco_verticale", "to": "day2_casa_memoria", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "Cenacolo Vinciano 16:30 도착", "from": "day2_casa_memoria", "to": "day2_cenacolo", "travelMode": "TRANSIT", "routeType": "primary" },
+        { "label": "최후의 만찬 후 Navigli", "from": "day2_cenacolo", "to": "day2_navigli", "travelMode": "TRANSIT", "routeType": "primary" },
         { "label": "Navigli 저녁", "from": "day2_navigli", "to": "day2_osteria", "travelMode": "WALKING", "routeType": "primary" },
-        { "label": "CityLife 선택", "from": "day2_brera", "to": "day2_citylife", "travelMode": "TRANSIT", "routeType": "backup" },
-        { "label": "호텔 휴식 선택", "from": "day2_brera", "to": "day2_hotel", "travelMode": "TRANSIT", "routeType": "backup" },
-        { "label": "Fondazione Prada 대안", "from": "day2_brera", "to": "day2_fondazione_prada", "travelMode": "TRANSIT", "routeType": "backup" }
+        { "label": "짧은 디저트 백업", "from": "day2_casa_memoria", "to": "day2_mancuso", "travelMode": "WALKING", "routeType": "backup" },
+        { "label": "CityLife 백업", "from": "day2_bosco_verticale", "to": "day2_citylife", "travelMode": "TRANSIT", "routeType": "backup" },
+        { "label": "호텔 휴식 선택", "from": "day2_bosco_verticale", "to": "day2_hotel", "travelMode": "TRANSIT", "routeType": "backup" },
+        { "label": "Eataly 실내 백업", "from": "day2_gae", "to": "day2_eataly", "travelMode": "WALKING", "routeType": "backup" },
+        { "label": "Fondazione Prada 대안", "from": "day2_galleria", "to": "day2_fondazione_prada", "travelMode": "TRANSIT", "routeType": "backup" }
       ]
     },
     {
       "id": "day3",
       "label": "Day 3 | 07.23 생일 쇼핑",
-      "summary": "Rinascente, Galleria, Montenapoleone, Brera, 루프탑 디너로 이어지는 생일 동선입니다.",
-      "note": "쇼핑 순서는 도보 최단/최적 경로로 이어서 표시하고, 디너 대안은 코랄 점선으로 따로 표시합니다.",
+      "summary": "Rinascente, Galleria, Montenapoleone, Brera, 19:45 Ceresio 7 예약완료 디너로 이어지는 생일 동선입니다.",
+      "note": "쇼핑 순서는 도보 최단/최적 경로로 이어서 표시하고, 19:45 Ceresio 7 예약 디너를 기본 경로로 둡니다. Maio는 Duomo 뷰 백업입니다.",
       "center": { "lat": 45.469, "lng": 9.1915 },
       "points": [
         { "place_key": "day3_hotel", "label": "UNA HOTELS Century Milano", "role": "느긋한 출발", "lat": 45.4857, "lng": 9.2032, "visitOrder": 1, "priority": "must", "backup": false, "query": "UNA HOTELS Century Milano, Milan, Italy" },
         { "place_key": "day3_duomo", "label": "Duomo di Milano", "role": "생일 사진 시작", "lat": 45.4642, "lng": 9.1916, "visitOrder": 2, "priority": "must", "backup": false, "query": "Duomo di Milano, Milan, Italy" },
-        { "place_key": "day3_rinascente", "label": "Rinascente Milano Duomo", "role": "1차 쇼핑과 Maio", "lat": 45.464, "lng": 9.1928, "visitOrder": 3, "priority": "must", "backup": false, "query": "Rinascente Milano Duomo, Milan, Italy" },
+        { "place_key": "day3_rinascente", "label": "Rinascente Milano Duomo", "role": "1차 쇼핑", "lat": 45.464, "lng": 9.1928, "visitOrder": 3, "priority": "must", "backup": false, "query": "Rinascente Milano Duomo, Milan, Italy" },
         { "place_key": "day3_galleria", "label": "Galleria Vittorio Emanuele II", "role": "점심과 디저트", "lat": 45.4658, "lng": 9.19, "visitOrder": 4, "priority": "must", "backup": false, "query": "Galleria Vittorio Emanuele II, Milan, Italy" },
         { "place_key": "day3_montenapoleone", "label": "Via Montenapoleone", "role": "명품·주얼리 축", "lat": 45.4703, "lng": 9.1948, "visitOrder": 5, "priority": "must", "backup": false, "query": "Via Montenapoleone, Milan, Italy" },
         { "place_key": "day3_quadrilatero", "label": "Quadrilatero della Moda", "role": "패션 지구 집중", "lat": 45.4689, "lng": 9.1959, "visitOrder": 6, "priority": "must", "backup": false, "query": "Quadrilatero della Moda, Milan, Italy" },
         { "place_key": "day3_brera", "label": "Brera", "role": "감성 선물 마무리", "lat": 45.4719, "lng": 9.1881, "visitOrder": 7, "priority": "must", "backup": false, "query": "Brera, Milan, Italy" },
-        { "place_key": "day3_maio", "label": "Maio Restaurant & Terrace", "role": "두오모 뷰 디너", "lat": 45.464, "lng": 9.1928, "visitOrder": 8, "priority": "must", "backup": false, "query": "Maio Restaurant & Terrace, Milan, Italy" },
-        { "place_key": "day3_ceresio", "label": "Ceresio 7", "role": "스카이라인 디너 대안", "lat": 45.4847, "lng": 9.1847, "visitOrder": 9, "priority": "backup", "backup": true, "query": "Ceresio 7, Milan, Italy" },
+        { "place_key": "day3_ceresio", "label": "Ceresio 7", "role": "19:45 예약완료 · 스카이라인 디너", "lat": 45.4847, "lng": 9.1847, "visitOrder": 8, "priority": "must", "backup": false, "query": "Ceresio 7, Milan, Italy" },
+        { "place_key": "day3_maio", "label": "Maio Restaurant & Terrace", "role": "두오모 뷰 디너 백업", "lat": 45.464, "lng": 9.1928, "visitOrder": 9, "priority": "backup", "backup": true, "query": "Maio Restaurant & Terrace, Milan, Italy" },
         { "place_key": "day3_porta_nuova", "label": "Porta Nuova skyline loop", "role": "시간이 남을 때 야경 루프", "lat": 45.4832, "lng": 9.1897, "visitOrder": 10, "priority": "backup", "backup": true, "query": "Piazza Gae Aulenti, Milan, Italy" },
         { "place_key": "day3_citylife", "label": "CityLife Milano", "role": "쇼핑 대체 건축 코스", "lat": 45.478, "lng": 9.155, "visitOrder": 11, "priority": "backup", "backup": true, "query": "CityLife, Milan, Italy" }
       ],
@@ -356,8 +370,8 @@
         { "label": "갤러리아에서 Montenapoleone", "from": "day3_galleria", "to": "day3_montenapoleone", "travelMode": "WALKING", "routeType": "primary" },
         { "label": "패션 지구 연결", "from": "day3_montenapoleone", "to": "day3_quadrilatero", "travelMode": "WALKING", "routeType": "primary" },
         { "label": "Brera 마무리", "from": "day3_quadrilatero", "to": "day3_brera", "travelMode": "WALKING", "routeType": "primary" },
-        { "label": "Maio 디너", "from": "day3_brera", "to": "day3_maio", "travelMode": "WALKING", "routeType": "primary" },
-        { "label": "Ceresio 7 디너 대안", "from": "day3_brera", "to": "day3_ceresio", "travelMode": "WALKING", "routeType": "backup" },
+        { "label": "19:45 Ceresio 7 디너 예약완료", "from": "day3_brera", "to": "day3_ceresio", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "Maio 디너 백업", "from": "day3_brera", "to": "day3_maio", "travelMode": "WALKING", "routeType": "backup" },
         { "label": "Porta Nuova 야경 대안", "from": "day3_brera", "to": "day3_porta_nuova", "travelMode": "WALKING", "routeType": "backup" },
         { "label": "CityLife 대체안", "from": "day3_duomo", "to": "day3_citylife", "travelMode": "TRANSIT", "routeType": "backup" }
       ]
@@ -469,26 +483,21 @@
     {
       "id": "day6",
       "label": "Day 6 | 07.26 프라하 이동",
-      "summary": "Porta Nuova와 Piazza Gae Aulenti 아침 산책 후 예약완료 BGY 15:10 오후 직항으로 프라하 이동합니다.",
-      "note": "지도 표시는 07.26 아침 Porta Nuova / Gae Aulenti 산책, 예약완료 Milan(Bergamo)=BGY 15:10 출발 기준 공항 이동, Centrale 주변 백업까지 일정 이동수단 기준 최단/최적 경로로 계산합니다. 탑승권의 공항 코드와 수하물 조건은 출발 전 다시 확인하세요.",
+      "summary": "외부 아침식사와 체크아웃 후 예약완료 BGY 15:10 오후 직항으로 프라하 이동합니다.",
+      "note": "지도 표시는 호텔, Milano Centrale / Piazza Luigi Savoia 공항버스 정류장, 예약완료 Milan(Bergamo)=BGY 15:10 출발 기준 공항 이동, Centrale 주변 백업까지 일정 이동수단 기준 최단/최적 경로로 계산합니다. 탑승권의 공항 코드와 수하물 조건은 출발 전 다시 확인하세요.",
       "center": { "lat": 45.574, "lng": 9.460 },
       "points": [
-        { "place_key": "day6_hotel", "label": "UNA HOTELS Century Milano", "role": "아침 산책 출발·체크아웃 복귀", "lat": 45.4857, "lng": 9.2032, "visitOrder": 1, "priority": "must", "backup": false, "query": "UNA HOTELS Century Milano, Milan, Italy" },
-        { "place_key": "day6_porta_nuova", "label": "Porta Nuova", "role": "첫날에서 옮긴 07.26 아침 산책 시작", "lat": 45.4781, "lng": 9.1963, "visitOrder": 2, "priority": "must", "backup": false, "query": "Porta Nuova, Milan, Italy" },
-        { "place_key": "day6_gae", "label": "Piazza Gae Aulenti", "role": "07.26 아침 포토스팟", "lat": 45.4832, "lng": 9.1897, "visitOrder": 3, "priority": "must", "backup": false, "query": "Piazza Gae Aulenti, Milan, Italy" },
+        { "place_key": "day6_hotel", "label": "UNA HOTELS Century Milano", "role": "조식 미포함 · 체크아웃 준비", "lat": 45.4857, "lng": 9.2032, "visitOrder": 1, "priority": "must", "backup": false, "query": "UNA HOTELS Century Milano, Milan, Italy" },
+        { "place_key": "day6_centrale", "label": "Milano Centrale", "role": "출발 전 짐 보관·대기", "lat": 45.4863, "lng": 9.203, "visitOrder": 2, "priority": "nice", "backup": false, "query": "Milano Centrale, Milan, Italy" },
+        { "place_key": "day6_mercato", "label": "Mercato Centrale Milano", "role": "06:30 오픈 아침·출발 전 푸드홀", "lat": 45.4867, "lng": 9.2034, "visitOrder": 3, "priority": "must", "backup": false, "query": "Mercato Centrale Milano, Milan, Italy" },
         { "place_key": "day6_savoia", "label": "Piazza Luigi Savoia shuttle stop", "role": "BGY 셔틀 접근", "lat": 45.4864, "lng": 9.204, "visitOrder": 4, "priority": "must", "backup": false, "query": "Piazza Luigi Savoia, Milan, Italy" },
-        { "place_key": "day6_bgy", "label": "Milan Bergamo Airport", "role": "프라하 직항 출발 공항 · BGY 15:10", "lat": 45.66577, "lng": 9.69809, "visitOrder": 5, "priority": "must", "backup": false, "query": "Milan Bergamo Airport, Orio al Serio, Italy" },
-        { "place_key": "day6_mercato", "label": "Mercato Centrale Milano", "role": "늦은 출발 시 푸드홀", "lat": 45.4867, "lng": 9.2034, "visitOrder": 6, "priority": "backup", "backup": true, "query": "Mercato Centrale Milano, Milan, Italy" },
-        { "place_key": "day6_centrale", "label": "Milano Centrale", "role": "출발 전 짐 보관·대기", "lat": 45.4863, "lng": 9.203, "visitOrder": 7, "priority": "backup", "backup": true, "query": "Milano Centrale, Milan, Italy" }
+        { "place_key": "day6_bgy", "label": "Milan Bergamo Airport", "role": "프라하 직항 출발 공항 · BGY 15:10", "lat": 45.66577, "lng": 9.69809, "visitOrder": 5, "priority": "must", "backup": false, "query": "Milan Bergamo Airport, Orio al Serio, Italy" }
       ],
       "routes": [
-        { "label": "호텔에서 Porta Nuova", "from": "day6_hotel", "to": "day6_porta_nuova", "travelMode": "WALKING", "routeType": "primary" },
-        { "label": "Porta Nuova에서 Gae Aulenti", "from": "day6_porta_nuova", "to": "day6_gae", "travelMode": "WALKING", "routeType": "primary" },
-        { "label": "산책 후 호텔 복귀", "from": "day6_gae", "to": "day6_hotel", "travelMode": "WALKING", "routeType": "primary" },
+        { "label": "호텔에서 Centrale", "from": "day6_hotel", "to": "day6_centrale", "travelMode": "WALKING", "routeType": "primary" },
         { "label": "호텔에서 셔틀 정류장", "from": "day6_hotel", "to": "day6_savoia", "travelMode": "WALKING", "routeType": "primary" },
         { "label": "BGY 공항 셔틀 도로 경로", "from": "day6_savoia", "to": "day6_bgy", "travelMode": "DRIVING", "routeType": "primary", "useCoordinateRouting": true },
-        { "label": "Mercato Centrale 백업", "from": "day6_hotel", "to": "day6_mercato", "travelMode": "WALKING", "routeType": "backup" },
-        { "label": "Gae Aulenti 축소 산책", "from": "day6_hotel", "to": "day6_gae", "travelMode": "WALKING", "routeType": "backup" }
+        { "label": "Mercato Centrale 아침", "from": "day6_centrale", "to": "day6_mercato", "travelMode": "WALKING", "routeType": "primary" }
       ]
     }
   ]
