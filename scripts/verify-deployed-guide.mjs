@@ -21,13 +21,13 @@ const pageSpecs = [
   {
     label: "switzerland",
     path: "/switzerland_honeymoon_guide.html",
-    routeIds: ["swiss-day1", "swiss-day2", "swiss-day3"],
+    routeIds: ["swiss-day1", "swiss-day2", "swiss-day3", "swiss-day6"],
     requiredSectionIds: ["switzerland", "swiss-day-4", "swiss-day-5", "swiss-day-6"]
   },
   {
     label: "italy",
     path: "/italy_honeymoon_guide.html",
-    routeIds: ["day1", "day2", "day3", "day4", "day5", "day6"],
+    routeIds: ["day1", "day2", "day3", "day4", "day5", "day5-1-verona", "day6"],
     requiredSectionIds: [
       "italy",
       "overview",
@@ -39,6 +39,7 @@ const pageSpecs = [
       "birthday-special",
       "day-4",
       "day-5",
+      "day-5-1",
       "day-6",
       "shopping-map",
       "architecture-picks",

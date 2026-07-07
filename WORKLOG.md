@@ -1,5 +1,12 @@
 # Worklog
 
+## 2026-07-07
+
+- 07.26 이탈리아 → 프라하 항공편을 예약완료한 `Milan(Bergamo)=BGY 15:10 → Prague=PRG 16:35` 기준으로 고정했다. 이탈리아·체코 공용 가이드 본문과 캘린더 일정표에 예약완료 상태를 반영했다.
+- 이탈리아 Day 6의 MXP/LIN 항공 대안, Skyscanner/Flight.info 항공 검색 링크, Malpensa 지도 포인트와 대안 경로를 삭제했다. 마지막 날 지도는 BGY 공항 이동과 Centrale 주변 대기/짐 보관 백업만 표시한다.
+- 변경된 HTML과 `assets/map-data.json`이 오래된 서비스워커 캐시에 묶이지 않도록 `service-worker.js` 캐시 버전을 갱신했다.
+- 첫날에 넣었던 Porta Nuova / Piazza Gae Aulenti 산책을 07.26 일요일 아침 일정으로 이동했다. 이탈리아 Day 6 본문, 캘린더형 일정표, `assets/map-data.json`의 Day 6 지도 동선, 체코 07.26 연결 일정에 같은 내용을 반영했다.
+
 ## 2026-07-02
 
 - 07.26 밀라노/베르가모 → 프라하 이동 기준을 체코 페이지의 `Milan(Bergamo) 15:10 → Prague 16:35`로 통일했다. 이탈리아 페이지의 기존 `BGY 06:35 → PRG 08:00` 새벽 이동 문구, 셔틀 역산, Day 6 요약표를 오후 이동 기준으로 정리했다.

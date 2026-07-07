@@ -58,10 +58,10 @@
   <text x="946" y="184" fill="#48645B" font-size="16" font-family="'Noto Sans KR', sans-serif">Citta Alta</text>
 
   <text x="786" y="330" fill="#17372F" font-size="23" font-family="'Noto Sans KR', sans-serif" font-weight="800">공항 셔틀 허브</text>
-  <text x="770" y="358" fill="#48645B" font-size="16" font-family="'Noto Sans KR', sans-serif">MXP / BGY / LIN 접근</text>
+  <text x="770" y="358" fill="#48645B" font-size="16" font-family="'Noto Sans KR', sans-serif">BGY 공항버스 접근</text>
 
   <text x="996" y="555" fill="#17372F" font-size="25" font-family="'Noto Sans KR', sans-serif" font-weight="800">Prague</text>
-  <text x="945" y="583" fill="#48645B" font-size="16" font-family="'Noto Sans KR', sans-serif">BGY/MXP 출발 비교</text>
+  <text x="945" y="583" fill="#48645B" font-size="16" font-family="'Noto Sans KR', sans-serif">BGY 15:10 예약편</text>
 
   <rect x="92" y="610" width="320" height="34" rx="17" fill="#FFFFFF" opacity="0.78"/>
   <circle cx="118" cy="627" r="7" fill="#CDA16A"/>
