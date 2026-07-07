@@ -6,6 +6,7 @@
 - 이탈리아 Day 6의 MXP/LIN 항공 대안, Skyscanner/Flight.info 항공 검색 링크, Malpensa 지도 포인트와 대안 경로를 삭제했다. 마지막 날 지도는 BGY 공항 이동과 Centrale 주변 대기/짐 보관 백업만 표시한다.
 - 변경된 HTML과 `assets/map-data.json`이 오래된 서비스워커 캐시에 묶이지 않도록 `service-worker.js` 캐시 버전을 갱신했다.
 - 첫날에 넣었던 Porta Nuova / Piazza Gae Aulenti 산책을 07.26 일요일 아침 일정으로 이동했다. 이탈리아 Day 6 본문, 캘린더형 일정표, `assets/map-data.json`의 Day 6 지도 동선, 체코 07.26 연결 일정에 같은 내용을 반영했다.
+- `codex/unconfirmed-schedule` 브랜치에서 이탈리아 Day 2 미확정안을 호텔조식, M3 두오모 이동, 두오모 광장·내부·테라스, Galleria, Brera, 선택 CityLife/휴식/카페, Navigli 저녁 순서로 재구성했다.
 
 ## 2026-07-02
 
