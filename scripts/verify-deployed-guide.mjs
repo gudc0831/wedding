@@ -36,7 +36,6 @@ const pageSpecs = [
       "day-1",
       "day-2",
       "day-3",
-      "birthday-special",
       "day-4",
       "day-5",
       "day-5-1",

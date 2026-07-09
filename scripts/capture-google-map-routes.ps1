@@ -79,99 +79,95 @@ $routes = @(
   [pscustomobject]@{
     Key = '01_day1_arrival'
     Title = 'Day 1 | 07.21 도착일'
-    Subtitle = 'Porta Nuova 첫날 산책'
-    ModeLabel = '도보 중심'
-    Center = '45.4788,9.1942'
-    Zoom = '14z'
+    Subtitle = 'Milano Centrale 도착과 Osteria del Treno 첫 저녁'
+    ModeLabel = '도착 + 첫 저녁'
+    Center = '45.4834,9.2020'
+    Zoom = '15z'
     ModeCode = '3e2'
     CropX = 220
     CropY = 70
     Points = @(
+      'Milano Centrale, Milan, Italy',
       'UNA HOTELS Century Milano, Milan, Italy',
-      'Pavé Milano, Milan, Italy',
-      'Porta Nuova, Milan, Italy',
-      'Piazza Gae Aulenti, Milan, Italy',
-      'BAM Biblioteca degli Alberi Milano, Milan, Italy',
-      'Bosco Verticale, Milan, Italy',
-      'Casa della Memoria, Milan, Italy',
-      'Ratanà, Milan, Italy'
+      'Osteria del Treno, Via San Gregorio 46, Milano, Italy'
     )
     Labels = @(
+      'Milano Centrale',
       'UNA HOTELS Century Milano',
-      'Pavé Milano',
-      'Porta Nuova',
-      'Piazza Gae Aulenti',
-      'BAM Biblioteca degli Alberi',
-      'Bosco Verticale',
-      'Casa della Memoria',
-      'Ratanà'
+      'Osteria del Treno'
     )
-    Backups = @('Eataly Milano Smeraldo', 'The Hall Bar & Restaurant')
+    Options = @('Barzac Tradizione Piacentina', 'Osteria Fara', 'Napule è Milano Fratelli Coppola')
+    Backups = @('La Piola (주소·영업시간 재확인)')
   },
   [pscustomobject]@{
     Key = '02_day2_milan_core'
     Title = 'Day 2 | 07.22 밀라노 핵심'
-    Subtitle = 'Duomo, Brera, Navigli'
-    ModeLabel = '도보 + 짧은 대중교통'
-    Center = '45.4623,9.1848'
-    Zoom = '14z'
+    Subtitle = 'Duomo, Porta Nuova, Cenacolo, Navigli'
+    ModeLabel = '도보 + 메트로'
+    Center = '45.4720,9.1845'
+    Zoom = '13z'
     ModeCode = '3e2'
     CropX = 220
     CropY = 70
     Points = @(
       'UNA HOTELS Century Milano, Milan, Italy',
+      'Pasticceria Rovida, Milan, Italy',
       'Duomo di Milano, Milan, Italy',
       'Galleria Vittorio Emanuele II, Milan, Italy',
-      'Rinascente Milano Duomo, Milan, Italy',
-      'Marchesi 1824 Galleria, Milan, Italy',
-      'Brera, Milan, Italy',
-      'Pinacoteca di Brera, Milan, Italy',
-      "N'Ombra de Vin, Milan, Italy",
+      'Porta Nuova, Milan, Italy',
+      'Bosco Verticale Restaurant, Milan, Italy',
+      'Mancuso Gelati, Milan, Italy',
+      'Bosco Verticale, Milan, Italy',
+      'Piazza Gae Aulenti, Milan, Italy',
+      'Museo del Cenacolo Vinciano, Milan, Italy',
       'Navigli, Milan, Italy',
       'Osteria del Binari, Milan, Italy'
     )
     Labels = @(
       'UNA HOTELS Century Milano',
+      'Pasticceria Rovida',
       'Duomo di Milano',
       'Galleria Vittorio Emanuele II',
-      'Rinascente Milano Duomo',
-      'Marchesi 1824 Galleria',
-      'Brera',
-      'Pinacoteca di Brera',
-      "N'Ombra de Vin",
+      'Porta Nuova',
+      'Bosco Verticale Restaurant',
+      'Mancuso Gelati',
+      'Bosco Verticale',
+      'Piazza Gae Aulenti',
+      'Cenacolo Vinciano',
       'Navigli',
       'Osteria del Binari'
     )
-    Backups = @()
+    Options = @('Mercato Centrale Milano', 'El Brellin', 'NAVIGLIO 48')
+    Backups = @('CityLife', 'Fondazione Prada')
   },
   [pscustomobject]@{
     Key = '03_day3_birthday_shopping'
     Title = 'Day 3 | 07.23 생일·쇼핑'
-    Subtitle = 'Montenapoleone 쇼핑과 기념일 디너'
+    Subtitle = 'Montenapoleone 쇼핑과 Ceresio 7 확정 디너'
     ModeLabel = '쇼핑 동선 참고'
-    Center = '45.4683,9.1915'
-    Zoom = '15z'
+    Center = '45.4740,9.1890'
+    Zoom = '14z'
     ModeCode = '3e0'
     CropX = 220
     CropY = 70
     Points = @(
       'UNA HOTELS Century Milano, Milan, Italy',
       'Via Montenapoleone, Milan, Italy',
-      'Quadrilatero della Moda, Milan, Italy',
-      'Maio Restaurant & Terrace, Milan, Italy'
+      'Via della Spiga, Milan, Italy',
+      'Ceresio 7, Milan, Italy'
     )
     Labels = @(
       'UNA HOTELS Century Milano',
       'Via Montenapoleone',
-      'Quadrilatero della Moda',
-      'Maio Restaurant & Terrace'
+      'Via della Spiga',
+      'Ceresio 7'
     )
-    Backups = @('Ceresio 7')
+    Backups = @('Maio Restaurant & Terrace')
   },
   [pscustomobject]@{
     Key = '04_day4_como'
     Title = 'Day 4 | 07.24 꼬모'
-    Subtitle = 'Varenna와 Bellagio 당일치기'
+    Subtitle = 'Varenna Caffe, Villa Monastero, Bellagio'
     ModeLabel = '광역 이동 + 현지 도보'
     Center = '45.8050,9.2380'
     Zoom = '10z'
@@ -181,26 +177,27 @@ $routes = @(
     Points = @(
       'UNA HOTELS Century Milano, Milan, Italy',
       'Milano Centrale, Milan, Italy',
-      'Varenna, Italy',
+      'Varenna Caffe Bistrot, Varenna, Italy',
+      'Villa Monastero, Varenna, Italy',
       'Passeggiata degli Innamorati, Varenna, Italy',
       'Riva Grande, Varenna, Italy',
       'Bellagio, Italy',
-      'B-Lake Restaurant Bellagio, Bellagio, Italy',
-      'La Pergola Bellagio, Bellagio, Italy',
-      'Punta Spartivento, Bellagio, Italy'
+      'Bellagio Restaurant & Bar, Bellagio, Italy',
+      'La Pergola Bellagio, Bellagio, Italy'
     )
     Labels = @(
       'UNA HOTELS Century Milano',
       'Milano Centrale',
-      'Varenna',
+      'Varenna Caffe Bistrot',
+      'Villa Monastero',
       'Passeggiata degli Innamorati',
       'Riva Grande',
       'Bellagio',
       'Bellagio Restaurant & Bar',
-      'La Pergola Bellagio',
-      'Punta Spartivento'
+      'La Pergola Bellagio'
     )
-    Backups = @('Villa Monastero')
+    Options = @('Nenè Food', 'Bar Sanremo')
+    Backups = @('Punta Spartivento')
   },
   [pscustomobject]@{
     Key = '05_day5_bergamo'
@@ -220,8 +217,7 @@ $routes = @(
       'Basilica di Santa Maria Maggiore, Bergamo, Italy',
       'Cappella Colleoni, Bergamo, Italy',
       'Caffè del Tasso, Bergamo, Italy',
-      'Il Circolino Città Alta, Bergamo, Italy',
-      'Da Mimmo, Bergamo, Italy'
+      'Il Circolino Città Alta, Bergamo, Italy'
     )
     Labels = @(
       'UNA HOTELS Century Milano',
@@ -231,9 +227,9 @@ $routes = @(
       'Basilica di Santa Maria Maggiore',
       'Cappella Colleoni',
       'Caffè del Tasso',
-      'Il Circolino Città Alta',
-      'Da Mimmo'
+      'Il Circolino Città Alta'
     )
+    Options = @('Da Mimmo')
     Backups = @('Mura Veneziane', 'San Vigilio')
   }
 )
@@ -271,12 +267,27 @@ foreach ($route in $routes) {
   }
   $stepsHtml = $steps -join "`n"
 
+  $options = @()
+  if ($route.PSObject.Properties.Name -contains 'Options') {
+    $options = @($route.Options)
+  }
+
+  if ($options.Count -gt 0) {
+    $optionItems = ($options | ForEach-Object { '<span>' + (Escape-Html $_) + '</span>' }) -join ''
+    $optionHtml = '<div class="backup option"><b>Option</b>' + $optionItems + '</div>'
+  } else {
+    $optionHtml = ''
+  }
+
   if ($route.Backups.Count -gt 0) {
     $backupItems = ($route.Backups | ForEach-Object { '<span>' + (Escape-Html $_) + '</span>' }) -join ''
     $backupHtml = '<div class="backup"><b>Backup</b>' + $backupItems + '</div>'
   } else {
     $backupHtml = '<div class="backup muted"><b>Backup</b><span>별도 백업 장소 없음</span></div>'
   }
+
+  $secondaryBlocks = @($optionHtml, $backupHtml) | Where-Object { $_ }
+  $secondaryHtml = $secondaryBlocks -join "`n"
 
   $rawUri = ConvertTo-FileUri $rawPath
   $title = Escape-Html $route.Title
@@ -416,6 +427,10 @@ foreach ($route in $routes) {
       font-size: 14px;
       font-weight: 800;
     }
+    .backup.option b {
+      background: #d46f5d;
+      color: #fffaf3;
+    }
     .backup span {
       display: inline-flex;
       align-items: center;
@@ -427,6 +442,9 @@ foreach ($route in $routes) {
       font-size: 14px;
       font-weight: 700;
       white-space: nowrap;
+    }
+    .backup.option span {
+      background: rgba(212, 111, 93, .16);
     }
     .backup.muted span {
       background: #eef2f0;
@@ -457,7 +475,7 @@ foreach ($route in $routes) {
       <ol>
         $stepsHtml
       </ol>
-      $backupHtml
+      $secondaryHtml
     </section>
     <div class="watermark">Google Maps capture + route overlay</div>
   </div>

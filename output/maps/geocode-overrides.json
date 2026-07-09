@@ -11,43 +11,43 @@
     "display_name": "Milano Centrale, Milan, Italy",
     "reason": "OSM station node"
   },
-  "day2_duomo_di_milano": {
+  "day2_duomo": {
     "lat": 45.4641669,
     "lon": 9.1916121,
     "display_name": "Duomo di Milano, Milan, Italy",
     "reason": "OSM relation"
   },
-  "day2_galleria_vittorio_emanuele_ii": {
+  "day3_galleria": {
     "lat": 45.4656113,
     "lon": 9.1900062,
     "display_name": "Galleria Vittorio Emanuele II, Milan, Italy",
     "reason": "OSM pedestrian way"
   },
-  "day2_rinascente_milano_duomo": {
+  "day3_rinascente": {
     "lat": 45.4652946,
     "lon": 9.1919035,
     "display_name": "Rinascente Milano Duomo, Milan, Italy",
     "reason": "OSM point inside Rinascente building"
   },
-  "day3_via_montenapoleone": {
+  "day3_montenapoleone": {
     "lat": 45.4685811,
     "lon": 9.1948277,
     "display_name": "Via Monte Napoleone, Milan, Italy",
     "reason": "OSM road centroid"
   },
-  "day3_quadrilatero_della_moda": {
-    "lat": 45.46982,
-    "lon": 9.19488,
-    "display_name": "Quadrilatero della Moda, Milan, Italy",
-    "reason": "District centroid for the fashion quarter"
+  "day3_quadrilatero": {
+    "lat": 45.4701,
+    "lon": 9.1968,
+    "display_name": "Via della Spiga, Milan, Italy",
+    "reason": "Concrete shopping street inside the Quadrilatero della Moda"
   },
-  "day2_brera": {
+  "day3_brera": {
     "lat": 45.47195,
     "lon": 9.18783,
     "display_name": "Brera, Milan, Italy",
     "reason": "District centroid"
   },
-  "day5_bergamo_citta_alta": {
+  "day5_citta_alta": {
     "lat": 45.70442,
     "lon": 9.66268,
     "display_name": "Citta Alta, Bergamo, Italy",
@@ -59,7 +59,7 @@
     "display_name": "Maio Restaurant & Terrace, Rinascente Milano Duomo, Milan, Italy",
     "reason": "Rinascente rooftop location"
   },
-  "day3_ceresio_7": {
+  "day3_ceresio": {
     "lat": 45.4835174,
     "lon": 9.1803112,
     "display_name": "Ceresio 7, Milan, Italy",
@@ -77,16 +77,10 @@
     "display_name": "Bellagio, Italy",
     "reason": "OSM administrative relation"
   },
-  "day6_milan_bergamo_airport": {
+  "day6_bgy": {
     "lat": 45.6708936,
     "lon": 9.6987542,
     "display_name": "Aeroporto internazionale il Caravaggio di Bergamo-Orio al Serio",
     "reason": "OSM aerodrome way"
-  },
-  "day6_milan_malpensa_airport": {
-    "lat": 45.6296273,
-    "lon": 8.7235475,
-    "display_name": "Aeroporto internazionale Milano Malpensa - Silvio Berlusconi",
-    "reason": "OSM aerodrome relation"
   }
 }

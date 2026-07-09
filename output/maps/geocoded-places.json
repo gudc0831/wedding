@@ -23,8 +23,8 @@
       "source": "override",
       "resolved_at": "2026-04-24T13:43:27.597Z"
     },
-    "day2_duomo_di_milano": {
-      "place_key": "day2_duomo_di_milano",
+    "day2_duomo": {
+      "place_key": "day2_duomo",
       "query": "Duomo di Milano, Milan, Italy",
       "name": "Duomo di Milano",
       "category_ko": "랜드마크",
@@ -56,8 +56,8 @@
       "source": "override",
       "resolved_at": "2026-04-24T13:43:27.597Z"
     },
-    "day5_bergamo_citta_alta": {
-      "place_key": "day5_bergamo_citta_alta",
+    "day5_citta_alta": {
+      "place_key": "day5_citta_alta",
       "query": "Bergamo Città Alta, Bergamo, Italy",
       "name": "Bergamo Città Alta",
       "category_ko": "당일치기",
@@ -67,8 +67,8 @@
       "source": "override",
       "resolved_at": "2026-04-24T13:43:27.597Z"
     },
-    "day6_milan_bergamo_airport": {
-      "place_key": "day6_milan_bergamo_airport",
+    "day6_bgy": {
+      "place_key": "day6_bgy",
       "query": "Milan Bergamo Airport, Orio al Serio, Italy",
       "name": "Milan Bergamo Airport",
       "category_ko": "공항",
@@ -78,19 +78,8 @@
       "source": "override",
       "resolved_at": "2026-04-24T13:43:27.597Z"
     },
-    "day6_milan_malpensa_airport": {
-      "place_key": "day6_milan_malpensa_airport",
-      "query": "Milan Malpensa Airport, Ferno, Italy",
-      "name": "Milan Malpensa Airport",
-      "category_ko": "공항",
-      "lat": 45.6296273,
-      "lon": 8.7235475,
-      "display_name": "Aeroporto internazionale Milano Malpensa - Silvio Berlusconi",
-      "source": "override",
-      "resolved_at": "2026-04-24T13:43:27.597Z"
-    },
-    "day2_galleria_vittorio_emanuele_ii": {
-      "place_key": "day2_galleria_vittorio_emanuele_ii",
+    "day3_galleria": {
+      "place_key": "day3_galleria",
       "query": "Galleria Vittorio Emanuele II, Milan, Italy",
       "name": "Galleria Vittorio Emanuele II",
       "category_ko": "랜드마크",
@@ -100,8 +89,8 @@
       "source": "override",
       "resolved_at": "2026-04-24T13:43:27.597Z"
     },
-    "day2_rinascente_milano_duomo": {
-      "place_key": "day2_rinascente_milano_duomo",
+    "day3_rinascente": {
+      "place_key": "day3_rinascente",
       "query": "Rinascente Milano Duomo, Milan, Italy",
       "name": "Rinascente Milano Duomo",
       "category_ko": "쇼핑",
@@ -111,8 +100,8 @@
       "source": "override",
       "resolved_at": "2026-04-24T13:43:27.597Z"
     },
-    "day3_via_montenapoleone": {
-      "place_key": "day3_via_montenapoleone",
+    "day3_montenapoleone": {
+      "place_key": "day3_montenapoleone",
       "query": "Via Montenapoleone, Milan, Italy",
       "name": "Via Montenapoleone",
       "category_ko": "쇼핑",
@@ -122,19 +111,19 @@
       "source": "override",
       "resolved_at": "2026-04-24T13:43:27.597Z"
     },
-    "day3_quadrilatero_della_moda": {
-      "place_key": "day3_quadrilatero_della_moda",
-      "query": "Quadrilatero della Moda, Milan, Italy",
-      "name": "Quadrilatero della Moda",
+    "day3_quadrilatero": {
+      "place_key": "day3_quadrilatero",
+      "query": "Via della Spiga, Milan, Italy",
+      "name": "Via della Spiga",
       "category_ko": "쇼핑",
-      "lat": 45.46982,
-      "lon": 9.19488,
-      "display_name": "Quadrilatero della Moda, Milan, Italy",
+      "lat": 45.4701,
+      "lon": 9.1968,
+      "display_name": "Via della Spiga, Milan, Italy",
       "source": "override",
       "resolved_at": "2026-04-24T13:43:27.597Z"
     },
-    "day2_brera": {
-      "place_key": "day2_brera",
+    "day3_brera": {
+      "place_key": "day3_brera",
       "query": "Brera, Milan, Italy",
       "name": "Brera",
       "category_ko": "지역",
@@ -155,8 +144,8 @@
       "source": "override",
       "resolved_at": "2026-04-24T13:43:27.597Z"
     },
-    "day3_ceresio_7": {
-      "place_key": "day3_ceresio_7",
+    "day3_ceresio": {
+      "place_key": "day3_ceresio",
       "query": "Ceresio 7, Milan, Italy",
       "name": "Ceresio 7",
       "category_ko": "식음",

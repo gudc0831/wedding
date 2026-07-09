@@ -1,9 +1,9 @@
 # 밀라노 허니문 가이드 추가 정보 정리
 
 > 대상 저장소: `gudc0831/wedding`  
-> 기준 문서: `milano_honeymoon_guide.html`  
+> 기준 문서: `italy_honeymoon_guide.html`
 > 여행 기간: `2026.07.21 화 - 2026.07.26 일`  
-> 최종 확인일: `2026.04.24`  
+> 최종 확인일: `2026.07.09`
 > 목적: 기존 일정에 **쇼핑·택스프리·폭염·숙박세·파업·공항 이동·비상 연락처** 같은 실전 운영 정보를 추가한다.
 
 ---
@@ -19,7 +19,7 @@
    - `Hotel Base`: 숙박세
    - `Day 3 / Birthday / Shopping Map`: 세일 시즌, 택스프리
    - `Sight Tips`: 두오모 보안·복장·가방 규정
-   - `Prague Transfer`: BGY 새벽 이동 타임라인
+   - `Prague Transfer`: BGY 오후 예약편 이동 타임라인
    - `Architecture`: ADI Design Museum, Triennale 실내 백업
    - `Checklist`: 폭염, 교통 파업, 비상연락처, 짐 보관
    - `Sources`: 아래 공식 링크 전체 추가
@@ -36,7 +36,7 @@
 | 2 | 두오모 보안·복장 | Sight Tips, Day 2, Day 3 | 큰 가방·캐리어·유리 물품 금지, 보안 확인, 성당 내부 복장 주의. |
 | 3 | 숙박세 | Hotel Base, Checklist | 밀라노 4성급 호텔 숙박세 예상액을 현장 결제 예산에 반영한다. |
 | 4 | 교통 파업 체크 | Checklist, Day 4, Day 5, Day 6 | 꼬모·베르가모·공항 이동 전 MIT 파업 캘린더 확인. |
-| 5 | BGY 새벽 이동 | Prague Transfer | 06:35 BGY 출발 항공편 기준 03:50 셔틀을 1순위로 잡는다. |
+| 5 | BGY 오후 이동 | Prague Transfer | BGY 15:10 예약편 기준 11:10-11:30 셔틀, 12:00-12:20 공항 도착을 1순위로 잡는다. |
 | 6 | 폭염 운영 | Overview, Checklist | 13:30-16:00은 실내·카페·호텔 휴식 블록으로 운영. |
 | 7 | 비상연락처 | Checklist | 밀라노총영사관, 112, 영사안전콜센터 정보를 한 카드로 정리. |
 | 8 | 실내 백업 | Architecture, Extra / Backup | ADI Design Museum, Triennale를 폭염·비·체력 저하 시 백업으로 추가. |
@@ -187,31 +187,32 @@ UNA HOTELS Century Milano는 4성급 호텔 기준으로 숙박세를 별도로 
 
 ---
 
-## 6. Prague Transfer: BGY 새벽 이동 타임라인
+## 6. Prague Transfer: BGY 오후 이동 타임라인
 
-BGY 06:35 출발 항공편을 선택하는 경우, Milano Centrale에서 Orio al Serio Airport까지 가는 새벽 셔틀 시간을 미리 고정한다.
+예약 항공편은 2026년 7월 26일 일요일 BGY 15:10 출발, PRG 16:35 도착이다. Milano Centrale / Piazza Luigi Savoia에서 Orio al Serio Airport까지 가는 셔틀 시간을 미리 고정한다.
 
 권장 타임라인:
 
 | 시간 | 액션 |
 |---|---|
-| 03:20 | 호텔 로비 출발 준비 완료 |
-| 03:25 | UNA HOTELS Century Milano → Milano Centrale 셔틀 정류장 이동 |
-| 03:50 | Orioshuttle Milano Centrale → BGY 탑승 |
-| 04:40 전후 | BGY 도착 예상 |
-| 04:45-05:45 | 체크인, 수하물, 보안검색 |
-| 06:35 | 항공편 출발 |
+| 10:45 | 호텔 체크아웃 준비, 여권·탑승권·수하물 무게 확인 |
+| 11:00 | UNA HOTELS Century Milano → Piazza Luigi Savoia 셔틀 정류장 이동 |
+| 11:10-11:30 | Orioshuttle 또는 동급 공항버스 Milano Centrale → BGY 탑승 |
+| 12:00-12:20 | BGY 도착 목표 |
+| 12:20-14:30 | 체크인, 수하물, 보안검색, 게이트 이동 |
+| 15:10 | BGY → PRG 항공편 출발 |
+| 16:35 | PRG 도착 |
 
 백업:
 
-- 04:20 셔틀도 있으나, 항공편 체크인·보안검색 여유가 줄어들 수 있으므로 백업으로만 둔다.
-- 택시는 새벽 이동의 최후 백업으로 둔다. 전날 호텔 프런트에 예상 요금과 호출 가능 시간을 확인한다.
-- 항공편 시간이 확정되면 `출발 2시간 전 공항 도착`을 기본으로 역산한다.
+- 12:10 전후 셔틀은 기내수하물 중심, 온라인 체크인 완료, 공항 혼잡이 평온한 조건에서만 후순위로 둔다.
+- 택시는 셔틀 지연·파업·운행 변수의 최후 백업으로 둔다. 전날 호텔 프런트에 예상 요금과 호출 가능 시간을 확인한다.
+- 항공편 시간이 바뀌면 Orioshuttle 공식 안내의 `공항 도착 3시간 전 계획` 권고를 우선해 역산한다.
 
 현재 확인한 공식 정보:
 
 - Orioshuttle는 BGY와 Milano Centrale을 약 50분에 연결한다.
-- 2026년 1월 2일부터 유효한 시간표에는 Milano Centrale → BGY 새벽 출발편으로 `03:50`, `04:20`, `04:50` 등이 표시되어 있다.
+- 공식 노선 안내는 공항 도착을 3시간 전으로 계획하라고 안내한다.
 - 공식 노선 페이지의 현재 표기 요금은 편도 `€12`다. 온라인 프로모션·운영사별 요금은 달라질 수 있으므로 예약 시 재확인한다.
 
 공식 링크:
@@ -439,15 +440,15 @@ BGY 06:35 출발 항공편을 선택하는 경우, Milano Centrale에서 Orio al
 추가 제목:
 
 ```text
-### BGY Early Morning Shuttle Plan
+### BGY Afternoon Shuttle Plan
 ```
 
 넣을 내용:
 
-- 03:25 호텔 출발
-- 03:50 셔틀 탑승
-- 04:40 전후 BGY 도착
-- 04:20은 백업
+- 11:00 호텔 출발
+- 11:10-11:30 셔틀 탑승
+- 12:00-12:20 전후 BGY 도착
+- 12:10 전후 셔틀은 후순위 fallback
 - 편도 요금은 예약 시 재확인
 
 ## `Architecture` 아래 추가

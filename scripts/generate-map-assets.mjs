@@ -31,43 +31,43 @@ const defaultOverrides = {
     display_name: "Milano Centrale, Milan, Italy",
     reason: "OSM station node"
   },
-  day2_duomo_di_milano: {
+  day2_duomo: {
     lat: 45.4641669,
     lon: 9.1916121,
     display_name: "Duomo di Milano, Milan, Italy",
     reason: "OSM relation"
   },
-  day2_galleria_vittorio_emanuele_ii: {
+  day3_galleria: {
     lat: 45.4656113,
     lon: 9.1900062,
     display_name: "Galleria Vittorio Emanuele II, Milan, Italy",
     reason: "OSM pedestrian way"
   },
-  day2_rinascente_milano_duomo: {
+  day3_rinascente: {
     lat: 45.4652946,
     lon: 9.1919035,
     display_name: "Rinascente Milano Duomo, Milan, Italy",
     reason: "OSM point inside Rinascente building"
   },
-  day3_via_montenapoleone: {
+  day3_montenapoleone: {
     lat: 45.4685811,
     lon: 9.1948277,
     display_name: "Via Monte Napoleone, Milan, Italy",
     reason: "OSM road centroid"
   },
-  day3_quadrilatero_della_moda: {
-    lat: 45.46982,
-    lon: 9.19488,
-    display_name: "Quadrilatero della Moda, Milan, Italy",
-    reason: "District centroid for the fashion quarter"
+  day3_quadrilatero: {
+    lat: 45.4701,
+    lon: 9.1968,
+    display_name: "Via della Spiga, Milan, Italy",
+    reason: "Concrete shopping street inside the Quadrilatero della Moda"
   },
-  day2_brera: {
+  day3_brera: {
     lat: 45.47195,
     lon: 9.18783,
     display_name: "Brera, Milan, Italy",
     reason: "District centroid"
   },
-  day5_bergamo_citta_alta: {
+  day5_citta_alta: {
     lat: 45.70442,
     lon: 9.66268,
     display_name: "Citta Alta, Bergamo, Italy",
@@ -79,7 +79,13 @@ const defaultOverrides = {
     display_name: "Maio Restaurant & Terrace, Rinascente Milano Duomo, Milan, Italy",
     reason: "Rinascente rooftop location"
   },
-  day3_ceresio_7: {
+  backup_maio_restaurant_terrace: {
+    lat: 45.46458,
+    lon: 9.19179,
+    display_name: "Maio Restaurant & Terrace, Rinascente Milano Duomo, Milan, Italy",
+    reason: "Rinascente rooftop location"
+  },
+  day3_ceresio: {
     lat: 45.4835174,
     lon: 9.1803112,
     display_name: "Ceresio 7, Milan, Italy",
@@ -97,17 +103,11 @@ const defaultOverrides = {
     display_name: "Bellagio, Italy",
     reason: "OSM administrative relation"
   },
-  day6_milan_bergamo_airport: {
+  day6_bgy: {
     lat: 45.6708936,
     lon: 9.6987542,
     display_name: "Aeroporto internazionale il Caravaggio di Bergamo-Orio al Serio",
     reason: "OSM aerodrome way"
-  },
-  day6_milan_malpensa_airport: {
-    lat: 45.6296273,
-    lon: 8.7235475,
-    display_name: "Aeroporto internazionale Milano Malpensa - Silvio Berlusconi",
-    reason: "OSM aerodrome relation"
   }
 };
 
@@ -120,18 +120,16 @@ const maps = [
     points: [
       { key: "base_una_hotels_century_milano", label: "UNA HOTELS", role: "Hotel", color: "#17372f", labelDx: -430, labelDy: -128 },
       { key: "base_milano_centrale", label: "Milano Centrale", role: "Rail hub", color: "#4b635a", labelDx: 42, labelDy: -124 },
-      { key: "day2_duomo_di_milano", label: "Duomo", role: "Milan core", color: "#cda16a", labelDx: 42, labelDy: -66 },
+      { key: "day2_duomo", label: "Duomo", role: "Milan core", color: "#cda16a", labelDx: 42, labelDy: -66 },
       { key: "day4_varenna", label: "Varenna", role: "Lake Como", color: "#78917e", labelDx: 42, labelDy: -78 },
       { key: "day4_bellagio", label: "Bellagio", role: "Lake Como", color: "#78917e", labelDx: 42, labelDy: -24 },
-      { key: "day5_bergamo_citta_alta", label: "Bergamo Citta Alta", role: "Day trip", color: "#d6a090" },
-      { key: "day6_milan_bergamo_airport", label: "BGY", role: "Airport", color: "#7c8a99" },
-      { key: "day6_milan_malpensa_airport", label: "MXP", role: "Airport backup", color: "#7c8a99" }
+      { key: "day5_citta_alta", label: "Bergamo Citta Alta", role: "Day trip", color: "#d6a090" },
+      { key: "day6_bgy", label: "BGY", role: "Booked airport", color: "#7c8a99" }
     ],
     routes: [
-      { label: "Milan core", color: "#cda16a", keys: ["base_una_hotels_century_milano", "base_milano_centrale", "day2_duomo_di_milano"] },
+      { label: "Milan core", color: "#cda16a", keys: ["base_una_hotels_century_milano", "base_milano_centrale", "day2_duomo"] },
       { label: "Lake Como", color: "#78917e", keys: ["base_una_hotels_century_milano", "base_milano_centrale", "day4_varenna", "day4_bellagio"] },
-      { label: "Bergamo / BGY", color: "#d6a090", keys: ["base_una_hotels_century_milano", "base_milano_centrale", "day5_bergamo_citta_alta", "day6_milan_bergamo_airport"] },
-      { label: "MXP backup", color: "#657fbd", dashArray: "16 18", keys: ["base_una_hotels_century_milano", "base_milano_centrale", "day6_milan_malpensa_airport"] }
+      { label: "Bergamo / BGY", color: "#d6a090", keys: ["base_una_hotels_century_milano", "base_milano_centrale", "day5_citta_alta", "day6_bgy"] }
     ]
   },
   {
@@ -140,19 +138,19 @@ const maps = [
     subtitle: "Duomo start, fashion quarter focus, Brera finish",
     output: path.join(assetsDir, "shopping-map.png"),
     points: [
-      { key: "day2_duomo_di_milano", label: "Duomo", role: "Photo start", color: "#d6a090", labelDx: -385, labelDy: 28 },
-      { key: "day2_galleria_vittorio_emanuele_ii", label: "Galleria", role: "Arcade", color: "#cda16a", labelDx: -385, labelDy: -32 },
-      { key: "day2_rinascente_milano_duomo", label: "Rinascente", role: "Beauty / gifts", color: "#cda16a", labelDx: -385, labelDy: -92 },
-      { key: "day3_via_montenapoleone", label: "Via Montenapoleone", role: "Jewelry / luxury", color: "#cda16a", labelDx: 76, labelDy: -32 },
-      { key: "day3_quadrilatero_della_moda", label: "Quadrilatero", role: "Fashion district", color: "#cda16a", labelDx: 76, labelDy: -92 },
-      { key: "day2_brera", label: "Brera", role: "Small design gifts", color: "#78917e" },
-      { key: "day3_maio_restaurant_terrace", label: "Maio", role: "Birthday dinner", color: "#d6a090", labelDx: 76, labelDy: 28 },
-      { key: "day3_ceresio_7", label: "Ceresio 7", role: "Dinner backup", color: "#7c8a99" }
+      { key: "day2_duomo", label: "Duomo", role: "Photo start", color: "#d6a090", labelDx: -385, labelDy: 28 },
+      { key: "day3_galleria", label: "Galleria", role: "Arcade", color: "#cda16a", labelDx: -385, labelDy: -32 },
+      { key: "day3_rinascente", label: "Rinascente", role: "Beauty / gifts", color: "#cda16a", labelDx: -385, labelDy: -92 },
+      { key: "day3_montenapoleone", label: "Via Montenapoleone", role: "Jewelry / luxury", color: "#cda16a", labelDx: 76, labelDy: -32 },
+      { key: "day3_quadrilatero", label: "Via della Spiga", role: "Fashion district", color: "#cda16a", labelDx: 76, labelDy: -92 },
+      { key: "day3_brera", label: "Brera", role: "Small design gifts", color: "#78917e" },
+      { key: "day3_ceresio", label: "Ceresio 7", role: "Birthday dinner", color: "#d6a090", labelDx: 76, labelDy: 28 },
+      { key: "backup_maio_restaurant_terrace", label: "Maio", role: "Dinner backup", color: "#7c8a99" }
     ],
     routes: [
-      { label: "Main walking flow", color: "#cda16a", keys: ["day2_duomo_di_milano", "day2_rinascente_milano_duomo", "day2_galleria_vittorio_emanuele_ii", "day3_via_montenapoleone", "day3_quadrilatero_della_moda", "day2_brera"] },
-      { label: "Duomo dinner close", color: "#d6a090", keys: ["day2_brera", "day3_maio_restaurant_terrace", "day2_duomo_di_milano"] },
-      { label: "Rooftop backup", color: "#657fbd", dashArray: "14 16", keys: ["day2_brera", "day3_ceresio_7"] }
+      { label: "Main walking flow", color: "#cda16a", keys: ["day2_duomo", "day3_rinascente", "day3_galleria", "day3_montenapoleone", "day3_quadrilatero", "day3_brera"] },
+      { label: "Ceresio 7 dinner", color: "#d6a090", keys: ["day3_brera", "day3_ceresio"] },
+      { label: "Maio backup", color: "#657fbd", dashArray: "14 16", keys: ["day3_brera", "backup_maio_restaurant_terrace"] }
     ]
   }
 ];

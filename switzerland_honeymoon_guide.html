@@ -866,12 +866,12 @@
 
     .map-popup-number[data-backup="true"] {
       color: #fffaf3;
-      background: #d46f5d;
+      background: #78917e;
     }
 
     .map-popup-number[data-option="true"] {
       width: 28px;
-      background: #78917e;
+      background: #d46f5d;
       color: #fffaf3;
       font-size: 0.68rem;
     }
@@ -979,7 +979,7 @@
     }
 
     .route-legend.backup::before {
-      border-top-color: #d46f5d;
+      border-top-color: #78917e;
       border-top-style: dashed;
     }
 
@@ -988,7 +988,7 @@
       height: 14px;
       border: 2px solid #fffaf3;
       border-radius: 999px;
-      background: #78917e;
+      background: #d46f5d;
       box-shadow: 0 3px 8px rgba(23, 55, 47, 0.18);
     }
 
@@ -1578,6 +1578,11 @@
     }
 
     .place-number-badge[data-backup="true"] {
+      background: #78917e;
+      color: #fffaf3;
+    }
+
+    .place-number-badge[data-option="true"] {
       background: #d46f5d;
       color: #fffaf3;
     }
@@ -1636,11 +1641,18 @@
 
     .food-pick.option-pick {
       padding: 9px 10px;
-      border-color: rgba(120, 145, 126, 0.2);
-      background: rgba(120, 145, 126, 0.08);
+      border-color: rgba(212, 111, 93, 0.24);
+      background: rgba(212, 111, 93, 0.09);
     }
 
-    .food-pick.option-pick p {
+    .food-pick.backup-pick {
+      padding: 9px 10px;
+      border-color: rgba(120, 145, 126, 0.24);
+      background: rgba(120, 145, 126, 0.14);
+    }
+
+    .food-pick.option-pick p,
+    .food-pick.backup-pick p {
       margin: 4px 0 0;
       font-size: 0.82rem;
     }
@@ -2852,7 +2864,7 @@
                   </div>
                   <div class="route-map-actions">
                     <span class="route-legend primary">기본</span>
-                    <span class="route-legend backup">대안</span>
+                    <span class="route-legend option">식사 옵션</span>
                     <button class="route-map-button" type="button" data-route-map-open>지도 열기</button>
                   </div>
                 </div>
@@ -2926,8 +2938,8 @@
                         <span class="food-address">Unter der Egg 2, Luzern</span>
                         <p>첫날 피로가 있을 때 가장 부담이 적은 캐주얼 후보입니다. 로컬 맥주, 소시지, 슈니첼, 감자요리 중심으로 짧게 잡습니다.</p>
                       </li>
-                      <li class="food-pick">
-                        <strong data-place-key="swiss_day1_des_alpes">Restaurant Des Alpes<span class="food-type">강변 식당</span></strong>
+                      <li class="food-pick option-pick">
+                        <strong data-place-key="swiss_day1_des_alpes">Restaurant Des Alpes<span class="food-type">강변 식당 옵션</span></strong>
                         <span class="food-address">카펠교 인근 Reuss 강변</span>
                         <p>카펠교 야경과 이어지는 분위기 좋은 저녁 후보입니다. 생선, 뢰스티, 스위스식 메인 요리를 우선합니다.</p>
                       </li>
@@ -2972,6 +2984,7 @@
                   </div>
                   <div class="route-map-actions">
                     <span class="route-legend primary">공식 연결축</span>
+                    <span class="route-legend option">식사 옵션</span>
                     <span class="route-legend backup">날씨 대안</span>
                     <button class="route-map-button" type="button" data-route-map-open>지도 열기</button>
                   </div>
@@ -3049,8 +3062,8 @@
                         <span class="food-address">Bahnhofplatz 3, Luzern</span>
                         <p>공식 안내 기준 역 지점은 카페를 갖추고, 아침식사를 예약 없이 매일 제공합니다. 09:12 배나 09:24 열차 전에는 오래 앉지 말고 커피, 작은 빵, 물만 빠르게 해결합니다.</p>
                       </li>
-                      <li class="food-pick">
-                        <strong data-place-key="swiss_day2_bachmann_gleis3"><a href="https://www.confiserie.ch/de/storepickup" target="_blank" rel="noreferrer">Confiserie Bachmann Bahnhof UG / Gleis 3</a><span class="food-type">포장 백업</span></strong>
+                      <li class="food-pick option-pick">
+                        <strong data-place-key="swiss_day2_bachmann_gleis3"><a href="https://www.confiserie.ch/de/storepickup" target="_blank" rel="noreferrer">Confiserie Bachmann Bahnhof UG / Gleis 3</a><span class="food-type">포장 옵션</span></strong>
                         <span class="food-address">Luzern Bahnhof 지하 / 플랫폼 권역</span>
                         <p>SBB는 Luzern 역 쇼핑 구역을 365일, 이른 아침부터 늦은 저녁까지 운영하는 곳으로 안내합니다. 베이커리·샌드위치 포장용으로 보고, 정확한 지점별 시작 시간은 전날 공식 Storelocator나 지도에서 재확인합니다.</p>
                       </li>
@@ -3111,6 +3124,7 @@
                   </div>
                   <div class="route-map-actions">
                     <span class="route-legend primary">파노라마 열차</span>
+                    <span class="route-legend option">포장 옵션</span>
                     <button class="route-map-button" type="button" data-route-map-open>지도 열기</button>
                   </div>
                 </div>
@@ -3178,8 +3192,8 @@
                         <strong data-place-key="swiss_day3_heini_bahnhof"><a href="https://www.heini.ch/ueber-heini/standorte/heini-bahnhof-luzern/" target="_blank" rel="noreferrer">HEINI Bahnhof Luzern</a><span class="food-type">역 카페</span></strong>
                         <p>09:24 열차를 놓치지 않는 범위에서 가장 안정적인 외부 아침 후보입니다. 커피와 빵 정도로 짧게 끝내고 플랫폼 확인을 우선합니다.</p>
                       </li>
-                      <li class="food-pick">
-                        <strong data-place-key="swiss_day3_bachmann_gleis3">루체른역 베이커리<span class="food-type">대안</span></strong>
+                      <li class="food-pick option-pick">
+                        <strong data-place-key="swiss_day3_bachmann_gleis3">루체른역 베이커리<span class="food-type">포장 옵션</span></strong>
                         <p>HEINI가 붐비면 역 지하/플랫폼 쪽 베이커리에서 커피, 빵, 물, 작은 초콜릿을 사서 탑승합니다.</p>
                       </li>
                     </ul>
@@ -3849,15 +3863,17 @@
           const group = document.createElement("span");
           group.className = "place-number-group";
           group.setAttribute("aria-label", points
-            .map((point) => `${point.label} 지도 번호 ${point.visitOrder}`)
+            .map((point) => `${point.label} 지도 번호 ${point.mapLabel || point.visitOrder}`)
             .join(", "));
 
           points.forEach((point) => {
             const badge = document.createElement("span");
             badge.className = "place-number-badge";
             badge.dataset.backup = String(Boolean(point.backup));
-            badge.textContent = String(point.visitOrder || "");
-            badge.title = `${point.label} 지도 번호 ${point.visitOrder}`;
+            badge.dataset.option = String(point.markerVariant === "option");
+            const label = point.mapLabel || point.visitOrder || "";
+            badge.textContent = String(label);
+            badge.title = `${point.label} 지도 번호 ${label}`;
             group.append(badge);
           });
 
@@ -4015,8 +4031,9 @@
       if (!routeCards.length) return;
 
       const PRIMARY_ROUTE_COLOR = "#17372f";
-      const BACKUP_ROUTE_COLOR = "#d46f5d";
-      const OPTION_MARKER_COLOR = "#78917e";
+      const BACKUP_ROUTE_COLOR = "#78917e";
+      const OPTION_ROUTE_COLOR = "#d46f5d";
+      const OPTION_MARKER_COLOR = OPTION_ROUTE_COLOR;
       const mapStates = new Map();
       const leafletRouteStates = new Map();
       let dailyMapDataPromise;
@@ -4295,13 +4312,18 @@
         return pointPosition(point);
       }
 
+      function isPrimaryRoute(segment) {
+        return !segment.routeType || segment.routeType === "primary";
+      }
+
       function routeStyle(routeType) {
         const isBackup = routeType === "backup";
+        const isOption = routeType === "option";
         return {
-          color: isBackup ? BACKUP_ROUTE_COLOR : PRIMARY_ROUTE_COLOR,
-          opacity: isBackup ? 0.88 : 0.92,
-          weight: isBackup ? 4 : 5,
-          dashed: isBackup
+          color: isOption ? OPTION_ROUTE_COLOR : isBackup ? BACKUP_ROUTE_COLOR : PRIMARY_ROUTE_COLOR,
+          opacity: isOption ? 0.86 : isBackup ? 0.88 : 0.92,
+          weight: isOption || isBackup ? 4 : 5,
+          dashed: isOption || isBackup
         };
       }
 
@@ -4467,7 +4489,7 @@
       function mainRoutePoints(mapConfig) {
         const routePointKeys = new Set();
         mapConfig.routes
-          .filter((segment) => segment.routeType !== "backup")
+          .filter(isPrimaryRoute)
           .forEach((segment) => {
             routePointKeys.add(segment.from);
             routePointKeys.add(segment.to);
@@ -4488,7 +4510,7 @@
       }
 
       function mapsUrlTravelMode(mapConfig) {
-        const primarySegment = mapConfig.routes.find((segment) => segment.routeType !== "backup");
+        const primarySegment = mapConfig.routes.find(isPrimaryRoute);
         const mode = String(primarySegment?.mapTravelMode || primarySegment?.travelMode || "walking").toLowerCase();
         if (mode.includes("driv")) return "driving";
         if (mode.includes("transit")) return "transit";
