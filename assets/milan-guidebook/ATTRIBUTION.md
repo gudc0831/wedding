@@ -1,6 +1,6 @@
 # Milan city study guidebook image credits
 
-The Wikimedia Commons images below are the four photographs used in the final PDF. The PDF preserves the source page and credit in its photo-credit appendix.
+The Wikimedia Commons images below are the four photographs used in the final PDF. The PDF carries the author and license; this companion file preserves each exact source page.
 
 | Local file | Work / author | License | Source page |
 |---|---|---|---|
