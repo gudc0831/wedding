@@ -1,4 +1,4 @@
-const CACHE_VERSION = "czech-swiss-italy-honeymoon-guide-v20260710-restaurant-atlas-app-web-ui-fixes2-xlsx-final-sync";
+const CACHE_VERSION = "czech-swiss-italy-honeymoon-guide-v20260710-integrated-restaurant-atlas-schedule-details";
 const PRECACHE_URLS = [
   "./",
   "./index.html",
