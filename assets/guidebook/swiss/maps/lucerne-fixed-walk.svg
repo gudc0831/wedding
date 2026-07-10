@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">07.16 루체른 도착일 도보 축</title>
+  <desc id="desc">역에서 숙소로 이동한 뒤 확정된 호프교회·사자상·카펠교·구시가지 순서를 그대로 표시</desc>
+  <rect width="1400" height="900" fill="#fbfbf8"/>
+  <rect x="0" y="0" width="24" height="900" fill="#d52b1e"/>
+  <text x="78" y="78" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="30" font-weight="800" fill="#d52b1e">FIXED ROUTE MAP · 축척 아님</text>
+  <text x="78" y="135" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="48" font-weight="800" fill="#1d2926">07.16 루체른 도착일 도보 축</text>
+  <text x="78" y="181" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="24" fill="#65716e">역에서 숙소로 이동한 뒤 확정된 호프교회·사자상·카펠교·구시가지 순서를 그대로 표시</text>
+  <line x1="78" y1="215" x2="1322" y2="215" stroke="#c9d2ce" stroke-width="3"/>
+
+  <path d="M 800 240 C 760 350, 790 430, 720 520 C 650 610, 690 710, 610 780" fill="none" stroke="#2d7694" stroke-width="54" opacity="0.18"/>
+  <text x="740" y="505" transform="rotate(-60 740 505)" font-family="Arial, sans-serif" font-size="20" fill="#2d7694">REUSS</text>
+  <line x1="1030" y1="690" x2="1080" y2="350" stroke="#176b5b" stroke-width="9" stroke-linecap="round"/><text x="1055" y="507" text-anchor="middle" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="18" font-weight="700" fill="#176b5b">도보</text>
+  <line x1="1080" y1="350" x2="1180" y2="515" stroke="#c76b22" stroke-width="9" stroke-linecap="round"/><text x="1130" y="419" text-anchor="middle" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="18" font-weight="700" fill="#c76b22">장보기</text>
+  <line x1="1080" y1="350" x2="820" y2="330" stroke="#176b5b" stroke-width="9" stroke-linecap="round"/><text x="950" y="327" text-anchor="middle" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="18" font-weight="700" fill="#176b5b">도보</text>
+  <line x1="820" y1="330" x2="620" y2="545" stroke="#176b5b" stroke-width="9" stroke-linecap="round"/><text x="720" y="424" text-anchor="middle" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="18" font-weight="700" fill="#176b5b">도보</text>
+  <line x1="620" y1="545" x2="405" y2="565" stroke="#176b5b" stroke-width="9" stroke-linecap="round"/><text x="512" y="542" text-anchor="middle" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="18" font-weight="700" fill="#176b5b">도보</text>
+  <line x1="405" y1="565" x2="330" y2="385" stroke="#176b5b" stroke-width="9" stroke-linecap="round"/><text x="367" y="462" text-anchor="middle" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="18" font-weight="700" fill="#176b5b">도보</text>
+
+  <circle cx="1030" cy="690" r="31" fill="#d52b1e"/>
+  <text x="1030" y="699" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">1</text>
+  <text x="982" y="680" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Luzern Bahnhof / Pier</text>
+  <text x="982" y="712" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">역 지하 Coop·선착장 기준점</text>
+
+
+  <circle cx="1080" cy="350" r="31" fill="#d52b1e"/>
+  <text x="1080" y="359" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">2</text>
+  <text x="1130" y="290" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Hotel Luzernerhof</text>
+  <text x="1130" y="322" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">Alpenstrasse 3 · 고정 숙소</text>
+
+
+  <circle cx="820" cy="330" r="31" fill="#176b5b"/>
+  <text x="820" y="339" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">3</text>
+  <text x="772" y="300" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Hofkirche</text>
+  <text x="772" y="332" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">호텔 인근 첫 산책</text>
+
+
+  <circle cx="620" cy="545" r="31" fill="#176b5b"/>
+  <text x="620" y="554" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">4</text>
+  <text x="668" y="538" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Lion Monument</text>
+  <text x="668" y="570" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">1792년 스위스 근위대 추모</text>
+
+
+  <circle cx="405" cy="565" r="31" fill="#176b5b"/>
+  <text x="405" y="574" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">5</text>
+  <text x="357" y="555" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Chapel Bridge</text>
+  <text x="357" y="587" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">카펠교·수탑·회화 패널</text>
+
+
+  <circle cx="330" cy="385" r="31" fill="#176b5b"/>
+  <text x="330" y="394" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">6</text>
+  <text x="378" y="378" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Old Town</text>
+  <text x="378" y="410" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">Kornmarkt·Weinmarkt·강변</text>
+
+
+  <circle cx="1180" cy="515" r="31" fill="#c76b22"/>
+  <text x="1180" y="524" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">7</text>
+  <text x="1180" y="580" text-anchor="middle" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Coop Löwencenter</text>
+  <text x="1180" y="612" text-anchor="middle" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">물·아침·산악 간식</text>
+
+
+  <rect x="78" y="818" width="1244" height="1" fill="#c9d2ce"/>
+  <text x="78" y="858" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">빨강 = 예약·숙소 기준점 · 초록 = 확정 산책축 · 주황 = 장보기 · 실시간 영업은 공식 지점 페이지 확인</text>
+</svg>

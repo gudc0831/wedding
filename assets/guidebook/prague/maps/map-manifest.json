@@ -1,0 +1,483 @@
+{
+  "generated_at": "2026-07-10",
+  "privacy": "offline generation; no itinerary or hotel coordinates sent to external services",
+  "coordinate_system": "WGS84 / EPSG:4326",
+  "coordinate_sources": "official hotel sites, Wikidata, OpenStreetMap references and repository route data",
+  "navigation_scope": "schematic relationship maps; not turn-by-turn routing",
+  "maps": [
+    {
+      "id": "prague-city-structure",
+      "title": "강·언덕·역사도시로 읽는 프라하",
+      "points": [
+        {
+          "key": "hotel_a",
+          "lat": 50.088219,
+          "lon": 14.427489,
+          "label": "Hotel Paris Prague"
+        },
+        {
+          "key": "hotel_b",
+          "lat": 50.085207,
+          "lon": 14.414501,
+          "label": "Charles Bridge Palace"
+        },
+        {
+          "key": "old_town",
+          "lat": 50.085,
+          "lon": 14.42,
+          "label": "구시가"
+        },
+        {
+          "key": "new_town",
+          "lat": 50.076944,
+          "lon": 14.426111,
+          "label": "신시가"
+        },
+        {
+          "key": "josefov",
+          "lat": 50.090281,
+          "lon": 14.419439,
+          "label": "요세포프"
+        },
+        {
+          "key": "mala_strana",
+          "lat": 50.088056,
+          "lon": 14.403889,
+          "label": "말라스트라나"
+        },
+        {
+          "key": "hradcany",
+          "lat": 50.089444,
+          "lon": 14.397222,
+          "label": "흐라드차니"
+        },
+        {
+          "key": "vysehrad",
+          "lat": 50.063889,
+          "lon": 14.42,
+          "label": "비셰흐라드"
+        },
+        {
+          "key": "letna",
+          "lat": 50.093736,
+          "lon": 14.412533,
+          "label": "레트나"
+        },
+        {
+          "key": "holesovice",
+          "lat": 50.099694,
+          "lon": 14.438111,
+          "label": "홀레쇼비체"
+        }
+      ]
+    },
+    {
+      "id": "hotel-a-old-town-walk",
+      "title": "Hotel Paris에서 읽는 구시가지 동쪽",
+      "points": [
+        {
+          "key": "hotel_a",
+          "lat": 50.088219,
+          "lon": 14.427489,
+          "label": "Hotel Paris Prague"
+        },
+        {
+          "key": "municipal_house",
+          "lat": 50.087619,
+          "lon": 14.428239,
+          "label": "시민회관"
+        },
+        {
+          "key": "powder_tower",
+          "lat": 50.087222,
+          "lon": 14.427778,
+          "label": "화약탑"
+        },
+        {
+          "key": "black_madonna",
+          "lat": 50.087,
+          "lon": 14.42545,
+          "label": "검은 성모의 집"
+        },
+        {
+          "key": "estates_theatre",
+          "lat": 50.086111,
+          "lon": 14.423889,
+          "label": "에스테이트 극장"
+        },
+        {
+          "key": "old_town_square",
+          "lat": 50.0875,
+          "lon": 14.421389,
+          "label": "구시가 광장"
+        },
+        {
+          "key": "astronomical_clock",
+          "lat": 50.08698,
+          "lon": 14.420714,
+          "label": "천문시계"
+        },
+        {
+          "key": "spanish_synagogue",
+          "lat": 50.090359,
+          "lon": 14.420847,
+          "label": "스페인 회당"
+        },
+        {
+          "key": "namesti_republiky_b",
+          "lat": 50.08891,
+          "lon": 14.430471,
+          "label": "Náměstí Republiky B"
+        },
+        {
+          "key": "mustek_ab",
+          "lat": 50.083784,
+          "lon": 14.423339,
+          "label": "Můstek A/B"
+        }
+      ]
+    },
+    {
+      "id": "hotel-b-river-walk",
+      "title": "Charles Bridge Palace에서 읽는 강과 양안",
+      "points": [
+        {
+          "key": "hotel_b",
+          "lat": 50.085207,
+          "lon": 14.414501,
+          "label": "Charles Bridge Palace"
+        },
+        {
+          "key": "smetana_museum",
+          "lat": 50.085419,
+          "lon": 14.412969,
+          "label": "스메타나 박물관"
+        },
+        {
+          "key": "old_town_bridge_tower",
+          "lat": 50.086292,
+          "lon": 14.413656,
+          "label": "구시가 교탑"
+        },
+        {
+          "key": "charles_bridge",
+          "lat": 50.086389,
+          "lon": 14.411944,
+          "label": "카를교"
+        },
+        {
+          "key": "clementinum",
+          "lat": 50.086655,
+          "lon": 14.416119,
+          "label": "클레멘티눔"
+        },
+        {
+          "key": "cafe_slavia",
+          "lat": 50.081819,
+          "lon": 14.413258,
+          "label": "Café Slavia"
+        },
+        {
+          "key": "national_theatre",
+          "lat": 50.080556,
+          "lon": 14.413889,
+          "label": "국립극장"
+        },
+        {
+          "key": "lennon_wall",
+          "lat": 50.086111,
+          "lon": 14.406944,
+          "label": "레넌 벽"
+        },
+        {
+          "key": "st_nicholas_mala",
+          "lat": 50.087781,
+          "lon": 14.403611,
+          "label": "성 니콜라스"
+        },
+        {
+          "key": "staromestska_a",
+          "lat": 50.088185,
+          "lon": 14.417633,
+          "label": "Staroměstská A"
+        },
+        {
+          "key": "malostranska_a",
+          "lat": 50.091236,
+          "lon": 14.409492,
+          "label": "Malostranská A"
+        }
+      ]
+    },
+    {
+      "id": "royal-route",
+      "title": "왕의 길: 시장도시에서 성까지",
+      "points": [
+        {
+          "key": "hotel_a",
+          "lat": 50.088219,
+          "lon": 14.427489,
+          "label": "Hotel Paris Prague"
+        },
+        {
+          "key": "hotel_b",
+          "lat": 50.085207,
+          "lon": 14.414501,
+          "label": "Charles Bridge Palace"
+        },
+        {
+          "key": "powder_tower",
+          "lat": 50.087222,
+          "lon": 14.427778,
+          "label": "화약탑"
+        },
+        {
+          "key": "black_madonna",
+          "lat": 50.087,
+          "lon": 14.42545,
+          "label": "검은 성모의 집"
+        },
+        {
+          "key": "old_town_square",
+          "lat": 50.0875,
+          "lon": 14.421389,
+          "label": "구시가 광장"
+        },
+        {
+          "key": "clementinum",
+          "lat": 50.086655,
+          "lon": 14.416119,
+          "label": "클레멘티눔"
+        },
+        {
+          "key": "old_town_bridge_tower",
+          "lat": 50.086292,
+          "lon": 14.413656,
+          "label": "구시가 교탑"
+        },
+        {
+          "key": "charles_bridge",
+          "lat": 50.086389,
+          "lon": 14.411944,
+          "label": "카를교"
+        },
+        {
+          "key": "st_nicholas_mala",
+          "lat": 50.087781,
+          "lon": 14.403611,
+          "label": "성 니콜라스"
+        },
+        {
+          "key": "nerudova",
+          "lat": 50.088611,
+          "lon": 14.399444,
+          "label": "네루도바"
+        },
+        {
+          "key": "hradcany_square",
+          "lat": 50.08929,
+          "lon": 14.396134,
+          "label": "흐라드차니 광장"
+        },
+        {
+          "key": "matthias_gate",
+          "lat": 50.08989,
+          "lon": 14.39875,
+          "label": "마티아스 문"
+        },
+        {
+          "key": "malostranska_a",
+          "lat": 50.091236,
+          "lon": 14.409492,
+          "label": "Malostranská A"
+        }
+      ]
+    },
+    {
+      "id": "castle-hill-route",
+      "title": "성은 건물 하나가 아니라 능선 위 도시다",
+      "points": [
+        {
+          "key": "pohorelec",
+          "lat": 50.087639,
+          "lon": 14.389312,
+          "label": "Pohořelec"
+        },
+        {
+          "key": "strahov_monastery",
+          "lat": 50.085963,
+          "lon": 14.389282,
+          "label": "스트라호프 수도원"
+        },
+        {
+          "key": "strahov_library",
+          "lat": 50.086293,
+          "lon": 14.388709,
+          "label": "스트라호프 도서관"
+        },
+        {
+          "key": "strahov_brewery",
+          "lat": 50.086809,
+          "lon": 14.388306,
+          "label": "수도원 양조장"
+        },
+        {
+          "key": "loreta_square",
+          "lat": 50.09,
+          "lon": 14.39,
+          "label": "로레타 광장"
+        },
+        {
+          "key": "hradcany_square",
+          "lat": 50.08929,
+          "lon": 14.396134,
+          "label": "흐라드차니 광장"
+        },
+        {
+          "key": "kuchyn",
+          "lat": 50.089345,
+          "lon": 14.397868,
+          "label": "Kuchyň"
+        },
+        {
+          "key": "matthias_gate",
+          "lat": 50.08989,
+          "lon": 14.39875,
+          "label": "마티아스 문"
+        },
+        {
+          "key": "st_vitus",
+          "lat": 50.090833,
+          "lon": 14.400556,
+          "label": "성 비투스"
+        },
+        {
+          "key": "old_royal_palace",
+          "lat": 50.090631,
+          "lon": 14.401739,
+          "label": "구왕궁"
+        },
+        {
+          "key": "st_george",
+          "lat": 50.091111,
+          "lon": 14.402194,
+          "label": "성 이르지"
+        },
+        {
+          "key": "golden_lane",
+          "lat": 50.092036,
+          "lon": 14.404176,
+          "label": "황금소로"
+        },
+        {
+          "key": "lobkowicz_palace",
+          "lat": 50.091608,
+          "lon": 14.404853,
+          "label": "로브코비츠"
+        },
+        {
+          "key": "wallenstein_garden",
+          "lat": 50.089872,
+          "lon": 14.405964,
+          "label": "발트슈타인 정원"
+        },
+        {
+          "key": "malostranska_a",
+          "lat": 50.091236,
+          "lon": 14.409492,
+          "label": "Malostranská A"
+        }
+      ]
+    },
+    {
+      "id": "food-cafe-map",
+      "title": "두 호텔에서 이어지는 프라하 식문화",
+      "points": [
+        {
+          "key": "hotel_a",
+          "lat": 50.088219,
+          "lon": 14.427489,
+          "label": "Hotel Paris Prague"
+        },
+        {
+          "key": "hotel_b",
+          "lat": 50.085207,
+          "lon": 14.414501,
+          "label": "Charles Bridge Palace"
+        },
+        {
+          "key": "kuchyn",
+          "lat": 50.089345,
+          "lon": 14.397868,
+          "label": "Kuchyň"
+        },
+        {
+          "key": "lobkowicz_cafe",
+          "lat": 50.091608,
+          "lon": 14.404853,
+          "label": "로브코비츠 카페"
+        },
+        {
+          "key": "strahov_brewery",
+          "lat": 50.086809,
+          "lon": 14.388306,
+          "label": "수도원 양조장"
+        },
+        {
+          "key": "porks",
+          "lat": 50.087486,
+          "lon": 14.406049,
+          "label": "Pork's"
+        },
+        {
+          "key": "pilsnerka",
+          "lat": 50.082082,
+          "lon": 14.418782,
+          "label": "Pilsnerka"
+        },
+        {
+          "key": "cafe_savoy",
+          "lat": 50.080926,
+          "lon": 14.407216,
+          "label": "Café Savoy"
+        },
+        {
+          "key": "wallenstein_garden",
+          "lat": 50.089872,
+          "lon": 14.405964,
+          "label": "발트슈타인 정원"
+        },
+        {
+          "key": "cafe_imperial",
+          "lat": 50.089867,
+          "lon": 14.432861,
+          "label": "Café Imperial"
+        },
+        {
+          "key": "cafe_slavia",
+          "lat": 50.081819,
+          "lon": 14.413258,
+          "label": "Café Slavia"
+        },
+        {
+          "key": "grand_cafe_orient",
+          "lat": 50.087,
+          "lon": 14.425511,
+          "label": "Grand Café Orient"
+        },
+        {
+          "key": "cafe_louvre",
+          "lat": 50.082067,
+          "lon": 14.418731,
+          "label": "Café Louvre"
+        },
+        {
+          "key": "bakeshop",
+          "lat": 50.089944,
+          "lon": 14.422575,
+          "label": "Bakeshop"
+        }
+      ]
+    }
+  ]
+}

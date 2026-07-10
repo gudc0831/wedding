@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
@@ -118,24 +119,21 @@ const maps = [
     subtitle: "Hotel, Centrale, day trips, and airport exits",
     output: path.join(assetsDir, "basecamp-map.png"),
     points: [
-      { key: "base_una_hotels_century_milano", label: "UNA HOTELS", role: "Hotel", color: "#17372f", labelDx: -430, labelDy: -128 },
-      { key: "base_milano_centrale", label: "Milano Centrale", role: "Rail hub", color: "#4b635a", labelDx: 42, labelDy: -124 },
-      { key: "day2_duomo", label: "Duomo", role: "Milan core", color: "#cda16a", labelDx: 42, labelDy: -66 },
+      { key: "base_una_hotels_century_milano", label: "UNA HOTELS + Centrale", role: "Booked base", color: "#17372f", labelDx: 42, labelDy: -62 },
       { key: "day4_varenna", label: "Varenna", role: "Lake Como", color: "#78917e", labelDx: 42, labelDy: -78 },
       { key: "day4_bellagio", label: "Bellagio", role: "Lake Como", color: "#78917e", labelDx: 42, labelDy: -24 },
       { key: "day5_citta_alta", label: "Bergamo Citta Alta", role: "Day trip", color: "#d6a090" },
       { key: "day6_bgy", label: "BGY", role: "Booked airport", color: "#7c8a99" }
     ],
     routes: [
-      { label: "Milan core", color: "#cda16a", keys: ["base_una_hotels_century_milano", "base_milano_centrale", "day2_duomo"] },
-      { label: "Lake Como", color: "#78917e", keys: ["base_una_hotels_century_milano", "base_milano_centrale", "day4_varenna", "day4_bellagio"] },
-      { label: "Bergamo / BGY", color: "#d6a090", keys: ["base_una_hotels_century_milano", "base_milano_centrale", "day5_citta_alta", "day6_bgy"] }
+      { label: "Lake Como day trip", color: "#78917e", keys: ["base_una_hotels_century_milano", "day4_varenna", "day4_bellagio"] },
+      { label: "Bergamo / BGY", color: "#d6a090", keys: ["base_una_hotels_century_milano", "day5_citta_alta", "day6_bgy"] }
     ]
   },
   {
     id: "shopping",
-    title: "Birthday Shopping Circuit",
-    subtitle: "Duomo start, fashion quarter focus, Brera finish",
+    title: "Birthday Shopping + Fixed Dinner",
+    subtitle: "Duomo · Quadrilatero · hotel drop · Brera · Ceresio 7",
     output: path.join(assetsDir, "shopping-map.png"),
     points: [
       { key: "day2_duomo", label: "Duomo", role: "Photo start", color: "#d6a090", labelDx: -385, labelDy: 28 },
@@ -143,14 +141,14 @@ const maps = [
       { key: "day3_rinascente", label: "Rinascente", role: "Beauty / gifts", color: "#cda16a", labelDx: -385, labelDy: -92 },
       { key: "day3_montenapoleone", label: "Via Montenapoleone", role: "Jewelry / luxury", color: "#cda16a", labelDx: 76, labelDy: -32 },
       { key: "day3_quadrilatero", label: "Via della Spiga", role: "Fashion district", color: "#cda16a", labelDx: 76, labelDy: -92 },
+      { key: "base_una_hotels_century_milano", label: "Hotel bag drop", role: "Recommended option", color: "#657fbd", labelDx: 76, labelDy: -58 },
       { key: "day3_brera", label: "Brera", role: "Small design gifts", color: "#78917e" },
-      { key: "day3_ceresio", label: "Ceresio 7", role: "Birthday dinner", color: "#d6a090", labelDx: 76, labelDy: 28 },
-      { key: "backup_maio_restaurant_terrace", label: "Maio", role: "Dinner backup", color: "#7c8a99" }
+      { key: "day3_ceresio", label: "Ceresio 7 · 19:45", role: "Confirmed birthday dinner", color: "#d6a090", labelDx: 76, labelDy: 28 }
     ],
     routes: [
-      { label: "Main walking flow", color: "#cda16a", keys: ["day2_duomo", "day3_rinascente", "day3_galleria", "day3_montenapoleone", "day3_quadrilatero", "day3_brera"] },
-      { label: "Ceresio 7 dinner", color: "#d6a090", keys: ["day3_brera", "day3_ceresio"] },
-      { label: "Maio backup", color: "#657fbd", dashArray: "14 16", keys: ["day3_brera", "backup_maio_restaurant_terrace"] }
+      { label: "Main shopping flow", color: "#cda16a", keys: ["day2_duomo", "day3_rinascente", "day3_galleria", "day3_montenapoleone", "day3_quadrilatero"] },
+      { label: "Hotel bag-drop option", color: "#657fbd", dashArray: "14 16", keys: ["day3_quadrilatero", "base_una_hotels_century_milano", "day3_brera"] },
+      { label: "Confirmed Ceresio 7 dinner", color: "#d6a090", keys: ["day3_brera", "day3_ceresio"] }
     ]
   }
 ];
@@ -536,41 +534,56 @@ function renderHtml(mapConfig) {
 }
 
 async function renderPngs(mapData) {
-  const runner = process.platform === "win32" ? "cmd.exe" : "npx";
-
-  for (const mapConfig of mapData.maps) {
-    const tempHtml = path.join(outputMapsDir, `${mapConfig.id}-render.html`);
-    const output = maps.find((map) => map.id === mapConfig.id).output;
-    await fs.writeFile(tempHtml, renderHtml(mapConfig), "utf8");
-    const playwrightArgs = [
-      "--yes",
-      "playwright",
-      "screenshot",
-      "--browser",
-      "chromium",
-      "--timeout",
-      "45000",
-      "--viewport-size",
-      `${WIDTH},${HEIGHT}`,
-      "--wait-for-selector",
-      ".map-ready",
-      "--wait-for-timeout",
-      "8000",
-      pathToFileURL(tempHtml).href,
-      output
-    ];
-    const args = process.platform === "win32" ? ["/d", "/s", "/c", "npx", ...playwrightArgs] : playwrightArgs;
-
+  const browserCandidates = process.platform === "win32"
+    ? [
+        "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+        "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe",
+        "C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe"
+      ]
+    : ["/usr/bin/google-chrome", "/usr/bin/chromium", "/usr/bin/chromium-browser"];
+  let browser = null;
+  for (const candidate of browserCandidates) {
     try {
-      await execFileAsync(
-        runner,
-        args,
-        { cwd: root, maxBuffer: 1024 * 1024 * 4 }
-      );
-      console.log(`Wrote ${path.relative(root, output)} (${WIDTH}x${HEIGHT})`);
-    } finally {
-      await fs.unlink(tempHtml).catch(() => {});
+      await fs.access(candidate);
+      browser = candidate;
+      break;
+    } catch {
+      // Try the next installed browser candidate.
     }
+  }
+  if (!browser) throw new Error("No installed Chrome or Edge browser was found");
+
+  const profileDir = await fs.mkdtemp(path.join(os.tmpdir(), "wedding-map-render-"));
+
+  try {
+    for (const mapConfig of mapData.maps) {
+      const tempHtml = path.join(outputMapsDir, `${mapConfig.id}-render.html`);
+      const output = maps.find((map) => map.id === mapConfig.id).output;
+      await fs.writeFile(tempHtml, renderHtml(mapConfig), "utf8");
+      const args = [
+        "--headless=new",
+        "--disable-gpu",
+        "--hide-scrollbars",
+        "--no-first-run",
+        "--no-default-browser-check",
+        "--run-all-compositor-stages-before-draw",
+        `--user-data-dir=${profileDir}`,
+        `--window-size=${WIDTH},${HEIGHT}`,
+        "--force-device-scale-factor=1",
+        "--virtual-time-budget=12000",
+        `--screenshot=${output}`,
+        pathToFileURL(tempHtml).href
+      ];
+
+      try {
+        await execFileAsync(browser, args, { cwd: root, maxBuffer: 1024 * 1024 * 4 });
+        console.log(`Wrote ${path.relative(root, output)} (${WIDTH}x${HEIGHT})`);
+      } finally {
+        await fs.unlink(tempHtml).catch(() => {});
+      }
+    }
+  } finally {
+    await fs.rm(profileDir, { recursive: true, force: true }).catch(() => {});
   }
 }
 

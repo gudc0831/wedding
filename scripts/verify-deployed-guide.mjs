@@ -9,7 +9,7 @@ const pageSpecs = [
   {
     label: "czech",
     path: "/czech_honeymoon_guide.html",
-    routeIds: [],
+    routeIds: ["czech-day1", "czech-day2", "czech-day3", "czech-day4", "czech-day5", "czech-day6", "czech-day7"],
     requiredSectionIds: [
       "czech-overview",
       "czech-first-leg",
@@ -21,7 +21,7 @@ const pageSpecs = [
   {
     label: "switzerland",
     path: "/switzerland_honeymoon_guide.html",
-    routeIds: ["swiss-day1", "swiss-day2", "swiss-day3", "swiss-day6"],
+    routeIds: ["swiss-day1", "swiss-day2", "swiss-day3", "swiss-day4", "swiss-day5", "swiss-day6"],
     requiredSectionIds: ["switzerland", "swiss-day-4", "swiss-day-5", "swiss-day-6"]
   },
   {
@@ -355,7 +355,11 @@ async function verifyRouteMap(page, routeId) {
     throw new Error(`${routeId}: map-data.json route configuration was not found.`);
   }
 
-  if (routeMeta.usesOfficialCoordinateAxis) {
+  if (routeId.startsWith("czech-")) {
+    if (!/연결선은 일정 순서 축/.test(status)) {
+      throw new Error(`${routeId}: expected narrative itinerary-axis status. Status: ${status}`);
+    }
+  } else if (routeMeta.usesOfficialCoordinateAxis) {
     if (!/공식 시간표로 확인한 교통축/.test(status)) {
       throw new Error(`${routeId}: expected official coordinate transport-axis status. Status: ${status}`);
     }

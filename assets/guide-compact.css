@@ -1,6 +1,6 @@
 html.app-view {
   --app-width: 402px;
-  scroll-padding-top: 36px;
+  scroll-padding-top: 44px;
 }
 
 html.app-view body {
@@ -37,7 +37,7 @@ html.app-view .overview-strip {
 
 html.app-view .topbar-inner {
   gap: 5px !important;
-  padding-top: 36px !important;
+  padding-top: 44px !important;
   padding-bottom: 5px !important;
 }
 
@@ -111,7 +111,7 @@ html.app-view .nav-links {
   justify-content: start !important;
   gap: 4px !important;
   width: min(100vw, var(--app-width)) !important;
-  max-height: 28px !important;
+  max-height: 36px !important;
   overflow-x: auto !important;
   overflow-y: hidden !important;
   padding: 3px 12px 3px !important;
@@ -127,9 +127,9 @@ html.app-view .nav-links {
 html.app-view .nav-links a {
   justify-content: center !important;
   min-width: 0 !important;
-  min-height: 22px !important;
-  padding: 2px 7px !important;
-  font-size: 0.5rem !important;
+  min-height: 28px !important;
+  padding: 3px 8px !important;
+  font-size: 0.65rem !important;
   line-height: 1 !important;
   text-align: center !important;
   white-space: nowrap !important;
@@ -335,8 +335,8 @@ html.app-view .hero-visual:has(.image-stack) .photo-grid figcaption {
   padding: 5px 6px !important;
   font-size: 0.58rem !important;
   line-height: 1.22 !important;
-  max-height: 3.05em !important;
-  overflow: hidden !important;
+  max-height: none !important;
+  overflow: visible !important;
 }
 
 html.app-view .hero-visual:not(:has(.image-stack)) {
@@ -485,6 +485,9 @@ section,
 main > section,
 .section-inner,
 .day-card,
+.timeline,
+.timeline-item,
+.timeline-item > *,
 .table-wrap,
 .calendar-sheet,
 .map-card,
@@ -537,6 +540,10 @@ html.app-view .map-view-static .static-map {
   z-index: 2;
   pointer-events: auto;
   touch-action: manipulation;
+}
+
+.brand-mark {
+  flex: 0 0 auto;
 }
 
 .map-zoom-link {
@@ -694,6 +701,11 @@ html.app-view .route-map-copy .app-detail-fold {
   main > section,
   .section-inner,
   .day-card,
+  .day-content,
+  .day-content > *,
+  .timeline,
+  .timeline-item,
+  .timeline-item > *,
   .table-wrap,
   .calendar-sheet,
   .map-card,
@@ -701,6 +713,10 @@ html.app-view .route-map-copy .app-detail-fold {
     min-width: 0;
     max-width: 100%;
     box-sizing: border-box;
+  }
+
+  .day-content {
+    grid-template-columns: minmax(0, 1fr) !important;
   }
 
   .calendar-sheet {
@@ -814,8 +830,8 @@ html.app-view .route-map-copy .app-detail-fold {
     padding: 5px 6px !important;
     font-size: 0.58rem !important;
     line-height: 1.22 !important;
-    max-height: 3.05em !important;
-    overflow: hidden !important;
+    max-height: none !important;
+    overflow: visible !important;
   }
 
   .hero-visual:not(:has(.image-stack)) {

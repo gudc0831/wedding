@@ -1,0 +1,49 @@
+{
+  "pdf": "D:\\wedding\\output\\milan_city_study_guidebook_2026.pdf",
+  "bytes": 10847784,
+  "pages": 69,
+  "blank_pages": [],
+  "bad_page_sizes": [],
+  "missing_required_phrases": [],
+  "replacement_character_count": 0,
+  "link_annotations": 151,
+  "chapter_pages_zero_based": {
+    "1": 4,
+    "2": 8,
+    "3": 11,
+    "4": 14,
+    "5": 20,
+    "6": 24,
+    "7": 27,
+    "8": 30,
+    "9": 34,
+    "10": 39,
+    "11": 44,
+    "12": 47,
+    "13": 52,
+    "14": 55,
+    "15": 60,
+    "16": 64
+  },
+  "chapter_order_ok": true,
+  "proof_pages_zero_based": [
+    0,
+    1,
+    4,
+    24,
+    39,
+    47,
+    3,
+    68
+  ],
+  "proof_images": [
+    "D:\\wedding\\output\\browser-check\\20260710-milan-city-study-guidebook-pdf\\page-001.png",
+    "D:\\wedding\\output\\browser-check\\20260710-milan-city-study-guidebook-pdf\\page-002.png",
+    "D:\\wedding\\output\\browser-check\\20260710-milan-city-study-guidebook-pdf\\page-005.png",
+    "D:\\wedding\\output\\browser-check\\20260710-milan-city-study-guidebook-pdf\\page-025.png",
+    "D:\\wedding\\output\\browser-check\\20260710-milan-city-study-guidebook-pdf\\page-040.png",
+    "D:\\wedding\\output\\browser-check\\20260710-milan-city-study-guidebook-pdf\\page-048.png",
+    "D:\\wedding\\output\\browser-check\\20260710-milan-city-study-guidebook-pdf\\page-004.png",
+    "D:\\wedding\\output\\browser-check\\20260710-milan-city-study-guidebook-pdf\\page-069.png"
+  ]
+}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">07.17 리기산 라운드트립</title>
+  <desc id="desc">Luzern-Pier 1에서 출발해 Vitznau·Rigi Kulm·Kaltbad·Weggis를 거쳐 같은 날 복귀</desc>
+  <rect width="1400" height="900" fill="#fbfbf8"/>
+  <rect x="0" y="0" width="24" height="900" fill="#d52b1e"/>
+  <text x="78" y="78" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="30" font-weight="800" fill="#d52b1e">FIXED ROUTE MAP · 축척 아님</text>
+  <text x="78" y="135" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="48" font-weight="800" fill="#1d2926">07.17 리기산 라운드트립</text>
+  <text x="78" y="181" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="24" fill="#65716e">Luzern-Pier 1에서 출발해 Vitznau·Rigi Kulm·Kaltbad·Weggis를 거쳐 같은 날 복귀</text>
+  <line x1="78" y1="215" x2="1322" y2="215" stroke="#c9d2ce" stroke-width="3"/>
+
+  <ellipse cx="730" cy="515" rx="485" ry="245" fill="#2d7694" opacity="0.08"/>
+  <line x1="270" y1="650" x2="500" y2="665" stroke="#2d7694" stroke-width="9" stroke-linecap="round"/><text x="385" y="644" text-anchor="middle" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="18" font-weight="700" fill="#2d7694">배 09:12-10:09</text>
+  <line x1="500" y1="665" x2="690" y2="315" stroke="#d52b1e" stroke-width="9" stroke-linecap="round"/><text x="595" y="477" text-anchor="middle" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="18" font-weight="700" fill="#d52b1e">산악열차</text>
+  <line x1="690" y1="315" x2="840" y2="470" stroke="#d52b1e" stroke-width="9" stroke-linecap="round"/><text x="765" y="379" text-anchor="middle" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="18" font-weight="700" fill="#d52b1e">15:00-15:15 산악열차</text>
+  <line x1="840" y1="470" x2="1035" y2="630" stroke="#c76b22" stroke-width="9" stroke-linecap="round"/><text x="937" y="537" text-anchor="middle" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="18" font-weight="700" fill="#c76b22">케이블카</text>
+  <line x1="1035" y1="630" x2="1110" y2="695" stroke="#176b5b" stroke-width="9" stroke-linecap="round"/><text x="1072" y="649" text-anchor="middle" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="18" font-weight="700" fill="#176b5b">도보</text>
+  <line x1="1110" y1="695" x2="270" y2="650" stroke="#2d7694" stroke-width="9" stroke-linecap="round"/><text x="690" y="659" text-anchor="middle" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="18" font-weight="700" fill="#2d7694">배 17:05-17:47</text>
+
+  <circle cx="270" cy="650" r="31" fill="#d52b1e"/>
+  <text x="270" y="659" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">1</text>
+  <text x="222" y="710" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Luzern Pier 1</text>
+  <text x="222" y="742" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">09:12 출발 · 17:47 복귀축</text>
+
+
+  <circle cx="500" cy="665" r="31" fill="#d52b1e"/>
+  <text x="500" y="674" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">2</text>
+  <text x="548" y="710" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Vitznau</text>
+  <text x="548" y="742" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">10:09 도착 · 10:15 환승</text>
+
+
+  <circle cx="690" cy="315" r="31" fill="#d52b1e"/>
+  <text x="690" y="324" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">3</text>
+  <text x="738" y="308" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Rigi Kulm station</text>
+  <text x="738" y="340" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">10:47 역 도착 · 정상은 오르막 도보</text>
+
+
+  <circle cx="840" cy="470" r="31" fill="#d52b1e"/>
+  <text x="840" y="479" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">4</text>
+  <text x="888" y="463" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Rigi Kaltbad</text>
+  <text x="888" y="495" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">15:15 도착 · 16:10 케이블카</text>
+
+
+  <circle cx="1035" cy="630" r="31" fill="#d52b1e"/>
+  <text x="1035" y="639" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">5</text>
+  <text x="987" y="615" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Weggis cable car</text>
+  <text x="987" y="647" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">계곡역 하차</text>
+
+
+  <circle cx="1110" cy="695" r="31" fill="#d52b1e"/>
+  <text x="1110" y="704" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">6</text>
+  <text x="1158" y="735" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Weggis Pier</text>
+  <text x="1158" y="767" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">17:05 Luzern행 배</text>
+
+
+  <rect x="78" y="818" width="1244" height="1" fill="#c9d2ce"/>
+  <text x="78" y="858" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">파랑 = 유람선 · 빨강 = 산악열차 · 주황 = 케이블카 · 초록 = 선착장 연결 도보</text>
+</svg>
