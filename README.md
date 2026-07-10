@@ -68,7 +68,7 @@ If neither `.env` nor the local JSON contains `GOOGLE_MAPS_API_KEY`, the wrapper
 
 The guide registers `service-worker.js` and exposes `manifest.webmanifest` so the country selector and all country guide pages can be installed or reopened as an offline-capable PWA after the first successful online visit.
 
-The service worker pre-caches `index.html`, `czech_honeymoon_guide.html`, `switzerland_honeymoon_guide.html`, `italy_honeymoon_guide.html`, `manifest.webmanifest`, `assets/map-data.json`, and the static map/image assets used by the guide. This keeps the core itinerary, checklist text, source links, place number badges, and static route context available when the network is weak.
+The service worker pre-caches `index.html`, `czech_honeymoon_guide.html`, `switzerland_honeymoon_guide.html`, `italy_honeymoon_guide.html`, `manifest.webmanifest`, `assets/map-data.json`, `assets/milan-restaurant-map-data.json`, and the static map/image assets used by the guide. This keeps the core itinerary, restaurant index, checklist text, source links, place number badges, and static route context available when the network is weak.
 
 The service worker intentionally does not cache `assets/google-maps-config.js` or `assets/google-maps-config.local.json`, because those files may contain deployment or local Google Maps API key material. Google Maps JavaScript API, Routes API, Places enrichment, external images, Google Fonts, and Leaflet CDN assets still require network access. Offline use should therefore rely on the cached document content and static map images, not live Google route maps.
 

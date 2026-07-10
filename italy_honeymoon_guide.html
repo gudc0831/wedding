@@ -919,6 +919,370 @@
       font-size: 0.76rem;
     }
 
+    .restaurant-atlas {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(23, 55, 47, 0.1);
+      border-radius: 24px;
+      background:
+        linear-gradient(140deg, rgba(255, 252, 245, 0.98), rgba(242, 233, 216, 0.86)),
+        var(--paper);
+      box-shadow: 0 16px 42px rgba(23, 55, 47, 0.09);
+    }
+
+    .restaurant-atlas-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: end;
+      padding: 22px 22px 18px;
+      border-bottom: 1px solid rgba(23, 55, 47, 0.09);
+    }
+
+    .restaurant-atlas-copy p {
+      max-width: 720px;
+      margin: 7px 0 0;
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+      line-height: 1.75;
+    }
+
+    .restaurant-atlas-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin: 0;
+      color: #8b5f2e;
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .restaurant-atlas-kicker::before {
+      content: "";
+      width: 22px;
+      border-top: 2px solid var(--gold);
+    }
+
+    .restaurant-atlas-stats {
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 8px;
+    }
+
+    .restaurant-stat {
+      min-width: 78px;
+      padding: 9px 11px;
+      border-radius: 13px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(23, 55, 47, 0.08);
+      text-align: center;
+    }
+
+    .restaurant-stat strong {
+      display: block;
+      color: var(--ink);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .restaurant-stat span {
+      display: block;
+      margin-top: 4px;
+      color: var(--ink-soft);
+      font-size: 0.68rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .restaurant-region-filters {
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      padding: 13px 16px;
+      border-bottom: 1px solid rgba(23, 55, 47, 0.08);
+      scrollbar-width: thin;
+    }
+
+    .restaurant-region-filter {
+      appearance: none;
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 34px;
+      padding: 7px 11px;
+      border: 1px solid rgba(23, 55, 47, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      color: var(--ink);
+      font: inherit;
+      font-size: 0.76rem;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .restaurant-region-filter::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--region-color, var(--ink));
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--region-color, var(--ink)) 16%, transparent);
+    }
+
+    .restaurant-region-filter[data-region="all"]::before {
+      background: linear-gradient(135deg, var(--gold) 0 45%, var(--ink) 45% 100%);
+    }
+
+    .restaurant-region-filter[aria-pressed="true"] {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: #fffaf3;
+    }
+
+    .restaurant-map-shell {
+      position: relative;
+      border-bottom: 1px solid rgba(23, 55, 47, 0.08);
+    }
+
+    .restaurant-map-canvas {
+      width: 100%;
+      height: 500px;
+      min-height: 360px;
+      background: #e8e1d3;
+    }
+
+    .restaurant-map-status {
+      position: absolute;
+      z-index: 500;
+      left: 14px;
+      bottom: 14px;
+      max-width: calc(100% - 28px);
+      margin: 0;
+      padding: 8px 11px;
+      border: 1px solid rgba(23, 55, 47, 0.12);
+      border-radius: 10px;
+      background: rgba(255, 250, 241, 0.92);
+      color: var(--ink-soft);
+      box-shadow: 0 8px 20px rgba(23, 55, 47, 0.12);
+      font-size: 0.72rem;
+      font-weight: 700;
+      line-height: 1.4;
+      backdrop-filter: blur(10px);
+    }
+
+    .restaurant-number-icon {
+      border: 0;
+      background: transparent;
+    }
+
+    .restaurant-map-pin {
+      display: grid;
+      place-items: center;
+      min-width: 42px;
+      height: 25px;
+      padding: 0 7px;
+      border: 2px solid #fffaf3;
+      border-radius: 8px 8px 8px 2px;
+      background: var(--region-color, var(--ink));
+      color: #fff;
+      box-shadow: 0 5px 12px rgba(23, 55, 47, 0.27);
+      font-size: 0.63rem;
+      font-weight: 900;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .restaurant-popup {
+      min-width: 200px;
+      color: var(--ink);
+      font-family: "Noto Sans KR", sans-serif;
+    }
+
+    .restaurant-popup-number {
+      display: inline-flex;
+      margin-bottom: 6px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: var(--region-color, var(--ink));
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 900;
+    }
+
+    .restaurant-popup strong,
+    .restaurant-popup span {
+      display: block;
+    }
+
+    .restaurant-popup strong {
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+
+    .restaurant-popup span {
+      color: var(--ink-soft);
+      font-size: 0.76rem;
+      line-height: 1.5;
+    }
+
+    .restaurant-popup a {
+      display: inline-flex;
+      margin-top: 9px;
+      color: #754a1c;
+      font-size: 0.74rem;
+      font-weight: 900;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .restaurant-map-list {
+      padding: 18px 20px 22px;
+    }
+
+    .restaurant-region-group + .restaurant-region-group {
+      margin-top: 22px;
+      padding-top: 22px;
+      border-top: 1px dashed rgba(23, 55, 47, 0.16);
+    }
+
+    .restaurant-region-group[hidden] {
+      display: none;
+    }
+
+    .restaurant-region-head {
+      display: flex;
+      align-items: baseline;
+      gap: 9px;
+      margin-bottom: 11px;
+    }
+
+    .restaurant-region-code {
+      display: inline-flex;
+      padding: 4px 7px;
+      border-radius: 7px;
+      background: var(--region-color, var(--ink));
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+    }
+
+    .restaurant-region-head h3 {
+      margin: 0;
+      font-family: "Song Myung", serif;
+      font-size: 1.02rem;
+      font-weight: 400;
+    }
+
+    .restaurant-region-head span:last-child {
+      color: var(--ink-soft);
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .restaurant-place-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .restaurant-place-card {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+      min-width: 0;
+      padding: 10px;
+      border: 1px solid rgba(23, 55, 47, 0.09);
+      border-left: 3px solid var(--region-color, var(--ink));
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.67);
+    }
+
+    .restaurant-place-number {
+      display: grid;
+      place-items: center;
+      min-width: 43px;
+      height: 27px;
+      padding: 0 6px;
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--region-color, var(--ink)) 14%, white);
+      color: var(--region-color, var(--ink));
+      font-size: 0.68rem;
+      font-weight: 900;
+    }
+
+    .restaurant-place-copy {
+      min-width: 0;
+    }
+
+    .restaurant-place-copy strong,
+    .restaurant-place-copy span {
+      display: block;
+    }
+
+    .restaurant-place-copy strong {
+      overflow: hidden;
+      color: var(--ink);
+      font-size: 0.82rem;
+      line-height: 1.35;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .restaurant-place-copy span {
+      margin-top: 2px;
+      overflow: hidden;
+      color: var(--ink-soft);
+      font-size: 0.68rem;
+      line-height: 1.35;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .restaurant-place-actions {
+      display: flex;
+      gap: 4px;
+    }
+
+    .restaurant-place-focus,
+    .restaurant-place-link {
+      appearance: none;
+      display: grid;
+      place-items: center;
+      width: 31px;
+      height: 31px;
+      padding: 0;
+      border: 1px solid rgba(23, 55, 47, 0.12);
+      border-radius: 50%;
+      background: #fffaf3;
+      color: var(--ink);
+      font: inherit;
+      font-size: 0.72rem;
+      font-weight: 900;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .restaurant-place-focus:hover,
+    .restaurant-place-link:hover {
+      background: var(--ink);
+      color: #fffaf3;
+    }
+
+    .restaurant-place-note {
+      grid-column: 2 / -1;
+      margin: -3px 0 0;
+      color: #8b5f2e;
+      font-size: 0.66rem;
+      line-height: 1.45;
+    }
+
     .route-map-card {
       margin: 0 0 20px;
       border-radius: 22px;
@@ -2318,6 +2682,33 @@
         height: 330px;
       }
 
+      .restaurant-atlas-intro {
+        grid-template-columns: 1fr;
+        align-items: start;
+        padding: 18px 16px 15px;
+      }
+
+      .restaurant-atlas-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        width: 100%;
+      }
+
+      .restaurant-stat {
+        min-width: 0;
+      }
+
+      .restaurant-map-canvas {
+        height: 390px;
+      }
+
+      .restaurant-map-list {
+        padding: 16px 13px 18px;
+      }
+
+      .restaurant-place-grid {
+        grid-template-columns: 1fr;
+      }
+
     }
 
     html.app-view body {
@@ -2381,11 +2772,39 @@
       min-height: 40px;
     }
 
+    html.app-view .restaurant-atlas {
+      border-radius: 18px;
+    }
+
+    html.app-view .restaurant-atlas-intro {
+      gap: 14px;
+      padding: 16px 13px 13px;
+    }
+
+    html.app-view .restaurant-region-filters {
+      padding-inline: 11px;
+    }
+
+    html.app-view .restaurant-map-canvas {
+      height: 370px;
+    }
+
+    html.app-view .restaurant-map-list {
+      padding-inline: 10px;
+    }
+
+    html.app-view .restaurant-place-card {
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      padding: 9px 8px;
+    }
+
     @media print {
       .view-toggle,
       .map-view-toggle,
       .map-view-live,
       .map-status,
+      .restaurant-region-filters,
+      .restaurant-map-shell,
       .route-map-card {
         display: none !important;
       }
@@ -2433,6 +2852,7 @@
           <a href="#sight-notes">Sight Tips</a>
           <a href="#prague-transfer">Prague Transfer</a>
           <a href="#checklist">Checklist</a>
+          <a href="#restaurant-map">음식점 지도</a>
           <a href="#italy-excel-schedule">Excel 일정표</a>
           <a href="#sources">Sources</a>
         </nav>
@@ -5298,6 +5718,48 @@
         </div>
       </section>
 
+      <section id="restaurant-map">
+        <div class="section-inner">
+          <div class="section-head">
+            <div>
+              <span class="section-index">Milan Food Atlas</span>
+              <h2>음식점 지도</h2>
+            </div>
+          </div>
+
+          <div class="restaurant-atlas" data-restaurant-atlas>
+            <div class="restaurant-atlas-intro">
+              <div class="restaurant-atlas-copy">
+                <span class="restaurant-atlas-kicker">Neighbourhood index</span>
+                <p>밀라노 생활권별 번호와 바렌나·코모호수 권역을 한 지도에 모았습니다. 권역을 누르면 해당 장소만 볼 수 있고, 목록의 핀 버튼은 지도 위치로 바로 이동합니다.</p>
+              </div>
+              <div class="restaurant-atlas-stats" aria-label="음식점 지도 요약">
+                <div class="restaurant-stat"><strong>35</strong><span>전체 장소</span></div>
+                <div class="restaurant-stat"><strong>34</strong><span>밀라노</span></div>
+                <div class="restaurant-stat"><strong>1</strong><span>바렌나·코모</span></div>
+              </div>
+            </div>
+
+            <div class="restaurant-region-filters" data-restaurant-region-filters role="toolbar" aria-label="음식점 권역 필터">
+              <span>권역 정보를 불러오는 중입니다.</span>
+            </div>
+
+            <div class="restaurant-map-shell">
+              <div class="restaurant-map-canvas" data-restaurant-map role="region" aria-label="밀라노와 바렌나·코모호수 음식점 지도" tabindex="0"></div>
+              <p class="restaurant-map-status" data-restaurant-map-status aria-live="polite">음식점 지도 데이터를 불러오는 중입니다.</p>
+            </div>
+
+            <div class="restaurant-map-list" data-restaurant-map-list aria-live="polite">
+              <p>권역별 음식점 목록을 불러오는 중입니다.</p>
+            </div>
+
+            <noscript>
+              <p class="note">자바스크립트를 켜면 권역별 지도와 35개 음식점 번호 목록을 볼 수 있습니다.</p>
+            </noscript>
+          </div>
+        </div>
+      </section>
+
       <section id="italy-excel-schedule">
         <div class="section-inner">
           <div class="section-head">
@@ -5835,6 +6297,227 @@
           });
         });
       });
+    }());
+
+    (function () {
+      const atlas = document.querySelector("[data-restaurant-atlas]");
+      if (!atlas) return;
+
+      const filterHost = atlas.querySelector("[data-restaurant-region-filters]");
+      const mapTarget = atlas.querySelector("[data-restaurant-map]");
+      const listHost = atlas.querySelector("[data-restaurant-map-list]");
+      const status = atlas.querySelector("[data-restaurant-map-status]");
+      const state = {
+        map: null,
+        markerLayer: null,
+        markers: new Map(),
+        regions: [],
+        restaurants: [],
+        activeRegion: "all"
+      };
+
+      function escapeHtml(value) {
+        return String(value || "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll("\"", "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      function mapsUrl(place) {
+        const query = place.mapsQuery || `${place.name}, ${place.address}`;
+        return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+      }
+
+      function regionFor(id) {
+        return state.regions.find((region) => region.id === id);
+      }
+
+      function regionStyle(region) {
+        return `--region-color:${escapeHtml(region.color)}`;
+      }
+
+      function renderFilters() {
+        const allButton = `
+          <button class="restaurant-region-filter" type="button" data-region="all" aria-pressed="true">
+            전체 · ${state.restaurants.length}
+          </button>`;
+        const regionButtons = state.regions.map((region) => {
+          const count = state.restaurants.filter((place) => place.region === region.id).length;
+          return `
+            <button class="restaurant-region-filter" type="button" data-region="${escapeHtml(region.id)}" aria-pressed="false" style="${regionStyle(region)}">
+              ${escapeHtml(region.code)} ${escapeHtml(region.label)} · ${count}
+            </button>`;
+        }).join("");
+
+        filterHost.innerHTML = allButton + regionButtons;
+      }
+
+      function renderList() {
+        listHost.innerHTML = state.regions.map((region) => {
+          const places = state.restaurants.filter((place) => place.region === region.id);
+          const cards = places.map((place) => `
+            <article class="restaurant-place-card" style="${regionStyle(region)}" data-restaurant-id="${escapeHtml(place.id)}">
+              <span class="restaurant-place-number">${escapeHtml(place.number)}</span>
+              <div class="restaurant-place-copy">
+                <strong title="${escapeHtml(place.name)}">${escapeHtml(place.name)}</strong>
+                <span title="${escapeHtml(place.address)}">${escapeHtml(place.district)} · ${escapeHtml(place.address)}</span>
+              </div>
+              <div class="restaurant-place-actions">
+                <button class="restaurant-place-focus" type="button" data-restaurant-focus="${escapeHtml(place.id)}" aria-label="지도에서 ${escapeHtml(place.name)} 보기" title="지도에서 보기">⌖</button>
+                <a class="restaurant-place-link" href="${mapsUrl(place)}" target="_blank" rel="noreferrer" aria-label="Google Maps에서 ${escapeHtml(place.name)} 열기" title="Google Maps 열기">↗</a>
+              </div>
+              ${place.note ? `<p class="restaurant-place-note">${escapeHtml(place.note)}</p>` : ""}
+            </article>`).join("");
+
+          return `
+            <section class="restaurant-region-group" data-restaurant-region-group="${escapeHtml(region.id)}" style="${regionStyle(region)}">
+              <div class="restaurant-region-head">
+                <span class="restaurant-region-code">${escapeHtml(region.code)}</span>
+                <h3>${escapeHtml(region.label)}</h3>
+                <span>${places.length}곳</span>
+              </div>
+              <div class="restaurant-place-grid">${cards}</div>
+            </section>`;
+        }).join("");
+      }
+
+      function makePin(place, region) {
+        return L.divIcon({
+          className: "restaurant-number-icon",
+          html: `<span class="restaurant-map-pin" style="${regionStyle(region)}">${escapeHtml(place.number)}</span>`,
+          iconSize: [46, 27],
+          iconAnchor: [9, 25],
+          popupAnchor: [12, -22]
+        });
+      }
+
+      function popupHtml(place, region) {
+        return `
+          <div class="restaurant-popup" style="${regionStyle(region)}">
+            <span class="restaurant-popup-number">${escapeHtml(place.number)} · ${escapeHtml(region.label)}</span>
+            <strong>${escapeHtml(place.name)}</strong>
+            <span>${escapeHtml(place.district)}</span>
+            <span>${escapeHtml(place.address)}</span>
+            <a href="${mapsUrl(place)}" target="_blank" rel="noreferrer">Google Maps에서 열기 ↗</a>
+          </div>`;
+      }
+
+      function initMap() {
+        if (!window.L || !mapTarget) {
+          status.textContent = "라이브 지도를 불러오지 못했습니다. 아래 권역별 목록과 Google Maps 링크를 이용해 주세요.";
+          return false;
+        }
+
+        state.map = L.map(mapTarget, {
+          scrollWheelZoom: false,
+          zoomControl: true
+        });
+        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "&copy; OpenStreetMap contributors"
+        }).addTo(state.map);
+        state.markerLayer = L.layerGroup().addTo(state.map);
+        return true;
+      }
+
+      function visiblePlaces(regionId) {
+        return regionId === "all"
+          ? state.restaurants
+          : state.restaurants.filter((place) => place.region === regionId);
+      }
+
+      function fitPlaces(places, regionId) {
+        if (!state.map || !places.length) return;
+        if (places.length === 1) {
+          state.map.setView([places[0].lat, places[0].lng], regionId === "lake-como" ? 15 : 16, { animate: true });
+          return;
+        }
+        const bounds = L.latLngBounds(places.map((place) => [place.lat, place.lng]));
+        state.map.fitBounds(bounds, {
+          padding: [34, 34],
+          maxZoom: regionId === "all" ? 10 : 14,
+          animate: true
+        });
+      }
+
+      function drawMarkers(places) {
+        if (!state.map || !state.markerLayer) return;
+        state.markerLayer.clearLayers();
+        state.markers.clear();
+        places.forEach((place) => {
+          const region = regionFor(place.region);
+          if (!region) return;
+          const marker = L.marker([place.lat, place.lng], { icon: makePin(place, region) })
+            .bindPopup(popupHtml(place, region));
+          marker.addTo(state.markerLayer);
+          state.markers.set(place.id, marker);
+        });
+      }
+
+      function selectRegion(regionId, options = {}) {
+        state.activeRegion = regionId;
+        const places = visiblePlaces(regionId);
+        const region = regionFor(regionId);
+
+        filterHost.querySelectorAll("[data-region]").forEach((button) => {
+          button.setAttribute("aria-pressed", button.dataset.region === regionId ? "true" : "false");
+        });
+        listHost.querySelectorAll("[data-restaurant-region-group]").forEach((group) => {
+          group.hidden = regionId !== "all" && group.dataset.restaurantRegionGroup !== regionId;
+        });
+
+        drawMarkers(places);
+        if (!options.skipFit) fitPlaces(places, regionId);
+        const label = region ? region.label : "전체 권역";
+        status.textContent = `${label} ${places.length}곳을 표시 중입니다. 번호 핀을 누르면 주소를 볼 수 있습니다.`;
+      }
+
+      function focusRestaurant(id) {
+        const place = state.restaurants.find((item) => item.id === id);
+        if (!place || !state.map) return;
+        if (state.activeRegion !== place.region && state.activeRegion !== "all") {
+          selectRegion(place.region, { skipFit: true });
+        }
+        const marker = state.markers.get(id);
+        if (!marker) return;
+        state.map.setView([place.lat, place.lng], place.region === "lake-como" ? 16 : 17, { animate: true });
+        window.setTimeout(() => marker.openPopup(), 220);
+        mapTarget.focus({ preventScroll: true });
+      }
+
+      filterHost.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-region]");
+        if (!button) return;
+        selectRegion(button.dataset.region);
+      });
+
+      listHost.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-restaurant-focus]");
+        if (!button) return;
+        focusRestaurant(button.dataset.restaurantFocus);
+      });
+
+      fetch("./assets/milan-restaurant-map-data.json", { cache: "no-cache" })
+        .then((response) => {
+          if (!response.ok) throw new Error("restaurant map data load failed");
+          return response.json();
+        })
+        .then((data) => {
+          state.regions = data.regions || [];
+          state.restaurants = data.restaurants || [];
+          renderFilters();
+          renderList();
+          initMap();
+          selectRegion("all");
+          window.setTimeout(() => state.map?.invalidateSize(), 120);
+        })
+        .catch(() => {
+          filterHost.innerHTML = "<span>권역 필터를 불러오지 못했습니다.</span>";
+          listHost.innerHTML = "<p class=\"note\">음식점 데이터를 불러오지 못했습니다. 페이지를 새로고침해 주세요.</p>";
+          status.textContent = "음식점 지도 데이터를 불러오지 못했습니다.";
+        });
     }());
 
     (function () {

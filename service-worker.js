@@ -1,4 +1,4 @@
-const CACHE_VERSION = "czech-swiss-italy-honeymoon-guide-v20260709-milan-sync";
+const CACHE_VERSION = "czech-swiss-italy-honeymoon-guide-v20260710-restaurant-atlas";
 const PRECACHE_URLS = [
   "./",
   "./index.html",
@@ -18,7 +18,8 @@ const PRECACHE_URLS = [
   "./assets/basecamp-map.png",
   "./assets/shopping-map.svg",
   "./assets/shopping-map.png",
-  "./assets/map-data.json"
+  "./assets/map-data.json",
+  "./assets/milan-restaurant-map-data.json"
 ];
 
 const GUIDE_URL = "./index.html";
