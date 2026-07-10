@@ -11,6 +11,8 @@
   };
 
   let activeEvent = null;
+  let openFrame = 0;
+  let closeTimer = 0;
 
   function text(node) {
     return (node?.textContent || "").replace(/\s+/g, " ").trim();
@@ -128,6 +130,14 @@
   }
 
   function openDetail(event) {
+    if (openFrame) {
+      window.cancelAnimationFrame(openFrame);
+      openFrame = 0;
+    }
+    if (closeTimer) {
+      window.clearTimeout(closeTimer);
+      closeTimer = 0;
+    }
     activeEvent = event;
     const type = eventType(event);
     const typeLabel = typeLabels[type] || "일정";
@@ -173,14 +183,23 @@
 
     layer.hidden = false;
     document.body.classList.add("schedule-detail-open");
-    requestAnimationFrame(() => layer.classList.add("is-open"));
+    openFrame = requestAnimationFrame(() => {
+      openFrame = 0;
+      if (!layer.hidden && activeEvent === event) layer.classList.add("is-open");
+    });
     closeButton.focus({ preventScroll: true });
   }
 
   function closeDetail() {
+    if (openFrame) {
+      window.cancelAnimationFrame(openFrame);
+      openFrame = 0;
+    }
+    if (closeTimer) window.clearTimeout(closeTimer);
     layer.classList.remove("is-open");
     document.body.classList.remove("schedule-detail-open");
-    window.setTimeout(() => {
+    closeTimer = window.setTimeout(() => {
+      closeTimer = 0;
       layer.hidden = true;
       if (activeEvent) activeEvent.focus({ preventScroll: true });
       activeEvent = null;
