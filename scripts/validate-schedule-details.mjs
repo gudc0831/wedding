@@ -5,7 +5,7 @@ const guides = [
   { file: "switzerland_honeymoon_guide.html", expected: 39 },
 ];
 
-const forbidden = /이건 엑셀에서 가져왔습니다|엑셀 기준|스프레드시트에서 가져옴/i;
+const forbidden = /엑셀|Excel|스프레드시트|가져왔/i;
 const errors = [];
 const summaries = [];
 
@@ -21,12 +21,13 @@ for (const guide of guides) {
       errors.push(`${guide.file}: calendar event ${index + 1} is missing data-detail`);
       return;
     }
-    withDetail += 1;
     const segments = match[1].split("|").map((value) => value.trim()).filter(Boolean);
     if (segments.length < 2) {
       invalidSegments += 1;
       errors.push(`${guide.file}: calendar event ${index + 1} has ${segments.length} detail segment(s)`);
+      return;
     }
+    withDetail += 1;
   });
 
   if (tags.length !== guide.expected) {
