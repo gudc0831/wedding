@@ -2,7 +2,9 @@
 
 ## Scope
 
-Implementation range: `374a5e0..ed7e80b`
+Runtime implementation range: `374a5e0..ed7e80b`
+
+Verification tooling and persisted evidence range: `ed7e80b..faf5b1c`
 
 Primary changed runtime files:
 
