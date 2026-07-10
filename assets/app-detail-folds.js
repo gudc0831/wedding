@@ -56,7 +56,7 @@
     fold.append(button, body);
     nodes.forEach((node) => body.appendChild(node));
 
-    setExpanded(fold, false);
+    setExpanded(fold, true);
     button.addEventListener("click", () => {
       setExpanded(fold, !fold.classList.contains("is-expanded"));
     });

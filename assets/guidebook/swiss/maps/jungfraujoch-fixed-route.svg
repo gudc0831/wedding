@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">07.19 융프라우요흐 고정 이동축</title>
+  <desc id="desc">운터젠 숙소에서 Interlaken Ost·Grindelwald Terminal·Eigergletscher를 거쳐 융프라우요흐로 왕복</desc>
+  <rect width="1400" height="900" fill="#fbfbf8"/>
+  <rect x="0" y="0" width="24" height="900" fill="#d52b1e"/>
+  <text x="78" y="78" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="30" font-weight="800" fill="#d52b1e">FIXED ROUTE MAP · 축척 아님</text>
+  <text x="78" y="135" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="48" font-weight="800" fill="#1d2926">07.19 융프라우요흐 고정 이동축</text>
+  <text x="78" y="181" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="24" fill="#65716e">운터젠 숙소에서 Interlaken Ost·Grindelwald Terminal·Eigergletscher를 거쳐 융프라우요흐로 왕복</text>
+  <line x1="78" y1="215" x2="1322" y2="215" stroke="#c9d2ce" stroke-width="3"/>
+
+  <line x1="155" y1="650" x2="335" y2="650" stroke="#176b5b" stroke-width="9" stroke-linecap="round"/>
+  <line x1="335" y1="650" x2="515" y2="650" stroke="#d52b1e" stroke-width="9" stroke-linecap="round"/>
+  <line x1="515" y1="650" x2="730" y2="535" stroke="#d52b1e" stroke-width="9" stroke-linecap="round"/>
+  <line x1="730" y1="535" x2="900" y2="420" stroke="#d52b1e" stroke-width="9" stroke-linecap="round"/>
+  <line x1="900" y1="420" x2="1080" y2="310" stroke="#d52b1e" stroke-width="9" stroke-linecap="round"/>
+  <line x1="1080" y1="310" x2="1180" y2="245" stroke="#c76b22" stroke-width="9" stroke-linecap="round"/>
+
+  <circle cx="155" cy="650" r="31" fill="#d52b1e"/>
+  <text x="155" y="659" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">1</text>
+  <text x="92" y="580" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">65 Hauptstrasse</text>
+  <text x="92" y="612" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">운터젠 고정 숙소</text>
+
+
+  <circle cx="335" cy="650" r="31" fill="#d52b1e"/>
+  <text x="335" y="659" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">2</text>
+  <text x="335" y="700" text-anchor="middle" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Interlaken West</text>
+  <text x="335" y="732" text-anchor="middle" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">출발 전 SBB 연결 확인</text>
+
+
+  <circle cx="515" cy="650" r="31" fill="#d52b1e"/>
+  <text x="515" y="659" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">3</text>
+  <text x="565" y="680" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Interlaken Ost</text>
+  <text x="565" y="712" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">융프라우권 환승 허브</text>
+
+
+  <circle cx="730" cy="535" r="31" fill="#d52b1e"/>
+  <text x="730" y="544" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">4</text>
+  <text x="682" y="515" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Grindelwald Terminal</text>
+  <text x="682" y="547" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">Eiger Express 환승</text>
+
+
+  <circle cx="900" cy="420" r="31" fill="#d52b1e"/>
+  <text x="900" y="429" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">5</text>
+  <text x="948" y="413" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Eigergletscher</text>
+  <text x="948" y="445" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">산악열차 환승</text>
+
+
+  <circle cx="1080" cy="310" r="31" fill="#d52b1e"/>
+  <text x="1080" y="319" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">6</text>
+  <text x="1032" y="295" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Jungfraujoch station</text>
+  <text x="1032" y="327" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">3,454m · 철도역</text>
+
+
+  <circle cx="1180" cy="245" r="31" fill="#c76b22"/>
+  <text x="1180" y="254" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">7</text>
+  <text x="1132" y="205" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Sphinx</text>
+  <text x="1132" y="237" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">3,571m · 알레치 빙하 조망</text>
+
+  <rect x="160" y="745" width="1080" height="50" rx="12" fill="#edf3f0"/>
+  <text x="700" y="777" text-anchor="middle" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" font-weight="700" fill="#1d2926">2026.05.01-10.31 좌석 예약 의무 · 예약과 별도로 유효한 승차권 필요 · 출발 전 웹캠·운행 확인</text>
+
+  <rect x="78" y="818" width="1244" height="1" fill="#c9d2ce"/>
+  <text x="78" y="858" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">빨강 = 확정 고산 교통축 · 주황 = 현지 수직 이동·전망대 · 정확한 출발편은 예약 원문과 당일 SBB 확인</text>
+</svg>

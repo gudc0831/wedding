@@ -5,11 +5,17 @@ import { join } from "node:path";
 
 const rootUrl = (process.env.LOCAL_URL || "http://localhost:8000").replace(/\/$/, "");
 const debugPort = Number(process.env.CHROME_DEBUG_PORT || (9300 + Math.floor(Math.random() * 1000)));
-const pageSpecs = [
+const allPageSpecs = [
+  {
+    label: "czech",
+    path: "/czech_honeymoon_guide.html",
+    routeIds: ["czech-day1", "czech-day2", "czech-day3", "czech-day4", "czech-day5", "czech-day6", "czech-day7"],
+    routeStatusMode: "narrative-axis"
+  },
   {
     label: "switzerland",
     path: "/switzerland_honeymoon_guide.html",
-    routeIds: ["swiss-day1", "swiss-day2", "swiss-day3", "swiss-day6"]
+    routeIds: ["swiss-day1", "swiss-day2", "swiss-day3", "swiss-day4", "swiss-day5", "swiss-day6"]
   },
   {
     label: "italy",
@@ -17,6 +23,17 @@ const pageSpecs = [
     routeIds: ["day1", "day2", "day3", "day4", "day5", "day5-1-verona", "day6"]
   }
 ];
+const pageFilter = process.env.PAGE_FILTER || "";
+const routeFilter = process.env.ROUTE_FILTER || "";
+const filteredPageSpecs = pageFilter
+  ? allPageSpecs.filter((spec) => spec.label === pageFilter)
+  : allPageSpecs;
+const pageSpecs = routeFilter
+  ? filteredPageSpecs
+      .map((spec) => ({ ...spec, routeIds: spec.routeIds.filter((routeId) => routeId === routeFilter) }))
+      .filter((spec) => spec.routeIds.length)
+  : filteredPageSpecs;
+if (!pageSpecs.length) throw new Error(`Unknown PAGE_FILTER: ${pageFilter}`);
 const googleLogPattern = /Google Maps JavaScript API error|RefererNotAllowed|403|Routes|Invalid|ApiNotActivated|Billing|Quota/i;
 
 function chromePath() {
@@ -153,7 +170,8 @@ async function verifyRouteMap(cdp, routeId) {
         const status = card.querySelector("[data-google-route-map-status], [data-route-map-status]")?.textContent || "";
         const hasError = Boolean(card.querySelector(".route-map-error"));
         const gmStyle = Boolean(card.querySelector("[data-google-route-map-target] .gm-style, [data-route-map-target] .gm-style"));
-        if (hasError || (gmStyle && status && !/불러오는 중|준비 중/.test(status))) break;
+        const hasIframe = Boolean(card.querySelector("[data-google-route-map-target] iframe, [data-route-map-target] iframe"));
+        if (hasError || hasIframe || (gmStyle && status && !/불러오는 중|준비 중/.test(status))) break;
         await new Promise((resolve) => setTimeout(resolve, 500));
       }
 
@@ -179,7 +197,11 @@ async function verifyRouteMap(cdp, routeId) {
 function collectFailures(spec, setup, hasApiScript, results) {
   const failures = [];
   if (!setup.cfg.hasApiKey || setup.cfg.engine !== "routes") failures.push(`${spec.label}: config not keyed routes`);
-  if (JSON.stringify(setup.visibleRouteIds) !== JSON.stringify(spec.routeIds)) {
+  if (routeFilter) {
+    if (!setup.visibleRouteIds.includes(routeFilter)) {
+      failures.push(`${spec.label}: visible route ids do not include ${routeFilter}`);
+    }
+  } else if (JSON.stringify(setup.visibleRouteIds) !== JSON.stringify(spec.routeIds)) {
     failures.push(`${spec.label}: visible route ids differ from expected order`);
   }
   if (!hasApiScript) failures.push(`${spec.label}: maps js api script not requested`);
@@ -192,7 +214,11 @@ function collectFailures(spec, setup, hasApiScript, results) {
     if (item.hasIframe) failures.push(`${item.routeId}: iframe fallback rendered`);
     if (item.hasAccountOverlay) failures.push(`${item.routeId}: account overlay rendered`);
 
-    if (meta.usesOfficialCoordinateAxis) {
+    if (spec.routeStatusMode === "narrative-axis") {
+      if (!/연결선은 일정 순서 축/.test(item.status)) {
+        failures.push(`${item.routeId}: expected narrative itinerary axis status, got ${item.status}`);
+      }
+    } else if (meta.usesOfficialCoordinateAxis) {
       if (!/공식 시간표로 확인한 교통축/.test(item.status)) {
         failures.push(`${item.routeId}: expected official coordinate status, got ${item.status}`);
       }
@@ -235,12 +261,14 @@ async function run() {
     const failures = [];
 
     for (const spec of pageSpecs) {
+      console.log(`Verifying ${spec.label} route maps...`);
       await cdp.send("Page.navigate", { url: `${rootUrl}${spec.path}?routes=1&verify=${Date.now()}` });
       await new Promise((resolve) => setTimeout(resolve, 5000));
 
       const setup = await evaluateSetup(cdp, spec);
       const results = [];
       for (const routeId of spec.routeIds) {
+        console.log(`Verifying ${routeId}...`);
         results.push(await verifyRouteMap(cdp, routeId));
       }
 

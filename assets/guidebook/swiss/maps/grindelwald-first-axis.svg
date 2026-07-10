@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">그린델발트-피르스트 선택지 구조</title>
+  <desc id="desc">피르스트는 07.20 확정 일정이 아니다. 별도 방문을 공부할 때만 중간역과 Bachalpsee 관계를 읽는다</desc>
+  <rect width="1400" height="900" fill="#fbfbf8"/>
+  <rect x="0" y="0" width="24" height="900" fill="#d52b1e"/>
+  <text x="78" y="78" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="30" font-weight="800" fill="#d52b1e">FIXED ROUTE MAP · 축척 아님</text>
+  <text x="78" y="135" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="48" font-weight="800" fill="#1d2926">그린델발트-피르스트 선택지 구조</text>
+  <text x="78" y="181" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="24" fill="#65716e">피르스트는 07.20 확정 일정이 아니다. 별도 방문을 공부할 때만 중간역과 Bachalpsee 관계를 읽는다</text>
+  <line x1="78" y1="215" x2="1322" y2="215" stroke="#c9d2ce" stroke-width="3"/>
+
+  <path d="M 155 700 L 520 690 L 750 530 L 900 370 L 1070 300" fill="none" stroke="#c9d2ce" stroke-width="28" stroke-linecap="round"/>
+  <line x1="180" y1="700" x2="420" y2="625" stroke="#176b5b" stroke-width="9" stroke-linecap="round"/>
+  <line x1="420" y1="625" x2="585" y2="610" stroke="#176b5b" stroke-width="9" stroke-linecap="round"/>
+  <line x1="585" y1="610" x2="760" y2="495" stroke="#d52b1e" stroke-width="9" stroke-linecap="round"/>
+  <line x1="760" y1="495" x2="905" y2="380" stroke="#d52b1e" stroke-width="9" stroke-linecap="round"/>
+  <line x1="905" y1="380" x2="1080" y2="300" stroke="#d52b1e" stroke-width="9" stroke-linecap="round"/>
+  <line x1="1080" y1="300" x2="1180" y2="385" stroke="#176b5b" stroke-width="9" stroke-linecap="round"/>
+  <line x1="1080" y1="300" x2="1190" y2="585" stroke="#c76b22" stroke-width="9" stroke-linecap="round" stroke-dasharray="13 10"/><text x="1135" y="429" text-anchor="middle" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="18" font-weight="700" fill="#c76b22">Bachalpsee 왕복</text>
+
+  <circle cx="180" cy="700" r="31" fill="#d52b1e"/>
+  <text x="180" y="709" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">1</text>
+  <text x="228" y="750" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Grindelwald station</text>
+  <text x="228" y="782" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">11:10 도착 · 고정 이동</text>
+
+
+  <circle cx="420" cy="625" r="31" fill="#d52b1e"/>
+  <text x="420" y="634" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">2</text>
+  <text x="372" y="605" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Hotel Gletscherblick</text>
+  <text x="372" y="637" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">체크인 전 짐 보관 확인</text>
+
+
+  <circle cx="585" cy="610" r="31" fill="#d52b1e"/>
+  <text x="585" y="619" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">3</text>
+  <text x="633" y="665" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Firstbahn valley</text>
+  <text x="633" y="697" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">마지막 하산 시간 확인</text>
+
+
+  <circle cx="760" cy="495" r="31" fill="#d52b1e"/>
+  <text x="760" y="504" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">4</text>
+  <text x="808" y="488" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Bort</text>
+  <text x="808" y="520" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">중간역</text>
+
+
+  <circle cx="905" cy="380" r="31" fill="#d52b1e"/>
+  <text x="905" y="389" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">5</text>
+  <text x="857" y="365" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Schreckfeld</text>
+  <text x="857" y="397" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">중간역</text>
+
+
+  <circle cx="1080" cy="300" r="31" fill="#d52b1e"/>
+  <text x="1080" y="309" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">6</text>
+  <text x="1128" y="293" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">First</text>
+  <text x="1128" y="325" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">Cliff Walk 우선</text>
+
+
+  <circle cx="1190" cy="585" r="31" fill="#c76b22"/>
+  <text x="1190" y="594" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">7</text>
+  <text x="1142" y="635" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Bachalpsee</text>
+  <text x="1142" y="667" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">날씨·체력·시간 충족 시만</text>
+
+
+  <rect x="78" y="818" width="1244" height="1" fill="#c9d2ce"/>
+  <text x="78" y="858" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">이 지도 전체는 확정 일정 밖 학습용 · 실제 방문 시 공식 운행·날씨·마지막 하산편 확인</text>
+</svg>

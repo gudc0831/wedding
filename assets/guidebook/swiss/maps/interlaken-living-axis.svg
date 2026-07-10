@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">인터라켄 West-숙소-Ost 생활권</title>
+  <desc id="desc">숙소·Coop·운터젠은 West 생활권, 15:00 패러글라이딩은 회에마테, 융프라우요흐 환승은 Ost</desc>
+  <rect width="1400" height="900" fill="#fbfbf8"/>
+  <rect x="0" y="0" width="24" height="900" fill="#d52b1e"/>
+  <text x="78" y="78" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="30" font-weight="800" fill="#d52b1e">FIXED ROUTE MAP · 축척 아님</text>
+  <text x="78" y="135" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="48" font-weight="800" fill="#1d2926">인터라켄 West-숙소-Ost 생활권</text>
+  <text x="78" y="181" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="24" fill="#65716e">숙소·Coop·운터젠은 West 생활권, 15:00 패러글라이딩은 회에마테, 융프라우요흐 환승은 Ost</text>
+  <line x1="78" y1="215" x2="1322" y2="215" stroke="#c9d2ce" stroke-width="3"/>
+
+  <rect x="102" y="292" width="1196" height="390" rx="30" fill="#edf3f0"/>
+  <path d="M 110 660 C 380 605, 700 705, 1290 625" fill="none" stroke="#2d7694" stroke-width="26" opacity="0.25"/>
+  <text x="985" y="675" font-family="Arial, sans-serif" font-size="19" fill="#2d7694">AARE</text>
+  <line x1="150" y1="650" x2="320" y2="520" stroke="#176b5b" stroke-width="9" stroke-linecap="round"/>
+  <line x1="320" y1="520" x2="470" y2="360" stroke="#176b5b" stroke-width="9" stroke-linecap="round"/>
+  <line x1="320" y1="520" x2="700" y2="310" stroke="#176b5b" stroke-width="9" stroke-linecap="round"/>
+  <line x1="150" y1="650" x2="760" y2="620" stroke="#176b5b" stroke-width="9" stroke-linecap="round"/>
+  <line x1="760" y1="620" x2="1120" y2="620" stroke="#176b5b" stroke-width="9" stroke-linecap="round"/>
+  <line x1="1120" y1="620" x2="1060" y2="380" stroke="#176b5b" stroke-width="9" stroke-linecap="round"/>
+  <line x1="1060" y1="380" x2="980" y2="250" stroke="#d52b1e" stroke-width="9" stroke-linecap="round" stroke-dasharray="13 10"/>
+
+  <circle cx="150" cy="650" r="31" fill="#d52b1e"/>
+  <text x="150" y="659" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">1</text>
+  <text x="198" y="705" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Interlaken West</text>
+  <text x="198" y="737" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">숙소 하차역으로 확정</text>
+
+
+  <circle cx="320" cy="520" r="31" fill="#d52b1e"/>
+  <text x="320" y="529" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">2</text>
+  <text x="272" y="470" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">65 Hauptstrasse</text>
+  <text x="272" y="502" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">스위스:인터젠의방</text>
+
+
+  <circle cx="470" cy="360" r="31" fill="#c76b22"/>
+  <text x="470" y="369" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">3</text>
+  <text x="422" y="300" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Coop Unterseen</text>
+  <text x="422" y="332" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">숙소 생활권 장보기</text>
+
+
+  <circle cx="700" cy="310" r="31" fill="#176b5b"/>
+  <text x="700" y="319" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">4</text>
+  <text x="748" y="245" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Stadthausplatz</text>
+  <text x="748" y="277" text-anchor="start" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">1279년 기원 운터젠 중심</text>
+
+
+  <circle cx="760" cy="620" r="31" fill="#d52b1e"/>
+  <text x="760" y="629" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">5</text>
+  <text x="760" y="560" text-anchor="middle" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Höhematte</text>
+  <text x="760" y="592" text-anchor="middle" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">15:00 비행 뒤 착륙·산책</text>
+
+
+  <circle cx="1120" cy="620" r="31" fill="#d52b1e"/>
+  <text x="1120" y="629" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">6</text>
+  <text x="1072" y="540" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Interlaken Ost</text>
+  <text x="1072" y="572" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">융프라우요흐 환승 허브</text>
+
+
+  <circle cx="1060" cy="380" r="31" fill="#176b5b"/>
+  <text x="1060" y="389" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">7</text>
+  <text x="1012" y="315" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Harderbahn valley</text>
+  <text x="1012" y="347" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">확정 일정 밖 선택지</text>
+
+
+  <circle cx="980" cy="250" r="31" fill="#c76b22"/>
+  <text x="980" y="259" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#ffffff">8</text>
+  <text x="930" y="235" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="26" font-weight="800" fill="#1d2926">Harder Kulm</text>
+  <text x="930" y="267" text-anchor="end" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">여유 시간·운행 확인 시만</text>
+
+
+  <rect x="78" y="818" width="1244" height="1" fill="#c9d2ce"/>
+  <text x="78" y="858" font-family="Malgun Gothic, Noto Sans KR, sans-serif" font-size="19" fill="#65716e">빨강 = 고정 역·예약 활동 · 초록 = 도보 생활권 · 주황 = 장보기·확정 일정 밖 선택지</text>
+</svg>

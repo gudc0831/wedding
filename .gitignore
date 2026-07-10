@@ -8,3 +8,7 @@ local-server-*.log
 .env.local
 assets/google-maps-config.local.json
 .superpowers/
+scripts/__pycache__/
+*.pyc
+tmp/
+output/playwright/
